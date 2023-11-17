@@ -39,7 +39,7 @@
 
 
      .menu-mobile .menu {
-        right: -300px;
+        right: -200px;
     }
 
     .abrir-menu {
@@ -120,7 +120,7 @@
     .btngaleria {
         width: 30%;
         margin: 10px -5px;
-    }
+       }
 
     /* pagina bebidas */
     .brejas {
