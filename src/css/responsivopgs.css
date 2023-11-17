@@ -7,6 +7,7 @@
 
 @media not all and (max-width: 600px) {
 
+    
     .abrir-menu,
     .fechar-menu,
     .Menuabrirmobile,
@@ -21,7 +22,9 @@
 
  @media (max-width:600px) {
 
-    .menu {
+   
+    
+     .menu {
         background: rgba(254, 249, 249, 0.624);
         height: 100%;
         position: fixed;

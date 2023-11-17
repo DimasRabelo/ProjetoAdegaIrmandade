@@ -1,4 +1,11 @@
 /*##### 0 até 600 ########## */
+
+
+
+
+
+
+
 @media (max-width: 600px) {
 
     main::after {
@@ -6,7 +13,14 @@
         width: 100vw;
 
 
-    }
+    
+
+
+
+
+
+
+
 
     main .adega .imagem {
         height: 46%;
@@ -96,7 +110,7 @@
 
 
 
-
+}
 
 
 

@@ -1,5 +1,4 @@
 $(document).ready(function () {
-  
   $('.galeria').slick({
     centerMode: true,
     centerPadding: '5%',
@@ -25,8 +24,7 @@ $(document).ready(function () {
         }
       }
     ]
-  }); 
-
+  });
 });
 $(document).ready(function(){
   $('.tabacaria-slider-for').slick({
@@ -53,22 +51,9 @@ document.querySelector(".abrir-menu").onclick = function () {
 document.querySelector(".fechar-menu").onclick = function (){
   document.documentElement.classList.remove("menu-mobile");
 }
-/* MENU FIXO */
-
-/* window.onscroll = function () {
-  let top = window.scrollY;
-
-  //console.log("Elemento do menu:", document.getElementById("menufixo"));
 
 
-  if(top > 1200){
-   // console.log("Adicionando classe");
-    document.getElementById("menufixo").classList.add("menufixo");
-  }else{
-    // console.log("Removendo classe");
-    document.getElementById("menufixo").classList.remove("menufixo");
-  }   
-}*/
+
 // Menu interatirativo da Página Bebidas //
   
 const menuItems = document.querySelectorAll('.sample-menu li');
