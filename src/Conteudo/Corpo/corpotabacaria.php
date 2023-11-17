@@ -7,32 +7,32 @@
       <div>
         <!-- Conteúdo do slide 1 -->
         <img class="tabaca" src="src/imagens/tabacaria/aluminio.png" alt="">
-        <p>Descrição Slide 1</p>
+        <p>Papel Alumínio Abo Alabed</p>
       </div>
       <div>
         <!-- Conteúdo do slide 2 -->
         <img class="tabaca" src="src/imagens/tabacaria/carvaococo.png" alt="">
-        <p>Descrição Slide 2</p>
+        <p>Carvão de Coco Zomo</p>
       </div>
       <div>
         <img class="tabaca" src="src/imagens/tabacaria/love66.png" alt="">
-        <p>Descrição Slide 2</p>
+        <p>Essência Adalya Love66</p>
       </div>
 
       <div>
         <img class="tabaca" src="src/imagens/tabacaria/onix.png" alt="">
-        <p>Descrição Slide 2</p>
+        <p>Essência Onix</p>
       </div>
 
       <div>
         <img class="tabaca" src="src/imagens/tabacaria/ziggy.png" alt="">
-        <p>Descrição Slide 2</p>
+        <p>Essência Ziggy</p>
       </div>
 
 
       <div>
         <img class="tabaca" src="src/imagens/tabacaria/zomo.png" alt="">
-        <p>Descrição Slide 2</p>
+        <p>Essência Zomo</p>
       </div>
 
       <div>

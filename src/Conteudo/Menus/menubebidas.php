@@ -6,7 +6,7 @@
         </div>
         <nav class="menu  wow animate__animated animate__fadeInUp">
 
-            <button class="fechar-menu"></button>
+            <button  class="fechar-menu"></button>
             <ul>
                 <li>
                     <a href="index.php"><img class="btnresponsivobebida" class="btnpadding" src="src/imagens/botaoadega.png"
