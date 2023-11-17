@@ -44,6 +44,7 @@ header {
 
 }
 
+
 /*##### Produtos ########*/
 
 
@@ -253,12 +254,12 @@ section {
     padding: 10px;
 }
 
+
 .tabacaria-slider-for {
     margin: 0 auto;
-    /* This will center the div horizontally */
     max-width: 600px;
-    /* Adjust the max-width as per your design */
-    /* Add any other styles you need for your slider */
+    color: #ffffff;
+   
 }
 
 

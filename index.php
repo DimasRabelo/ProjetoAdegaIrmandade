@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="/src/css/lity.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="./src/css/estilos.css" />
 	<link rel="stylesheet" href="./src/css/responsivo.css">
@@ -25,8 +25,9 @@
 </head>
 
 <body>
-	<!-- MENU -->
-	<?php require_once("src/Conteudo/Menus/menuindex.php") ?>
+	
+    
+    <?php require_once("src/Conteudo/Menus/menuindex.php") ?>
 		
 
 	<!-- Corpo -->
@@ -44,6 +45,8 @@
 	</main>
 
 	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="/src/js/slick.min.js"></script>
     <script src="/src/js/lity.min.js"></script>
     <script src="/src/js/wow.min.js"></script>

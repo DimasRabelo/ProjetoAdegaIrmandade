@@ -1,12 +1,12 @@
 <header>
 		
 	
-	<nav class=" menu animate__animated animate__fadeInUp"  >
+	<nav  class="menu animate__animated animate__fadeInUp"  >
 		
 	
 		
 		
-		<ul >
+		<ul>
 				<li>
 					<a href="index.php"><img class="btnadega" src="src/imagens/botaoadega.png" alt=" tela de inicio da adega"></a>
 				</li>

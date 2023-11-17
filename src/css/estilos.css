@@ -64,16 +64,6 @@ main .adega .imagem {
     box-shadow: 0 0 5px #D9D9D9;
    
 }
-#menufixo {
-    position: fixed;
-    top: 0;
-    z-index: 1000;
-}
-
-
-
-
-
 
 .conteudo {
     position: absolute;
