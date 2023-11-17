@@ -120,7 +120,7 @@
                 </div>
 
                 <div>
-                    <img src="src/imagens/Refrigerantes220/gelo-de-coco.png" alt="">
+                    <img src="src/imagens/Refrigerantes220/gelodecoco.png" alt="">
                     <p>Gelo de Coco</p>
                 </div>
 
