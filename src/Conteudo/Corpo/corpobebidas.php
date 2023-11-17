@@ -100,7 +100,7 @@
 
 
                 <div>
-                    <img src="src/imagens/Refrigerantes220/fanta 2litros.png" alt="">
+                    <img src="src/imagens/Refrigerantes220/fanta2litros.png" alt="">
                     <p>Fanta 2 litros</p>
                 </div>
             </section>
@@ -120,12 +120,12 @@
                 </div>
 
                 <div>
-                    <img src="src/imagens/Refrigerantes220/gelo de coco.png" alt="">
+                    <img src="src/imagens/Refrigerantes220/gelo-de-coco.png" alt="">
                     <p>Gelo de Coco</p>
                 </div>
 
                 <div>
-                    <img src="src/imagens/Refrigerantes220/gelo de sabor melancia.png" alt="">
+                    <img src="src/imagens/Refrigerantes220/gelodesabormelancia.png" alt="">
                     <p>Gelo Sabor Melancia</p>
                 </div>
 
