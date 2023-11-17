@@ -83,24 +83,24 @@
                 </div>
 
                 <div>
-                    <img src="src/imagens/Refrigerantes220/coca-cola-2-litros.png" alt="">
+                    <img src="src/imagens/refrigerantes220/coca-cola-2-litros.png" alt="">
                     <p>Coca Cola 2 Litros</p>
                 </div>
 
                 <div>
-                    <img src="src/imagens/Refrigerantes220/cocacola350ml.png" alt="">
+                    <img src="src/imagens/refrigerantes220/cocacola350ml.png" alt="">
                     <p>Coca Lata 350ML</p>
                 </div>
 
 
                 <div>
-                    <img src="src/imagens/Refrigerantes220/dolly.png" alt="">
+                    <img src="src/imagens/refrigerantes220/dolly.png" alt="">
                     <p>Dolly 2 Litros</p>
                 </div>
 
 
                 <div>
-                    <img src="src/imagens/Refrigerantes220/fanta2litros.png" alt="">
+                    <img src="src/imagens/refrigerantes220/fanta2litros.png" alt="">
                     <p>Fanta 2 litros</p>
                 </div>
             </section>
@@ -110,27 +110,27 @@
 
             <section>
                 <div>
-                    <img src="src/imagens/Refrigerantes220/fanta350ml.png" alt="">
+                    <img src="src/imagens/refrigerantes220/fanta350ml.png" alt="">
                     <p>Fanta Lata 350ML</p>
                 </div>
 
                 <div>
-                    <img src="src/imagens/Refrigerantes220/gatorade.png" alt="">
+                    <img src="src/imagens/refrigerantes220/gatorade.png" alt="">
                     <p>Gatorade 500ML</p>
                 </div>
 
                 <div>
-                    <img src="src/imagens/Refrigerantes220/gelodecoco.png" alt="">
+                    <img src="src/imagens/refrigerantes220/gelodecoco.png" alt="">
                     <p>Gelo de Coco</p>
                 </div>
 
                 <div>
-                    <img src="src/imagens/Refrigerantes220/gelodesabormelancia.png" alt="">
+                    <img src="src/imagens/refrigerantes220/gelodesabormelancia.png" alt="">
                     <p>Gelo Sabor Melancia</p>
                 </div>
 
                 <div>
-                    <img src="src/imagens/Refrigerantes220/guaraviton.png" alt="">
+                    <img src="src/imagens/refrigerantes220/guaraviton.png" alt="">
                     <p>Guaraviton 500ML</p>
                 </div>
             </section>
@@ -138,27 +138,27 @@
 
             <section>
                 <div>
-                    <img src="src/imagens/Refrigerantes220/h20.png" alt="">
+                    <img src="src/imagens/refrigerantes220/h20.png" alt="">
                     <p>H2O 500ML</p>
                 </div>
 
                 <div>
-                    <img src="src/imagens/Refrigerantes220/images.png" alt="">
+                    <img src="src/imagens/refrigerantes220/images.png" alt="">
                     <p>Chop de Vinho 600ML</p>
                 </div>
 
                 <div>
-                    <img src="src/imagens/Refrigerantes220/redbul.png" alt="">
+                    <img src="src/imagens/refrigerantes220/redbul.png" alt="">
                     <p>Red Bull 250ML </p>
                 </div>
 
                 <div>
-                    <img src="src/imagens/Refrigerantes220/vibe.png" alt="">
+                    <img src="src/imagens/refrigerantes220/vibe.png" alt="">
                     <p>Energético Vibe 2 Litros</p>
                 </div>
 
                 <div>
-                    <img src="src/imagens/Refrigerantes220/pepsi.png" alt="">
+                    <img src="src/imagens/refrigerantes220/pepsi.png" alt="">
                     <p>Pepsi 2 Litros</p>
                 </div>
             </section>
