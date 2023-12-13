@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+
+*
+a,
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Secular One';
+    font-size: 16px;
+    text-align: center;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que o corpo estenda até o final da janela de visualização */
+    color: #ffffff;
+}
+
+h1{
+    width: 100%;
+    padding: 20px;
+}
+h1 img {
+    width: 100%;
+    border-radius: 50%;
+   
+}
+.divlogin{
+    width: 100%;
+    padding: 20px;
+}
+.btnlogin{
+    width: 100%;
+   border-radius: 50%;
+   padding-bottom: 5px;
+   
+
+    
+}
+.topoEsquerda{
+    background: #000000;
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    height: 980px;
+    justify-content: space-between;
+    align-items: center;
+
+}
+main{
+    display: flex;
+}
+.menu{
+    display: flex;
+    background: #000000;
+    color: #ffffff;
+    width: 360px;
+    height: 980px;
+}
+
+ul{
+    padding: 40px 50px;
+}
+ul li{
+    padding: 20px 20px;
+}
+
+nav ul li a{
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.8em;
+    
+}
+
+.topomenu{
+    display: flex;
+    justify-content: space-between;
+}
+.rodape h2 {
+    background: #000000;
+    padding: 10px;
+    margin-bottom: 0;
+}
+.rodape .h2d{
+    background: #525252;
+}
