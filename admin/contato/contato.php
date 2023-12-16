@@ -5,11 +5,11 @@ $lista = $contato->ListarContato();
 ?>
 
 
-<div class="table-container">
+<div class="table-container" id="arrastarMouse">
     <table>
         <caption>Lista de Email</caption>
         <thead>
-            <tr >
+            <tr>
                 <th>ID Contato</th>
                 <th>Nome Contato</th>
                 <th>E-mail Contato</th>
@@ -34,12 +34,11 @@ $lista = $contato->ListarContato();
                         <td><?php echo $linha['statusContato'] ?></td>
                         <td><?php echo $linha['horaContato'] ?></td>
                     </tr>
-                <?php endforeach;
+            <?php endforeach;
             } else {
                 echo "<tr><td colspan='8'>Nenhum dado disponível</td></tr>";
             }
             ?>
         </tbody>
     </table>
-</div> 
-
+</div>

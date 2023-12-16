@@ -141,9 +141,5 @@ $pagina = @$_GET['p'];
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="/src/js/slick.min.js"></script>
-    <script src="/src/js/lity.min.js"></script>
-    <script src="/src/js/wow.min.js"></script>
-
-    <script src="/src/js/animacoes.js"></script>
+    <script src="./js/scrips.js"></script>
 </body>
