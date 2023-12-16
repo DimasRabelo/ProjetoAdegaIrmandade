@@ -75,18 +75,18 @@ $pagina = @$_GET['p'];
                     break;
 
                 case 'produtos';
-
+                    require_once('produtos/produto.php');
                     break;
                 case 'estoque';
-
+                    require_once('estoque/estoque.php');
                     break;
 
                 case 'vendas';
-
+                    require_once('vendas/vendas.php');
                     break;
 
                 case 'clientes';
-
+                    require_once('clientes/cliente.php');
                     break;
 
                 case 'contato';

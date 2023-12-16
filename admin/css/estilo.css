@@ -237,3 +237,8 @@ th {
 .idfunc {
     text-align: center;
 }
+
+/* bootstrap classe do botão 'novo funcionario' estilização padronizada para os outros botoões */
+.icon-link {
+    align-items: flex-end;
+}
