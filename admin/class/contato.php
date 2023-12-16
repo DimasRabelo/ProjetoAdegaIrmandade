@@ -26,7 +26,7 @@ class ContatoClass {
 
 }
 
-/*public function ListarContato(){
+public function ListarContato(){
     
     $sql =  "SELECT * FROM tblcontato ORDER BY idContato ASC";
     $conn = Conexao::LigarConexao();
@@ -38,7 +38,7 @@ class ContatoClass {
 
 
 
-}*/
+}
 
 
 
