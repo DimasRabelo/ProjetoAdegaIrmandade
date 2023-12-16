@@ -6,7 +6,11 @@ $lista = $funcionario->ListarFuncionario();
 
 
 ?>
-
+<style>
+    .icon-link {
+        align-items: flex-end;
+    }
+</style>
 
 
 
