@@ -132,9 +132,16 @@ nav ul li a {
 
 
 
-.menu nav ul li a:hover,
-.menu nav ul li a.menuAtivo {
+.menu nav ul li a:hover{
     color: #bdbdbd;
+    border-top: solid 4px #bdbdbd;
+    padding: 4px;
+
+
+}
+
+.menuAtivo {
+    color: #bdbdbd!important;
     border-top: solid 4px #bdbdbd;
     padding: 4px;
 }
