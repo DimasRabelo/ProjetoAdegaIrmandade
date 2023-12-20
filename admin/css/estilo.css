@@ -132,21 +132,13 @@ nav ul li a {
 
 
 
-.menu nav ul li a:hover {
+.menu nav ul li a:hover,
+.menu nav ul li a.menuAtivo {
     color: #bdbdbd;
     border-top: solid 4px #bdbdbd;
     padding: 4px;
 }
 
-.menuAtivo {
-    color: #bdbdbd;
-    border-top: solid 4px #bdbdbd;
-    padding: 4px;
-}
-
-.contbox {
-    max-width: 100%;
-}
 
 
 .box {
@@ -166,6 +158,7 @@ nav ul li a {
 .rodape h2 {
     background: #000000;
     margin-bottom: 0;
+    font-size: 0.8em;
    
 }
 

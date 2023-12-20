@@ -5,31 +5,33 @@
 let isDragging = false;
 let startX, startY, scrollLeft, scrollTop;
 
-document.getElementById('arrastarMouse').addEventListener('mousedown', (e) => {
+const arrastarMouseElement = document.getElementById('arrastarMouse');
+
+arrastarMouseElement.addEventListener('mousedown', (e) => {
     isDragging = true;
-    startX = e.pageX - document.getElementById('arrastarMouse').offsetLeft;
-    startY = e.pageY - document.getElementById('arrastarMouse').offsetTop;
-    scrollLeft = document.getElementById('arrastarMouse').scrollLeft;
-    scrollTop = document.getElementById('arrastarMouse').scrollTop;
+    startX = e.pageX - arrastarMouseElement.offsetLeft;
+    startY = e.pageY - arrastarMouseElement.offsetTop;
+    scrollLeft = arrastarMouseElement.scrollLeft;
+    scrollTop = arrastarMouseElement.scrollTop;
 });
 
-document.getElementById('arrastarMouse').addEventListener('mouseleave', () => {
+arrastarMouseElement.addEventListener('mouseleave', () => {
     isDragging = false;
 });
 
-document.getElementById('arrastarMouse').addEventListener('mouseup', () => {
+arrastarMouseElement.addEventListener('mouseup', () => {
     isDragging = false;
 });
 
-document.getElementById('arrastarMouse').addEventListener('mousemove', (e) => {
+arrastarMouseElement.addEventListener('mousemove', (e) => {
     if (!isDragging) return;
 
-    const x = e.pageX - document.getElementById('arrastarMouse').offsetLeft;
-    const y = e.pageY - document.getElementById('arrastarMouse').offsetTop;
+    const x = e.pageX - arrastarMouseElement.offsetLeft;
+    const y = e.pageY - arrastarMouseElement.offsetTop;
 
     const walkX = (x - startX) * 1; // Ajuste a sensibilidade conforme necessário
     const walkY = (y - startY) * 1;
 
-    document.getElementById('arrastarMouse').scrollLeft = scrollLeft - walkX;
-    document.getElementById('arrastarMouse').scrollTop = scrollTop - walkY;
+    arrastarMouseElement.scrollLeft = scrollLeft - walkX;
+    arrastarMouseElement.scrollTop = scrollTop - walkY;
 });

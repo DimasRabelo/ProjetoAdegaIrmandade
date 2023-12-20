@@ -71,26 +71,38 @@ $pagina = @$_GET['p'];
                     break;
 
                 case 'funcionarios';
+
                     require_once('funcionarios/funcionarios.php');
+
                     break;
 
                 case 'produtos';
+
                     require_once('produtos/produto.php');
+
                     break;
                 case 'estoque';
+
                     require_once('estoque/estoque.php');
+
                     break;
 
                 case 'vendas';
+
                     require_once('vendas/vendas.php');
+
                     break;
 
                 case 'clientes';
+
                     require_once('clientes/cliente.php');
+
                     break;
 
                 case 'contato';
+
                     require_once('contato/contato.php');
+
                     break;
 
 
@@ -107,22 +119,18 @@ $pagina = @$_GET['p'];
         <div class="menu">
             <nav>
                 <ul>
-                    <li><a href="index.php?p=dashboard" class="<?php echo (($pagina == 'dashboard') || (@$pagina == '')) ? 'menuAtivo' : ''; ?> ">DashBoard</a></li>
-
-                    <li><a href="index.php?p=funcionarios" class="<?php echo (($pagina == 'funcionarios')) ? 'menuAtivo' : ''; ?>">Funcionários</a></li>
-                    <li><a href="index.php?p=produtos" class="<?php echo (($pagina == 'produtos')) ? 'menuAtivo' : ''; ?>">Produtos</a></li>
-                    <li><a href="index.php?p=estoque" class="<?php echo (($pagina == 'estoque')) ? 'menuAtivo' : ''; ?>">Estoque</a></li>
-                    <li><a href="index.php?p=vendas" class="<?php echo (($pagina == 'vendas')) ? 'menuAtivo' : ''; ?>">Vendas</a></li>
-                    <li><a href="index.php?p=clientes" class="<?php echo (($pagina == 'clientes')) ? 'menuAtivo' : ''; ?>">Clientes</a></li>
-                    <li><a href="index.php?p=contato" class="<?php echo (($pagina == 'contato')) ? 'menuAtivo' : ''; ?>">E-mails</a></li>
-                    <li><a href="index.php?p=relatorios" class="<?php echo (($pagina == 'relatorios')) ? 'menuAtivo' : ''; ?>">Relatórios</a></li>
-                    <li><a href="index.php?p=ajuda e suporte" class="<?php echo (($pagina == 'ajuda e suporte')) ? 'menuAtivo' : ''; ?>">Ajuda e Suporte</a></li>
-
+                    <li><a href="index.php?p=dashboard" class="<?= ($pagina == 'dashboard' || $pagina == '') ? 'menuAtivo' : ''; ?>">DashBoard</a></li>
+                    <li><a href="index.php?p=funcionarios" class="<?= ($pagina == 'funcionarios') ? 'menuAtivo' : ''; ?>">Funcionários</a></li>
+                    <li><a href="index.php?p=produtos" class="<?= ($pagina == 'produtos') ? 'menuAtivo' : ''; ?>">Produtos</a></li>
+                    <li><a href="index.php?p=estoque" class="<?= ($pagina == 'estoque') ? 'menuAtivo' : ''; ?>">Estoque</a></li>
+                    <li><a href="index.php?p=vendas" class="<?= ($pagina == 'vendas') ? 'menuAtivo' : ''; ?>">Vendas</a></li>
+                    <li><a href="index.php?p=clientes" class="<?= ($pagina == 'clientes') ? 'menuAtivo' : ''; ?>">Clientes</a></li>
+                    <li><a href="index.php?p=contato" class="<?= ($pagina == 'contato') ? 'menuAtivo' : ''; ?>">E-mails</a></li>
+                    <li><a href="index.php?p=relatorios" class="<?= ($pagina == 'relatorios') ? 'menuAtivo' : ''; ?>">Relatórios</a></li>
+                    <li><a href="index.php?p=ajuda e suporte" class="<?= ($pagina == 'ajuda e suporte') ? 'menuAtivo' : ''; ?>">Ajuda e Suporte</a></li>
                 </ul>
             </nav>
         </div>
-
-
 
 
 

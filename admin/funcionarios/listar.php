@@ -59,11 +59,11 @@ $lista = $funcionario->ListarFuncionario();
                         <td class="idfunc"><?php echo $linha['idFuncionario'] ?></td>
                         <td><?php echo $linha['nomeFuncionario'] ?></td>
                         <td><?php echo $linha['cargoFuncionario'] ?></td>
-                        <td><?php echo $linha['dataNascFuncionario'] ?></td>
+                        <td><?php echo date('d/m/Y', strtotime($linha['dataNascFuncionario'])) ?></td>
                         <td><?php echo $linha['emailFuncionario'] ?></td>
                         <td><?php echo $linha['senhaFuncionario'] ?></td>
                         <td><?php echo $linha['nivelFuncionario'] ?></td>
-                        <td><?php echo $linha['dataAdmissaoFuncionario'] ?></td>
+                        <td><?php echo date('d/m/Y', strtotime($linha['dataAdmissaoFuncionario'])) ?></td>
                         <td><?php echo $linha['enderecoFuncionario'] ?></td>
                         <td><?php echo $linha['telFuncionario'] ?></td>
                         <td><?php echo $linha['cepFuncionario'] ?></td>
