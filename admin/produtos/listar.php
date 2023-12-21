@@ -50,7 +50,7 @@ $lista = $produto->ListarProduto();
 
                 <tbody>
                     <tr>
-                         <td class="idProd"><?php echo $linha['idProduto'] ?></td>
+                         <td class="Prod"><?php echo $linha['idProduto'] ?></td>
                         <td><?php echo $linha['nomeProduto'] ?></td>
                         <td><?php echo $linha['descricaoProduto'] ?></td>
                         <td><?php echo $linha['categoriaProduto'] ?></td>

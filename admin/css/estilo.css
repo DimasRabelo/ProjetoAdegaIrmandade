@@ -242,3 +242,71 @@ th {
 .icon-link {
     align-items: flex-end;
 }
+
+/* Formulario Cadastrar Funcionario */
+
+h1{
+    text-align: center;
+    background: #000000;
+    width: 100%;
+    padding: 5px 5px;
+}
+
+form {
+        
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #252323;
+    width: 100%;
+    font-family: 'Secular One';
+   
+
+}
+
+.fotoForm {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 50px 50px;
+}
+
+.fotoForm div img {
+    max-width: 300px;
+    max-height: 320px;
+    object-fit: cover;
+}
+label{
+    display: flex;
+    flex-direction: column;
+    margin: 5px 5px;
+}
+input{
+    margin: 5px 5px;
+    width: 360px;
+    
+}
+.Date{
+    width: 80%;
+}
+select{
+    margin: 30px;
+}
+button:hover{
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #0b5ed7;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+  
+}

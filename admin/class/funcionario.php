@@ -36,24 +36,41 @@
             return $lista;
         }
 
+        public function Cadastrar()
+{
+    $query = "INSERT INTO tblfuncionarios (
+        nomeFuncionario, 
+        cargoFuncionario, 
+        dataNascFuncionario, 
+        emailFuncionario, 
+        senhaFuncionario, 
+        nivelFuncionario, 
+        dataAdmissaoFuncionario, 
+        enderecoFuncionario, 
+        telFuncionario, 
+        cepFuncionario, 
+        statusFuncionario, 
+        fotoFuncionario
+    ) VALUES (
+        '{$this->nomeFuncionario}',
+        '{$this->cargoFuncionario}',
+        '{$this->dataNascFuncionario}',
+        '{$this->emailFuncionario}',
+        '{$this->senhaFuncionario}',
+        '{$this->nivelFuncionario}',
+        '{$this->dataAdmissaoFuncionario}',
+        '{$this->enderecoFuncionario}',
+        '{$this->telFuncionario}',
+        '{$this->cepFuncionario}',
+        '{$this->statusFuncionario}',
+        '{$this->fotoFuncionario}'
+    )";
 
+    $conn = Conexao::LigarConexao();
+    $conn->exec($query);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    echo "<script>document.location='index.php?p=funcionarios'</script>";
+}
 
 
  }

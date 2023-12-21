@@ -125,9 +125,9 @@ $pagina = @$_GET['p'];
                     <li><a href="index.php?p=estoque" class="<?php echo ($pagina == 'estoque') ? 'menuAtivo' : ''; ?>"> Estoque </a></li>
                     <li><a href="index.php?p=vendas" class="<?php echo ($pagina == 'vendas') ? 'menuAtivo' : ''; ?>"> Vendas </a></li>
                     <li><a href="index.php?p=clientes" class="<?php echo ($pagina == 'cliente') ? 'menuAtivo' : ''; ?>"> Clientes </a></li>
-                  <li><a href="index.php?p=contato" class="<?php echo ($pagina == 'contato') ? 'menuAtivo' : ''; ?>"> E-mail </a></li>
- <li><a href="index.php?p=relatorio" class="<?php echo ($pagina == 'relatorio') ? 'menuAtivo' : ''; ?>"> Relatório </a></li>
-                    <li><a href="index.php?p=ajuda" class="<?php echo ($pagina == 'ajuda') ? 'menuAtivo' : ''; ?>"> Ajuda e Suporte </a>
+                    <li><a href="index.php?p=contato" class="<?php echo ($pagina == 'contato') ? 'menuAtivo' : ''; ?>"> E-mail </a></li>
+                    <li><a href="index.php?p=relatorio" class="<?php echo ($pagina == 'relatorio') ? 'menuAtivo' : ''; ?>"> Relatório </a></li>
+                    <li><a href="index.php?p=ajuda e suporte" class="<?php echo ($pagina == 'ajuda e suporte') ? 'menuAtivo' : ''; ?>"> Ajuda e Suporte </a>
                 </ul>
             </nav>
         </div>
