@@ -4,9 +4,8 @@ require_once('conexao.php');
 
 class VendasClass
 {
-    public $idVenda;
-    public $dataVenda;
-    public $horaVenda;
+    
+    public $statusVenda;
     public $valorTotalVenda;
 
     public $idFuncionario;
@@ -22,6 +21,28 @@ class VendasClass
         return $lista;
     }
 
+    public function Cadastrar()
+    {
+        $query = "INSERT INTO tblvendas (
+             statusVenda,
+            valorTotalVenda, 
+            idFuncionario, 
+            idProduto
+          
+           
+        ) VALUES (
+            '{$this->statusVenda}',
+            '{$this->valorTotalVenda}',
+            '{$this->idFuncionario}',
+            '{$this->idProduto}'
+           
+        )";
+
+        $conn = Conexao::LigarConexao();
+        $conn->exec($query);
+
+        echo "<script>document.location='index.php?p=vendas'</script>";
+    }
 
 
 

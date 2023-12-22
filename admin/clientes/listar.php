@@ -33,6 +33,7 @@ $lista = $cliente->ListarCliente();
                     <th>Nome</th>
                     <th>Email</th>
                     <th>Senha</th>
+                    <th>Foto</th>
                     <th>Atualizar</th>
                     <th>Desativar</th>
     
@@ -46,6 +47,13 @@ $lista = $cliente->ListarCliente();
                         <td><?php echo $linha['nomeUsuario'] ?></td>
                         <td><?php echo $linha['emailUsuario'] ?></td>
                         <td><?php echo $linha['senhaUsuario'] ?></td>
+                        <td>
+                            <a href="../src/imagens/<?php echo $linha['fotoUsuario'] ?>" data-lightbox="<?php echo $linha['nomeUsuario'] ?>" data-title="<?php echo $linha['nomeUsuario'] ?>">
+                                <img src="../src/imagens/<?php echo $linha['fotoUsuario'] ?>" data-alt="<?php echo $linha['nomeUsuario'] ?>">
+                            </a>
+
+
+                        </td>
                         <td>
                             <a class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="index.php?p=clientes&c=atualizar" <?php echo $linha['idUsuario'] ?>>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-repeat" viewBox="0 0 16 16">

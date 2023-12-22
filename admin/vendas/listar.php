@@ -28,6 +28,7 @@ $lista = $venda->ListarVenda();
                     <th>Data</th>
                     <th>Hora</th>
                     <th>Valor Total da Venda</th>
+                    <th>Status</th>
                     <th>id Funcionário</th>
                     <th>id Produto</th>
                     <th>Atualizar</th>
@@ -43,6 +44,7 @@ $lista = $venda->ListarVenda();
                         <td><?php echo date('d/m/Y', strtotime($linha['dataVenda'])) ?></td>
                         <td><?php echo $linha['horaVenda'] ?></td>
                         <td><?php echo $linha['valorTotalVenda'] ?></td>
+                        <td><?php echo $linha['statusVenda'] ?></td>
                         <td><?php echo $linha['idFuncionario'] ?></td>
                         <td><?php echo $linha['idProduto'] ?></td>
 

@@ -1,44 +1,44 @@
-<?php 
- require_once('conexao.php');
+<?php
+require_once('conexao.php');
 
- class FuncionarioClass
- {
-        public $idFuncionario;
-        public $nomeFuncionario;
-        public $cargoFuncionario;
-        public $dataNascFuncionario;
-
-        public $emailFuncionario;
-
-        public $senhaFuncionario;
-
-        public $nivelFuncionario;
-
-        public $dataAdmissaoFuncionario;
-
-        public $enderecoFuncionario;
-
-        public $telFuncionario;
-
-        public $cepFuncionario;
-
-        public $statusFuncionario;
-
-        public $fotoFuncionario;
-
-
-        public function listarFuncionario()
-        {
-            $sql =  "SELECT * FROM tblfuncionarios ORDER BY idFuncionario ASC";
-            $conn = Conexao::LigarConexao();
-            $resultado = $conn->query($sql);
-            $lista = $resultado->fetchAll();
-            return $lista;
-        }
-
-        public function Cadastrar()
+class FuncionarioClass
 {
-    $query = "INSERT INTO tblfuncionarios (
+    public $idFuncionario;
+    public $nomeFuncionario;
+    public $cargoFuncionario;
+    public $dataNascFuncionario;
+
+    public $emailFuncionario;
+
+    public $senhaFuncionario;
+
+    public $nivelFuncionario;
+
+    public $dataAdmissaoFuncionario;
+
+    public $enderecoFuncionario;
+
+    public $telFuncionario;
+
+    public $cepFuncionario;
+
+    public $statusFuncionario;
+
+    public $fotoFuncionario;
+
+
+    public function listarFuncionario()
+    {
+        $sql =  "SELECT * FROM tblfuncionarios ORDER BY idFuncionario ASC";
+        $conn = Conexao::LigarConexao();
+        $resultado = $conn->query($sql);
+        $lista = $resultado->fetchAll();
+        return $lista;
+    }
+
+    public function Cadastrar()
+    {
+        $query = "INSERT INTO tblfuncionarios (
         nomeFuncionario, 
         cargoFuncionario, 
         dataNascFuncionario, 
@@ -66,11 +66,70 @@
         '{$this->fotoFuncionario}'
     )";
 
-    $conn = Conexao::LigarConexao();
-    $conn->exec($query);
+        $conn = Conexao::LigarConexao();
+        $conn->exec($query);
 
-    echo "<script>document.location='index.php?p=funcionarios'</script>";
+        echo "<script>document.location='index.php?p=funcionarios'</script>";
+    }
+
+    public function __construct($id = false)
+    {
+       
+        if ($id) {
+            $this->idFuncionario = $id;
+            $this->Carregar();
+        }
+    }
+
+    // Carregar 
+    public function Carregar()
+    {
+        $query = "SELECT * FROM  tblfuncionarios WHERE idFuncionario = " . $this->idFuncionario;
+        $conn = Conexao::LigarConexao();
+        $resultado = $conn->query($query);
+        $lista = $resultado->fetchAll();
+
+        foreach ($lista as $linha) {
+            $this->nomeFuncionario = $linha['nomeFuncionario'];
+            $this->cargoFuncionario = $linha['cargoFuncionario'];
+            $this->dataNascFuncionario = $linha['dataNascFuncionario'];
+            $this->emailFuncionario = $linha['emailFuncionario'];
+            $this->senhaFuncionario = $linha['senhaFuncionario'];
+            $this->nivelFuncionario = $linha['nivelFuncionario'];
+            $this->dataAdmissaoFuncionario = $linha['dataAdmissaoFuncionario'];
+            $this->enderecoFuncionario = $linha['enderecoFuncionario'];
+            $this->telFuncionario = $linha['telFuncionario'];
+            $this->cepFuncionario = $linha['cepFuncionario'];
+            $this->statusFuncionario = $linha['statusFuncionario'];
+            $this->fotoFuncionario = $linha['fotoFuncionario'];
+        }
+    }
+
+
+
+
+
+
+    public function Atualizar()
+    {
+
+        $query = "UPDATE tblfuncionarios  
+          SET nomeFuncionario =  '" . $this->nomeFuncionario . "', 
+              cargoFuncionario =  '" . $this->cargoFuncionario . "',
+              dataNascFuncionario = '" . $this->dataNascFuncionario . "', 
+              emailFuncionario = '" . $this->emailFuncionario . "',
+              senhaFuncionario =   '" . $this->senhaFuncionario . "',
+              nivelFuncionario = '" . $this->nivelFuncionario . "',
+              dataAdmissaoFuncionario = '" . $this->dataAdmissaoFuncionario . "',
+              enderecoFuncionario = '" . $this->enderecoFuncionario . "',
+              telFuncionario = '" . $this->telFuncionario . "',
+              cepFuncionario = '" . $this->cepFuncionario . "',
+              statusFuncionario = '" . $this->statusFuncionario . "',
+              fotoFuncionario = '" . $this->fotoFuncionario . "'
+              WHERE tblfuncionarios.idFuncionario = '" . $this->idFuncionario . "'";
+
+        $conn = Conexao::LigarConexao();
+        $conn->exec($query);
+        echo "<script>document.location='index.php?p=funcionarios'</script>";
+    }
 }
-
-
- }

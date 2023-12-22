@@ -154,6 +154,7 @@ nav ul li a {
     overflow: auto; 
     box-sizing: border-box;
     padding: 40px 5px;
+    color: #000000;
    
    
 }
@@ -287,6 +288,7 @@ label{
     display: flex;
     flex-direction: column;
     margin: 5px 5px;
+    color: #ffffff;
 }
 input{
     margin: 5px 5px;
@@ -334,5 +336,24 @@ button {
 }
 
 .seleEstoque {
+    width: 358px;
+}
+/* Formulario Cadastro Vendas */
+
+.formVendas {
+    display: flex;
+    justify-content: center;
+    height: 80%;
+}
+.seleVendas{
+    width: 358px;
+}
+
+/* formulario Atualização */
+
+.Dateatual{
+    width: 358px;
+}
+.seleAtual{
     width: 358px;
 }
