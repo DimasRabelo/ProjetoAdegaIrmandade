@@ -7,8 +7,6 @@ $lista = $estoque->ListarEstoque();
 
 ?>
 
-
-
 <div>
     <a class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="index.php?p=estoque&e=cadastrar">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-repeat" viewBox="0 0 16 16">
@@ -29,8 +27,12 @@ $lista = $estoque->ListarEstoque();
             <thead>
                 <tr>
                     <th>ID Estoque</th>
+                    <th>Nome do Estoque</th>
                     <th>Quantidade em Estoque</th>
+                    <th>Data de Cadastro</th>
                     <th>Data Atualização</th>
+                    <th>Status</th>
+                    <th>Hora</th>
                     <th>ID Produto</th>
                     <th>Atualizar</th>
                     <th>Desativar</th>
@@ -42,8 +44,12 @@ $lista = $estoque->ListarEstoque();
                 <tbody>
                     <tr>
                         <td class="esto"><?php echo $linha['idEstoque'] ?></td>
+                        <td><?php echo $linha['nomeEstoque'] ?></td>
                         <td><?php echo $linha['quantidadeEstoque'] ?></td>
+                        <td><?php echo date('d/m/Y', strtotime($linha['dataCadastroEstoque'])) ?></td>
                         <td><?php echo date('d/m/Y', strtotime($linha['dataAtualiEstoque'])) ?></td>
+                        <td><?php echo $linha['statusEstoque'] ?></td>
+                        <td><?php echo $linha['horaEstoque'] ?></td>
                         <td><?php echo $linha['idProduto'] ?></td>
                         <td>
                             <a class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="index.php?p=estoque&e=atualizar" <?php echo $linha['idEstoque'] ?>>

@@ -4,10 +4,11 @@ require_once('conexao.php');
 
 class EstoqueClass
 {
-    public $idEstoque;
+    public $nomeEstoque;
 
     public $quantidadeEstoque;
-    public $dataAtualEstoque;
+
+    public $statusEstoque;
 
     public $idProduto;
 
@@ -21,38 +22,26 @@ class EstoqueClass
     }
 
 
+    public function Cadastrar()
+    {
+        $query = "INSERT INTO tblestoque (
+             nomeEstoque,
+            quantidadeEstoque, 
+            statusEstoque, 
+            idProduto
+          
+           
+        ) VALUES (
+            '{$this->nomeEstoque}',
+            '{$this->quantidadeEstoque}',
+            '{$this->statusEstoque}',
+            '{$this->idProduto}'
+           
+        )";
 
+        $conn = Conexao::LigarConexao();
+        $conn->exec($query);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        echo "<script>document.location='index.php?p=estoque'</script>";
+    }
 }
-
-
-
-
-
-

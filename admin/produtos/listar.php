@@ -37,10 +37,12 @@ $lista = $produto->ListarProduto();
                     <th>Nome do Produto</th>
                     <th>Descrição</th>
                     <th>Categoria</th>
+                    <th>Status</th>
                     <th>Preço de Compra dos Produtos</th>
                     <th>Preço de Venda dos Produtos</th>
                     <th>Fornecedor</th>
                     <th>Data de Recebimento</th>
+                    <th>Hora do Recebimento</th>
                     <th>Atualizar</th>
                     <th>Desativar</th>
     
@@ -54,13 +56,14 @@ $lista = $produto->ListarProduto();
                         <td><?php echo $linha['nomeProduto'] ?></td>
                         <td><?php echo $linha['descricaoProduto'] ?></td>
                         <td><?php echo $linha['categoriaProduto'] ?></td>
+                        <td><?php echo $linha['statusProduto'] ?></td>
                         <td><?php echo $linha['precoCompraProduto'] ?></td>
                         <td><?php echo $linha['precoVendaProduto'] ?></td>
                         <td><?php echo $linha['fornecedorProduto'] ?></td>
                         <td><?php echo date('d/m/Y', strtotime($linha['dataReceProduto'])) ?></td>
-    
+                        <td><?php echo $linha['horaProduto'] ?></td>
 
-                        </a>
+                        
 
                         <td>
                             <a class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="index.php?p=produtos&pr=atualizar" <?php echo $linha['idProduto'] ?>>

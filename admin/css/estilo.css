@@ -200,7 +200,9 @@ td {
     border: 1px solid #fff;
     color: #fff;
     text-indent: 20px;
+    text-transform: uppercase;
     padding: 10px;
+    
    
 }
 
@@ -242,6 +244,7 @@ th {
 .icon-link {
     align-items: flex-end;
 }
+/* Estilização Padrão para todos Formularios de Cadastro com Particularidades de estilização em alguns campos */
 
 /* Formulario Cadastrar Funcionario */
 
@@ -250,6 +253,8 @@ h1{
     background: #000000;
     width: 100%;
     padding: 5px 5px;
+    text-transform: uppercase;
+    
 }
 
 form {
@@ -260,6 +265,8 @@ form {
     background: #252323;
     width: 100%;
     font-family: 'Secular One';
+    text-transform: uppercase;
+    
    
 
 }
@@ -308,5 +315,24 @@ button {
     color: #fff;
     border: none;
     border-radius: 4px;
+    text-transform: uppercase;
   
+}
+/* Formulário Cadastro de Produto */
+.selestatus,
+.seleproduto{
+    width: 358px;
+    margin: 15px;
+}
+/* Formulário Cadastro de Estoque */
+
+.formEstoque{
+    display: flex;
+    justify-content: center;
+    height: 80%;
+    
+}
+
+.seleEstoque {
+    width: 358px;
 }
