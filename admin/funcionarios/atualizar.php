@@ -1,12 +1,14 @@
 <?php
 
 $id = $_GET["id"];
-echo $id;
-
+//echo $id;
 require_once("class/funcionario.php");
 $funcionario = new FuncionarioClass($id);
 
-echo $funcionario->nomeFuncionario;
+//echo $funcionario->nomeFuncionario;
+
+
+
 
 
 if (isset($_POST['nomeFuncionario'])) {
@@ -15,7 +17,6 @@ if (isset($_POST['nomeFuncionario'])) {
     $cargoFuncionario = $_POST['cargoFuncionario'];
     $dataNascFuncionario = $_POST['dataNascFuncionario'];
     $emailFuncionario = $_POST['emailFuncionario'];
-    $senhaFuncionario = $_POST['senhaFuncionario'];
     $nivelFuncionario = $_POST['nivelFuncionario'];
     $dataAdmissaoFuncionario = $_POST['dataAdmissaoFuncionario'];
     $enderecoFuncionario = $_POST['enderecoFuncionario'];
@@ -47,15 +48,10 @@ if (isset($_POST['nomeFuncionario'])) {
 
     // fim da empty
 
-
-
-    
-
     $funcionario->nomeFuncionario = $nomeFuncionario;
     $funcionario->cargoFuncionario = $cargoFuncionario;
     $funcionario->dataNascFuncionario = $dataNascFuncionario;
     $funcionario->emailFuncionario = $emailFuncionario;
-    $funcionario->senhaFuncionario = $senhaFuncionario;
     $funcionario->nivelFuncionario = $nivelFuncionario;
     $funcionario->dataAdmissaoFuncionario = $dataAdmissaoFuncionario;
     $funcionario->enderecoFuncionario = $enderecoFuncionario;
@@ -73,9 +69,7 @@ if (isset($_POST['nomeFuncionario'])) {
 
 ?>
 
-
-
-<h1>Atualizar Funcionário</h1>
+<h1 class="h1Atual" >Atualizar Funcionário</h1>
 <form action="index.php?p=funcionarios&f=atualizar&id=<?php echo $funcionario->idFuncionario ?> " method="POST" enctype="multipart/form-data">
 
 
@@ -87,12 +81,13 @@ if (isset($_POST['nomeFuncionario'])) {
 
     </div>
 
+    <label for="nomeFuncionario">Nome do Funcionario</label>
+
 
 
 
     <div>
-        <label for="nomeFuncionario"> Nome do Funcionario</label>
-        <input type="text" name="nomeFuncionario" id="nomeFuncionario" placeholder="Informe o Nome do Funcionario" value="<?php echo $funcionario->nomeFuncionario; ?>">
+    <input type="text" name="nomeFuncionario" id="nomeFuncionario" placeholder="Informe o Nome do Funcionario" value="<?php echo $funcionario->nomeFuncionario; ?>">
 
     </div>
 
@@ -103,7 +98,7 @@ if (isset($_POST['nomeFuncionario'])) {
 
     <div>
         <label for="dataNascFuncionario">Data de Nascimento</label>
-        <input class="Dateatual" type="date" name="dataNascFuncionario" id="dataNascFuncionario" value="<?php echo $funcionario->dataNascFuncionario; ?>">
+        <input   class="Dateatual" type="date" name="dataNascFuncionario" id="dataNascFuncionario" value="<?php echo $funcionario->dataNascFuncionario; ?>">
     </div>
 
     <div>
@@ -111,12 +106,6 @@ if (isset($_POST['nomeFuncionario'])) {
         <input type="email" name="emailFuncionario" id="emailFuncionario" placeholder="name@example.com" value="<?php echo $funcionario->emailFuncionario;  ?>">
     </div>
 
-
-    <div>
-        <label for="inputPassword">Digite Sua Senha</label>
-        <input type="password" id="inputPassword" placeholder="digite sua senha" value="<?php echo $funcionario->senhaFuncionario; ?>">
-
-    </div>
     <div>
         <label for="nivelFuncionario">Nivel de Acesso</label>
         <input type="text" name="nivelFuncionario" id="nivelFuncionario" placeholder="Informe o Nivel de Acesso" value="<?php echo $funcionario->nivelFuncionario; ?>">
@@ -134,7 +123,7 @@ if (isset($_POST['nomeFuncionario'])) {
 
     <div>
         <label for="telFuncionario">Telefone:</label>
-        <input type="tel" class="form-control" name="telFuncionario" id="telFuncionario" placeholder="(11)99999-9999" value="<?php echo $funcionario->telFuncionario; ?>">
+        <input type="tel" name="telFuncionario" id="telFuncionario" placeholder="(11)99999-9999" value="<?php echo $funcionario->telFuncionario; ?>">
     </div>
 
 
@@ -147,7 +136,7 @@ if (isset($_POST['nomeFuncionario'])) {
 
     <div>
         <select class="seleAtual" aria-label="Default select example" name="statusFuncionario">
-            <option selected="">Seleciona o Status do Funcionario</option>
+            <option value="" selected>Seleciona o Status do Funcionario</option>
             <option value="ATIVO">ATIVO</option>
             <option value="DESATIVADO">DESATIVADO</option>
             <option value="INATIVO">INATIVO</option>
@@ -169,16 +158,15 @@ if (isset($_POST['nomeFuncionario'])) {
     });
 
     // Evento de Alteração Mudar
-    document.getElementById('fotoFuncionario').addEventListener('change', function(a) {
+    document.getElementById('fotoFuncionario').addEventListener('change', function(e) {
         let imgfoto = document.getElementById('imgfoto');
-        let arquivo = a.target.files[0]; // Get the selected file
-
+        let arquivo = e.target.files[0]; 
         if (arquivo) {
             let carregar = new FileReader();
 
             carregar.onload = function(e) {
                 imgfoto.src = e.target.result;
-                console.log(imgFoto.src);
+               // console.log(imgfoto.src);
             }
 
             carregar.readAsDataURL(arquivo);

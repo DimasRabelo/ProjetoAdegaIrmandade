@@ -5,7 +5,6 @@ if (isset($_POST['nomeFuncionario'])) {
     $cargoFuncionario = $_POST['cargoFuncionario'];
     $dataNascFuncionario = $_POST['dataNascFuncionario'];
     $emailFuncionario = $_POST['emailFuncionario'];
-    $senhaFuncionario = $_POST['senhaFuncionario'];
     $nivelFuncionario = $_POST['nivelFuncionario'];
     $dataAdmissaoFuncionario = $_POST['dataAdmissaoFuncionario'];
     $enderecoFuncionario = $_POST['enderecoFuncionario'];
@@ -38,7 +37,6 @@ $funcionario->nomeFuncionario = $nomeFuncionario;
 $funcionario->cargoFuncionario = $cargoFuncionario;
 $funcionario->dataNascFuncionario = $dataNascFuncionario;
 $funcionario->emailFuncionario = $emailFuncionario;
-$funcionario->senhaFuncionario = $senhaFuncionario;
 $funcionario->nivelFuncionario = $nivelFuncionario;
 $funcionario->dataAdmissaoFuncionario = $dataAdmissaoFuncionario;
 $funcionario->enderecoFuncionario = $enderecoFuncionario;
@@ -95,16 +93,6 @@ $funcionario->Cadastrar();
         <label for="emailFuncionario"> Email</label>
         <input type="email" name="emailFuncionario" id="emailFuncionario" required placeholder="name@example.com">
     </div>
-
-    <div>
-        <label for="senhaFuncionario">Digite Sua Senha</label>
-        <div>
-            <input type="password" id="inputPassword" required placeholder="digite sua senha">
-           
-        </div>   
-    </div>
-
-    
 
     <div>
         <label for="nivelFuncionario">Nivel de Acesso</label>
@@ -168,7 +156,7 @@ $funcionario->Cadastrar();
 
             carregar.onload = function(a) {
                 imgfoto.src = a.target.result;
-                //console.log(imgFoto.src);
+                //console.log(imgfoto.src);
             }
 
             carregar.readAsDataURL(arquivo);

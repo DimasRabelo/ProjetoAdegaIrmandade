@@ -4,6 +4,8 @@ require_once('conexao.php');
 
 class EstoqueClass
 {
+
+    public $idEstoque;
     public $nomeEstoque;
 
     public $quantidadeEstoque;
@@ -42,6 +44,42 @@ class EstoqueClass
         $conn = Conexao::LigarConexao();
         $conn->exec($query);
 
+        echo "<script>document.location='index.php?p=estoque'</script>";
+    }
+    public function __construct($id = false)
+    {
+        if ($id) {
+            $this->idEstoque = $id;
+            $this->Carregar();
+        }
+    }
+    // carregar
+    public function Carregar()
+    {
+        $query = "SELECT * FROM tblestoque WHERE idEstoque = " . $this->idEstoque;
+        $conn = Conexao::LigarConexao();
+        $resultado = $conn->query($query);
+        $lista = $resultado->fetchAll();
+
+        foreach ($lista as $linha) {
+            $this->nomeEstoque = $linha['nomeEstoque'];
+            $this->quantidadeEstoque = $linha['quantidadeEstoque'];
+            $this->statusEstoque = $linha['statusEstoque'];
+            $this->idProduto = $linha['idProduto'];
+        }
+    }
+
+    public function Atualizar()
+    {
+        $query = "UPDATE tblestoque 
+     SET  nomeEstoque = '" . $this->nomeEstoque . "',
+         quantidadeEstoque = '" . $this->quantidadeEstoque . "',
+         statusEstoque = '" . $this->statusEstoque . "',
+         idProduto = '" . $this->idProduto . "'
+         WHERE tblestoque.idEstoque = '" . $this->idEstoque . "'";
+
+        $conn = Conexao::LigarConexao();
+        $conn->exec($query);
         echo "<script>document.location='index.php?p=estoque'</script>";
     }
 }

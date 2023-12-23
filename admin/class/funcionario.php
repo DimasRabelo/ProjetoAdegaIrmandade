@@ -10,8 +10,6 @@ class FuncionarioClass
 
     public $emailFuncionario;
 
-    public $senhaFuncionario;
-
     public $nivelFuncionario;
 
     public $dataAdmissaoFuncionario;
@@ -43,7 +41,6 @@ class FuncionarioClass
         cargoFuncionario, 
         dataNascFuncionario, 
         emailFuncionario, 
-        senhaFuncionario, 
         nivelFuncionario, 
         dataAdmissaoFuncionario, 
         enderecoFuncionario, 
@@ -52,18 +49,17 @@ class FuncionarioClass
         statusFuncionario, 
         fotoFuncionario
     ) VALUES (
-        '{$this->nomeFuncionario}',
-        '{$this->cargoFuncionario}',
-        '{$this->dataNascFuncionario}',
-        '{$this->emailFuncionario}',
-        '{$this->senhaFuncionario}',
-        '{$this->nivelFuncionario}',
-        '{$this->dataAdmissaoFuncionario}',
-        '{$this->enderecoFuncionario}',
-        '{$this->telFuncionario}',
-        '{$this->cepFuncionario}',
-        '{$this->statusFuncionario}',
-        '{$this->fotoFuncionario}'
+        '".$this->nomeFuncionario."',
+        '" .$this->cargoFuncionario."',
+        '".$this->dataNascFuncionario."',
+        '".$this->emailFuncionario."',
+        '".$this->nivelFuncionario."',
+        '".$this->dataAdmissaoFuncionario."',
+        '".$this->enderecoFuncionario."',
+        '".$this->telFuncionario."',
+        '".$this->cepFuncionario."',
+        '".$this->statusFuncionario."',
+        '".$this->fotoFuncionario."'
     )";
 
         $conn = Conexao::LigarConexao();
@@ -94,7 +90,6 @@ class FuncionarioClass
             $this->cargoFuncionario = $linha['cargoFuncionario'];
             $this->dataNascFuncionario = $linha['dataNascFuncionario'];
             $this->emailFuncionario = $linha['emailFuncionario'];
-            $this->senhaFuncionario = $linha['senhaFuncionario'];
             $this->nivelFuncionario = $linha['nivelFuncionario'];
             $this->dataAdmissaoFuncionario = $linha['dataAdmissaoFuncionario'];
             $this->enderecoFuncionario = $linha['enderecoFuncionario'];
@@ -118,7 +113,6 @@ class FuncionarioClass
               cargoFuncionario =  '" . $this->cargoFuncionario . "',
               dataNascFuncionario = '" . $this->dataNascFuncionario . "', 
               emailFuncionario = '" . $this->emailFuncionario . "',
-              senhaFuncionario =   '" . $this->senhaFuncionario . "',
               nivelFuncionario = '" . $this->nivelFuncionario . "',
               dataAdmissaoFuncionario = '" . $this->dataAdmissaoFuncionario . "',
               enderecoFuncionario = '" . $this->enderecoFuncionario . "',

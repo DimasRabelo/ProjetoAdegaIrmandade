@@ -34,7 +34,6 @@ $lista = $funcionario->ListarFuncionario();
                     <th>Cargo</th>
                     <th>Data de Nascimento</th>
                     <th>Email</th>
-                    <th>senha</th>
                     <th>Nivel de Acesso</th>
                     <th>Data de Admissão</th>
                     <th>Endereço</th>
@@ -61,7 +60,6 @@ $lista = $funcionario->ListarFuncionario();
                         <td><?php echo $linha['cargoFuncionario'] ?></td>
                         <td><?php echo date('d/m/Y', strtotime($linha['dataNascFuncionario'])) ?></td>
                         <td><?php echo $linha['emailFuncionario'] ?></td>
-                        <td><?php echo $linha['senhaFuncionario'] ?></td>
                         <td><?php echo $linha['nivelFuncionario'] ?></td>
                         <td><?php echo date('d/m/Y', strtotime($linha['dataAdmissaoFuncionario'])) ?></td>
                         <td><?php echo $linha['enderecoFuncionario'] ?></td>
