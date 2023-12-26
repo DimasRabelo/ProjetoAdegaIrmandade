@@ -13,6 +13,8 @@ class ClienteClass
 
     public $fotoUsuario;
 
+    public $statusUsuario;
+
    public function ListarCliente()
    {
     $sql =  "SELECT * FROM tblusuarios ORDER BY idUsuario ASC";
@@ -29,13 +31,15 @@ class ClienteClass
         nomeUsuario, 
         emailUsuario, 
         senhaUsuario, 
-        fotoUsuario 
+        fotoUsuario,
+        statusUsuario 
        
     ) VALUES (
         '{$this->nomeUsuario}',
         '{$this->emailUsuario}',
         '{$this->senhaUsuario}',
-        '{$this->fotoUsuario}'
+        '{$this->fotoUsuario}',
+        '{$this->statusUsuario}'
        
     )";
 
@@ -44,9 +48,44 @@ class ClienteClass
 
     echo "<script>document.location='index.php?p=clientes'</script>";
 }
+public function __construct($id = false)
+    {
+        if ($id) {
+            $this->idUsuario = $id;
+            $this->Carregar();
+        }
+    }
 
+    public function Carregar()
+    {
+        $query = "SELECT * FROM tblusuarios WHERE idUsuario = " . $this->idUsuario;
+        $conn = Conexao::LigarConexao();
+        $resultado = $conn->query($query);
+        $lista = $resultado->fetchAll();
 
+        foreach ($lista as $linha) {
+            $this->nomeUsuario = $linha['nomeUsuario'];
+            $this->emailUsuario = $linha['emailUsuario'];
+            $this->senhaUsuario = $linha['senhaUsuario'];
+            $this->statusUsuario = $linha['statusUsuario'];
+            $this->fotoUsuario = $linha['fotoUsuario'];
+        }
+        }
+    
+    public function Atualizar()
+    {
+        $query = "UPDATE tblusuarios 
+     SET  nomeUsuario = '" . $this->nomeUsuario . "',
+         emailUsuario = '" . $this->emailUsuario . "',
+         senhaUsuario = '" . $this->senhaUsuario . "',
+         statusUsuario = '" . $this->statusUsuario . "',
+        fotoUsuario = '". $this->fotoUsuario ."'
+         WHERE tblusuarios.idUsuario = '" . $this->idUsuario . "'";
 
-
+        $conn = Conexao::LigarConexao();
+        $conn->exec($query);
+        echo "<script>document.location='index.php?p=clientes'</script>";
+}
+    
 
 }

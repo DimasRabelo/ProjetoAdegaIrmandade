@@ -175,6 +175,19 @@ nav ul li a {
   
 }
 
+/* listar do Usuario */
+
+.fotoUser{
+    width: 100%;
+}
+.fotoUser img{
+    width: 150px;
+    height: 180px;
+    object-fit: cover;
+}
+/* fim do listar usuario
+
+
 /* Tabela Contato */
 
 .table-container {

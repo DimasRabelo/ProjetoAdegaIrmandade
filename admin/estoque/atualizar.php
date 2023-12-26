@@ -36,13 +36,13 @@ if (isset($_POST['nomeEstoque'])) {
         <input type="text" name="nomeEstoque" id="nomeEstoque" required placeholder="nome estoque" value="<?php echo $estoque->nomeEstoque; ?>" >
     </div>
 
-    <div>
+    
 
     <div>
         <label for="idProduto"> Nome do Produto</label>
         <input type="text" name="idProduto" id="idProduto"  placeholder="nome do produto" value="<?php echo $estoque->idProduto; ?>" >
     </div>
-    </div>
+    
 
     <div>
         <label for="quantidadeEstoque"> Quantidade</label>

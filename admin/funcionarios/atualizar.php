@@ -5,7 +5,7 @@ $id = $_GET["id"];
 require_once("class/funcionario.php");
 $funcionario = new FuncionarioClass($id);
 
-//echo $funcionario->nomeFuncionario;
+
 
 
 
@@ -23,8 +23,7 @@ if (isset($_POST['nomeFuncionario'])) {
     $telFuncionario = $_POST['telFuncionario'];
     $cepFuncionario = $_POST['cepFuncionario'];
     $statusFuncionario = $_POST['statusFuncionario'];
-    $fotoFuncionario = $_POST['fotoFuncionario'];
-
+    
     //foto
 
 
@@ -45,7 +44,6 @@ if (isset($_POST['nomeFuncionario'])) {
     } else {
         $fotoFuncionario = $funcionario->fotoFuncionario;
     }
-
     // fim da empty
 
     $funcionario->nomeFuncionario = $nomeFuncionario;
@@ -69,8 +67,8 @@ if (isset($_POST['nomeFuncionario'])) {
 
 ?>
 
-<h1 class="h1Atual" >Atualizar Funcionário</h1>
-<form action="index.php?p=funcionarios&f=atualizar&id=<?php echo $funcionario->idFuncionario ?> " method="POST" enctype="multipart/form-data">
+<h1 class="h1Atual">Atualizar Funcionário</h1>
+<form action="index.php?p=funcionarios&f=atualizar&id=<?php echo $funcionario->idFuncionario; ?> " method="POST" enctype="multipart/form-data">
 
 
     <div class="fotoForm">
@@ -81,13 +79,9 @@ if (isset($_POST['nomeFuncionario'])) {
 
     </div>
 
-    <label for="nomeFuncionario">Nome do Funcionario</label>
-
-
-
-
     <div>
-    <input type="text" name="nomeFuncionario" id="nomeFuncionario" placeholder="Informe o Nome do Funcionario" value="<?php echo $funcionario->nomeFuncionario; ?>">
+        <label for="nomeFuncionario">Nome do Funcionario</label>
+        <input type="text" name="nomeFuncionario" id="nomeFuncionario" placeholder="Informe o Nome do Funcionario" value="<?php echo $funcionario->nomeFuncionario; ?>">
 
     </div>
 
@@ -98,7 +92,7 @@ if (isset($_POST['nomeFuncionario'])) {
 
     <div>
         <label for="dataNascFuncionario">Data de Nascimento</label>
-        <input   class="Dateatual" type="date" name="dataNascFuncionario" id="dataNascFuncionario" value="<?php echo $funcionario->dataNascFuncionario; ?>">
+        <input class="Dateatual" type="date" name="dataNascFuncionario" id="dataNascFuncionario" value="<?php echo $funcionario->dataNascFuncionario; ?>">
     </div>
 
     <div>

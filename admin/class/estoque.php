@@ -15,13 +15,35 @@ class EstoqueClass
     public $idProduto;
 
     public function ListarEstoque()
-    {
-        $sql =  "SELECT * FROM tblestoque ORDER BY idEstoque ASC";
+{
+    $sql = "SELECT
+        m.idEstoque,
+        m.nomeEstoque,
+        m.quantidadeEstoque,
+        m.dataCadastroEstoque,
+        m.dataAtualiEstoque,
+        m.statusEstoque,
+        m.horaEstoque,
+        a.nomeProduto     
+    FROM
+        tblestoque m
+    INNER JOIN
+        tblprodutos a ON m.idProduto = a.idProduto
+    ORDER BY
+        m.idEstoque ASC";
+
+    try {
         $conn = Conexao::LigarConexao();
         $resultado = $conn->query($sql);
         $lista = $resultado->fetchAll();
         return $lista;
+    } catch (PDOException $e) {
+        echo "Erro na consulta: " . $e->getMessage();
+        return false;
     }
+}
+
+    
 
 
     public function Cadastrar()

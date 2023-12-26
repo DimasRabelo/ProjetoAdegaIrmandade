@@ -44,7 +44,7 @@ if (isset($_POST['nomeUsuario'])) {
     </div>
 
     <div>
-        <label for="nomeUsuario"> Nome do Funcionario</label>
+        <label for="nomeUsuario"> Nome do Cliente</label>
         <input type="text" name="nomeUsuario" id="nomeUsuario" required placeholder="Informe o Nome do Cliente">
 
     </div>
