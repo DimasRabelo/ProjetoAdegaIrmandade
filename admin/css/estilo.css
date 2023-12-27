@@ -101,6 +101,7 @@ h1 img {
 
 main {
     width: 100%;
+    flex: 1;
      display: flex;
 }
 
