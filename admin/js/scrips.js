@@ -35,3 +35,13 @@ arrastarMouseElement.addEventListener('mousemove', (e) => {
     arrastarMouseElement.scrollLeft = scrollLeft - walkX;
     arrastarMouseElement.scrollTop = scrollTop - walkY;
 });
+
+/* onclique do Botão Desativar */
+
+function confirmarDesativacao() {
+    // Exibir uma caixa de diálogo de confirmação
+    var confirmacao = confirm("Tem certeza de que deseja desativar este item?");
+
+    // Retorna true se o usuário clicou em "OK", caso contrário, retorna false
+    return confirmacao;
+}

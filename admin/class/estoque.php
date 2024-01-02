@@ -29,6 +29,8 @@ class EstoqueClass
         tblestoque m
     INNER JOIN
         tblprodutos a ON m.idProduto = a.idProduto
+    WHERE 
+        m.statusEstoque = 'ATIVO'
     ORDER BY
         m.idEstoque ASC";
 
@@ -103,5 +105,13 @@ class EstoqueClass
         $conn = Conexao::LigarConexao();
         $conn->exec($query);
         echo "<script>document.location='index.php?p=estoque'</script>";
+    }
+
+    public function desativar()
+    {
+        $query = "UPDATE tblestoque SET statusEstoque ='DESATIVADO' WHERE idEstoque = " . $this->idEstoque;
+        
+        $conn = Conexao::LigarConexao();
+        $conn->exec($query);
     }
 }

@@ -20,7 +20,8 @@ class ProdutoClass
 
     public function listarProduto()
     {
-        $sql =  "SELECT * FROM tblprodutos ORDER BY idProduto ASC";
+        $sql = "SELECT * FROM tblprodutos WHERE statusProduto = 'ATIVO' ORDER BY idProduto ASC";
+        // $sql =  "SELECT * FROM tblprodutos ORDER BY idProduto ASC"; //
         $conn = Conexao::LigarConexao();
         $resultado = $conn->query($sql);
         $lista = $resultado->fetchAll();
@@ -100,5 +101,12 @@ class ProdutoClass
             $conn = Conexao::LigarConexao();
             $conn->exec($query);
             echo "<script>document.location='index.php?p=produtos'</script>";
+    }
+    public function desativar()
+    {
+        $query = "UPDATE tblprodutos SET statusProduto ='DESATIVADO' WHERE idProduto = " . $this->idProduto;
+        
+        $conn = Conexao::LigarConexao();
+        $conn->exec($query);
     }
 }

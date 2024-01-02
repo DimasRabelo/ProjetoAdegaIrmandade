@@ -17,7 +17,7 @@ class ClienteClass
 
    public function ListarCliente()
    {
-    $sql =  "SELECT * FROM tblusuarios ORDER BY idUsuario ASC";
+    $sql = "SELECT * FROM tblusuarios WHERE statusUsuario = 'ATIVO' ORDER BY idUsuario ASC";
     $conn = Conexao::LigarConexao();
     $resultado = $conn->query($sql);
     $lista = $resultado->fetchAll();
@@ -85,7 +85,15 @@ public function __construct($id = false)
         $conn = Conexao::LigarConexao();
         $conn->exec($query);
         echo "<script>document.location='index.php?p=clientes'</script>";
+
 }
+public function desativar()
+    {
+        $query = "UPDATE tblusuarios SET statusUsuario ='DESATIVADO' WHERE idUsuario = " . $this->idUsuario;
+        
+        $conn = Conexao::LigarConexao();
+        $conn->exec($query);
+    }
     
 
 }

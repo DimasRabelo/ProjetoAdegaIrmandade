@@ -18,23 +18,24 @@ class VendasClass
 
     public function ListarVenda()
     {
-        $sql =  "SELECT * FROM tblvendas ORDER BY idVenda ASC";
+        
+        // $sql =  "SELECT * FROM tblvendas ORDER BY idVenda ASC"; //
         $sql = "SELECT
-                    v.idVenda,
-                    v.statusVenda,
-                    v.valorTotalVenda,
-                    v.horaVenda,
-                    v.dataVenda,
-                    f.nomeFuncionario,
-                    p.nomeProduto
-                    
-                FROM
-                    tblvendas v
-                INNER JOIN
-                    tblfuncionarios f ON v.idFuncionario = f.idFuncionario
-                INNER JOIN
-                    tblprodutos p ON v.idProduto = p.idProduto";
-
+        v.idVenda,
+        v.statusVenda,
+        v.valorTotalVenda,
+        v.horaVenda,
+        v.dataVenda,
+        f.nomeFuncionario,
+        p.nomeProduto
+    FROM
+        tblvendas v
+    INNER JOIN
+        tblfuncionarios f ON v.idFuncionario = f.idFuncionario
+    INNER JOIN
+        tblprodutos p ON v.idProduto = p.idProduto
+    WHERE
+        v.statusVenda = 'ATIVO'";
 
 
         $conn = Conexao::LigarConexao();
@@ -104,5 +105,12 @@ class VendasClass
         echo "<script>document.location='index.php?p=vendas'</script>";
     
         
+    }
+    public function desativar()
+    {
+        $query = "UPDATE tblvendas SET statusVenda ='DESATIVADO' WHERE idVenda = " . $this->idVenda;
+        
+        $conn = Conexao::LigarConexao();
+        $conn->exec($query);
     }
 }
