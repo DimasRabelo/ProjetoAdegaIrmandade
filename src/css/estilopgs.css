@@ -454,37 +454,17 @@ section {
     margin: 0 auto;
 }
 
-.videos {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    flex-direction: column;
-    align-items: stretch;
+/* videos */
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  width: 10rem;
+  height: 10rem;
+  
 }
-
-
-
-.videogeral{
-    background: #000000;
-}
-
-.video4,
-.video3,
-.video2,
-.video1 {
-    background: url(../imagens/imgdestaque1.jpg)no-repeat;
-    padding: 100px 40px;
+.carousel-inner {
     text-align: center;
-    margin: 20px;
-
-} 
-.videos a {
-    display: block;
 }
 
-.videos img {
-    width: 15%;
-}
 
 
 

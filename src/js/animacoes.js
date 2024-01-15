@@ -27,6 +27,34 @@ $(document).ready(function () {
   });
 });
 
+$(document).ready(function () {
+  $('.vidios').slick({
+    centerMode: true,
+    centerPadding: '5%',
+    slidesToShow: 7,
+    autoplay: true,
+    responsive: [
+      {
+        breakpoint: 1001,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: '40px',
+          slidesToShow: 5
+        }
+      },
+      {
+        breakpoint: 601,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: '40px',
+          slidesToShow: 1
+        }
+      }
+    ]
+  });
+});
 
 
 
