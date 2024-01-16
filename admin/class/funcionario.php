@@ -28,7 +28,7 @@ class FuncionarioClass
     public function listarFuncionario()
     {
         $sql = "SELECT * FROM tblfuncionarios WHERE statusFuncionario = 'ATIVO' ORDER BY idFuncionario ASC";
-        // $sql =  "SELECT * FROM tblfuncionarios ORDER BY idFuncionario ASC"; //
+        $sql =  "SELECT * FROM tblfuncionarios ORDER BY idFuncionario ASC"; 
         $conn = Conexao::LigarConexao();
         $resultado = $conn->query($sql);
         $lista = $resultado->fetchAll();
