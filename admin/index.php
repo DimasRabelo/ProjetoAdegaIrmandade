@@ -70,47 +70,48 @@ $pagina = @$_GET['p'];
 
                     break;
 
-                case 'funcionarios';
+                case 'funcionarios':
 
                     require_once('funcionarios/funcionarios.php');
 
                     break;
 
-                case 'produtos';
+                case 'produtos':
 
                     require_once('produtos/produto.php');
 
                     break;
-                case 'estoque';
+                case 'estoque':
 
                     require_once('estoque/estoque.php');
 
                     break;
 
-                case 'vendas';
+                case 'vendas':
 
                     require_once('vendas/vendas.php');
 
                     break;
 
-                case 'clientes';
+                case 'clientes':
 
                     require_once('clientes/cliente.php');
 
                     break;
 
-                case 'contato';
+                case 'contato':
 
                     require_once('contato/contato.php');
 
                     break;
 
 
-                case 'relatorios';
+                case 'relatorios':
 
                     break;
 
-                case 'ajuda e suporte';
+                case 'ajuda e suporte':
+                    
             }
             ?>
 
