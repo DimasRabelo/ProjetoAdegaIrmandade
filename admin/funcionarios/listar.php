@@ -29,7 +29,7 @@ $lista = $funcionario->ListarFuncionario();
             <thead>
                 <tr>
                     <th>Foto</th>
-                   
+                    <th>ID Funcionario</th>
                     <th>Nome</th>
                     <th>Cargo</th>
                     <th>Data de Nascimento</th>
