@@ -74,7 +74,8 @@ class FuncionarioClass
        
         if ($id) {
             $this->idFuncionario = $id;
-            $this->Carregar();
+            $this->Carregar(); 
+            
         }
     }
 
