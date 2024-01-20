@@ -28,8 +28,8 @@ class FuncionarioClass
 
     public function listarFuncionario()
     {
-        $sql = "SELECT * FROM tblfuncionarios WHERE statusFuncionario = 'ATIVO' ORDER BY idFuncionario ASC";
-        $sql =  "SELECT * FROM tblfuncionarios ORDER BY idFuncionario ASC"; 
+        
+        $sql =  "SELECT * FROM tblfuncionarios ORDER BY idFuncionario ASC";
         $conn = Conexao::LigarConexao();
         $resultado = $conn->query($sql);
         $lista = $resultado->fetchAll();
@@ -84,8 +84,7 @@ class FuncionarioClass
 
         if ($id) {
             $this->idFuncionario = $id;
-            $this->Carregar(); 
-            
+            $this->Carregar();
         }
     }
 
@@ -147,18 +146,17 @@ class FuncionarioClass
         $conn->exec($query);
     }
 
-    
-        // ...
-    
-        public function listarFuncionariosDesativados()
-        {
-            $sql = "SELECT * FROM tblfuncionarios WHERE statusFuncionario = 'DESATIVADO' ORDER BY idFuncionario ASC";
-            $conn = Conexao::LigarConexao();
-            $resultado = $conn->query($sql);
-            $listaDesativados = $resultado->fetchAll();
-            return $listaDesativados;
-        }
-    
-        // ...
+
+    // ...
+
+    public function listarFuncionariosDesativados()
+    {
+        $sql = "SELECT * FROM tblfuncionarios WHERE statusFuncionario = 'DESATIVADO' ORDER BY idFuncionario ASC";
+        $conn = Conexao::LigarConexao();
+        $resultado = $conn->query($sql);
+        $listaDesativados = $resultado->fetchAll();
+        return $listaDesativados;
     }
 
+    // ...
+}
