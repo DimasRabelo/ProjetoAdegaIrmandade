@@ -7,11 +7,10 @@ if (isset($_GET['id'])) {
     $estoque = new EstoqueClass($id);
 
 
-    $estoque->desativar();
+    $estoque->ativar();
 
     // Redireciona de volta para a lista após a desativação
-    echo "<script>document.location='index.php?p=estoque'</script>";
+    echo "<script>document.location='index.php?p=estoque '</script>";
     exit;
+    
 }
-
-?>

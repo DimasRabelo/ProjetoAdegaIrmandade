@@ -102,21 +102,24 @@ $totalDesativados = count($listaDesativados);
                     <?php if ($statusFiltrar === 'DESATIVADO') : ?>
                         <th></th>
                     <?php endif; ?>
+                    
                     <th>Nome do Produto</th>
-                    <th>Descrição</th>
-                    <th>Categoria</th>
                     <?php if ($statusFiltrar !== 'ATIVO' && $statusFiltrar !== 'DESATIVADO') : ?>
                         <th>Status</th>
                     <?php endif; ?>
+                    <th>Descrição</th>
+                    <?php if ($statusFiltrar !== 'DESATIVADO') : ?>
+                        <th>Atualizar</th>
+                        <th>Desativar</th>
+                    <?php endif; ?>
+                    
+                    <th>Categoria</th>
                     <th>Preço de Compra dos Produtos</th>
                     <th>Preço de Venda dos Produtos</th>
                     <th>Fornecedor</th>
                     <th>Data de Recebimento</th>
                     <th>Hora do Recebimento</th>
-                    <?php if ($statusFiltrar !== 'DESATIVADO') : ?>
-                        <th>Atualizar</th>
-                        <th>Desativar</th>
-                    <?php endif; ?>
+                   
                 </tr>
             </thead>
             <tbody>
@@ -133,17 +136,12 @@ $totalDesativados = count($listaDesativados);
                                     </a>
                                 </td>
                             <?php endif; ?>
+                            
                             <td><?php echo $linha['nomeProduto'] ?></td>
-                            <td><?php echo $linha['descricaoProduto'] ?></td>
-                            <td><?php echo $linha['categoriaProduto'] ?></td>
                             <?php if ($statusFiltrar !== 'ATIVO' && $statusFiltrar !== 'DESATIVADO') : ?>
                                 <td><?php echo $linha['statusProduto'] ?></td>
                             <?php endif; ?>
-                            <td><?php echo $linha['precoCompraProduto'] ?></td>
-                            <td><?php echo $linha['precoVendaProduto'] ?></td>
-                            <td><?php echo $linha['fornecedorProduto'] ?></td>
-                            <td><?php echo date('d/m/Y', strtotime($linha['dataReceProduto'])) ?></td>
-                            <td><?php echo $linha['horaProduto'] ?></td>
+                            <td><?php echo $linha['descricaoProduto'] ?></td>
                             <?php if ($statusFiltrar !== 'DESATIVADO') : ?>
                                 <td>
                                     <a class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="index.php?p=produtos&pr=atualizar&id=<?php echo $linha['idProduto'] ?>">
@@ -162,6 +160,15 @@ $totalDesativados = count($listaDesativados);
                                     </a>
                                 </td>
                             <?php endif; ?>
+                           
+                            <td><?php echo $linha['categoriaProduto'] ?></td>
+                           
+                            <td><?php echo $linha['precoCompraProduto'] ?></td>
+                            <td><?php echo $linha['precoVendaProduto'] ?></td>
+                            <td><?php echo $linha['fornecedorProduto'] ?></td>
+                            <td><?php echo date('d/m/Y', strtotime($linha['dataReceProduto'])) ?></td>
+                            <td><?php echo $linha['horaProduto'] ?></td>
+                           
                         </tr>
                     <?php endif; ?>
                 <?php endforeach; ?>

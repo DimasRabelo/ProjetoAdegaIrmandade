@@ -16,7 +16,7 @@ $statusFiltrar = '';
 if (isset($_POST['statusFuncionario'])) {
     $statusFiltrar = $_POST['statusFuncionario'];
 
-    if ($statusFiltrar === 'DESATIVADO') {
+    if ($statusFiltrar === 'desativado') {
         $listaFiltrada = $listaDesativados;
     }
 }
