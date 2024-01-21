@@ -45,31 +45,6 @@ $totalDesativados = count($listaDesativados);
 
 
 
-<style>
-    .total {
-        color: #ffffff;
-        font-size: 1.0em;
-        margin-bottom: 0;
-
-
-    }
-
-    .formStatus {
-        display: flex;
-        flex-direction: column-reverse;
-        justify-content: space-around;
-        padding: 10px;
-    }
-
-    .CampoPes {
-        display: flex;
-        justify-content: flex-end;
-        flex-direction: row;
-        background: none;
-    }
-</style>
-
-
 
 <div>
     <a class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="index.php?p=funcionarios&f=cadastrar">
@@ -96,7 +71,8 @@ $totalDesativados = count($listaDesativados);
 <form class="formStatus" action="" method="POST">
     <div>
         <select class="seleAtual" aria-label="Default select example" name="statusFuncionario">
-            <option value="" <?php echo empty($statusFiltrar) ? 'selected' : ''; ?>>Seleciona o Status da Lista</option>
+        <option value="" selected disabled>Selecione um Status da Lista</option>
+        <option value="" <?php echo empty($statusFiltrar) ? 'selected' : ''; ?>>LISTA GERAL</option>
             <option value="ATIVO" <?php echo ($statusFiltrar === 'ATIVO') ? 'selected' : ''; ?>>ATIVOS</option>
             <option value="DESATIVADO" <?php echo ($statusFiltrar === 'DESATIVADO') ? 'selected' : ''; ?>>DESATIVADOS</option>
         </select>
@@ -108,7 +84,7 @@ $totalDesativados = count($listaDesativados);
         <?php elseif ($statusFiltrar === 'DESATIVADO') : ?>
             <p class="total">Total de desativados: <?php echo $totalDesativados; ?></p>
         <?php else : ?>
-            <p class="total">Total de cadastrados: <?php echo $totalCadastrados; ?></p>
+            <p class="total">Lista Geral de Cadastro: <?php echo $totalCadastrados; ?></p>
         <?php endif; ?>
     </div>
 </form>

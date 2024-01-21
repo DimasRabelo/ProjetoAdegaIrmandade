@@ -50,7 +50,7 @@
             require_once('class/funcionario.php');
 
             $funcionarioClass = new FuncionarioClass();
-            $funcionarios = $funcionarioClass->listarFuncionario();
+            $funcionarios = $funcionarioClass->listarAtivos();
 
             foreach ($funcionarios as $funcionario) {
                 echo "<option value='{$funcionario['idFuncionario']}'>{$funcionario['nomeFuncionario']}</option>";
