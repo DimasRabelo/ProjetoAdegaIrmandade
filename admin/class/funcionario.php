@@ -37,7 +37,7 @@ class FuncionarioClass
         return $lista;
     }
 
-    public function listarFuncionariosDesativados()
+    public function listarDesativados()
     {
         $sql = "SELECT * FROM tblfuncionarios WHERE statusFuncionario = 'DESATIVADO' ORDER BY idFuncionario ASC";
         $conn = Conexao::LigarConexao();

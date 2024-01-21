@@ -4,7 +4,7 @@ $funcionario = new FuncionarioClass();
 
 // Inicializa a lista completa de funcionários ativos
 $listaAtivos = $funcionario->listarAtivos();
-$listaDesativados = $funcionario->listarFuncionariosDesativados();
+$listaDesativados = $funcionario->listarDesativados();
 
 // Inicializa a lista filtrada combinando ambas as listas
 $listaFiltrada = array_merge($listaAtivos, $listaDesativados);
@@ -19,7 +19,6 @@ if (isset($_POST['statusFuncionario'])) {
     if ($statusFiltrar === 'DESATIVADO') {
         $listaFiltrada = $listaDesativados;
     }
-    // Se não for 'DESATIVADO', mantenha a lista de ativos
 }
 
 // Verifica se a pesquisa por nome foi submetida
@@ -61,21 +60,16 @@ $totalDesativados = count($listaDesativados);
         justify-content: space-around;
         padding: 10px;
     }
+
+    .CampoPes {
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: row;
+        background: none;
+    }
 </style>
 
 
-
-<!-- Mostra o status atual e total de cadastrados -->
-
-
-
-<div>
-    <form action="" method="POST">
-        <label for="searchInput">Pesquisar Funcionário:</label>
-        <input type="text" id="searchInput" name="searchInput" placeholder="Digite o nome do funcionário">
-        <button type="submit">Pesquisar</button>
-    </form>
-</div>
 
 <div>
     <a class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="index.php?p=funcionarios&f=cadastrar">
@@ -86,9 +80,18 @@ $totalDesativados = count($listaDesativados);
     </a>
 </div>
 
+
+
+<div>
+    <form class="CampoPes" action="" method="POST">
+        <input type="text" id="searchInput" name="searchInput" placeholder="Digite o nome do funcionário">
+        <button type="submit">Pesquisar</button>
+    </form>
+</div>
+
+
+
 <!-- Formulário de filtro -->
-
-
 
 <form class="formStatus" action="" method="POST">
     <div>
@@ -121,6 +124,13 @@ $totalDesativados = count($listaDesativados);
                     <?php endif; ?>
                     <th>Foto</th>
                     <th>Nome</th>
+                    <?php if ($statusFiltrar !== 'ATIVO' && $statusFiltrar !== 'DESATIVADO') : ?>
+                        <th>Status</th>
+                    <?php endif; ?>
+                    <?php if ($statusFiltrar !== 'DESATIVADO') : ?>
+                        <th>Atualizar</th>
+                        <th>Desativar</th>
+                    <?php endif; ?>
                     <th>Cargo</th>
                     <th>Data de Nascimento</th>
                     <th>Email</th>
@@ -129,10 +139,7 @@ $totalDesativados = count($listaDesativados);
                     <th>Endereço</th>
                     <th>Telefone</th>
                     <th>Cep</th>
-                    <?php if ($statusFiltrar !== 'DESATIVADO') : ?>
-                        <th>Atualizar</th>
-                        <th>Desativar</th>
-                    <?php endif; ?>
+
                 </tr>
             </thead>
 
@@ -161,19 +168,9 @@ $totalDesativados = count($listaDesativados);
 
                             </td>
                             <td><?php echo $linha['nomeFuncionario'] ?></td>
-                            <td><?php echo $linha['cargoFuncionario'] ?></td>
-                            <td><?php echo date('d/m/Y', strtotime($linha['dataNascFuncionario'])) ?></td>
-                            <td><?php echo $linha['emailFuncionario'] ?></td>
-                            <td><?php echo $linha['nivelFuncionario'] ?></td>
-                            <td><?php echo date('d/m/Y', strtotime($linha['dataAdmissaoFuncionario'])) ?></td>
-                            <td><?php echo $linha['enderecoFuncionario'] ?></td>
-                            <td><?php echo $linha['telFuncionario'] ?></td>
-                            <td><?php echo $linha['cepFuncionario'] ?></td>
-
-
-
-
-
+                            <?php if ($statusFiltrar !== 'ATIVO' && $statusFiltrar !== 'DESATIVADO') : ?>
+                                <td><?php echo $linha['statusFuncionario'] ?></td>
+                            <?php endif; ?>
 
                             <?php if ($statusFiltrar !== 'DESATIVADO') : ?>
                                 <td>
@@ -193,6 +190,24 @@ $totalDesativados = count($listaDesativados);
                                     </a>
                                 </td>
                             <?php endif; ?>
+
+
+
+
+
+                            <td><?php echo $linha['cargoFuncionario'] ?></td>
+                            <td><?php echo date('d/m/Y', strtotime($linha['dataNascFuncionario'])) ?></td>
+                            <td><?php echo $linha['emailFuncionario'] ?></td>
+                            <td><?php echo $linha['nivelFuncionario'] ?></td>
+                            <td><?php echo date('d/m/Y', strtotime($linha['dataAdmissaoFuncionario'])) ?></td>
+                            <td><?php echo $linha['enderecoFuncionario'] ?></td>
+                            <td><?php echo $linha['telFuncionario'] ?></td>
+                            <td><?php echo $linha['cepFuncionario'] ?></td>
+
+
+
+
+
 
                         </tr>
                     <?php endif; ?>

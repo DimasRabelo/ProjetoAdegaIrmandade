@@ -11,7 +11,7 @@ if (isset($_POST['nomeFuncionario'])) {
     $telFuncionario = $_POST['telFuncionario'];
     $cepFuncionario = $_POST['cepFuncionario'];
     $statusFuncionario = $_POST['statusFuncionario'];
-    $fotoFuncionario = $_POST['fotoFuncionario'];
+    
 
 //foto
 
