@@ -88,6 +88,9 @@ if (isset($_POST['statusFuncionario'])) {
             <caption>Lista de Funcionários</caption>
             <thead>
                 <tr>
+                    <?php if ($statusFiltrar === 'DESATIVADO') : ?>
+                        <th>Ativar</th>
+                    <?php endif; ?>
                     <th>Foto</th>
                     <th>Nome</th>
                     <th>Cargo</th>
@@ -107,8 +110,14 @@ if (isset($_POST['statusFuncionario'])) {
                 <?php foreach ($listaFiltrada as $linha) : ?>
                     <?php if (empty($statusFiltrar) || $linha['statusFuncionario'] === $statusFiltrar) : ?>
 
-
                         <tr>
+                            <?php if ($statusFiltrar === 'DESATIVADO') : ?>
+                                <td>
+                                    <a class="btn btn-success" href="index.php?p=funcionarios&f=ativar&id=<?php echo $linha['idFuncionario']; ?>">
+                                        Ativar
+                                    </a>
+                                </td>
+                            <?php endif; ?>
                             <td class="func">
                                 <a href="../src/imagens/<?php echo $linha['fotoFuncionario'] ?>" data-lightbox="<?php echo $linha['nomeFuncionario'] ?>" data-title="<?php echo $linha['nomeFuncionario'] ?>">
                                     <img src="../src/imagens/<?php echo $linha['fotoFuncionario'] ?>" data-alt="<?php echo $linha['nomeFuncionario'] ?>">
@@ -126,15 +135,6 @@ if (isset($_POST['statusFuncionario'])) {
                             <td><?php echo $linha['telFuncionario'] ?></td>
                             <td><?php echo $linha['cepFuncionario'] ?></td>
 
-                            <td>
-                                <?php if ($statusFiltrar === 'DESATIVADO') : ?>
-                                    <a class="btn btn-success" href="index.php?p=funcionarios&f=ativar&id=<?php echo $linha['idFuncionario']; ?>">
-                                        Ativar
-                                    </a>
-
-
-                                <?php endif; ?>
-                            </td>
 
 
 
