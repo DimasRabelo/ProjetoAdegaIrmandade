@@ -26,15 +26,7 @@ class FuncionarioClass
 
 
 
-    public function listarFuncionario()
-    {
-        
-        $sql =  "SELECT * FROM tblfuncionarios ORDER BY idFuncionario ASC";
-        $conn = Conexao::LigarConexao();
-        $resultado = $conn->query($sql);
-        $lista = $resultado->fetchAll();
-        return $lista;
-    }
+   
 
     public function listarAtivos()
     {
@@ -159,5 +151,15 @@ class FuncionarioClass
         $conn->exec($query);
     }
 
-   
+    public function ativar()
+    {
+        $query = "UPDATE tblfuncionarios SET statusFuncionario ='ATIVO' WHERE idFuncionario = " . $this->idFuncionario;
+
+        $conn = Conexao::LigarConexao();
+        $conn->exec($query);
+    }
+
+
+
+
 }

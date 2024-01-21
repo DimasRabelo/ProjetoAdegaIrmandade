@@ -2,27 +2,48 @@
 require_once('class/funcionario.php');
 $funcionario = new FuncionarioClass();
 
-// Lógica para contar os funcionários
-$totalCadastrados = count($funcionario->listarFuncionario());
-$totalAtivos = count($funcionario->listarAtivos());
+// Inicializa a lista completa de funcionários ativos
+$listaAtivos = $funcionario->listarAtivos();
+$listaDesativados = $funcionario->listarFuncionariosDesativados();
 
+// Inicializa a lista filtrada combinando ambas as listas
+$listaFiltrada = array_merge($listaAtivos, $listaDesativados);
+
+// Inicializa a variável $statusFiltrar
+$statusFiltrar = '';
+
+// Verifica se o filtro de status foi aplicado
 if (isset($_POST['statusFuncionario'])) {
     $statusFiltrar = $_POST['statusFuncionario'];
 
-    if ($statusFiltrar === 'TODOS') {
-        $listaFiltrada = $funcionario->listarFuncionario();
-        $totalAtivos = count($listaFiltrada);
-    } elseif ($statusFiltrar === 'DESATIVADO') {
-        $listaFiltrada = $funcionario->listarFuncionariosDesativados();
-    } else {
-        $listaFiltrada = $funcionario->listarFuncionario();
+    if ($statusFiltrar === 'DESATIVADO') {
+        $listaFiltrada = $listaDesativados;
     }
-} else {
-    $statusFiltrar = '';
-    $listaFiltrada = $funcionario->listarFuncionario();
-    $totalAtivos = count($listaFiltrada);
+    // Se não for 'DESATIVADO', mantenha a lista de ativos
 }
+
+// Verifica se a pesquisa por nome foi submetida
+if (isset($_POST['searchInput'])) {
+    $searchTerm = strtolower($_POST['searchInput']);
+
+    // Filtra a lista com base no nome do funcionário
+    $listaFiltrada = array_filter($listaFiltrada, function ($linha) use ($searchTerm) {
+        return stripos(strtolower($linha['nomeFuncionario']), $searchTerm) !== false;
+    });
+}
+
+// Agora, $listaFiltrada contém a lista de funcionários a ser exibida
+
+// Lógica para contar todos os funcionários
+$totalCadastrados = count($listaFiltrada);
+
+// Lógica para contar os funcionários ativos
+$totalAtivos = count($listaAtivos);
+
+// Lógica para contar os funcionários desativados
+$totalDesativados = count($listaDesativados);
 ?>
+
 
 
 <style>
@@ -30,6 +51,7 @@ if (isset($_POST['statusFuncionario'])) {
         color: #ffffff;
         font-size: 1.0em;
         margin-bottom: 0;
+
 
     }
 
@@ -47,7 +69,13 @@ if (isset($_POST['statusFuncionario'])) {
 
 
 
-
+<div>
+    <form action="" method="POST">
+        <label for="searchInput">Pesquisar Funcionário:</label>
+        <input type="text" id="searchInput" name="searchInput" placeholder="Digite o nome do funcionário">
+        <button type="submit">Pesquisar</button>
+    </form>
+</div>
 
 <div>
     <a class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="index.php?p=funcionarios&f=cadastrar">
@@ -59,28 +87,28 @@ if (isset($_POST['statusFuncionario'])) {
 </div>
 
 <!-- Formulário de filtro -->
+
+
+
 <form class="formStatus" action="" method="POST">
     <div>
         <select class="seleAtual" aria-label="Default select example" name="statusFuncionario">
-            <option value="" <?php echo ($statusFiltrar === '') ? 'selected' : ''; ?>>TODOS</option>
+            <option value="" <?php echo empty($statusFiltrar) ? 'selected' : ''; ?>>Seleciona o Status da Lista</option>
             <option value="ATIVO" <?php echo ($statusFiltrar === 'ATIVO') ? 'selected' : ''; ?>>ATIVOS</option>
             <option value="DESATIVADO" <?php echo ($statusFiltrar === 'DESATIVADO') ? 'selected' : ''; ?>>DESATIVADOS</option>
         </select>
         <button type="submit">Filtrar</button>
     </div>
     <div>
-        <?php if ($statusFiltrar !== 'ATIVO' && $statusFiltrar !== 'DESATIVADO') : ?>
-            <p class="total">Total de cadastrados: <?php echo $totalCadastrados; ?></p>
-        <?php endif; ?>
         <?php if ($statusFiltrar === 'ATIVO') : ?>
             <p class="total">Total de ativos: <?php echo $totalAtivos; ?></p>
         <?php elseif ($statusFiltrar === 'DESATIVADO') : ?>
-            <p class="total">Total de desativados: <?php echo count($listaFiltrada); ?></p>
+            <p class="total">Total de desativados: <?php echo $totalDesativados; ?></p>
+        <?php else : ?>
+            <p class="total">Total de cadastrados: <?php echo $totalCadastrados; ?></p>
         <?php endif; ?>
     </div>
-
 </form>
-
 
 <div class="table-container" id="arrastarMouse">
     <div>
@@ -89,7 +117,7 @@ if (isset($_POST['statusFuncionario'])) {
             <thead>
                 <tr>
                     <?php if ($statusFiltrar === 'DESATIVADO') : ?>
-                        <th>Ativar</th>
+                        <th></th>
                     <?php endif; ?>
                     <th>Foto</th>
                     <th>Nome</th>
@@ -101,8 +129,10 @@ if (isset($_POST['statusFuncionario'])) {
                     <th>Endereço</th>
                     <th>Telefone</th>
                     <th>Cep</th>
-                    <th>Atualizar</th>
-                    <th>Desativar</th>
+                    <?php if ($statusFiltrar !== 'DESATIVADO') : ?>
+                        <th>Atualizar</th>
+                        <th>Desativar</th>
+                    <?php endif; ?>
                 </tr>
             </thead>
 
@@ -113,9 +143,14 @@ if (isset($_POST['statusFuncionario'])) {
                         <tr>
                             <?php if ($statusFiltrar === 'DESATIVADO') : ?>
                                 <td>
-                                    <a class="btn btn-success" href="index.php?p=funcionarios&f=ativar&id=<?php echo $linha['idFuncionario']; ?>">
+                                    <a class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="index.php?p=funcionarios&f=ativar&id=<?php echo $linha['idFuncionario']; ?>" onclick="return confirmarAtivacao()">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-repeat" viewBox="0 0 16 16">
+                                            <path d="M11 5.466V4H5a4 4 0 0 0-3.584 5.777.5.5 0 1 1-.896.446A5 5 0 0 1 5 3h6V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192Zm3.81.086a.5.5 0 0 1 .67.225A5 5 0 0 1 11 13H5v1.466a.25.25 0 0 1-.41.192l-2.36-1.966a.25.25 0 0 1 0-.384l2.36-1.966a.25.25 0 0 1 .41.192V12h6a4 4 0 0 0 3.585-5.777.5.5 0 0 1 .225-.67Z" />
+                                        </svg>
                                         Ativar
                                     </a>
+
+
                                 </td>
                             <?php endif; ?>
                             <td class="func">
@@ -140,23 +175,24 @@ if (isset($_POST['statusFuncionario'])) {
 
 
 
-
-                            <td>
-                                <a class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="index.php?p=funcionarios&f=atualizar&id=<?php echo $linha['idFuncionario'] ?>">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-repeat" viewBox="0 0 16 16">
-                                        <path d="M11 5.466V4H5a4 4 0 0 0-3.584 5.777.5.5 0 1 1-.896.446A5 5 0 0 1 5 3h6V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192Zm3.81.086a.5.5 0 0 1 .67.225A5 5 0 0 1 11 13H5v1.466a.25.25 0 0 1-.41.192l-2.36-1.966a.25.25 0 0 1 0-.384l2.36-1.966a.25.25 0 0 1 .41.192V12h6a4 4 0 0 0 3.585-5.777.5.5 0 0 1 .225-.67Z" />
-                                    </svg>
-                                    Atualizar
-                                </a>
-                            </td>
-                            <td>
-                                <a class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="index.php?p=funcionarios&f=desativar&id= <?php echo $linha['idFuncionario'] ?>" onclick="return confirmarDesativacao()">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-repeat" viewBox="0 0 16 16">
-                                        <path d="M11 5.466V4H5a4 4 0 0 0-3.584 5.777.5.5 0 1 1-.896.446A5 5 0 0 1 5 3h6V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192Zm3.81.086a.5.5 0 0 1 .67.225A5 5 0 0 1 11 13H5v1.466a.25.25 0 0 1-.41.192l-2.36-1.966a.25.25 0 0 1 0-.384l2.36-1.966a.25.25 0 0 1 .41.192V12h6a4 4 0 0 0 3.585-5.777.5.5 0 0 1 .225-.67Z" />
-                                    </svg>
-                                    Desativar
-                                </a>
-                            </td>
+                            <?php if ($statusFiltrar !== 'DESATIVADO') : ?>
+                                <td>
+                                    <a class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="index.php?p=funcionarios&f=atualizar&id=<?php echo $linha['idFuncionario'] ?>">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-repeat" viewBox="0 0 16 16">
+                                            <path d="M11 5.466V4H5a4 4 0 0 0-3.584 5.777.5.5 0 1 1-.896.446A5 5 0 0 1 5 3h6V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192Zm3.81.086a.5.5 0 0 1 .67.225A5 5 0 0 1 11 13H5v1.466a.25.25 0 0 1-.41.192l-2.36-1.966a.25.25 0 0 1 0-.384l2.36-1.966a.25.25 0 0 1 .41.192V12h6a4 4 0 0 0 3.585-5.777.5.5 0 0 1 .225-.67Z" />
+                                        </svg>
+                                        Atualizar
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="index.php?p=funcionarios&f=desativar&id= <?php echo $linha['idFuncionario'] ?>" onclick="return confirmarDesativacao()">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-repeat" viewBox="0 0 16 16">
+                                            <path d="M11 5.466V4H5a4 4 0 0 0-3.584 5.777.5.5 0 1 1-.896.446A5 5 0 0 1 5 3h6V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192Zm3.81.086a.5.5 0 0 1 .67.225A5 5 0 0 1 11 13H5v1.466a.25.25 0 0 1-.41.192l-2.36-1.966a.25.25 0 0 1 0-.384l2.36-1.966a.25.25 0 0 1 .41.192V12h6a4 4 0 0 0 3.585-5.777.5.5 0 0 1 .225-.67Z" />
+                                        </svg>
+                                        Desativar
+                                    </a>
+                                </td>
+                            <?php endif; ?>
 
                         </tr>
                     <?php endif; ?>
