@@ -45,6 +45,19 @@ class FuncionarioClass
         return $lista;
     }
 
+    public function listarFuncionariosDesativados()
+    {
+        $sql = "SELECT * FROM tblfuncionarios WHERE statusFuncionario = 'DESATIVADO' ORDER BY idFuncionario ASC";
+        $conn = Conexao::LigarConexao();
+        $resultado = $conn->query($sql);
+        $listaDesativados = $resultado->fetchAll();
+        return $listaDesativados;
+    }
+    
+    
+
+
+
     public function Cadastrar()
     {
         $query = "INSERT INTO tblfuncionarios (
@@ -146,17 +159,5 @@ class FuncionarioClass
         $conn->exec($query);
     }
 
-
-    // ...
-
-    public function listarFuncionariosDesativados()
-    {
-        $sql = "SELECT * FROM tblfuncionarios WHERE statusFuncionario = 'DESATIVADO' ORDER BY idFuncionario ASC";
-        $conn = Conexao::LigarConexao();
-        $resultado = $conn->query($sql);
-        $listaDesativados = $resultado->fetchAll();
-        return $listaDesativados;
-    }
-
-    // ...
+   
 }

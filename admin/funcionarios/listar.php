@@ -2,17 +2,50 @@
 require_once('class/funcionario.php');
 $funcionario = new FuncionarioClass();
 
-$statusFiltrar = isset($_POST['statusFuncionario']) ? $_POST['statusFuncionario'] : '';
-$listaFiltrada = [];
+// Lógica para contar os funcionários
+$totalCadastrados = count($funcionario->listarFuncionario());
+$totalAtivos = count($funcionario->listarAtivos());
 
-if (empty($statusFiltrar) || $statusFiltrar === 'TODOS') {
-    $listaFiltrada = $funcionario->listarFuncionario();
-} elseif ($statusFiltrar === 'DESATIVADO') {
-    $listaFiltrada = $funcionario->listarFuncionariosDesativados();
+if (isset($_POST['statusFuncionario'])) {
+    $statusFiltrar = $_POST['statusFuncionario'];
+
+    if ($statusFiltrar === 'TODOS') {
+        $listaFiltrada = $funcionario->listarFuncionario();
+        $totalAtivos = count($listaFiltrada);
+    } elseif ($statusFiltrar === 'DESATIVADO') {
+        $listaFiltrada = $funcionario->listarFuncionariosDesativados();
+    } else {
+        $listaFiltrada = $funcionario->listarFuncionario();
+    }
 } else {
-    $listaFiltrada = $funcionario->listarAtivos(); // Use o método original para listar funcionários ativos
+    $statusFiltrar = '';
+    $listaFiltrada = $funcionario->listarFuncionario();
+    $totalAtivos = count($listaFiltrada);
 }
 ?>
+
+
+<style>
+    .total {
+        color: #ffffff;
+        font-size: 1.0em;
+        margin-bottom: 0;
+
+    }
+
+    .formStatus {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: space-around;
+        padding: 10px;
+    }
+</style>
+
+
+
+<!-- Mostra o status atual e total de cadastrados -->
+
+
 
 
 
@@ -26,7 +59,7 @@ if (empty($statusFiltrar) || $statusFiltrar === 'TODOS') {
 </div>
 
 <!-- Formulário de filtro -->
-<form action="" method="POST">
+<form class="formStatus" action="" method="POST">
     <div>
         <select class="seleAtual" aria-label="Default select example" name="statusFuncionario">
             <option value="" <?php echo ($statusFiltrar === '') ? 'selected' : ''; ?>>TODOS</option>
@@ -35,6 +68,17 @@ if (empty($statusFiltrar) || $statusFiltrar === 'TODOS') {
         </select>
         <button type="submit">Filtrar</button>
     </div>
+    <div>
+        <?php if ($statusFiltrar !== 'ATIVO' && $statusFiltrar !== 'DESATIVADO') : ?>
+            <p class="total">Total de cadastrados: <?php echo $totalCadastrados; ?></p>
+        <?php endif; ?>
+        <?php if ($statusFiltrar === 'ATIVO') : ?>
+            <p class="total">Total de ativos: <?php echo $totalAtivos; ?></p>
+        <?php elseif ($statusFiltrar === 'DESATIVADO') : ?>
+            <p class="total">Total de desativados: <?php echo count($listaFiltrada); ?></p>
+        <?php endif; ?>
+    </div>
+
 </form>
 
 
@@ -45,7 +89,6 @@ if (empty($statusFiltrar) || $statusFiltrar === 'TODOS') {
             <thead>
                 <tr>
                     <th>Foto</th>
-                    <th>ID Funcionario</th>
                     <th>Nome</th>
                     <th>Cargo</th>
                     <th>Data de Nascimento</th>
@@ -55,15 +98,16 @@ if (empty($statusFiltrar) || $statusFiltrar === 'TODOS') {
                     <th>Endereço</th>
                     <th>Telefone</th>
                     <th>Cep</th>
-                    <th>Status</th>
                     <th>Atualizar</th>
                     <th>Desativar</th>
                 </tr>
             </thead>
-            <?php foreach ($listaFiltrada as $linha) : ?>
-                <?php if (empty($statusFiltrar) || $linha['statusFuncionario'] === $statusFiltrar) : ?>
 
-                    <tbody>
+            <tbody>
+                <?php foreach ($listaFiltrada as $linha) : ?>
+                    <?php if (empty($statusFiltrar) || $linha['statusFuncionario'] === $statusFiltrar) : ?>
+
+
                         <tr>
                             <td class="func">
                                 <a href="../src/imagens/<?php echo $linha['fotoFuncionario'] ?>" data-lightbox="<?php echo $linha['nomeFuncionario'] ?>" data-title="<?php echo $linha['nomeFuncionario'] ?>">
@@ -72,7 +116,6 @@ if (empty($statusFiltrar) || $statusFiltrar === 'TODOS') {
 
 
                             </td>
-                            <td class="idfunc"><?php echo $linha['idFuncionario'] ?></td>
                             <td><?php echo $linha['nomeFuncionario'] ?></td>
                             <td><?php echo $linha['cargoFuncionario'] ?></td>
                             <td><?php echo date('d/m/Y', strtotime($linha['dataNascFuncionario'])) ?></td>
@@ -82,7 +125,16 @@ if (empty($statusFiltrar) || $statusFiltrar === 'TODOS') {
                             <td><?php echo $linha['enderecoFuncionario'] ?></td>
                             <td><?php echo $linha['telFuncionario'] ?></td>
                             <td><?php echo $linha['cepFuncionario'] ?></td>
-                            <td><?php echo $linha['statusFuncionario'] ?></td>
+
+                            <td>
+                                <?php if ($statusFiltrar === 'DESATIVADO') : ?>
+                                    <a class="btn btn-success" href="index.php?p=funcionarios&f=ativar&id=<?php echo $linha['idFuncionario']; ?>">
+                                        Ativar
+                                    </a>
+
+
+                                <?php endif; ?>
+                            </td>
 
 
 
@@ -113,7 +165,7 @@ if (empty($statusFiltrar) || $statusFiltrar === 'TODOS') {
 
 
 
-                    </tbody>
+            </tbody>
 
 
         </table>
