@@ -56,12 +56,6 @@ $(document).ready(function () {
   });
 });
 
-
-
-
-
-
-
 $(document).ready(function(){
   $('.tabacaria-slider-for').slick({
     slidesToShow: 1,
@@ -87,6 +81,14 @@ document.querySelector(".abrir-menu").onclick = function () {
 document.querySelector(".fechar-menu").onclick = function (){
   document.documentElement.classList.remove("menu-mobile");
 }
+
+
+
+
+
+
+
+
 
 
 

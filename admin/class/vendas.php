@@ -16,7 +16,7 @@ class VendasClass
     public $idProduto;
 
 
-    public function ListarVenda()
+    public function listarVendasAtivas()
     {
         
         // $sql =  "SELECT * FROM tblvendas ORDER BY idVenda ASC"; //
@@ -43,6 +43,43 @@ class VendasClass
         $lista = $resultado->fetchAll();
         return $lista;
     }
+    
+    public function listarVendasDesativadas()
+    {
+        
+        // $sql =  "SELECT * FROM tblvendas ORDER BY idVenda ASC"; //
+        $sql = "SELECT
+        v.idVenda,
+        v.statusVenda,
+        v.valorTotalVenda,
+        v.horaVenda,
+        v.dataVenda,
+        f.nomeFuncionario,
+        p.nomeProduto
+    FROM
+        tblvendas v
+    INNER JOIN
+        tblfuncionarios f ON v.idFuncionario = f.idFuncionario
+    INNER JOIN
+        tblprodutos p ON v.idProduto = p.idProduto
+    WHERE
+        v.statusVenda = 'DESATIVADO'";
+
+
+        $conn = Conexao::LigarConexao();
+        $resultado = $conn->query($sql);
+        $lista = $resultado->fetchAll();
+        return $lista;
+    }
+    public function ativar()
+{
+    $query = "UPDATE tblvendas SET statusVenda ='ATIVO' WHERE idVenda = " . $this->idVenda;
+    $conn = Conexao::LigarConexao();
+    $conn->exec($query);
+}
+
+
+
 
     public function Cadastrar()
     {

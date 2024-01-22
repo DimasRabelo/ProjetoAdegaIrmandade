@@ -116,7 +116,7 @@ main {
 }
 
 ul {
-    padding: 50px 0px;
+    padding: 73px 20px;
 }
 
 ul li {
@@ -375,4 +375,28 @@ button {
 }
 .seleAtual{
     width: 358px;
+}
+
+/* Estilização do pesquisar e do status do select */
+
+.total {
+    color: #ffffff;
+    font-size: 1.0em;
+    margin-bottom: 0;
+
+
+}
+
+.formStatus {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.CampoPes {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    background: none;
 }

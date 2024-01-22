@@ -25,15 +25,30 @@ class FuncionarioClass
     public $fotoFuncionario;
 
 
-    public function listarFuncionario()
+
+   
+
+    public function listarAtivos()
     {
         $sql = "SELECT * FROM tblfuncionarios WHERE statusFuncionario = 'ATIVO' ORDER BY idFuncionario ASC";
-       // $sql =  "SELECT * FROM tblfuncionarios ORDER BY idFuncionario ASC"; 
         $conn = Conexao::LigarConexao();
         $resultado = $conn->query($sql);
         $lista = $resultado->fetchAll();
         return $lista;
     }
+
+    public function listarDesativados()
+    {
+        $sql = "SELECT * FROM tblfuncionarios WHERE statusFuncionario = 'DESATIVADO' ORDER BY idFuncionario ASC";
+        $conn = Conexao::LigarConexao();
+        $resultado = $conn->query($sql);
+        $listaDesativados = $resultado->fetchAll();
+        return $listaDesativados;
+    }
+    
+    
+
+
 
     public function Cadastrar()
     {
@@ -50,17 +65,17 @@ class FuncionarioClass
         statusFuncionario, 
         fotoFuncionario
     ) VALUES (
-        '".$this->nomeFuncionario."',
-        '" .$this->cargoFuncionario."',
-        '".$this->dataNascFuncionario."',
-        '".$this->emailFuncionario."',
-        '".$this->nivelFuncionario."',
-        '".$this->dataAdmissaoFuncionario."',
-        '".$this->enderecoFuncionario."',
-        '".$this->telFuncionario."',
-        '".$this->cepFuncionario."',
-        '".$this->statusFuncionario."',
-        '".$this->fotoFuncionario."'
+        '" . $this->nomeFuncionario . "',
+        '" . $this->cargoFuncionario . "',
+        '" . $this->dataNascFuncionario . "',
+        '" . $this->emailFuncionario . "',
+        '" . $this->nivelFuncionario . "',
+        '" . $this->dataAdmissaoFuncionario . "',
+        '" . $this->enderecoFuncionario . "',
+        '" . $this->telFuncionario . "',
+        '" . $this->cepFuncionario . "',
+        '" . $this->statusFuncionario . "',
+        '" . $this->fotoFuncionario . "'
     )";
 
         $conn = Conexao::LigarConexao();
@@ -71,11 +86,10 @@ class FuncionarioClass
 
     public function __construct($id = false)
     {
-       
+
         if ($id) {
             $this->idFuncionario = $id;
-            $this->Carregar(); 
-            
+            $this->Carregar();
         }
     }
 
@@ -132,8 +146,20 @@ class FuncionarioClass
     public function desativar()
     {
         $query = "UPDATE tblfuncionarios SET statusFuncionario ='DESATIVADO' WHERE idFuncionario = " . $this->idFuncionario;
-        
+
         $conn = Conexao::LigarConexao();
         $conn->exec($query);
     }
+
+    public function ativar()
+    {
+        $query = "UPDATE tblfuncionarios SET statusFuncionario ='ATIVO' WHERE idFuncionario = " . $this->idFuncionario;
+
+        $conn = Conexao::LigarConexao();
+        $conn->exec($query);
+    }
+
+
+
+
 }

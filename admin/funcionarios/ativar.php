@@ -1,5 +1,3 @@
-
-
 <?php
 
 if (isset($_GET['id'])) {
@@ -9,11 +7,11 @@ if (isset($_GET['id'])) {
     $funcionario = new FuncionarioClass($id);
 
 
-    $funcionario->desativar();
+    $funcionario->ativar();
 
     // Redireciona de volta para a lista após a desativação
-    echo "<script>document.location='index.php?p=funcionarios'</script>";
+    echo "<script>document.location='index.php?p=funcionarios '</script>";
     exit;
+    
 }
 
-?>

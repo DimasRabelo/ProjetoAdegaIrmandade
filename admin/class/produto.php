@@ -18,15 +18,40 @@ class ProdutoClass
     public $dataReceProduto;
 
 
-    public function listarProduto()
+
+
+    public function listarProdutosAtivos()
     {
         $sql = "SELECT * FROM tblprodutos WHERE statusProduto = 'ATIVO' ORDER BY idProduto ASC";
-        // $sql =  "SELECT * FROM tblprodutos ORDER BY idProduto ASC"; //
         $conn = Conexao::LigarConexao();
         $resultado = $conn->query($sql);
         $lista = $resultado->fetchAll();
         return $lista;
     }
+
+    public function listarProdutosDesativados()
+    {
+        $sql = "SELECT * FROM tblprodutos WHERE statusProduto = 'DESATIVADO' ORDER BY idProduto ASC";
+        $conn = Conexao::LigarConexao();
+        $resultado = $conn->query($sql);
+        $listaDesativados = $resultado->fetchAll();
+        return $listaDesativados;
+    }
+
+    public function ativar()
+    {
+        $query = "UPDATE tblprodutos SET statusProduto ='ATIVO' WHERE idProduto = " . $this->idProduto;
+
+        $conn = Conexao::LigarConexao();
+        $conn->exec($query);
+    }
+
+
+
+
+
+
+
     public function Cadastrar()
     {
         $query = "INSERT INTO tblprodutos (

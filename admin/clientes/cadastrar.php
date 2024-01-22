@@ -4,7 +4,7 @@ if (isset($_POST['nomeUsuario'])) {
     $nomeUsuario = $_POST['nomeUsuario'];
     $emailUsuario = $_POST['emailUsuario'];
     $senhaUsuario = $_POST['senhaUsuario'];
-    $fotoUsuario = $_POST['nomeUsuario'];
+   
 
     $arquivo = $_FILES['fotoUsuario'];
 
