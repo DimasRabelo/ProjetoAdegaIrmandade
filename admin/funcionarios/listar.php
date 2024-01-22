@@ -2,16 +2,12 @@
 require_once('class/funcionario.php');
 $funcionario = new FuncionarioClass();
 
-<<<<<<< HEAD
-var_dump($lista)
-=======
 // Inicializa a lista completa de funcionários ativos
 $listaAtivos = $funcionario->listarAtivos();
 $listaDesativados = $funcionario->listarDesativados();
 
 // Inicializa a lista filtrada combinando ambas as listas
 $listaFiltrada = array_merge($listaAtivos, $listaDesativados);
->>>>>>> c53bc602c67dfdace81db60057eab02bda5b5647
 
 // Inicializa a variável $statusFiltrar
 $statusFiltrar = '';
