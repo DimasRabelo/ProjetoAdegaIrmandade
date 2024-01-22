@@ -71,10 +71,11 @@ $totalDesativados = count($listaDesativados);
 <form class="formStatus" action="" method="POST">
     <div>
         <select class="seleAtual" aria-label="Default select example" name="statusFuncionario">
-        <option value="" selected disabled>Selecione um Status da Lista</option>
-        <option value="" <?php echo empty($statusFiltrar) ? 'selected' : ''; ?>>LISTA GERAL</option>
+            <option value="" selected disabled>Selecione um Status da Lista</option>
+            <option value="" <?php echo empty($statusFiltrar) ? 'selected' : ''; ?>>LISTA GERAL</option>
             <option value="ATIVO" <?php echo ($statusFiltrar === 'ATIVO') ? 'selected' : ''; ?>>ATIVOS</option>
             <option value="DESATIVADO" <?php echo ($statusFiltrar === 'DESATIVADO') ? 'selected' : ''; ?>>DESATIVADOS</option>
+
         </select>
         <button type="submit">Filtrar</button>
     </div>
