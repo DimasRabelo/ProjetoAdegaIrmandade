@@ -41,8 +41,6 @@ public function ListarContato(){
 }
 
 
-
-
 } 
 
 // Fim da class Contato

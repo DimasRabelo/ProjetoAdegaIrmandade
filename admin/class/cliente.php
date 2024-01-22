@@ -25,6 +25,34 @@ class ClienteClass
 
   }
 
+  public function ListarClienteDesativados()
+  {
+   $sql = "SELECT * FROM tblusuarios WHERE statusUsuario = 'DESATIVADO' ORDER BY idUsuario ASC";
+   $conn = Conexao::LigarConexao();
+   $resultado = $conn->query($sql);
+   $lista = $resultado->fetchAll();
+   return $lista;
+
+ }
+
+
+
+
+
+  public function ativar()
+  {
+      $query = "UPDATE tblusuarios SET statusUsuario ='ATIVO' WHERE idUsuario = " . $this->idUsuario;
+
+      $conn = Conexao::LigarConexao();
+      $conn->exec($query);
+  }
+
+
+
+
+
+
+
   public function Cadastrar()
 {
     $query = "INSERT INTO tblusuarios (

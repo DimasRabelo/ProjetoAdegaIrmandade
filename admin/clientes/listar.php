@@ -1,13 +1,47 @@
-
 <?php
 require_once('class/cliente.php');
 $cliente = new ClienteClass();
-$lista = $cliente->ListarCliente();
 
+// Inicializa a lista completa de funcionários ativos
+$listaAtivos = $cliente->ListarCliente();
+$listaDesativados = $cliente->ListarClienteDesativados();
 
+// Inicializa a lista filtrada combinando ambas as listas
+$listaFiltrada = array_merge($listaAtivos, $listaDesativados);
 
+// Inicializa a variável $statusFiltrar
+$statusFiltrar = '';
+
+// Verifica se o filtro de status foi aplicado
+if (isset($_POST['statusUsuario'])) {
+    $statusFiltrar = $_POST['statusUsuario'];
+
+    if ($statusFiltrar === 'desativado') {
+        $listaFiltrada = $listaDesativados;
+    }
+}
+
+// Verifica se a pesquisa por nome foi submetida
+if (isset($_POST['searchInput'])) {
+    $searchTerm = strtolower($_POST['searchInput']);
+
+    // Filtra a lista com base no nome do funcionário
+    $listaFiltrada = array_filter($listaFiltrada, function ($linha) use ($searchTerm) {
+        return stripos(strtolower($linha['nomeUsuario']), $searchTerm) !== false;
+    });
+}
+
+// Agora, $listaFiltrada contém a lista de funcionários a ser exibida
+
+// Lógica para contar todos os funcionários
+$totalCadastrados = count($listaFiltrada);
+
+// Lógica para contar os funcionários ativos
+$totalAtivos = count($listaAtivos);
+
+// Lógica para contar os funcionários desativados
+$totalDesativados = count($listaDesativados);
 ?>
-
 
 
 
@@ -22,6 +56,37 @@ $lista = $cliente->ListarCliente();
 
 </div>
 
+<div>
+    <form class="CampoPes" action="" method="POST">
+        <input type="text" id="searchInput" name="searchInput" placeholder="Digite o nome do Usuario">
+        <button type="submit">Pesquisar</button>
+    </form>
+</div>
+
+<!-- Formulário de filtro -->
+
+<form class="formStatus" action="" method="POST">
+    <div>
+        <select class="seleAtual" aria-label="Default select example" name="statusUsuario">
+            <option value="" selected disabled>Selecione um Status da Lista</option>
+            <option value="" <?php echo empty($statusFiltrar) ? 'selected' : ''; ?>>LISTA GERAL</option>
+            <option value="ATIVO" <?php echo ($statusFiltrar === 'ATIVO') ? 'selected' : ''; ?>>ATIVOS</option>
+            <option value="DESATIVADO" <?php echo ($statusFiltrar === 'DESATIVADO') ? 'selected' : ''; ?>>DESATIVADOS</option>
+        </select>
+        <button type="submit">Filtrar</button>
+    </div>
+    <div>
+        <?php if ($statusFiltrar === 'ATIVO') : ?>
+            <p class="total">Total de ativos: <?php echo $totalAtivos; ?></p>
+        <?php elseif ($statusFiltrar === 'DESATIVADO') : ?>
+            <p class="total">Total de desativados: <?php echo $totalDesativados; ?></p>
+        <?php else : ?>
+            <p class="total">Lista Geral de Cadastro: <?php echo $totalCadastrados; ?></p>
+        <?php endif; ?>
+    </div>
+</form>
+
+
 
 <div class="table-container" id="arrastarMouse">
     <div>
@@ -29,7 +94,6 @@ $lista = $cliente->ListarCliente();
             <caption>Lista de Usuarios</caption>
             <thead>
                 <tr>
-                    <th>ID Usuario</th>
                     <th>Nome</th>
                     <th>Email</th>
                     <th>Senha</th>
@@ -37,48 +101,65 @@ $lista = $cliente->ListarCliente();
                     <th>Status</th>
                     <th>Atualizar</th>
                     <th>Desativar</th>
-    
+
                 </tr>
             </thead>
-            <?php foreach ($lista as $linha) : ?>
 
-                <tbody>
-                    <tr>
-                         <td class="usua"><?php echo $linha['idUsuario'] ?></td>
-                        <td><?php echo $linha['nomeUsuario'] ?></td>
-                        <td><?php echo $linha['emailUsuario'] ?></td>
-                        <td><?php echo $linha['senhaUsuario'] ?></td>
-                        <td class="fotoUser"  >
-                            <a href="../src/imagens/<?php echo $linha['fotoUsuario'] ?>" data-lightbox="<?php echo $linha['nomeUsuario'] ?>" data-title="<?php echo $linha['nomeUsuario'] ?>">
-                                <img src="../src/imagens/<?php echo $linha['fotoUsuario'] ?>" data-alt="<?php echo $linha['nomeUsuario'] ?>">
-                            </a>
-                        </td>
-                        <td><?php echo $linha['statusUsuario'] ?></td>
-                        <td>
-                            <a class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="index.php?p=clientes&c=atualizar&id=<?php echo $linha['idUsuario'] ?>">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-repeat" viewBox="0 0 16 16">
-                                    <path d="M11 5.466V4H5a4 4 0 0 0-3.584 5.777.5.5 0 1 1-.896.446A5 5 0 0 1 5 3h6V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192Zm3.81.086a.5.5 0 0 1 .67.225A5 5 0 0 1 11 13H5v1.466a.25.25 0 0 1-.41.192l-2.36-1.966a.25.25 0 0 1 0-.384l2.36-1.966a.25.25 0 0 1 .41.192V12h6a4 4 0 0 0 3.585-5.777.5.5 0 0 1 .225-.67Z" />
-                                </svg>
-                                Atualizar
-                            </a>
-                        </td>
-                        <td>
-                            <a class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="index.php?p=clientes&c=desativar&id=<?php echo $linha['idUsuario'] ?>" onclick="return confirmarDesativacao()" >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-repeat" viewBox="0 0 16 16">
-                                    <path d="M11 5.466V4H5a4 4 0 0 0-3.584 5.777.5.5 0 1 1-.896.446A5 5 0 0 1 5 3h6V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192Zm3.81.086a.5.5 0 0 1 .67.225A5 5 0 0 1 11 13H5v1.466a.25.25 0 0 1-.41.192l-2.36-1.966a.25.25 0 0 1 0-.384l2.36-1.966a.25.25 0 0 1 .41.192V12h6a4 4 0 0 0 3.585-5.777.5.5 0 0 1 .225-.67Z" />
-                                </svg>
-                                Desativar
-                            </a>
-                        </td>
+            <tbody>
+                <?php foreach ($listaFiltrada as $linha) : ?>
+                    <?php if (empty($statusFiltrar) || $linha['statusUsuario'] === $statusFiltrar) : ?>
 
-                    </tr>
-                <?php endforeach ?>
-              
+                        <tr>
+                            <td><?php echo $linha['nomeUsuario'] ?></td>
+                            <td><?php echo $linha['emailUsuario'] ?></td>
+                            <td><?php echo $linha['senhaUsuario'] ?></td>
+                            <td class="fotoUser">
+                                <a href="../src/imagens/<?php echo $linha['fotoUsuario'] ?>" data-lightbox="<?php echo $linha['nomeUsuario'] ?>" data-title="<?php echo $linha['nomeUsuario'] ?>">
+                                    <img src="../src/imagens/<?php echo $linha['fotoUsuario'] ?>" data-alt="<?php echo $linha['nomeUsuario'] ?>">
+                                </a>
+                            </td>
+                            <td><?php echo $linha['statusUsuario'] ?></td>
+
+                            <?php if ($statusFiltrar !== 'DESATIVADO') : ?>
+                                <td>
+                                    <a class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="index.php?p=clientes&c=atualizar&id=<?php echo $linha['idUsuario'] ?>">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-repeat" viewBox="0 0 16 16">
+                                            <path d="M11 5.466V4H5a4 4 0 0 0-3.584 5.777.5.5 0 1 1-.896.446A5 5 0 0 1 5 3h6V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192Zm3.81.086a.5.5 0 0 1 .67.225A5 5 0 0 1 11 13H5v1.466a.25.25 0 0 1-.41.192l-2.36-1.966a.25.25 0 0 1 0-.384l2.36-1.966a.25.25 0 0 1 .41.192V12h6a4 4 0 0 0 3.585-5.777.5.5 0 0 1 .225-.67Z" />
+                                        </svg>
+                                        Atualizar
+                                    </a>
+                                </td>
+                            <?php endif; ?>
+                            <td>
+                                <?php if ($statusFiltrar === 'DESATIVADO') : ?>
+
+                                    <a class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="index.php?p=clientes&c=ativar&id=<?php echo $linha['idUsuario']; ?>" onclick="return confirmarAtivacao()">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-repeat" viewBox="0 0 16 16">
+                                            <path d="M11 5.466V4H5a4 4 0 0 0-3.584 5.777.5.5 0 1 1-.896.446A5 5 0 0 1 5 3h6V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192Zm3.81.086a.5.5 0 0 1 .67.225A5 5 0 0 1 11 13H5v1.466a.25.25 0 0 1-.41.192l-2.36-1.966a.25.25 0 0 1 0-.384l2.36-1.966a.25.25 0 0 1 .41.192V12h6a4 4 0 0 0 3.585-5.777.5.5 0 0 1 .225-.67Z" />
+                                        </svg>
+                                        Ativar
+                                    </a>
+
+                                <?php endif; ?>
+
+                            </td>
+                            <td>
+                                <a class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="index.php?p=clientes&c=desativar&id=<?php echo $linha['idUsuario'] ?>" onclick="return confirmarDesativacao()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-repeat" viewBox="0 0 16 16">
+                                        <path d="M11 5.466V4H5a4 4 0 0 0-3.584 5.777.5.5 0 1 1-.896.446A5 5 0 0 1 5 3h6V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192Zm3.81.086a.5.5 0 0 1 .67.225A5 5 0 0 1 11 13H5v1.466a.25.25 0 0 1-.41.192l-2.36-1.966a.25.25 0 0 1 0-.384l2.36-1.966a.25.25 0 0 1 .41.192V12h6a4 4 0 0 0 3.585-5.777.5.5 0 0 1 .225-.67Z" />
+                                    </svg>
+                                    Desativar
+                                </a>
+                            </td>
+
+                        </tr>
+                    <?php endif; ?>
+                <?php endforeach; ?>
 
 
 
 
-                </tbody>
+            </tbody>
 
 
         </table>
