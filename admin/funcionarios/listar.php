@@ -195,7 +195,6 @@ $totalDesativados = count($listaDesativados);
 
             </tbody>
 
-
         </table>
     </div>
 </div>
