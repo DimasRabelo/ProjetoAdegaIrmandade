@@ -9,4 +9,6 @@ if ($pagina == NULL) {
     if($pagina == 'cadastrar') { require_once('cadastrar.php');}
     if($pagina ==  'atualizar') { require_once('atualizar.php');}    
     if($pagina == 'desativar' ) { require_once('desativar.php');}
+    if($pagina == 'ativar' ) { require_once('ativar.php');}
 }
+
