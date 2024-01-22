@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 22/01/2024 às 10:33
+-- Tempo de geração: 22/01/2024 às 16:00
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.0.28
 
@@ -111,12 +111,12 @@ CREATE TABLE `tblestoque` (
 INSERT INTO `tblestoque` (`idEstoque`, `nomeEstoque`, `quantidadeEstoque`, `dataCadastroEstoque`, `dataAtualiEstoque`, `statusEstoque`, `horaEstoque`, `idProduto`) VALUES
 (3, '', 900, '2023-12-21', '2023-10-01', 'ATIVO', '19:01:29', 1),
 (4, '', 200, '2023-12-21', '2023-10-05', 'ATIVO', '19:01:29', 2),
-(5, 'whiskis', 400, '2023-12-21', '2023-10-17', 'DESATIVADO', '19:01:29', 3),
-(6, 'CERVEJAS', 800, '2023-12-21', '2023-10-23', 'DESATIVADO', '19:01:29', 4),
-(7, '', 150, '2023-12-21', '2023-10-12', 'DESATIVADO', '19:01:29', 5),
-(8, '', 750, '2023-12-21', '2023-10-01', 'ATIVO', '19:01:29', 6),
-(9, '', 900, '2023-12-21', '2023-10-02', 'ATIVO', '19:01:29', 7),
-(10, '', 600, '2023-12-21', '2023-10-18', 'ATIVO', '19:01:29', 8),
+(5, '', 400, '2023-12-21', '2023-10-17', 'ATIVO', '19:01:29', 3),
+(6, 'CERVEJAS', 800, '2023-12-21', '2023-10-23', 'ATIVO', '19:01:29', 4),
+(7, '', 150, '2023-12-21', '2023-10-12', 'ATIVO', '19:01:29', 5),
+(8, '', 750, '2023-12-21', '2023-10-01', 'DESATIVADO', '19:01:29', 6),
+(9, '', 900, '2023-12-21', '2023-10-02', 'DESATIVADO', '19:01:29', 7),
+(10, '', 600, '2023-12-21', '2023-10-18', 'DESATIVADO', '19:01:29', 8),
 (11, '', 550, '2023-12-21', '2023-10-31', 'ATIVO', '19:01:29', 9),
 (12, '', 300, '2023-12-21', '2023-10-22', 'ATIVO', '19:01:29', 10),
 (13, 'Cervejas', 600, '2023-12-21', '2023-12-21', 'ATIVO', '21:55:04', 5);
@@ -153,8 +153,8 @@ CREATE TABLE `tblfuncionarios` (
 
 INSERT INTO `tblfuncionarios` (`idFuncionario`, `nomeFuncionario`, `altFuncionario`, `cargoFuncionario`, `dataNascFuncionario`, `emailFuncionario`, `senhaFuncionario`, `nivelFuncionario`, `dataAdmissaoFuncionario`, `enderecoFuncionario`, `telFuncionario`, `cepFuncionario`, `statusFuncionario`, `fotoFuncionario`, `linkFaceFuncionario`, `linkInstaFuncionario`, `linkWhatsFuncionario`) VALUES
 (1, 'ALAN COELHO BUENO', 'Foto/Funcionario/Gerente', 'GERENTE', '1990-06-16', 'alanloop@gmail.com', '', 'ADMINISTRADOR', '2021-03-02', 'Rua: Antonio Pinto Ferreira Filho,85', '1199878-5676', '08121-005', 'DESATIVADO', 'funcionario/alan1.png', 'alancoelho/facebook.com', '@alancoelho', '11911226677/whatsapp'),
-(2, 'Wagniton Coelho ', 'Foto/Funcionario/Gerente', 'SUPERVISOR', '1991-06-10', 'wagnitoncoelho@gmail.com', 'senha345', 'ADMINISTRADOR', '2021-03-02', 'Rua: Albuquerque freitas-08', '1199777-6666', '08100-005', 'DESATIVADO', 'funcionario/wagniton.png', 'wagnitoncoelho/facebook.com', '@wagnitoncoelho', '11923457689/whatsapp'),
-(4, 'Enzo Gouveia', 'Foto/Funcionario/ATENDENTE', 'AUXILIAR', '1995-05-12', 'enzogouvei@gmail.com', 'senhaABC', 'USUARIO', '2021-03-20', 'Rua: A - 24', '1198965-3232', '08123-010', 'ATIVO', 'funcionario/enzo.png', 'enzogouveia/facebook.com', '@enzogouveia', '11912875600/whatsapp'),
+(2, 'Wagniton Coelho ', 'Foto/Funcionario/Gerente', 'SUPERVISOR', '1991-06-10', 'wagnitoncoelho@gmail.com', 'senha345', 'ADMINISTRADOR', '2021-03-02', 'Rua: Albuquerque freitas-08', '1199777-6666', '08100-005', 'ATIVO', 'funcionario/wagniton.png', 'wagnitoncoelho/facebook.com', '@wagnitoncoelho', '11923457689/whatsapp'),
+(4, 'Enzo Gouveia', 'Foto/Funcionario/ATENDENTE', 'AUXILIAR', '1995-05-12', 'enzogouvei@gmail.com', 'senhaABC', 'USUARIO', '2021-03-20', 'Rua: A - 24', '1198965-3232', '08123-010', 'DESATIVADO', 'funcionario/enzo.png', 'enzogouveia/facebook.com', '@enzogouveia', '11912875600/whatsapp'),
 (9, 'Renato Ocela', 'Foto/Funcionario/ajudante', 'AJUDANTE', '1989-05-02', 'renatoocela@gmail.com', 'senha#3F', 'USUARIO', '2021-03-02', 'Rua: Renata Agondi,10', '1199999-5577', '02122-105', 'ATIVO', 'funcionario/renato.png', 'renato/facebook.com', '@renato', '11999995577/whatsapp'),
 (10, 'Marlene Rabelo', 'Foto/Funcionario/ajudante', 'AJUDANTE', '1985-12-05', 'marlenerabelo@gmail.com', 'senhaJLM', 'USUARIO', '2021-03-10', 'Rua: Chuva da Montanha,13', '1195889-6161', '09100-006', 'ATIVO', 'funcionario/marlene.png', 'marlenesouza/facebook.com', '@marlenesouza', '11958896161/whatsapp'),
 (12, 'Artur Alvim', 'Foto/Funcionario/ajudante', 'AJUDANTE', '1995-05-11', 'arturalvim@gmail.com', 'senha456', 'USUARIO', '2021-03-01', 'Rua: Manoel Tobias,344', '1195012-3408', '03010-330', 'ATIVO', 'funcionario/arturalvim.png', 'arturalvim/facebook.com', '@arturalvim', '11950123408/whatsapp'),
@@ -162,10 +162,8 @@ INSERT INTO `tblfuncionarios` (`idFuncionario`, `nomeFuncionario`, `altFuncionar
 (14, 'Ludmila Ribeiro', 'Foto/Funcionario/recepcionista', 'RECEPCIONISTA', '2006-04-14', 'ludmilaribeiro@gmail.com', 'senha980', 'USUARIO', '2021-03-01', 'Rua: Pedro Gil,50', '1191122-8989', '03300-400', 'ATIVO', 'funcionario/ludmila.png', 'ludmilaribeiro/facebook.com', '@ludmilaribeiro', '11911228989/whatsapp'),
 (15, 'Emilly Ribeiro', 'Foto/Funcionario/atendente', 'ATENDENTE', '2000-01-31', 'emillyribeiro@gmail.com', 'senhaKML', 'USUARIO', '2023-08-20', 'Rua: Tijuco Preto,45', '1193456-1111', '22331-010', 'ATIVO', 'funcionario/emillyribeiro.png', 'emillyribeiro/facebook.com', '@emilly', '11934561111/whatsapp'),
 (16, 'Gorete Milagres', 'Foto/Funcionario/Gerente', 'GERENTE', '1978-06-20', 'gorete@gmail.com', 'senha2023', 'ADMINISTRADOR', '2023-11-19', 'Rua:Coração Paulista', '1199999-6666', '08121-115', 'ATIVO', 'funcionario/gorete.png', 'goretemilagre/facebook.com', '@goretemilagre', '1199999-6666/whatsapp'),
-(17, 'FERNANDA MELLO', '', 'Administradora', '1990-05-25', 'fernanda@bol.com', '', 'Usuario', '2023-12-12', 'Rua Diego Sande, 670', '(11) 99999-9999', '08121-005', 'DESATIVADO', 'funcionario/fernanda.png', '', '', ''),
-(18, 'joão Alvares', '', 'atendente', '2001-09-15', 'joaolavares@gmail.com', '', 'Usuario', '2023-11-01', 'Rua bacardi, 34', '(11) 99999-0000', '08121-005', 'ATIVO', 'funcionario/joao-guilherme.png', '', '', ''),
-(19, 'Diego da Costa Silva', '', 'Gestor de Compras', '1985-07-01', 'diegocosta@gmail.com', '', 'Administrador', '2024-01-20', 'Rua Soldado Geraldo Augusto, 34', '(11) 96565-8989', '08121-005', 'ATIVO', 'funcionario/diego.png', '', '', ''),
-(20, 'Seshomaru Yakashaky', '', 'Gerente de Vendas', '1990-07-25', 'seshomaru@gmail.com', '', 'Administrador', '2024-01-21', 'Rua Bernadino Alves, 654', '(11) 97878-9594', '08234-666', 'ATIVO', 'funcionario/sesshomaru.png', '', '', '');
+(17, 'FERNANDA MELLO', '', 'Administradora', '1990-05-25', 'fernanda@bol.com', '', 'Usuario', '2023-12-12', 'Rua Diego Sande, 67', '(11) 99999-9999', '08121-005', 'ATIVO', 'funcionario/fernanda.png', '', '', ''),
+(18, 'joão Alvares', '', 'atendente', '2001-09-15', 'joaolavares@gmail.com', '', 'Usuario', '2023-11-01', 'Rua bacardi, 34', '(11) 99999-0000', '08121-005', 'ATIVO', 'funcionario/joao-guilherme.png', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -253,7 +251,7 @@ INSERT INTO `tblprodutos` (`idProduto`, `nomeProduto`, `descricaoProduto`, `cate
 (6, 'WhiteHorse1LT', 'Bebidas Destilada', 'Alcoólico', 'ATIVO', 45.00, 70.00, 'Assaí', '2023-10-20', '18:06:40'),
 (7, 'CarvãodeCocoZomo', 'Narguilé', 'Tabacaria', 'ATIVO', 4.00, 6.00, 'Assaí', '2023-10-21', '18:06:40'),
 (8, 'Amstel269ml', 'Cervejas', 'Alcoólico', 'ATIVO', 2.00, 3.00, 'Assaí', '2023-10-25', '18:06:40'),
-(9, 'fanta350ml', 'Refrigerantes', 'Não Alcoólico', 'ATIVO', 2.50, 4.00, 'Assaí', '2023-10-28', '18:06:40'),
+(9, 'fanta350ml', 'Refrigerantes', 'Não Alcoólico', 'DESATIVADO', 2.50, 4.00, 'Assaí', '2023-10-28', '18:06:40'),
 (10, 'h2o500ml', 'Refrigerantes', 'Não Alcoólico', 'DESATIVADO', 1.50, 3.00, 'Assaí', '2023-10-15', '18:06:40'),
 (11, 'Jack Daniels', 'Whysky', 'ALCOOLICO', 'DESATIVADO', 80.00, 120.00, 'Assaí', '2023-12-21', '18:50:46');
 
@@ -277,7 +275,7 @@ CREATE TABLE `tblusuarios` (
 --
 
 INSERT INTO `tblusuarios` (`idUsuario`, `nomeUsuario`, `emailUsuario`, `senhaUsuario`, `fotoUsuario`, `statusUsuario`) VALUES
-(1, 'Dimas Aparecido Rabelo de Souza', 'dimas.rabelo@gmail.com', 'senha123', 'Usuario/dimocas.png', 'ATIVO'),
+(1, 'Dimas Aparecido Rabelo de Souza', 'dimas.rabelo@gmail.com', 'senha123', 'Usuario/dimocas.png', 'DESATIVADO'),
 (2, 'Sandra Macedo', 'sandra.marques@gmail.com', 'senha456', 'Usuario/sandra.png', 'ATIVO'),
 (3, 'Nicole Cutri', 'nicole.cutri@gmail.com', 'senha789', 'Usuario/nicole.png', 'ATIVO');
 
@@ -305,7 +303,7 @@ INSERT INTO `tblvendas` (`idVenda`, `dataVenda`, `horaVenda`, `statusVenda`, `va
 (1, '2023-11-01', '05:00:55', 'ATIVO', 15.00, 1, 1),
 (2, '2023-11-01', '05:00:55', 'ATIVO', 80.00, 2, 2),
 (4, '2023-11-03', '05:00:55', 'ATIVO', 120.00, 4, 4),
-(9, '2023-11-05', '05:00:55', 'DESATIVADO', 70.00, 9, 9),
+(9, '2023-11-05', '05:00:55', 'ATIVO', 70.00, 9, 9),
 (10, '2023-11-06', '05:00:55', 'ATIVO', 24.00, 10, 10);
 
 -- --------------------------------------------------------
