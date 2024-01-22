@@ -3,7 +3,7 @@ require_once('class/funcionario.php');
 $funcionario = new FuncionarioClass();
 $lista = $funcionario->ListarFuncionario();
 
-
+var_dump($lista)
 
 ?>
 
