@@ -71,7 +71,7 @@
             require_once('class/produto.php');
 
             $produtoClass = new ProdutoClass();
-            $produtos = $produtoClass->ListarProduto();
+            $produtos = $produtoClass->listarProdutosAtivos();
 
             foreach ($produtos as $produto) {
                 echo "<option value='{$produto['idProduto']}'>{$produto['nomeProduto']}</option>";

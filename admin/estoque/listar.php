@@ -52,7 +52,6 @@ $totalDesativados = count($listaDesativados);
 
 
 
-
 <div>
     <a class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="index.php?p=estoque&e=cadastrar">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-repeat" viewBox="0 0 16 16">
@@ -106,17 +105,14 @@ $totalDesativados = count($listaDesativados);
                     <?php if ($statusFiltrar === 'DESATIVADO') : ?>
                         <th></th>
                     <?php endif; ?>
-                    <th>Nome do Estoque</th>
-                    <th>Nome do Produto</th>
-                    <?php if ($statusFiltrar !== 'ATIVO' && $statusFiltrar !== 'DESATIVADO') : ?>
-                        <th>Status</th>
-                    <?php endif; ?>
+                    <th>Estoque</th>
+                    <th>Produto</th>
                     <?php if ($statusFiltrar !== 'DESATIVADO') : ?>
-                        <th>Atualizar</th>
-                        <th>Desativar</th>
+                        <th>Alterar ou Desativar</th>
+                        
                     <?php endif; ?>
-                    <th>Quantidade em Estoque</th>
-                    <th>Data de Cadastro</th>
+                    <th>Quantidade</th>
+                    <th>Data Cadastro</th>
                     <th>Data Atualização</th>
                     <th>Hora</th>
                     
@@ -138,26 +134,16 @@ $totalDesativados = count($listaDesativados);
                             <?php endif; ?>
                             <td><?php echo $linha['nomeEstoque'] ?></td>
                             <td><?php echo $linha['nomeProduto'] ?></td>
-                            <?php if ($statusFiltrar !== 'ATIVO' && $statusFiltrar !== 'DESATIVADO') : ?>
-                                <td><?php echo $linha['statusEstoque'] ?></td>
-                                
-                            <?php endif; ?>
-                            
-                            <?php if ($statusFiltrar !== 'DESATIVADO') : ?>
-                                <td>
-                                    <a class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="index.php?p=estoque&e=atualizar&id=<?php echo $linha['idEstoque'] ?>">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-repeat" viewBox="0 0 16 16">
-                                            <!-- ... (seu SVG) ... -->
-                                        </svg>
-                                        Atualizar
+                                <?php if ($statusFiltrar !== 'DESATIVADO') : ?>
+                                <td class="botaoAtualeDesat"  >
+                                    <a href="index.php?p=estoque&e=atualizar&id=<?php echo $linha['idEstoque'] ?>">
+                                       <img src="./img/setas-flechas.png" alt="">
                                     </a>
-                                </td>
-                                <td>
-                                    <a class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="index.php?p=estoque&e=desativar&id=<?php echo $linha['idEstoque'] ?>" onclick="return confirmarDesativacao()">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-repeat" viewBox="0 0 16 16">
-                                            <!-- ... (seu SVG) ... -->
-                                        </svg>
-                                        Desativar
+
+                                
+                                
+                                    <a href="index.php?p=estoque&e=desativar&id=<?php echo $linha['idEstoque'] ?>" onclick="return confirmarDesativacao()">
+                                    <img src="./img/lixeira-de-reciclagem.png" alt="">
                                     </a>
                                 </td>
                             <?php endif; ?>

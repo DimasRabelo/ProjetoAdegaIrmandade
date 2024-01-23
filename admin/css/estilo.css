@@ -56,7 +56,7 @@ h1 {
 }
 
 h1 img {
-    width: 100%;
+    width: 70%;
     border-radius: 50%;
 
 }
@@ -109,14 +109,15 @@ main {
     display: flex;
     background: #000000;
     color: #ffffff;
-    width: 20%;
     text-align: center;
     margin: 0 auto;
-    width: 25%;
+    width: 11%;
+    align-items: center;
+    flex-direction: column;
 }
 
 ul {
-    padding: 73px 20px;
+    padding: 140px 20px;
 }
 
 ul li {
@@ -126,7 +127,7 @@ ul li {
 nav ul li a {
     color: #ffffff;
     text-decoration: none;
-    font-size: 2.0em;
+    font-size: 1.5em;
     text-transform: uppercase;
 
 }
@@ -236,7 +237,7 @@ th {
     font-weight: bold;
     text-transform: uppercase;
     text-indent: 10px;
-    padding: 6px 6px;
+    padding: 0px -1px;
 }
 
 .func {
@@ -399,4 +400,8 @@ button {
     justify-content: flex-end;
     flex-direction: row;
     background: none;
+}
+.botaoAtualeDesat{
+    display: flex;
+    justify-content: space-around;
 }

@@ -103,22 +103,19 @@ $totalDesativados = count($listaDesativados);
                         <th></th>
                     <?php endif; ?>
                     
-                    <th>Nome do Produto</th>
-                    <?php if ($statusFiltrar !== 'ATIVO' && $statusFiltrar !== 'DESATIVADO') : ?>
-                        <th>Status</th>
-                    <?php endif; ?>
+                    <th>Produto</th>
                     <th>Descrição</th>
                     <?php if ($statusFiltrar !== 'DESATIVADO') : ?>
-                        <th>Atualizar</th>
-                        <th>Desativar</th>
+                        <th>Alterar ou Desativar</th>
+                        
                     <?php endif; ?>
                     
                     <th>Categoria</th>
-                    <th>Preço de Compra dos Produtos</th>
-                    <th>Preço de Venda dos Produtos</th>
+                    <th>Valor de Compra</th>
+                    <th>Valor de Venda</th>
                     <th>Fornecedor</th>
-                    <th>Data de Recebimento</th>
-                    <th>Hora do Recebimento</th>
+                    <th>Data Recebimento</th>
+                    <th>Hora Recebimento</th>
                    
                 </tr>
             </thead>
@@ -138,29 +135,20 @@ $totalDesativados = count($listaDesativados);
                             <?php endif; ?>
                             
                             <td><?php echo $linha['nomeProduto'] ?></td>
-                            <?php if ($statusFiltrar !== 'ATIVO' && $statusFiltrar !== 'DESATIVADO') : ?>
-                                <td><?php echo $linha['statusProduto'] ?></td>
-                            <?php endif; ?>
                             <td><?php echo $linha['descricaoProduto'] ?></td>
                             <?php if ($statusFiltrar !== 'DESATIVADO') : ?>
-                                <td>
-                                    <a class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="index.php?p=produtos&pr=atualizar&id=<?php echo $linha['idProduto'] ?>">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-repeat" viewBox="0 0 16 16">
-                                            <path d="M11 5.466V4H5a4 4 0 0 0-3.584 5.777.5.5 0 1 1-.896.446A5 5 0 0 1 5 3h6V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192Zm3.81.086a.5.5 0 0 1 .67.225A5 5 0 0 1 11 13H5v1.466a.25.25 0 0 1-.41.192l-2.36-1.966a.25.25 0 0 1 0-.384l2.36-1.966a.25.25 0 0 1 .41.192V12h6a4 4 0 0 0 3.585-5.777.5.5 0 0 1 .225-.67Z" />
-                                        </svg>
-                                        Atualizar
+                                <td class="botaoAtualeDesat"  >
+                                    <a href="index.php?p=produtos&pr=atualizar&id=<?php echo $linha['idProduto'] ?>">
+                                       <img src="./img/setas-flechas.png" alt="">
                                     </a>
-                                </td>
-                                <td>
-                                    <a class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="index.php?p=produtos&pr=desativar&id=<?php echo $linha['idProduto'] ?>" onclick="return confirmarDesativacao()">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-repeat" viewBox="0 0 16 16">
-                                            <path d="M11 5.466V4H5a4 4 0 0 0-3.584 5.777.5.5 0 1 1-.896.446A5 5 0 0 1 5 3h6V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192Zm3.81.086a.5.5 0 0 1 .67.225A5 5 0 0 1 11 13H5v1.466a.25.25 0 0 1-.41.192l-2.36-1.966a.25.25 0 0 1 0-.384l2.36-1.966a.25.25 0 0 1 .41.192V12h6a4 4 0 0 0 3.585-5.777.5.5 0 0 1 .225-.67Z" />
-                                        </svg>
-                                        Desativar
+
+                                
+                                
+                                    <a href="index.php?p=produtos&pr=desativar&id=<?php echo $linha['idProduto'] ?>" onclick="return confirmarDesativacao()">
+                                    <img src="./img/lixeira-de-reciclagem.png" alt="">
                                     </a>
                                 </td>
                             <?php endif; ?>
-                           
                             <td><?php echo $linha['categoriaProduto'] ?></td>
                            
                             <td><?php echo $linha['precoCompraProduto'] ?></td>
