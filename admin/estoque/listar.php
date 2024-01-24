@@ -135,7 +135,7 @@ $totalDesativados = count($listaDesativados);
                             <td><?php echo $linha['nomeEstoque'] ?></td>
                             <td><?php echo $linha['nomeProduto'] ?></td>
                                 <?php if ($statusFiltrar !== 'DESATIVADO') : ?>
-                                <td class="botaoAtualeDesat"  >
+                                <td class="btngrudsicone"  >
                                     <a href="index.php?p=estoque&e=atualizar&id=<?php echo $linha['idEstoque'] ?>">
                                        <img src="./img/setas-flechas.png" alt="">
                                     </a>

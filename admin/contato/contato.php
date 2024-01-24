@@ -10,7 +10,6 @@ $lista = $contato->ListarContato();
         <caption>Lista de Email</caption>
         <thead>
             <tr>
-                <th>ID Contato</th>
                 <th>Nome Contato</th>
                 <th>E-mail Contato</th>
                 <th>Telefone Contato</th>
@@ -25,7 +24,6 @@ $lista = $contato->ListarContato();
             if (isset($lista) && !empty($lista)) {
                 foreach ($lista as $linha) : ?>
                     <tr>
-                        <td><?php echo $linha['idContato']; ?></td>
                         <td><?php echo $linha['nomeContato']; ?></td>
                         <td><?php echo $linha['emailContato']; ?></td>
                         <td><?php echo $linha['telefoneContato']; ?></td>

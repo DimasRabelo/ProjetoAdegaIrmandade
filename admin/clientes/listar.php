@@ -123,14 +123,14 @@ $totalDesativados = count($listaDesativados);
                             <td><?php echo $linha['nomeUsuario'] ?></td>
                             <td><?php echo $linha['emailUsuario'] ?></td>
                             <td><?php echo $linha['senhaUsuario'] ?></td>
-                            <td class="fotoUser">
+                            <td class="fotoGeral">
                                 <a href="../src/imagens/<?php echo $linha['fotoUsuario'] ?>" data-lightbox="<?php echo $linha['nomeUsuario'] ?>" data-title="<?php echo $linha['nomeUsuario'] ?>">
                                     <img src="../src/imagens/<?php echo $linha['fotoUsuario'] ?>" data-alt="<?php echo $linha['nomeUsuario'] ?>">
                                 </a>
                             </td>
 
                             <?php if ($statusFiltrar !== 'DESATIVADO') : ?>
-                                <td class="botaoAtualeDesat">
+                                <td class="btngrudsicone">
                                     <a href="index.php?p=clientes&c=atualizar&id=<?php echo $linha['idUsuario'] ?>">
                                         <img src="./img/setas-flechas.png" alt="">
                                     </a>

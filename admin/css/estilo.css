@@ -16,7 +16,7 @@ h4 {
     box-sizing: border-box;
 }
 
-    
+
 
 
 
@@ -51,8 +51,6 @@ body {
 h1 {
     width: 80%;
     margin-top: 10px
-
-
 }
 
 h1 img {
@@ -66,7 +64,7 @@ h1 img {
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
-    
+
 }
 
 
@@ -102,7 +100,7 @@ h1 img {
 main {
     width: 100%;
     flex: 1;
-     display: flex;
+    display: flex;
 }
 
 .menu {
@@ -135,7 +133,7 @@ nav ul li a {
 
 
 
-.menu nav ul li a:hover{
+.menu nav ul li a:hover {
     color: #bdbdbd;
     border-top: solid 4px #bdbdbd;
     padding: 4px;
@@ -144,7 +142,7 @@ nav ul li a {
 }
 
 .menuAtivo {
-    color: #bdbdbd!important;
+    color: #bdbdbd !important;
     border-top: solid 4px #bdbdbd;
     padding: 4px;
 }
@@ -153,42 +151,44 @@ nav ul li a {
 
 .box {
     width: 100%;
-    min-height: 400px; 
-    overflow: auto; 
+    min-height: 400px;
+    overflow: auto;
     box-sizing: border-box;
     padding: 40px 5px;
     color: #000000;
-   
-   
+
+
 }
 
 .rodape {
     width: 100%;
-    
+
 }
+
 .rodape h2 {
     background: #000000;
     margin-bottom: 0;
     font-size: 0.8em;
-   
+
 }
 
 .rodape .h2d {
     background: #525252;
-  
+
 }
 
-/* listar do Usuario */
-
-.fotoUser{
-    width: 100%;
+/* listar do foto Geral*/
+.fotoGeral{
+    width: 10%;
+    object-fit: cover;
+    text-indent: 0;
 }
-.fotoUser img{
-    width: 150px;
-    height: 180px;
+
+.fotoGeral img{
+    width: 200px;
+    height: 150px;
     object-fit: cover;
 }
-/* fim do listar usuario
 
 
 /* Tabela Contato */
@@ -196,15 +196,18 @@ nav ul li a {
 .table-container {
     max-height: 800px;
     overflow-y: auto;
-    overflow-x: auto; /* Adicionando rolagem horizontal */
+    overflow-x: auto;
+    /* Adicionando rolagem horizontal */
     border: 2px solid #e3dada;
     text-align: justify;
-    white-space: nowrap; /* Impede a quebra de linha dentro do contêiner */
+    white-space: nowrap;
+    /* Impede a quebra de linha dentro do contêiner */
     cursor: grab;
 }
+
 .table-container:active {
     cursor: grabbing;
-  }
+}
 
 table {
     width: 100%;
@@ -218,15 +221,17 @@ td {
     color: #fff;
     text-indent: 20px;
     text-transform: uppercase;
-    padding:64px;;
-    
-   
+    width: 50%;
+
+
+
 }
 
 tr {
     background: #000000;
     color: #ffffff;
    
+
 }
 
 th {
@@ -237,45 +242,25 @@ th {
     font-weight: bold;
     text-transform: uppercase;
     text-indent: 10px;
-    padding: 0px -1px;
+   
 }
 
-.func {
-    width: 100%;
-    text-indent: 0;
-    padding: 0;
-}
 
-.func img {
-    width: 150px;
-    height: 180px;
-    object-fit: cover;
-    
-}
-
-.idfunc {
-    text-align: center;
-}
-
-/* bootstrap classe do botão 'novo funcionario' estilização padronizada para os outros botoões */
-.icon-link {
-    align-items: flex-end;
-}
 /* Estilização Padrão para todos Formularios de Cadastro com Particularidades de estilização em alguns campos */
 
 /* Formulario Cadastrar Funcionario */
 
-h1{
+h1 {
     text-align: center;
     background: #000000;
     width: 100%;
     padding: 5px 5px;
     text-transform: uppercase;
-    
+
 }
 
 form {
-        
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -283,8 +268,8 @@ form {
     width: 100%;
     font-family: 'Secular One';
     text-transform: uppercase;
-    
-   
+
+
 
 }
 
@@ -300,24 +285,29 @@ form {
     max-height: 320px;
     object-fit: cover;
 }
-label{
+
+label {
     display: flex;
     flex-direction: column;
     margin: 5px 5px;
     color: #ffffff;
 }
-input{
+
+input {
     margin: 5px 5px;
     width: 360px;
-    
+
 }
-.Date{
+
+.Date {
     width: 80%;
 }
-select{
+
+select {
     margin: 30px;
 }
-button:hover{
+
+button:hover {
     margin: 10px 0;
     padding: 10px;
     background-color: #0b5ed7;
@@ -326,6 +316,7 @@ button:hover{
     border-radius: 4px;
     cursor: pointer;
 }
+
 button {
     margin: 10px 0;
     padding: 10px;
@@ -334,26 +325,29 @@ button {
     border: none;
     border-radius: 4px;
     text-transform: uppercase;
-  
+
 }
+
 /* Formulário Cadastro de Produto */
 .selestatus,
-.seleproduto{
+.seleproduto {
     width: 358px;
     margin: 15px;
 }
+
 /* Formulário Cadastro de Estoque */
 
-.formEstoque{
+.formEstoque {
     display: flex;
     justify-content: center;
     height: 80%;
-    
+
 }
 
 .seleEstoque {
     width: 358px;
 }
+
 /* Formulario Cadastro Vendas */
 
 .formVendas {
@@ -361,20 +355,22 @@ button {
     justify-content: center;
     height: 80%;
 }
-.seleVendas{
+
+.seleVendas {
     width: 358px;
 }
 
 /* formulario Atualização */
-.h1Atual{
+.h1Atual {
     color: #ffffff;
 }
 
 
-.Dateatual{
+.Dateatual {
     width: 358px;
 }
-.seleAtual{
+
+.seleAtual {
     width: 358px;
 }
 
@@ -401,7 +397,11 @@ button {
     flex-direction: row;
     background: none;
 }
-.botaoAtualeDesat{
+
+/* Estilização de icone Atualizar e Desativar */
+
+.btngrudsicone{
     display: flex;
-    justify-content: space-between;
+    width: 100%;
+    justify-content: space-around;
 }
