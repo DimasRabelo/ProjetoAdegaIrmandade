@@ -1,30 +1,30 @@
 <div class="nomegaleria">GALERIA</div>
 <section class="galeria wow animate__animated animate__fadeInUp">
 
-    <img src="src/imagens/img2/imggaleria1-min.png" alt="">
-    <img src="src/imagens/img2/imggaleria2-min.png" alt="">
-    <img src="src/imagens/img2/imggaleria3-min.png" alt="">
-    <img src="src/imagens/img2/imggaleria4-min.png" alt="">
-    <img src="src/imagens/img2/imggaleria5-min.png" alt="">
-    <img src="src/imagens/img2/imggaleria6-min.png" alt="">
-    <img src="src/imagens/img2/imggaleria7-min.png" alt="">
-    <img src="src/imagens/img2/imggaleria8.png" alt="">
-    <img src="src/imagens/img2/imggaleria9.png" alt="">
-    <img src="src/imagens/img2/imggaleria1-min.png" alt="">
-    <img src="src/imagens/img2/imggaleria2-min.png" alt="">
-    <img src="src/imagens/img2/imggaleria3-min.png" alt="">
-    <img src="src/imagens/img2/imggaleria4-min.png" alt="">
-    <img src="src/imagens/img2/imggaleria5-min.png" alt="">
-    <img src="src/imagens/img2/imggaleria6-min.png" alt="">
-    <img src="src/imagens/img2/imggaleria7-min.png" alt="">
-    <img src="src/imagens/img2/imggaleria8.png" alt="">
-    <img src="src/imagens/img2/imggaleria9.png" alt="">
+    <img src="src/imagens/img/imggaleria1-.png" alt="">
+    <img src="src/imagens/img/imggaleria2-.png" alt="">
+    <img src="src/imagens/img/imggaleria3-.png" alt="">
+    <img src="src/imagens/img/imggaleria4-.png" alt="">
+    <img src="src/imagens/img/imggaleria5-.png" alt="">
+    <img src="src/imagens/img/imggaleria6-.png" alt="">
+    <img src="src/imagens/img/imggaleria7-.png" alt="">
+    <img src="src/imagens/img/imggaleria8.png" alt="">
+    <img src="src/imagens/img/imggaleria9.png" alt="">
+    <img src="src/imagens/img/imggaleria1-.png" alt="">
+    <img src="src/imagens/img/imggaleria2-.png" alt="">
+    <img src="src/imagens/img/imggaleria3-.png" alt="">
+    <img src="src/imagens/img/imggaleria4-.png" alt="">
+    <img src="src/imagens/img/imggaleria5-.png" alt="">
+    <img src="src/imagens/img/imggaleria6-.png" alt="">
+    <img src="src/imagens/img/imggaleria7-.png" alt="">
+    <img src="src/imagens/img/imggaleria8-.png" alt="">
+    <img src="src/imagens/img/imggaleria9-.png" alt="">
 
 
 </section>
 
 
-<h2 class="evento">VIDEOS</h2>
+<h class="evento">VIDEOS</h>
 <div class="site">
 
    
@@ -33,18 +33,18 @@
 
 
             <div class="carousel-item active ">
-                <iframe width="1200" height="600" src="https://www.youtube.com/embed/ct3xxqCuqWg" title="Adega Lounge e Tabacaria Irmandade Localizado na rua Manoel Bueno da fonseca,46" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+                <iframe width="100" height="600" src="https://www.youtube.com/embed/ct3xxqCuqWg" title="Adega Lounge e Tabacaria Irmandade Localizado na rua Manoel Bueno da fonseca,46" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 
                 </iframe>
 
             </div>
             <div class="carousel-item">
-                <iframe width="1200"   height="600" src="https://www.youtube.com/embed/wFP3Vte7mtY" title="Adega Lounge e Tabacaria Irmandade Localizado na rua Manoel Bueno da fonseca,46" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+                <iframe width="100"   height="600" src="https://www.youtube.com/embed/wFP3Vte7mtY" title="Adega Lounge e Tabacaria Irmandade Localizado na rua Manoel Bueno da fonseca,46" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
                 </iframe>
             </div>
 
             <div class="carousel-item ">
-                <iframe width="1200"  height="600" src="https://www.youtube.com/embed/Kskj9xfO2CY" title="22 de setembro de 2023" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe width="100"  height="600" src="https://www.youtube.com/embed/Kskj9xfOCY" title=" de setembro de 03" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
 
 
