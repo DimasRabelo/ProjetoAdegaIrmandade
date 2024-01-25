@@ -1,5 +1,11 @@
 <div class="nometabaca">TABACARIA</div>
 <!-- <section class="tabacaria wow animate__animated animate__fadeInUp"> -->
+
+<div class="banner">
+  <img src="src/imagens/banner/bannertabacaria.png" alt="">
+</div>
+
+
 <div class="slider-tabacaria">
   <!-- Adicione os elementos dos sliders -->
   <div class="site">
@@ -107,42 +113,5 @@
 
 <!-- Adicione mais miniaturas conforme necessário -->
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

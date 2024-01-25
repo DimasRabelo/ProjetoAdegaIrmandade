@@ -8,8 +8,8 @@
     <img src="src/imagens/img/imggaleria5-.png" alt="">
     <img src="src/imagens/img/imggaleria6-.png" alt="">
     <img src="src/imagens/img/imggaleria7-.png" alt="">
-    <img src="src/imagens/img/imggaleria8.png" alt="">
-    <img src="src/imagens/img/imggaleria9.png" alt="">
+    <img src="src/imagens/img/imggaleria8-.png" alt="">
+    <img src="src/imagens/img/imggaleria9-.png" alt="">
     <img src="src/imagens/img/imggaleria1-.png" alt="">
     <img src="src/imagens/img/imggaleria2-.png" alt="">
     <img src="src/imagens/img/imggaleria3-.png" alt="">
@@ -33,18 +33,18 @@
 
 
             <div class="carousel-item active ">
-                <iframe width="100" height="600" src="https://www.youtube.com/embed/ct3xxqCuqWg" title="Adega Lounge e Tabacaria Irmandade Localizado na rua Manoel Bueno da fonseca,46" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+                <iframe width="100%" height="600" src="https://www.youtube.com/embed/ct3xxqCuqWg" title="Adega Lounge e Tabacaria Irmandade Localizado na rua Manoel Bueno da fonseca,46" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
 
                 </iframe>
 
             </div>
             <div class="carousel-item">
-                <iframe width="100"   height="600" src="https://www.youtube.com/embed/wFP3Vte7mtY" title="Adega Lounge e Tabacaria Irmandade Localizado na rua Manoel Bueno da fonseca,46" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+                <iframe width="100%"   height="600" src="https://www.youtube.com/embed/wFP3Vte7mtY" title="Adega Lounge e Tabacaria Irmandade Localizado na rua Manoel Bueno da fonseca,46" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
                 </iframe>
             </div>
 
             <div class="carousel-item ">
-                <iframe width="100"  height="600" src="https://www.youtube.com/embed/Kskj9xfOCY" title=" de setembro de 03" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe width="100%"  height="600" src="https://www.youtube.com/embed/Kskj9xfOCY" title=" de setembro de 03" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
 
 

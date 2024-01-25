@@ -248,7 +248,7 @@ section {
 .nometabaca {
     text-align: center;
     font-family: "Secular One";
-    font-size: 4em;
+    font-size: 1.8em;
     color: #ffffff;
     background: #000000;
     padding: 10px;
@@ -450,6 +450,8 @@ section {
     background-color: #000000;
     font-size: 1.5em;
     padding: 15px 15px;
+    display: flex;
+    justify-content: center;
 
     margin: 0 auto;
 }
@@ -457,8 +459,8 @@ section {
 /* videos */
 .carousel-control-next-icon,
 .carousel-control-prev-icon {
-  width: 10rem;
-  height: 10rem;
+  width: 5rem;
+  height: 5rem;
   
 }
 .carousel-inner {
