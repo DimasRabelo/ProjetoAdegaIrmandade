@@ -103,19 +103,19 @@ $totalDesativados = count($listaDesativados);
             <thead>
                 <tr>
                     <?php if ($statusFiltrar === 'DESATIVADO') : ?>
-                        <th></th>
+                        <th class="ativar">Ativar</th>
                     <?php endif; ?>
                     <th>Estoque</th>
                     <th>Produto</th>
                     <?php if ($statusFiltrar !== 'DESATIVADO') : ?>
                         <th>Alterar ou Desativar</th>
-                        
+
                     <?php endif; ?>
                     <th>Quantidade</th>
                     <th>Data Cadastro</th>
                     <th>Data Atualização</th>
                     <th>Hora</th>
-                    
+
                 </tr>
             </thead>
             <tbody>
@@ -123,27 +123,25 @@ $totalDesativados = count($listaDesativados);
                     <?php if (empty($statusFiltrar) || $linha['statusEstoque'] === $statusFiltrar) : ?>
                         <tr>
                             <?php if ($statusFiltrar === 'DESATIVADO') : ?>
-                                <td>
+                                <td class="ativar">
                                     <a class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="index.php?p=estoque&e=ativar&id=<?php echo $linha['idEstoque']; ?>" onclick="return confirmarAtivacao()">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-repeat" viewBox="0 0 16 16">
-                                            <!-- ... (seu SVG) ... -->
-                                        </svg>
-                                        Ativar
+                                        <img src="./img/aceitar.png" alt="">
+
                                     </a>
                                 </td>
                             <?php endif; ?>
                             <td><?php echo $linha['nomeEstoque'] ?></td>
                             <td><?php echo $linha['nomeProduto'] ?></td>
-                                <?php if ($statusFiltrar !== 'DESATIVADO') : ?>
-                                <td class="btngrudsicone"  >
+                            <?php if ($statusFiltrar !== 'DESATIVADO') : ?>
+                                <td class="btngrudsicone">
                                     <a href="index.php?p=estoque&e=atualizar&id=<?php echo $linha['idEstoque'] ?>">
-                                       <img src="./img/setas-flechas.png" alt="">
+                                        <img src="./img/setas-flechas.png" alt="">
                                     </a>
 
-                                
-                                
+
+
                                     <a href="index.php?p=estoque&e=desativar&id=<?php echo $linha['idEstoque'] ?>" onclick="return confirmarDesativacao()">
-                                    <img src="./img/lixeira-de-reciclagem.png" alt="">
+                                        <img src="./img/lixeira-de-reciclagem.png" alt="">
                                     </a>
                                 </td>
                             <?php endif; ?>
@@ -151,8 +149,8 @@ $totalDesativados = count($listaDesativados);
                             <td><?php echo date('d/m/Y', strtotime($linha['dataCadastroEstoque'])) ?></td>
                             <td><?php echo date('d/m/Y', strtotime($linha['dataAtualiEstoque'])) ?></td>
                             <td><?php echo $linha['horaEstoque'] ?></td>
-                            
-                            
+
+
                         </tr>
                     <?php endif; ?>
                 <?php endforeach; ?>

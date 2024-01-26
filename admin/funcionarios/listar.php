@@ -101,7 +101,7 @@ $totalDesativados = count($listaDesativados);
             <thead>
                 <tr>
                     <?php if ($statusFiltrar === 'DESATIVADO') : ?>
-                        <th>Ativar</th>
+                        <th class="ativar">Ativar</th>
                     <?php endif; ?>
                     <th>Nome</th>
                     <th>Foto</th>
@@ -124,7 +124,7 @@ $totalDesativados = count($listaDesativados);
 
                         <tr>
                             <?php if ($statusFiltrar === 'DESATIVADO') : ?>
-                                <td>
+                                <td class="ativar">
                                     <a href="index.php?p=funcionarios&f=ativar&id=<?php echo $linha['idFuncionario']; ?>" onclick="return confirmarAtivacao()">
                                     <img src="./img/aceitar.png" alt="">
                                     </a>

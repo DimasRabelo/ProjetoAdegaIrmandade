@@ -2,7 +2,7 @@
 require_once('class/cliente.php');
 $cliente = new ClienteClass();
 
-// Inicializa a lista completa de funcionários ativos
+// Inicializa a lista completa de clientes ativos
 $listaAtivos = $cliente->ListarCliente();
 $listaDesativados = $cliente->ListarClienteDesativados();
 
@@ -25,25 +25,23 @@ if (isset($_POST['statusUsuario'])) {
 if (isset($_POST['searchInput'])) {
     $searchTerm = strtolower($_POST['searchInput']);
 
-    // Filtra a lista com base no nome do funcionário
+    // Filtra a lista com base no nome do cliente
     $listaFiltrada = array_filter($listaFiltrada, function ($linha) use ($searchTerm) {
         return stripos(strtolower($linha['nomeUsuario']), $searchTerm) !== false;
     });
 }
 
-// Agora, $listaFiltrada contém a lista de funcionários a ser exibida
+// Agora, $listaFiltrada contém a lista de clientes a ser exibida
 
-// Lógica para contar todos os funcionários
+// Lógica para contar todos os clientes
 $totalCadastrados = count($listaFiltrada);
 
-// Lógica para contar os funcionários ativos
+// Lógica para contar os clientes ativos
 $totalAtivos = count($listaAtivos);
 
-// Lógica para contar os funcionários desativados
+// Lógica para contar os clientes desativados
 $totalDesativados = count($listaDesativados);
 ?>
-
-
 
 <div>
     <a class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="index.php?p=clientes&c=cadastrar">
@@ -52,19 +50,16 @@ $totalDesativados = count($listaDesativados);
         </svg>
         Novo Cliente
     </a>
-
-
 </div>
 
 <div>
     <form class="CampoPes" action="" method="POST">
-        <input type="text" id="searchInput" name="searchInput" placeholder="Digite o nome do Usuario">
+        <input type="text" id="searchInput" name="searchInput" placeholder="Digite o nome do Cliente">
         <button type="submit">Pesquisar</button>
     </form>
 </div>
 
 <!-- Formulário de filtro -->
-
 <form class="formStatus" action="" method="POST">
     <div>
         <select class="seleAtual" aria-label="Default select example" name="statusUsuario">
@@ -86,40 +81,39 @@ $totalDesativados = count($listaDesativados);
     </div>
 </form>
 
-
-
 <div class="table-container" id="arrastarMouse">
     <div>
         <table>
-            <caption>Lista de Usuários</caption>
+            <caption>Lista de Clientes</caption>
             <thead>
                 <tr>
-
+                <?php if ($statusFiltrar === 'DESATIVADO') : ?>
+                        <th class="ativar">Ativar</th>
+                    <?php endif; ?>
                     <th>Nome</th>
                     <th>Email</th>
                     <th>Senha</th>
                     <th>Foto</th>
-                    <?php if ($statusFiltrar !== 'DESATIVADO') : ?>
-                        <th>Alterar ou Desativar</th>
-                    <?php endif; ?>
+                    <th>Alterar ou Desativar</th>
                 </tr>
             </thead>
-
             <tbody>
-
-                <td>
-                    <?php if ($statusFiltrar === 'DESATIVADO') : ?>
-                        <a class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="index.php?p=clientes&c=ativar&id=<?php echo $linha['idUsuario']; ?>" onclick="return confirmarAtivacao()">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-repeat" viewBox="0 0 16 16">
-                                <path d="M11 5.466V4H5a4 4 0 0 0-3.584 5.777.5.5 0 1 1-.896.446A5 5 0 0 1 5 3h6V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192Zm3.81.086a.5.5 0 0 1 .67.225A5 5 0 0 1 11 13H5v1.466a.25.25 0 0 1-.41.192l-2.36-1.966a.25.25 0 0 1 0-.384l2.36-1.966a.25.25 0 0 1 .41.192V12h6a4 4 0 0 0 3.585-5.777.5.5 0 0 1 .225-.67Z" />
-                            </svg>
-                            Ativar
-                        </a>
-                    <?php endif; ?>
-                </td>
                 <?php foreach ($listaFiltrada as $linha) : ?>
                     <?php if (empty($statusFiltrar) || $linha['statusUsuario'] === $statusFiltrar) : ?>
-                        <tr>
+                        <tr >
+                        <?php if ($statusFiltrar === 'DESATIVADO') : ?>
+                                <td class="ativar">
+                                    <a href="index.php?p=cliente&c=ativar&id=<?php echo $linha['idUsuario']; ?>" onclick="return confirmarAtivacao()">
+                                    <img src="./img/aceitar.png" alt="">
+                                    </a>
+
+
+                                </td>
+                            <?php endif; ?>
+
+
+
+                           
                             <td><?php echo $linha['nomeUsuario'] ?></td>
                             <td><?php echo $linha['emailUsuario'] ?></td>
                             <td><?php echo $linha['senhaUsuario'] ?></td>
@@ -128,20 +122,16 @@ $totalDesativados = count($listaDesativados);
                                     <img src="../src/imagens/<?php echo $linha['fotoUsuario'] ?>" data-alt="<?php echo $linha['nomeUsuario'] ?>">
                                 </a>
                             </td>
-
-                            <?php if ($statusFiltrar !== 'DESATIVADO') : ?>
+                           
                                 <td class="btngrudsicone">
                                     <a href="index.php?p=clientes&c=atualizar&id=<?php echo $linha['idUsuario'] ?>">
                                         <img src="./img/setas-flechas.png" alt="">
                                     </a>
-
                                     <a href="index.php?p=clientes&c=desativar&id=<?php echo $linha['idUsuario'] ?>" onclick="return confirmarDesativacao()">
                                         <img src="./img/lixeira-de-reciclagem.png" alt="">
                                     </a>
                                 </td>
-                            <?php endif; ?>
-
-
+                           
                         </tr>
                     <?php endif; ?>
                 <?php endforeach; ?>

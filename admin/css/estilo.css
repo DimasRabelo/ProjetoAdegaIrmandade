@@ -179,13 +179,13 @@ nav ul li a {
 
 /* listar do foto Geral*/
 .fotoGeral{
-    width: 10%;
+    width: 100%;
     object-fit: cover;
     text-indent: 0;
 }
 
 .fotoGeral img{
-    width: 200px;
+    width: 180px;
     height: 150px;
     object-fit: cover;
 }
@@ -221,29 +221,25 @@ td {
     color: #fff;
     text-indent: 20px;
     text-transform: uppercase;
-    width: 50%;
-
-
-
+    width: 100%;
+  
 }
 
-tr {
-    background: #000000;
-    color: #ffffff;
-   
-
-}
 
 th {
-    border-collapse: collapse;
+   
     border: 1px solid #f8f1f1;
     text-align: center;
     font-size: 1.0em;
     font-weight: bold;
     text-transform: uppercase;
     text-indent: 10px;
-   
+    background: #000000;
+    color: #ffffff;
 }
+
+
+
 
 
 /* Estilização Padrão para todos Formularios de Cadastro com Particularidades de estilização em alguns campos */
@@ -400,8 +396,12 @@ button {
 
 /* Estilização de icone Atualizar e Desativar */
 
-.btngrudsicone{
-    display: flex;
-    width: 100%;
-    justify-content: space-around;
+.btngrudsicone img{
+   margin-right: 30px;
+   margin-left: 30px;
+}
+
+/* Botão Ativar da lista dos desativados */
+.ativar{
+    width: 10%;
 }
