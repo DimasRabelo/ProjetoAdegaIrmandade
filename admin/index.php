@@ -71,6 +71,7 @@ $pagina = @$_GET['p'];
             switch ($pagina) {
 
                 case 'dashboard':
+                    require_once('galeria/galeria.php');
 
                     break;
 
