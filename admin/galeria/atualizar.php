@@ -7,12 +7,11 @@ $galeria = new GaleriaClass($id);
 
 //echo $galeria->nomegaleria;
 
-if (isset($_POST['nomeGaleria'])) {
+if (isset($_POST['idGaleria'])) {
 
 
-    $nomegaleria = $_POST['nomeGaleria'];
-    $statusgaleria = $_POST['statusGaleria'];
-
+    $idgaleria = $_POST['idGaleria'];
+    
 
 
 
@@ -33,11 +32,8 @@ if (isset($_POST['nomeGaleria'])) {
     } else {
         $fotoGaleria = $galeria->fotoGaleria;
     }
-
-     $galeria->nomeGaleria = $nomeGaleria;
      $galeria->fotoGaleria = $fotoGaleria;
-     $galeria->statusGaleria = $statusGaleria;
-     
+    
 
      $galeria->Atualizar();
 
@@ -62,29 +58,9 @@ if (isset($_POST['nomeGaleria'])) {
         <div>
             <img src="img/sem-foto.jpg" alt="..." id="imgfoto">
         </div>
-        <input type="file" id="fotoGaleria" name="fotoGaleria" style="display: none;">
+        <input type="file" id="fotoGaleria" name="fotoGaleria" style="display: none;"  value="<?php echo $galeria->fotoGaleria; ?>">
 
     </div>
-
-
-    <div>
-        <label for="nomeGaleria"> Nome da galeria</label>
-        <input type="text" name="nomeGaleria" id="nomeGaleria" placeholder="Informe o Nome " value="<?php echo $galeria->nomeGaleria; ?>">
-
-
-    </div>
-
-    
-    <div>
-        <select class="seleAtual" aria-label="Default select example" name="statusGaleria" value="<?php echo $galeria->statusGaleria; ?>>
-            <option value="" selected>Seleciona o Status da Galeria</option>
-            <option value="ATIVO">ATIVO</option>
-            <option value="DESATIVADO">DESATIVADO</option>
-            <option value="INATIVO">INATIVO</option>
-        </select>
-    </div>
-
-
     <div>
         <button type="submit">Atualizar Galeria</button>
     </div>

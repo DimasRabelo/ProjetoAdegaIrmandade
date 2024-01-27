@@ -1,9 +1,7 @@
 <?php
-if (isset($_POST['nomeGaleria'])) {
+if (isset($_POST['idGaleria'])) {
 
-    $nomeGaleria = $_POST['nomeGaleria'];
-    $altGaleria = $_POST['altGaleria'];
-    $statusGaleria = $_POST['statusGaleria'];
+    $idGaleria = $_POST['idGaleria'];
    
 
     $arquivo = $_FILES['fotoGaleria'];
@@ -19,9 +17,9 @@ if (isset($_POST['nomeGaleria'])) {
 
     $galeria = new GaleriaClass();
 
-    $galeria->nomeGaleria = $nomeGaleria;
+    $galeria->idGaleria = $idGaleria;
     $galeria->fotoGaleria = $fotoGaleria;
-    $galeria->statusGaleria = $statusGaleria;
+   
 
     $galeria->Cadastrar();
 }
@@ -38,23 +36,6 @@ if (isset($_POST['nomeGaleria'])) {
         <input type="file" id="fotoGaleria" name="fotoGaleria" required style="display: none;">
 
     </div>
-
-    <div>
-        <label for="nome"> Nome</label>
-        <input type="text" name="nomeGaleria" id="nomeGaleria" required placeholder="Informe o Nome">
-
-    </div>
-
-    <div>
-        <select aria-label="Default select example" name="statusGaleria" required>
-            <option selected="">Seleciona o Status da foto</option>
-            <option value="ATIVO">ATIVO</option>
-            <option value="DESATIVADO">DESATIVADO</option>
-            <option value="INATIVO">INATIVO</option>
-        </select>
-    </div>
-    
-
 
     <div>
         <button type="submit">Cadastrar Foto</button>

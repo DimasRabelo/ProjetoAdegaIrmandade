@@ -27,9 +27,8 @@ $lista = $galeria->listarGaleria();
         <thead>
 
             <tr>
-                <th>Nome</th>
+                
                 <th>foto</th>
-                <th>status</th>
                 <th>Atualizar</th>
                 <th>Desativar</th>
             </tr>
@@ -38,8 +37,7 @@ $lista = $galeria->listarGaleria();
             <?php foreach ($lista as $linha) : ?>
 
                 <tr>
-                   
-                    <td><?php echo $linha['nomeGaleria'] ?></td>
+                
 
                     <td>
                         <a href="../src/imagens/<?php echo $linha['fotoGaleria'] ?>" data-lightbox="<?php echo $linha['nomeGaleria'] ?>" data-title="<?php echo $linha['nomeGaleria'] ?>">
@@ -47,7 +45,7 @@ $lista = $galeria->listarGaleria();
 
                         </a>
                     </td>
-                    <td><?php echo $linha['statusGaleria'] ?></td>
+
 
                     <td>
                         <a class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="index.php?p=galeria&g=atualizar&id=<?php echo $linha['idGaleria'] ?>">

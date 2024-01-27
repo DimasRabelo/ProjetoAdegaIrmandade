@@ -34,25 +34,6 @@ class ClienteClass
    return $lista;
 
  }
-
-
-
-
-
-  public function ativar()
-  {
-      $query = "UPDATE tblusuarios SET statusUsuario ='ATIVO' WHERE idUsuario = " . $this->idUsuario;
-
-      $conn = Conexao::LigarConexao();
-      $conn->exec($query);
-  }
-
-
-
-
-
-
-
   public function Cadastrar()
 {
     $query = "INSERT INTO tblusuarios (
@@ -122,6 +103,17 @@ public function desativar()
         $conn = Conexao::LigarConexao();
         $conn->exec($query);
     }
-    
+ 
+    public function ativar()
+  {
+      $query = "UPDATE tblusuarios SET statusUsuario ='ATIVO' WHERE idUsuario = " . $this->idUsuario;
+
+      $conn = Conexao::LigarConexao();
+      $conn->exec($query);
+  }
+
+
+
+
 
 }

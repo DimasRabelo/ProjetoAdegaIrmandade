@@ -13,5 +13,3 @@ if (isset($_GET['id'])) {
     echo "<script>document.location='index.php?p=clientes'</script>";
     exit;
 }
-
-?>

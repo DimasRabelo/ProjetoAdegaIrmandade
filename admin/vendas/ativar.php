@@ -9,7 +9,7 @@ if (isset($_GET['id'])) {
 
     $venda->ativar();
 
-    // Redireciona de volta para a lista após a desativação
+    // Redireciona de volta para a lista após a ativação
     echo "<script>document.location='index.php?p=vendas'</script>";
     exit;
     
