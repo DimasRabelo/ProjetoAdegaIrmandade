@@ -34,8 +34,6 @@ if (isset($_POST['searchInput'])) {
     });
 }
 
-// Agora, $listaFiltrada contém a lista de funcionários a ser exibida
-
 // Lógica para contar todos os funcionários
 $totalCadastrados = count($listaFiltrada);
 
@@ -63,6 +61,17 @@ $totalDesativados = count($listaDesativados);
     </form>
 </div>
 
+<?php if (empty($statusFiltrar) || $statusFiltrar === 'LISTA GERAL') : ?>
+    <div class="legenda-status">
+        <div class="bolinha verde"></div>
+        <span>Ativo</span>
+
+        <div class="bolinha vermelha"></div>
+        <span>Desativado</span>
+    </div>
+<?php endif; ?>
+
+
 <!-- Formulário de filtro -->
 
 <form class="formStatus" action="" method="POST">
@@ -70,7 +79,7 @@ $totalDesativados = count($listaDesativados);
 
         <select class="seleAtual" aria-label="Default select example" name="statusProduto">
             <option value="" selected disabled>Selecione um Status da Lista</option>
-            <option value="" <?php echo empty($statusFiltrar) ? 'selected' : ''; ?>>LISTA GERAL</option>
+            <option value="" <?php echo empty($statusFiltrar) ? 'selected' : 'LISTA GERAL'; ?>>LISTA GERAL</option>
             <option value="ATIVO" <?php echo ($statusFiltrar === 'ATIVO') ? 'selected' : ''; ?>>ATIVOS</option>
             <option value="DESATIVADO" <?php echo ($statusFiltrar === 'DESATIVADO') ? 'selected' : ''; ?>>DESATIVADOS</option>
         </select>
@@ -99,11 +108,14 @@ $totalDesativados = count($listaDesativados);
             <caption>Lista de Produtos</caption>
             <thead>
                 <tr>
-                    <?php if ($statusFiltrar === 'DESATIVADO') : ?>
+                <?php if (empty($statusFiltrar) || $statusFiltrar === 'LISTA GERAL') : ?>
+                        <th class="spanstatus" >Status</th>
+                    <?php endif; ?>
+                
+                <?php if ($statusFiltrar === 'DESATIVADO') : ?>
                         <th class="ativar">Ativar</th>
                     <?php endif; ?>
-                    
-                    <th>Produto</th>
+                     <th>Produto</th>
                     <th>Descrição</th>
                     <?php if ($statusFiltrar !== 'DESATIVADO') : ?>
                         <th>Alterar ou Desativar</th>
@@ -123,7 +135,17 @@ $totalDesativados = count($listaDesativados);
                 <?php foreach ($listaFiltrada as $linha) : ?>
                     <?php if (empty($statusFiltrar) || $linha['statusProduto'] === $statusFiltrar) : ?>
                         <tr>
-                            <?php if ($statusFiltrar === 'DESATIVADO') : ?>
+                           
+                        <?php if (empty($statusFiltrar) || $statusFiltrar === 'LISTA GERAL') : ?>
+                                <td class="spanstatus">
+                                    <?php if ($linha['statusProduto'] === 'ATIVO') : ?>
+                                        <span class="status-span active-status"></span>
+                                    <?php else : ?>
+                                        <span class="status-span inactive-status"></span>
+                                    <?php endif; ?>
+                                </td>
+                            <?php endif; ?>
+                        <?php if ($statusFiltrar === 'DESATIVADO') : ?>
                                 <td class="ativar">
                                     <a class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="index.php?p=produtos&pr=ativar&id=<?php echo $linha['idProduto'] ?>" onclick="return confirmarAtivacao()">
                                     <img src="./img/aceitar.png" alt="">

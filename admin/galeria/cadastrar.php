@@ -1,7 +1,7 @@
 <?php
-if (isset($_POST['idGaleria'])) {
+if (isset($_POST['statusGaleria'])) {
 
-    $idGaleria = $_POST['idGaleria'];
+    $statusGaleria = $_POST['statusGaleria'];
    
 
     $arquivo = $_FILES['fotoGaleria'];
@@ -17,7 +17,7 @@ if (isset($_POST['idGaleria'])) {
 
     $galeria = new GaleriaClass();
 
-    $galeria->idGaleria = $idGaleria;
+    $galeria->statusGaleria = $statusGaleria;
     $galeria->fotoGaleria = $fotoGaleria;
    
 

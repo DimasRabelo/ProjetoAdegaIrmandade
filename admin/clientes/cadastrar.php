@@ -4,6 +4,7 @@ if (isset($_POST['nomeUsuario'])) {
     $nomeUsuario = $_POST['nomeUsuario'];
     $emailUsuario = $_POST['emailUsuario'];
     $senhaUsuario = $_POST['senhaUsuario'];
+    $statusUsuario = $_POST['statusUsuario'];
    
 
     $arquivo = $_FILES['fotoUsuario'];
@@ -11,8 +12,8 @@ if (isset($_POST['nomeUsuario'])) {
     if ($arquivo['error']) {
         throw new Exception('Error' . $arquivo['error']);
     }
-    if (move_uploaded_file($arquivo['tmp_name'], '../src/imagens/usuarios/' . $arquivo['name'])) {
-        $fotoFuncionario = 'usuarios/' . $arquivo['name'];
+    if (move_uploaded_file($arquivo['tmp_name'], '../src/imagens/Usuario/' . $arquivo['name'])) {
+        $fotoUsuario = 'Usuario/' . $arquivo['name'];
     }
 
 
@@ -25,6 +26,8 @@ if (isset($_POST['nomeUsuario'])) {
     $usuario->emailUsuario = $emailUsuario;
     $usuario->senhaUsuario = $senhaUsuario;
     $usuario->fotoUsuario = $fotoUsuario;
+    $usuario->statusUsuario = $statusUsuario;
+    
 
     $usuario->Cadastrar();
 }

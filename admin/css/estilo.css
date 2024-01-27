@@ -185,8 +185,8 @@ nav ul li a {
 }
 
 .fotoGeral img{
-    width: 180px;
-    height: 150px;
+    width: 220px;
+    height: 200px;
     object-fit: cover;
 }
 
@@ -404,4 +404,73 @@ button {
 /* Botão Ativar da lista dos desativados */
 .ativar{
     width: 10%;
+}
+
+
+/* Estilização do botão status */
+.spanstatus{
+   text-align: center;
+   padding-right: 15px;
+}
+
+.status-span {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.active-status {
+    background-color: green;
+    animation: pulse 1s infinite alternate;
+}
+
+.inactive-status {
+    background-color: red;
+    animation: rotate 2s linear infinite, scale 1s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+    to {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes scale {
+    to {
+        transform: scale(1.2);
+    }
+}
+
+/* botões de legenda */
+
+.legenda-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.bolinha {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+.verde {
+    background-color: green; /* Cor verde */
+}
+
+.vermelha {
+    background-color: red; /* Cor vermelha */
 }

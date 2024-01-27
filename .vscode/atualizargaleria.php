@@ -1,3 +1,7 @@
+ 
+atualizar.php Galeria
+
+
 <?php
 
 $id = $_GET["id"];
@@ -7,10 +11,9 @@ $galeria = new GaleriaClass($id);
 
 //echo $galeria->nomegaleria;
 
-if (isset($_POST['idGaleria'])) {
+if (isset($_POST['statusGaleria'])) {
 
-
-    $idgaleria = $_POST['idGaleria'];
+    $statusGaleria = $_POST['statusGaleria'];
     
 
 
@@ -33,6 +36,7 @@ if (isset($_POST['idGaleria'])) {
         $fotoGaleria = $galeria->fotoGaleria;
     }
      $galeria->fotoGaleria = $fotoGaleria;
+     $galeria->statusGaleria = $statusGaleria;
     
 
      $galeria->Atualizar();
@@ -58,7 +62,7 @@ if (isset($_POST['idGaleria'])) {
         <div>
             <img src="img/sem-foto.jpg" alt="..." id="imgfoto">
         </div>
-        <input type="file" id="fotoGaleria" name="fotoGaleria" style="display: none;"  value="<?php echo $galeria->fotoGaleria; ?>">
+        <input type="file" id="fotoGaleria" name="fotoGaleria" style="display: none;">
 
     </div>
     <div>
@@ -91,3 +95,5 @@ if (isset($_POST['idGaleria'])) {
         }
     });
 </script>
+
+-->

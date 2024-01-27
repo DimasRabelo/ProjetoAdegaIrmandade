@@ -16,7 +16,7 @@ $statusFiltrar = '';
 if (isset($_POST['statusFuncionario'])) {
     $statusFiltrar = $_POST['statusFuncionario'];
 
-    if ($statusFiltrar === 'desativado') {
+    if ($statusFiltrar === 'DESATIVADO') {
         $listaFiltrada = $listaDesativados;
     }
 }
@@ -45,7 +45,6 @@ $totalDesativados = count($listaDesativados);
 
 
 
-
 <div>
     <a class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="index.php?p=funcionarios&f=cadastrar">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-repeat" viewBox="0 0 16 16">
@@ -63,11 +62,17 @@ $totalDesativados = count($listaDesativados);
         <button type="submit">Pesquisar</button>
     </form>
 </div>
-<style>
 
+<?php if (empty($statusFiltrar) || $statusFiltrar === 'LISTA GERAL') : ?>
+    <div class="legenda-status">
+        <div class="bolinha verde"></div>
+        <span>Ativo</span>
 
+        <div class="bolinha vermelha"></div>
+        <span>Desativado</span>
+    </div>
+<?php endif; ?>
 
-</style>
 
 
 <!-- Formulário de filtro -->
@@ -76,7 +81,7 @@ $totalDesativados = count($listaDesativados);
     <div>
         <select class="seleAtual" aria-label="Default select example" name="statusFuncionario">
             <option value="" selected disabled>Selecione um Status da Lista</option>
-            <option value="" <?php echo empty($statusFiltrar) ? 'selected' : ''; ?>>LISTA GERAL</option>
+            <option value="" <?php echo empty($statusFiltrar) ? 'selected' : 'LISTA GERAL'; ?>>LISTA GERAL</option>
             <option value="ATIVO" <?php echo ($statusFiltrar === 'ATIVO') ? 'selected' : ''; ?>>ATIVOS</option>
             <option value="DESATIVADO" <?php echo ($statusFiltrar === 'DESATIVADO') ? 'selected' : ''; ?>>DESATIVADOS</option>
 
@@ -100,36 +105,44 @@ $totalDesativados = count($listaDesativados);
             <caption>Lista de Funcionários</caption>
             <thead>
                 <tr>
+                    <?php if (empty($statusFiltrar) || $statusFiltrar === 'LISTA GERAL') : ?>
+                        <th class="spanstatus" >Status</th>
+                    <?php endif; ?>
                     <?php if ($statusFiltrar === 'DESATIVADO') : ?>
-                        <th class="ativar">Ativar</th>
+                        <th>Ativar</th>
                     <?php endif; ?>
                     <th>Nome</th>
                     <th>Foto</th>
-                    
                     <?php if ($statusFiltrar !== 'DESATIVADO') : ?>
                         <th>Alterar ou Desativar</th>
-                        
                     <?php endif; ?>
                     <th>Cargo</th>
                     <th>Nivel de Acesso</th>
                     <th>Endereço</th>
                     <th>Cep</th>
-
                 </tr>
             </thead>
 
             <tbody>
                 <?php foreach ($listaFiltrada as $linha) : ?>
                     <?php if (empty($statusFiltrar) || $linha['statusFuncionario'] === $statusFiltrar) : ?>
-
                         <tr>
+
+
+                            <?php if (empty($statusFiltrar) || $statusFiltrar === 'LISTA GERAL') : ?>
+                                <td class="spanstatus">
+                                    <?php if ($linha['statusFuncionario'] === 'ATIVO') : ?>
+                                        <span class="status-span active-status"></span>
+                                    <?php else : ?>
+                                        <span class="status-span inactive-status"></span>
+                                    <?php endif; ?>
+                                </td>
+                            <?php endif; ?>
                             <?php if ($statusFiltrar === 'DESATIVADO') : ?>
                                 <td class="ativar">
                                     <a href="index.php?p=funcionarios&f=ativar&id=<?php echo $linha['idFuncionario']; ?>" onclick="return confirmarAtivacao()">
-                                    <img src="./img/aceitar.png" alt="">
+                                        <img src="./img/aceitar.png" alt="">
                                     </a>
-
-
                                 </td>
                             <?php endif; ?>
                             <td><?php echo $linha['nomeFuncionario'] ?></td>
@@ -137,47 +150,27 @@ $totalDesativados = count($listaDesativados);
                                 <a href="../src/imagens/<?php echo $linha['fotoFuncionario'] ?>" data-lightbox="<?php echo $linha['nomeFuncionario'] ?>" data-title="<?php echo $linha['nomeFuncionario'] ?>">
                                     <img src="../src/imagens/<?php echo $linha['fotoFuncionario'] ?>" data-alt="<?php echo $linha['nomeFuncionario'] ?>">
                                 </a>
-
-
                             </td>
-                            
-                            <?php if ($statusFiltrar !== 'DESATIVADO') : ?>
-                                <td class="btngrudsicone" >
-                                    <a href="index.php?p=funcionarios&f=atualizar&id=<?php echo $linha['idFuncionario'] ?>">
-                                       <img src="./img/setas-flechas.png" alt="">
-                                    </a>
 
-                                
-                                
+                            <?php if ($statusFiltrar !== 'DESATIVADO') : ?>
+                                <td class="btngrudsicone">
+                                    <a href="index.php?p=funcionarios&f=atualizar&id=<?php echo $linha['idFuncionario'] ?>">
+                                        <img src="./img/setas-flechas.png" alt="">
+                                    </a>
                                     <a href="index.php?p=funcionarios&f=desativar&id=<?php echo $linha['idFuncionario'] ?>" onclick="return confirmarDesativacao()">
-                                    <img src="./img/lixeira-de-reciclagem.png" alt="">
+                                        <img src="./img/lixeira-de-reciclagem.png" alt="">
                                     </a>
                                 </td>
                             <?php endif; ?>
 
-
-
-
-
                             <td><?php echo $linha['cargoFuncionario'] ?></td>
-                            <td><?php echo $linha['nivelFuncionario'] ?></td> 
+                            <td><?php echo $linha['nivelFuncionario'] ?></td>
                             <td><?php echo $linha['enderecoFuncionario'] ?></td>
                             <td><?php echo $linha['cepFuncionario'] ?></td>
-
-
-
-
-
-
                         </tr>
                     <?php endif; ?>
                 <?php endforeach; ?>
-
-
-
-
             </tbody>
-
         </table>
     </div>
 </div>
