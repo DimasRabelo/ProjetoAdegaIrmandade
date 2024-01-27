@@ -75,6 +75,12 @@ $pagina = @$_GET['p'];
 
                     break;
 
+                    case 'galeria':
+
+                        require_once('galeria/galeria.php');
+    
+                        break;
+
                 case 'funcionarios':
 
                     require_once('funcionarios/funcionarios.php');
@@ -143,6 +149,7 @@ $pagina = @$_GET['p'];
                     <li><a href="index.php?p=clientes" class="<?= ($pagina == 'clientes') ? 'menuAtivo' : ''; ?>"> Clientes </a></li>
                     <li><a href="index.php?p=contato" class="<?= ($pagina == 'contato') ? 'menuAtivo' : ''; ?>"> E-mail </a></li>
                     <li><a href="index.php?p=relatorio" class="<?= ($pagina == 'relatorio') ? 'menuAtivo' : ''; ?>"> Relatório </a></li>
+                    <li><a href="index.php?p=galeria" class="<?= ($pagina == 'galeria') ? 'menuAtivo' : ''; ?>"> galeria </a></li>
                     <li><a href="index.php?p=ajuda%20e%20suporte" class="<?= ($pagina == 'ajuda e suporte') ? 'menuAtivo' : ''; ?>"> Ajuda e Suporte </a></li>
                 </ul>
             </nav>

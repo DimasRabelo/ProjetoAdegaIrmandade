@@ -1,24 +1,24 @@
 <div class="nomegaleria">GALERIA</div>
 <section class="galeria wow animate__animated animate__fadeInUp">
 
-    <img src="src/imagens/img/imggaleria1-.png" alt="">
-    <img src="src/imagens/img/imggaleria2-.png" alt="">
-    <img src="src/imagens/img/imggaleria3-.png" alt="">
-    <img src="src/imagens/img/imggaleria4-.png" alt="">
-    <img src="src/imagens/img/imggaleria5-.png" alt="">
-    <img src="src/imagens/img/imggaleria6-.png" alt="">
-    <img src="src/imagens/img/imggaleria7-.png" alt="">
-    <img src="src/imagens/img/imggaleria8-.png" alt="">
-    <img src="src/imagens/img/imggaleria9-.png" alt="">
-    <img src="src/imagens/img/imggaleria1-.png" alt="">
-    <img src="src/imagens/img/imggaleria2-.png" alt="">
-    <img src="src/imagens/img/imggaleria3-.png" alt="">
-    <img src="src/imagens/img/imggaleria4-.png" alt="">
-    <img src="src/imagens/img/imggaleria5-.png" alt="">
-    <img src="src/imagens/img/imggaleria6-.png" alt="">
-    <img src="src/imagens/img/imggaleria7-.png" alt="">
-    <img src="src/imagens/img/imggaleria8-.png" alt="">
-    <img src="src/imagens/img/imggaleria9-.png" alt="">
+    <img src="src/imagens/galeria/imggaleria1-.png" alt="">
+    <img src="src/imagens/galeria/imggaleria2-.png" alt="">
+    <img src="src/imagens/galeria/imggaleria3-.png" alt="">
+    <img src="src/imagens/galeria/imggaleria4-.png" alt="">
+    <img src="src/imagens/galeria/imggaleria5-.png" alt="">
+    <img src="src/imagens/galeria/imggaleria6-.png" alt="">
+    <img src="src/imagens/galeria/imggaleria7-.png" alt="">
+    <img src="src/imagens/galeria/imggaleria8-.png" alt="">
+    <img src="src/imagens/galeria/imggaleria9-.png" alt="">
+    <img src="src/imagens/galeria/imggaleria1-.png" alt="">
+    <img src="src/imagens/galeria/imggaleria2-.png" alt="">
+    <img src="src/imagens/galeria/imggaleria3-.png" alt="">
+    <img src="src/imagens/galeria/imggaleria4-.png" alt="">
+    <img src="src/imagens/galeria/imggaleria5-.png" alt="">
+    <img src="src/imagens/galeria/imggaleria6-.png" alt="">
+    <img src="src/imagens/galeria/imggaleria7-.png" alt="">
+    <img src="src/imagens/galeria/imggaleria8-.png" alt="">
+    <img src="src/imagens/galeria/imggaleria9-.png" alt="">
 
 
 </section>
