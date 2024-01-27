@@ -127,8 +127,6 @@ $totalDesativados = count($listaDesativados);
                 <?php foreach ($listaFiltrada as $linha) : ?>
                     <?php if (empty($statusFiltrar) || $linha['statusFuncionario'] === $statusFiltrar) : ?>
                         <tr>
-
-
                             <?php if (empty($statusFiltrar) || $statusFiltrar === 'LISTA GERAL') : ?>
                                 <td class="spanstatus">
                                     <?php if ($linha['statusFuncionario'] === 'ATIVO') : ?>

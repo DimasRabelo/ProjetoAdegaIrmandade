@@ -67,11 +67,22 @@ $totalDesativados = count($listaDesativados);
     </form>
 </div>
 
+<?php if (empty($statusFiltrar) || $statusFiltrar === 'LISTA GERAL') : ?>
+    <div class="legenda-status">
+        <div class="bolinha verde"></div>
+        <span>Ativo</span>
+
+        <div class="bolinha vermelha"></div>
+        <span>Desativado</span>
+    </div>
+<?php endif; ?>
+
+
 <form class="formStatus" action="" method="POST">
     <div>
         <select class="seleAtual" aria-label="Default select example" name="statusVenda">
             <option value="" selected disabled>Selecione um Status da Lista</option>
-            <option value="" <?php echo empty($statusFiltrar) ? 'selected' : ''; ?>>LISTA GERAL</option>
+            <option value="" <?php echo empty($statusFiltrar) ? 'selected' : 'LISTA GERAL'; ?>>LISTA GERAL</option>
             <option value="ATIVO" <?php echo ($statusFiltrar === 'ATIVO') ? 'selected' : ''; ?>>ATIVOS</option>
             <option value="DESATIVADO" <?php echo ($statusFiltrar === 'DESATIVADO') ? 'selected' : ''; ?>>DESATIVADOS</option>
         </select>
@@ -98,10 +109,14 @@ $totalDesativados = count($listaDesativados);
             <caption>Lista de Vendas</caption>
             <thead>
                 <tr>
+                <th>Funcionário</th>
+                <?php if (empty($statusFiltrar) || $statusFiltrar === 'LISTA GERAL') : ?>
+                        <th class="spanstatus" >Status</th>
+                    <?php endif; ?>
                 <?php if ($statusFiltrar === 'DESATIVADO') : ?>
                         <th  class="ativar">Ativar</th>
                     <?php endif; ?>
-                    <th>Funcionário</th>
+                    
                     <th>Produto</th>
                     <th>Data</th>
                     <th>Hora</th>
@@ -120,6 +135,20 @@ $totalDesativados = count($listaDesativados);
                     <?php if (empty($statusFiltrar) || $linha['statusVenda'] === $statusFiltrar) : ?>
 
                         <tr>
+
+                        <td><?php echo $linha['nomeFuncionario'] ?></td>
+                        <?php if (empty($statusFiltrar) || $statusFiltrar === 'LISTA GERAL') : ?>
+                                <td class="spanstatus">
+                                    <?php if ($linha['statusVenda'] === 'ATIVO') : ?>
+                                        <span class="status-span active-status"></span>
+                                    <?php else : ?>
+                                        <span class="status-span inactive-status"></span>
+                                    <?php endif; ?>
+                                </td>
+                            <?php endif; ?>
+
+
+
                             <?php if ($statusFiltrar === 'DESATIVADO') : ?>
                                 <td  class="ativar">
                                     <a class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="index.php?p=vendas&v=ativar&id=<?php echo $linha['idVenda']; ?>" onclick="return confirmarAtivacao()">
@@ -130,7 +159,7 @@ $totalDesativados = count($listaDesativados);
                                 </td>
                             <?php endif; ?>
                             
-                            <td><?php echo $linha['nomeFuncionario'] ?></td>
+                           
                             <td><?php echo $linha['nomeProduto'] ?></td>
                             <td><?php echo date('d/m/Y', strtotime($linha['dataVenda'])) ?></td>
                             <td><?php echo $linha['horaVenda'] ?></td>

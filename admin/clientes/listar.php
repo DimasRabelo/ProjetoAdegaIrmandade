@@ -16,7 +16,7 @@ $statusFiltrar = '';
 if (isset($_POST['statusUsuario'])) {
     $statusFiltrar = $_POST['statusUsuario'];
 
-    if ($statusFiltrar === 'desativado') {
+    if ($statusFiltrar === 'DESATIVADO') {
         $listaFiltrada = $listaDesativados;
     }
 }
@@ -59,6 +59,16 @@ $totalDesativados = count($listaDesativados);
     </form>
 </div>
 
+<?php if (empty($statusFiltrar) || $statusFiltrar === 'LISTA GERAL') : ?>
+    <div class="legenda-status">
+        <div class="bolinha verde"></div>
+        <span>Ativo</span>
+
+        <div class="bolinha vermelha"></div>
+        <span>Desativado</span>
+    </div>
+<?php endif; ?>
+
 <!-- Formulário de filtro -->
 <form class="formStatus" action="" method="POST">
     <div>
@@ -87,7 +97,10 @@ $totalDesativados = count($listaDesativados);
             <caption>Lista de Clientes</caption>
             <thead>
                 <tr>
-                <?php if ($statusFiltrar === 'DESATIVADO') : ?>
+                    <?php if (empty($statusFiltrar) || $statusFiltrar === 'LISTA GERAL') : ?>
+                        <th class="spanstatus">Status</th>
+                    <?php endif; ?>
+                    <?php if ($statusFiltrar === 'DESATIVADO') : ?>
                         <th class="ativar">Ativar</th>
                     <?php endif; ?>
                     <th>Nome</th>
@@ -100,20 +113,26 @@ $totalDesativados = count($listaDesativados);
             <tbody>
                 <?php foreach ($listaFiltrada as $linha) : ?>
                     <?php if (empty($statusFiltrar) || $linha['statusUsuario'] === $statusFiltrar) : ?>
-                        <tr >
-                        <?php if ($statusFiltrar === 'DESATIVADO') : ?>
-                                <td class="ativar">
-                                    <a href="index.php?p=clientes&c=ativar&id=<?php echo $linha['idUsuario']; ?>" onclick="return confirmarAtivacao()">
-                                    <img src="./img/aceitar.png" alt="">
-                                    </a>
+                        <tr>
 
-
+                            <?php if (empty($statusFiltrar) || $statusFiltrar === 'LISTA GERAL') : ?>
+                                <td class="spanstatus">
+                                    <?php if ($linha['statusUsuario'] === 'ATIVO') : ?>
+                                        <span class="status-span active-status"></span>
+                                    <?php else : ?>
+                                        <span class="status-span inactive-status"></span>
+                                    <?php endif; ?>
                                 </td>
                             <?php endif; ?>
 
+                            <?php if ($statusFiltrar === 'DESATIVADO') : ?>
+                                <td class="ativar">
+                                    <a href="index.php?p=clientes&c=ativar&id=<?php echo $linha['idUsuario']; ?>" onclick="return confirmarAtivacao()">
+                                        <img src="./img/aceitar.png" alt="">
+                                    </a>
+                                </td>
+                            <?php endif; ?>
 
-
-                           
                             <td><?php echo $linha['nomeUsuario'] ?></td>
                             <td><?php echo $linha['emailUsuario'] ?></td>
                             <td><?php echo $linha['senhaUsuario'] ?></td>
@@ -122,16 +141,15 @@ $totalDesativados = count($listaDesativados);
                                     <img src="../src/imagens/<?php echo $linha['fotoUsuario'] ?>" data-alt="<?php echo $linha['nomeUsuario'] ?>">
                                 </a>
                             </td>
-                           
-                                <td class="btngrudsicone">
-                                    <a href="index.php?p=clientes&c=atualizar&id=<?php echo $linha['idUsuario'] ?>">
-                                        <img src="./img/setas-flechas.png" alt="">
-                                    </a>
-                                    <a href="index.php?p=clientes&c=desativar&id=<?php echo $linha['idUsuario'] ?>" onclick="return confirmarDesativacao()">
-                                        <img src="./img/lixeira-de-reciclagem.png" alt="">
-                                    </a>
-                                </td>
-                           
+
+                            <td class="btngrudsicone">
+                                <a href="index.php?p=clientes&c=atualizar&id=<?php echo $linha['idUsuario'] ?>">
+                                    <img src="./img/setas-flechas.png" alt="">
+                                </a>
+                                <a href="index.php?p=clientes&c=desativar&id=<?php echo $linha['idUsuario'] ?>" onclick="return confirmarDesativacao()">
+                                    <img src="./img/lixeira-de-reciclagem.png" alt="">
+                                </a>
+                            </td>
                         </tr>
                     <?php endif; ?>
                 <?php endforeach; ?>

@@ -44,7 +44,6 @@ $totalAtivos = count($listaAtivos);
 $totalDesativados = count($listaDesativados);
 ?>
 
-
 <div>
     <a class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="index.php?p=produtos&pr=cadastrar">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-repeat" viewBox="0 0 16 16">
@@ -109,7 +108,7 @@ $totalDesativados = count($listaDesativados);
             <thead>
                 <tr>
                 <?php if (empty($statusFiltrar) || $statusFiltrar === 'LISTA GERAL') : ?>
-                        <th class="spanstatus" >Status</th>
+                        <th class="spanstatus" class="thStatusPro"    >Status</th>
                     <?php endif; ?>
                 
                 <?php if ($statusFiltrar === 'DESATIVADO') : ?>
@@ -137,7 +136,7 @@ $totalDesativados = count($listaDesativados);
                         <tr>
                            
                         <?php if (empty($statusFiltrar) || $statusFiltrar === 'LISTA GERAL') : ?>
-                                <td class="spanstatus">
+                                <td class="spanstatus" >
                                     <?php if ($linha['statusProduto'] === 'ATIVO') : ?>
                                         <span class="status-span active-status"></span>
                                     <?php else : ?>
