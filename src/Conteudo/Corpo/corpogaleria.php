@@ -1,34 +1,27 @@
 <div class="nomegaleria">GALERIA</div>
 <section class="galeria wow animate__animated animate__fadeInUp">
 
-    <img src="src/imagens/galeria/imggaleria1-.png" alt="">
-    <img src="src/imagens/galeria/imggaleria2-.png" alt="">
-    <img src="src/imagens/galeria/imggaleria3-.png" alt="">
-    <img src="src/imagens/galeria/imggaleria4-.png" alt="">
-    <img src="src/imagens/galeria/imggaleria5-.png" alt="">
-    <img src="src/imagens/galeria/imggaleria6-.png" alt="">
-    <img src="src/imagens/galeria/imggaleria7-.png" alt="">
-    <img src="src/imagens/galeria/imggaleria8-.png" alt="">
-    <img src="src/imagens/galeria/imggaleria9-.png" alt="">
-    <img src="src/imagens/galeria/imggaleria1-.png" alt="">
-    <img src="src/imagens/galeria/imggaleria2-.png" alt="">
-    <img src="src/imagens/galeria/imggaleria3-.png" alt="">
-    <img src="src/imagens/galeria/imggaleria4-.png" alt="">
-    <img src="src/imagens/galeria/imggaleria5-.png" alt="">
-    <img src="src/imagens/galeria/imggaleria6-.png" alt="">
-    <img src="src/imagens/galeria/imggaleria7-.png" alt="">
-    <img src="src/imagens/galeria/imggaleria8-.png" alt="">
-    <img src="src/imagens/galeria/imggaleria9-.png" alt="">
+    <?php for ($i = 0; $i < count($lista); $i++) : ?>
 
+      
+
+            <img src="<?php echo 'src/imagens/' . $lista[$i]['fotoGaleria'] ?>" alt="">
+
+       
+    
+    <?php endfor; ?>
 
 </section>
+
+
+
 
 
 <h class="evento">VIDEOS</h>
 <div class="site">
 
-   
-<div id="carouselExample" class="carousel slide">
+
+    <div id="carouselExample" class="carousel slide">
         <div class="carousel-inner">
 
 
@@ -39,12 +32,12 @@
 
             </div>
             <div class="carousel-item">
-                <iframe width="100%"   height="600" src="https://www.youtube.com/embed/wFP3Vte7mtY" title="Adega Lounge e Tabacaria Irmandade Localizado na rua Manoel Bueno da fonseca,46" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+                <iframe width="100%" height="600" src="https://www.youtube.com/embed/wFP3Vte7mtY" title="Adega Lounge e Tabacaria Irmandade Localizado na rua Manoel Bueno da fonseca,46" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
                 </iframe>
             </div>
 
             <div class="carousel-item ">
-                <iframe width="100%"  height="600" src="https://www.youtube.com/embed/Kskj9xfOCY" title=" de setembro de 03" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe width="100%" height="600" src="https://www.youtube.com/embed/Kskj9xfOCY" title=" de setembro de 03" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
 
 
@@ -58,4 +51,4 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-</div> 
+</div>

@@ -71,10 +71,17 @@
             require_once('class/produto.php');
 
             $produtoClass = new ProdutoClass();
-            $produtos = $produtoClass->listarProdutosAtivos();
 
-            foreach ($produtos as $produto) {
+            // Listar produtos ativos
+            $produtosAtivos = $produtoClass->listarProdutosAtivos();
+            foreach ($produtosAtivos as $produto) {
                 echo "<option value='{$produto['idProduto']}'>{$produto['nomeProduto']}</option>";
+            }
+
+            // Listar produtos desativados
+            $produtosDesativados = $produtoClass->listarProdutosDesativados();
+            foreach ($produtosDesativados as $produto) {
+                echo "<option value='{$produto['idProduto']}'>{$produto['nomeProduto']} (Desativado)</option>";
             }
             ?>
         </select>

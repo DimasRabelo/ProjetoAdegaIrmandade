@@ -2,7 +2,16 @@
 <!-- <section class="tabacaria wow animate__animated animate__fadeInUp"> -->
 
 <div class="banner">
-  <img src="src/imagens/banner/bannertabacaria.png" alt="">
+<?php for ($i = 0; $i < count($lista); $i++) : ?>
+
+      
+
+<img src="<?php echo 'src/imagens/' . $lista[$i]['fotoBanner'] ?>" alt="">
+
+
+
+<?php endfor; ?>
+
 </div>
 
 

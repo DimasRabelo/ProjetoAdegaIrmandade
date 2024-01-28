@@ -7,11 +7,9 @@ if (isset($_GET['id'])) {
     $banner = new BannerClass($id);
 
 
-    $banner->desativar();
+    $banner->ativar();
 
     // Redireciona de volta para a lista após a desativação
     echo "<script>document.location='index.php?p=banner'</script>";
     exit;
 }
-
-

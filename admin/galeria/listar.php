@@ -30,7 +30,7 @@ $lista = $galeria->listarGaleria();
 
                 <th>foto</th>
                 <th>Atualizar
-                    Desativar</th>
+                   Desativar</th>
             </tr>
         </thead>
         <tbody>

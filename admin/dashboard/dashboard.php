@@ -1,17 +1,32 @@
-<?php 
-
-$pagina = @$_GET['d'];
-
-if ($pagina == NULL) {
-    require_once ('listar.php');
-}else {
-    if($pagina == 'cadastrar') { require_once('cadastrar.php');}
-    if($pagina ==  'atualizar') { require_once('atualizar.php');}    
-    if($pagina == 'desativar' ) { require_once('desativar.php');}
-    if($pagina == 'ativar' ) { require_once('ativar.php');}
 
 
-}
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Dashboard</h1>
+    
+    
+    
+    
+    
+    
+    
+    <ul>
+        <li><a href="index.php?p=galeria">Galeria</a></li>
+        
+    </ul>
+</body>
+</html>
+
 
 
 

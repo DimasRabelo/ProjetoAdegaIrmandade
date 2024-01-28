@@ -23,7 +23,7 @@ if (isset($_POST['nomeFuncionario'])) {
     $telFuncionario = $_POST['telFuncionario'];
     $cepFuncionario = $_POST['cepFuncionario'];
     $statusFuncionario = $_POST['statusFuncionario'];
-    
+
     //foto
 
 
@@ -72,13 +72,18 @@ if (isset($_POST['nomeFuncionario'])) {
 
 
     <div class="fotoForm">
+
         <div>
-            <img src="img/sem-foto.jpg" alt="..." id="imgfoto">
+            <?php if (!empty($funcionario->fotoFuncionario)) : ?>
+                <img src="../src/imagens/<?php echo $funcionario->fotoFuncionario; ?>" alt="Funcionário Photo" id="imgfoto">
+            <?php else : ?>
+                <img src="img/sem-foto.jpg" alt="Sem Foto" id="imgfoto">
+            <?php endif; ?>
         </div>
         <input type="file" id="fotoFuncionario" name="fotoFuncionario" style="display: none;">
 
     </div>
-
+    <p class="informa">clique em cima da foto se deseja alterar</p>
     <div>
         <label for="nomeFuncionario">Nome do Funcionario</label>
         <input type="text" name="nomeFuncionario" id="nomeFuncionario" placeholder="Informe o Nome do Funcionario" value="<?php echo $funcionario->nomeFuncionario; ?>">
@@ -154,13 +159,13 @@ if (isset($_POST['nomeFuncionario'])) {
     // Evento de Alteração Mudar
     document.getElementById('fotoFuncionario').addEventListener('change', function(e) {
         let imgfoto = document.getElementById('imgfoto');
-        let arquivo = e.target.files[0]; 
+        let arquivo = e.target.files[0];
         if (arquivo) {
             let carregar = new FileReader();
 
             carregar.onload = function(e) {
                 imgfoto.src = e.target.result;
-               // console.log(imgfoto.src);
+                // console.log(imgfoto.src);
             }
 
             carregar.readAsDataURL(arquivo);

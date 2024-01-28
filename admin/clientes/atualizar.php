@@ -36,17 +36,13 @@ if (isset($_POST['nomeUsuario'])) {
         $fotoUsuario = $usuario->fotoUsuario;
     }
 
-     $usuario->nomeUsuario = $nomeUsuario;
-     $usuario->emailUsuario = $emailUsuario;
-     $usuario->senhaUsuario = $senhaUsuario;
-     $usuario->statusUsuario = $statusUsuario;
-     $usuario->fotoUsuario = $fotoUsuario;
+    $usuario->nomeUsuario = $nomeUsuario;
+    $usuario->emailUsuario = $emailUsuario;
+    $usuario->senhaUsuario = $senhaUsuario;
+    $usuario->statusUsuario = $statusUsuario;
+    $usuario->fotoUsuario = $fotoUsuario;
 
-     $usuario->Atualizar();
-
-
-
-
+    $usuario->Atualizar();
 }
 
 
@@ -63,12 +59,16 @@ if (isset($_POST['nomeUsuario'])) {
 
     <div class="fotoForm">
         <div>
-            <img src="img/sem-foto.jpg" alt="..." id="imgfoto">
+            <?php if (!empty($usuario->fotoUsuario)) : ?>
+                <img src="../src/imagens/<?php echo $usuario->fotoUsuario; ?>" alt="Usuario Photo" id="imgfoto">
+            <?php else : ?>
+                <img src="img/sem-foto.jpg" alt="Sem Foto" id="imgfoto">
+            <?php endif; ?>
         </div>
         <input type="file" id="fotoUsuario" name="fotoUsuario" style="display: none;">
 
     </div>
-
+    <p class="informa">clique em cima da foto se deseja alterar</p>
     <div>
         <label for="nomeUsuario"> Nome do Usuario</label>
         <input type="text" name="nomeUsuario" id="nomeUsuario" placeholder="Informe o Nome do Cliente" value="<?php echo $usuario->nomeUsuario; ?>">

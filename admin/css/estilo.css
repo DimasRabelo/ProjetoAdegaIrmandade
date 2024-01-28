@@ -477,3 +477,11 @@ button {
 .vermelha {
     background-color: red; /* Cor vermelha */
 }
+/* comentario de ajuda para atualizar foto */
+
+.informa {
+    color: #ffffff;
+    font-size: 10px;
+    font-family: none;
+    margin-top: -45px;
+}

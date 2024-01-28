@@ -1,3 +1,17 @@
+
+<?php
+  require_once('admin/class/banner.php');
+
+    $banner = new BannerClass();
+    $lista      = $banner->ListarBanner();
+   // var_dump($lista);
+?>
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 

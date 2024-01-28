@@ -22,8 +22,10 @@ if (isset($_POST['statusGaleria'])) {
    
 
     $galeria->Cadastrar();
-}
 
+    
+}
+var_dump($_FILES);
 ?>
 
 <h1>Inserir Foto</h1>
@@ -35,6 +37,15 @@ if (isset($_POST['statusGaleria'])) {
         </div>
         <input type="file" id="fotoGaleria" name="fotoGaleria" required style="display: none;">
 
+    </div>
+
+    <div>
+        <select aria-label="Default select example" name="statusGaleria" required>
+            <option selected="">Seleciona o Status da foto</option>
+            <option value="ATIVO">ATIVO</option>
+            <option value="DESATIVADO">DESATIVADO</option>
+            <option value="INATIVO">INATIVO</option>
+        </select>
     </div>
 
     <div>
