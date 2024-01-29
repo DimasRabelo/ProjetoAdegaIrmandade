@@ -51,7 +51,7 @@ $lista = $banner->ListarBanner();
 
 
                             <a href="index.php?p=banner&b=desativar&id=<?php echo $linha['idBanner'] ?>" onclick="return confirmarDesativacao()">
-                                <img src="./img/lixeira-de-reciclagem.png" alt="">
+                                <img src="./img/lixeira-de-reciclagem.png" alt="<?php echo $linha['altBanner']; ?>">
                             </a>
                         </td>
 

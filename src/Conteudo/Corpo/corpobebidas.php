@@ -55,7 +55,8 @@
 
             </div>
             <div class="banner">
-                <img src="src/imagens/banner/bannerbalde.png" alt="">
+                
+                <img src="<?php echo 'src/bannerCerveja/' . $linha['fotoBanner'] ?> " alt="<?php echo $linha['altBanner']  ?>">
             </div>
         </section>
     </div>

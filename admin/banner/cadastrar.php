@@ -5,18 +5,16 @@ if (isset($_POST['nomeBanner'])) {
     $nomeBanner = $_POST['nomeBanner'];
     $altBanner = $_POST['altBanner'];
     $statusBanner = $_POST['statusBanner'];
-   
+    $pastaEscolhida = $_POST['pasta'];
 
     $arquivo = $_FILES['fotoBanner'];
 
     if ($arquivo['error']) {
         throw new Exception('Error' . $arquivo['error']);
     }
-    if (move_uploaded_file($arquivo['tmp_name'], '../src/imagens/banner/' . $arquivo['name'])) {
-        $fotoBanner = 'banner/' . $arquivo['name'];
+    if (move_uploaded_file($arquivo['tmp_name'], "../src/imagens/$pastaEscolhida/" . $arquivo['name'])) {
+        $fotoBanner = "$pastaEscolhida/" . $arquivo['name'];
     }
-
-
 
     require_once('class/banner.php');
 
@@ -24,15 +22,22 @@ if (isset($_POST['nomeBanner'])) {
 
     $banner->nomeBanner = $nomeBanner;
     $banner->altBanner = $altBanner;
-    $banner->fotoBanner= $fotoBanner;
+    $banner->fotoBanner = $fotoBanner;
     $banner->statusBanner = $statusBanner;
-    
 
     $banner->Cadastrar();
 }
-
-
 ?>
+
+<div>
+        <label for="pasta">Escolha a pasta:</label>
+        <select name="pasta" required>
+            <option value="pasta1">bannerCerveja</option>
+            <option value="pasta2">bannerDestilado</option>
+            <option value="pasta3">bannerTabacaria</option>
+        </select>
+    </div>
+
 
 <h1>Inserir Banner</h1>
 <form action="index.php?p=banner&b=cadastrar" method="POST" enctype="multipart/form-data">
