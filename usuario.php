@@ -52,6 +52,7 @@
     <input class="inputuser"  type="password" class="form-control" id="exampleInputPassword1" placeholder=" digite sua senha">
     <p class="textuser">Sua senha deve ter de 8 a 20 caracteres, conter letras e números e não deve conter espaços, caracteres especiais ou emoji.</p>
   </div>
+  <a href="#">Esqueceu a Senha</a>
   <div class="inputuser"  class="mb-3 form-check">
     <input type="checkbox" class="form-check-input" id="exampleCheck1" required >
     <label   class="form-check-label" for="exampleCheck1">Verifique - me</label>

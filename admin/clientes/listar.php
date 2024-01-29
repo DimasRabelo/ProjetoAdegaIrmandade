@@ -107,7 +107,9 @@ $totalDesativados = count($listaDesativados);
                     <th>Email</th>
                     <th>Senha</th>
                     <th>Foto</th>
+                    <?php if ($statusFiltrar !== 'DESATIVADO') : ?>
                     <th>Alterar ou Desativar</th>
+                    <?php endif; ?>
                 </tr>
             </thead>
             <tbody>
@@ -141,7 +143,7 @@ $totalDesativados = count($listaDesativados);
                                     <img src="../src/imagens/<?php echo $linha['fotoUsuario'] ?>" data-alt="<?php echo $linha['nomeUsuario'] ?>">
                                 </a>
                             </td>
-
+                            <?php if ($statusFiltrar !== 'DESATIVADO') : ?>
                             <td class="btngrudsicone">
                                 <a href="index.php?p=clientes&c=atualizar&id=<?php echo $linha['idUsuario'] ?>">
                                     <img src="./img/setas-flechas.png" alt="">
@@ -150,6 +152,7 @@ $totalDesativados = count($listaDesativados);
                                     <img src="./img/lixeira-de-reciclagem.png" alt="">
                                 </a>
                             </td>
+                            <?php endif; ?>
                         </tr>
                     <?php endif; ?>
                 <?php endforeach; ?>
