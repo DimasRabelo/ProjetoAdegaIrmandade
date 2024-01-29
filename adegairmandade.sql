@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 28/01/2024 às 09:39
+-- Tempo de geração: 29/01/2024 às 03:23
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.0.28
 
@@ -281,9 +281,9 @@ CREATE TABLE `tblusuarios` (
 
 INSERT INTO `tblusuarios` (`idUsuario`, `nomeUsuario`, `emailUsuario`, `senhaUsuario`, `fotoUsuario`, `statusUsuario`) VALUES
 (1, 'Dimas Aparecido Rabelo de Souza', 'dimas.rabelo@yahoo.com', 'senha123', 'Usuario/dimocas.png', 'ATIVO'),
-(2, 'Sandra Macedo', 'sandra.marques@gmail.com', 'senha456', 'Usuario/sandra.png', 'ATIVO'),
+(2, 'Sandra Macedo', 'sandra.marques@gmail.com', 'senha456', 'Usuario/sandra.png', 'DESATIVADO'),
 (3, 'Nicole Cutri', 'nicole.cutri@gmail.com', 'senha789', 'Usuario/nicole.png', 'ATIVO'),
-(4, 'João Gordo', 'joaogordo@gmail.com', 'gordofobia123', 'Usuario/joaogordo.png', 'ATIVO');
+(4, 'João Gordo', 'joaogordo@gmail.com', 'gordofobia123', 'Usuario/joaogordo.png', 'DESATIVADO');
 
 -- --------------------------------------------------------
 
