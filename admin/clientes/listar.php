@@ -97,25 +97,28 @@ $totalDesativados = count($listaDesativados);
             <caption>Lista de Clientes</caption>
             <thead>
                 <tr>
+                    <th>Nome</th>
                     <?php if (empty($statusFiltrar) || $statusFiltrar === 'LISTA GERAL') : ?>
                         <th class="spanstatus">Status</th>
                     <?php endif; ?>
                     <?php if ($statusFiltrar === 'DESATIVADO') : ?>
                         <th class="ativar">Ativar</th>
                     <?php endif; ?>
-                    <th>Nome</th>
+                    <?php if ($statusFiltrar !== 'DESATIVADO') : ?>
+                        <th>Alterar ou Desativar</th>
+                    <?php endif; ?>
                     <th>Email</th>
                     <th>Senha</th>
                     <th>Foto</th>
-                    <?php if ($statusFiltrar !== 'DESATIVADO') : ?>
-                    <th>Alterar ou Desativar</th>
-                    <?php endif; ?>
+
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($listaFiltrada as $linha) : ?>
                     <?php if (empty($statusFiltrar) || $linha['statusUsuario'] === $statusFiltrar) : ?>
                         <tr>
+
+                            <td><?php echo $linha['nomeUsuario'] ?></td>
 
                             <?php if (empty($statusFiltrar) || $statusFiltrar === 'LISTA GERAL') : ?>
                                 <td class="spanstatus">
@@ -127,6 +130,17 @@ $totalDesativados = count($listaDesativados);
                                 </td>
                             <?php endif; ?>
 
+                            <?php if ($statusFiltrar !== 'DESATIVADO') : ?>
+                                <td class="btngrudsicone">
+                                    <a href="index.php?p=clientes&c=atualizar&id=<?php echo $linha['idUsuario'] ?>">
+                                        <img src="./img/setas-flechas.png" alt="">
+                                    </a>
+                                    <a href="index.php?p=clientes&c=desativar&id=<?php echo $linha['idUsuario'] ?>" onclick="return confirmarDesativacao()">
+                                        <img src="./img/lixeira-de-reciclagem.png" alt="">
+                                    </a>
+                                </td>
+                            <?php endif; ?>
+
                             <?php if ($statusFiltrar === 'DESATIVADO') : ?>
                                 <td class="ativar">
                                     <a href="index.php?p=clientes&c=ativar&id=<?php echo $linha['idUsuario']; ?>" onclick="return confirmarAtivacao()">
@@ -135,7 +149,7 @@ $totalDesativados = count($listaDesativados);
                                 </td>
                             <?php endif; ?>
 
-                            <td><?php echo $linha['nomeUsuario'] ?></td>
+
                             <td><?php echo $linha['emailUsuario'] ?></td>
                             <td><?php echo $linha['senhaUsuario'] ?></td>
                             <td class="fotoGeral">
@@ -143,16 +157,7 @@ $totalDesativados = count($listaDesativados);
                                     <img src="../src/imagens/<?php echo $linha['fotoUsuario'] ?>" data-alt="<?php echo $linha['nomeUsuario'] ?>">
                                 </a>
                             </td>
-                            <?php if ($statusFiltrar !== 'DESATIVADO') : ?>
-                            <td class="btngrudsicone">
-                                <a href="index.php?p=clientes&c=atualizar&id=<?php echo $linha['idUsuario'] ?>">
-                                    <img src="./img/setas-flechas.png" alt="">
-                                </a>
-                                <a href="index.php?p=clientes&c=desativar&id=<?php echo $linha['idUsuario'] ?>" onclick="return confirmarDesativacao()">
-                                    <img src="./img/lixeira-de-reciclagem.png" alt="">
-                                </a>
-                            </td>
-                            <?php endif; ?>
+
                         </tr>
                     <?php endif; ?>
                 <?php endforeach; ?>
