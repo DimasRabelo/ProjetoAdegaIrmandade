@@ -32,14 +32,6 @@ if (isset($_POST['nomeBanner'])) {
 }
 ?>
 
-<div>
-        <label for="pasta">Escolha a pasta:</label>
-        <select name="pasta" required>
-            <option value="pasta1">bannerCerveja</option>
-            <option value="pasta2">bannerDestilado</option>
-            <option value="pasta3">bannerTabacaria</option>
-        </select>
-    </div>
 
 
 <h1>Inserir Banner</h1>
