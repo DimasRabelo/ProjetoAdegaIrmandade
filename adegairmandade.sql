@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 30/01/2024 às 01:25
+-- Tempo de geração: 30/01/2024 às 15:20
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.0.28
 
@@ -43,7 +43,9 @@ CREATE TABLE `tblbanner` (
 INSERT INTO `tblbanner` (`idBanner`, `nomeBanner`, `altBanner`, `fotoBanner`, `statusBanner`, `paginaDestino`) VALUES
 (1, 'bannerbalde', 'banner/balde', 'banner/bannerbalde.png', 'ATIVO', ''),
 (2, 'bannerdestilado', 'banner/destilado', 'banner/bannerdestilado.png', 'ATIVO', ''),
-(4, 'bannertabacaria', 'banner/tabacaria ', 'banner/bannertabacaria.png', 'ATIVO', '');
+(4, 'bannertabacaria', 'banner/tabacaria ', 'banner/bannertabacaria.png', 'ATIVO', ''),
+(6, 'bannertab', '', 'banner/academiafundo.png', 'ATIVO', ''),
+(7, 'bannertab', '', 'banner/academiafundo.png', 'ATIVO', '');
 
 -- --------------------------------------------------------
 
@@ -156,7 +158,7 @@ CREATE TABLE `tblfuncionarios` (
 INSERT INTO `tblfuncionarios` (`idFuncionario`, `nomeFuncionario`, `altFuncionario`, `cargoFuncionario`, `dataNascFuncionario`, `emailFuncionario`, `senhaFuncionario`, `nivelFuncionario`, `dataAdmissaoFuncionario`, `enderecoFuncionario`, `telFuncionario`, `cepFuncionario`, `statusFuncionario`, `fotoFuncionario`, `linkFaceFuncionario`, `linkInstaFuncionario`, `linkWhatsFuncionario`) VALUES
 (1, 'ALAN COELHO BUENO', 'Foto/Funcionario/Gerente', 'GERENTE', '1990-06-16', 'alanloop@gmail.com', '', 'ADMINISTRADOR', '2021-03-02', 'Rua: Antonio Pinto Ferreira Filho,85', '1199878-5676', '08121-005', 'ATIVO', 'funcionario/alan1.png', 'alancoelho/facebook.com', '@alancoelho', '11911226677/whatsapp'),
 (2, 'Wagniton Coelho ', 'Foto/Funcionario/Gerente', 'SUPERVISOR', '1991-06-10', 'wagnitoncoelho@gmail.com', 'senha345', 'ADMINISTRADOR', '2021-03-02', 'Rua: Albuquerque freitas-08', '1199777-6666', '08100-005', 'ATIVO', 'funcionario/wagniton.png', 'wagnitoncoelho/facebook.com', '@wagnitoncoelho', '11923457689/whatsapp'),
-(4, 'Enzo Gouveia', 'Foto/Funcionario/ATENDENTE', 'AUXILIAR', '1995-05-12', 'enzogouvei@gmail.com', 'senhaABC', 'USUARIO', '2021-03-20', 'Rua: A - 24', '1198965-3232', '08123-010', 'DESATIVADO', 'funcionario/enzo.png', 'enzogouveia/facebook.com', '@enzogouveia', '11912875600/whatsapp'),
+(4, 'Enzo Gouveia', 'Foto/Funcionario/ATENDENTE', 'AUXILIAR', '1995-05-12', 'enzogouvei@gmail.com', 'senhaABC', 'USUARIO', '2021-03-20', 'Rua: A - 24', '1198965-3232', '08123-010', 'ATIVO', 'funcionario/enzo.png', 'enzogouveia/facebook.com', '@enzogouveia', '11912875600/whatsapp'),
 (9, 'Renato Ocela', 'Foto/Funcionario/ajudante', 'AJUDANTE', '1989-05-02', 'renatoocela@gmail.com', 'senha#3F', 'USUARIO', '2021-03-02', 'Rua: Renata Agondi,10', '1199999-5577', '02122-105', 'DESATIVADO', 'funcionario/renato.png', 'renato/facebook.com', '@renato', '11999995577/whatsapp'),
 (10, 'Marlene Rabelo', 'Foto/Funcionario/ajudante', 'AJUDANTE', '1985-12-05', 'marlenerabelo@gmail.com', 'senhaJLM', 'USUARIO', '2021-03-10', 'Rua: Chuva da Montanha,13', '1195889-6161', '09100-006', 'ATIVO', 'funcionario/marlene.png', 'marlenesouza/facebook.com', '@marlenesouza', '11958896161/whatsapp'),
 (12, 'Artur Alvim', 'Foto/Funcionario/ajudante', 'AJUDANTE', '1995-05-11', 'arturalvim@gmail.com', 'senha456', 'USUARIO', '2021-03-01', 'Rua: Manoel Tobias,344', '1195012-3408', '03010-330', 'ATIVO', 'funcionario/arturalvim.png', 'arturalvim/facebook.com', '@arturalvim', '11950123408/whatsapp'),
@@ -189,7 +191,7 @@ CREATE TABLE `tblgaleria` (
 --
 
 INSERT INTO `tblgaleria` (`idGaleria`, `nomeGaleria`, `altGaleria`, `fotoGaleria`, `statusGaleria`) VALUES
-(1, 'GALERIA1', 'imagem Galeria1', 'galeria/imggaleria1-.png', 'DESATIVADO'),
+(1, 'GALERIA1', 'imagem Galeria1', 'galeria/imggaleria1-.png', 'ATIVO'),
 (2, 'GALERIA2', 'imagem Galeria2', 'galeria/imggaleria2-.png', 'ATIVO'),
 (3, 'GALERIA3', 'imagem Galeria3', 'galeria/imggaleria3-.png', 'ATIVO'),
 (4, 'GALERIA4', 'imagem Galeria4', 'galeria/imggaleria4-.png', 'ATIVO'),
@@ -198,7 +200,7 @@ INSERT INTO `tblgaleria` (`idGaleria`, `nomeGaleria`, `altGaleria`, `fotoGaleria
 (7, 'GALERIA7', 'Imagem galeria7', 'galeria/imggaleria7-.png', 'ATIVO'),
 (8, 'GALERIA8', 'Imagem galeria8', 'galeria/imggaleria8-.png', 'ATIVO'),
 (9, 'GALERIA9', 'Imagem galeria9', 'galeria/imggaleria9-.png', 'ATIVO'),
-(11, '', '', 'galeria/homer.png', 'DESATIVADO');
+(11, '', '', 'galeria/homer.png', 'ATIVO');
 
 -- --------------------------------------------------------
 
@@ -281,7 +283,7 @@ CREATE TABLE `tblusuarios` (
 --
 
 INSERT INTO `tblusuarios` (`idUsuario`, `nomeUsuario`, `emailUsuario`, `senhaUsuario`, `fotoUsuario`, `statusUsuario`) VALUES
-(1, 'Dimas Aparecido Rabelo de Souza', 'dimas.rabelo@yahoo.com', 'senha123', 'Usuario/dimocas.png', 'ATIVO'),
+(1, 'Dimas Aparecido Rabelo de Souza   ', 'dimas.rabelo@yahoo.com', 'senha123', 'Usuario/dimocas.png', 'ATIVO'),
 (2, 'Sandra Macedo', 'sandra.marques@gmail.com', 'senha456', 'Usuario/sandra.png', 'DESATIVADO'),
 (3, 'Nicole Cutri', 'nicole.cutri@gmail.com', 'senha789', 'Usuario/nicole.png', 'ATIVO'),
 (4, 'João Gordo', 'joaogordo@gmail.com', 'gordofobia123', 'Usuario/joaogordo.png', 'DESATIVADO');
@@ -430,7 +432,7 @@ ALTER TABLE `tblvendas`
 -- AUTO_INCREMENT de tabela `tblbanner`
 --
 ALTER TABLE `tblbanner`
-  MODIFY `idBanner` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idBanner` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `tblcontato`
