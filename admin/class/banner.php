@@ -33,7 +33,7 @@ class BannerClass
             '{$this-> nomeBanner}',
             '{$this-> altBanner}',
             '{$this->fotoBanner}',
-            '{$this-> statusBanner }',
+            '{$this-> statusBanner }'
            
            
         )";

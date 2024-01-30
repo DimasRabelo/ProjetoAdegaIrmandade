@@ -5,8 +5,7 @@ if (isset($_POST['nomeBanner'])) {
     $nomeBanner = $_POST['nomeBanner'];
     $altBanner = $_POST['altBanner'];
     $statusBanner = $_POST['statusBanner'];
-    $pastaEscolhida = $_POST['pasta'];
-
+    
     $arquivo = $_FILES['fotoBanner'];
 
 

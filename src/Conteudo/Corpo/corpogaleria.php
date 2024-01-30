@@ -2,13 +2,9 @@
 <section class="galeria wow animate__animated animate__fadeInUp">
 
     <?php for ($i = 0; $i < count($lista); $i++) : ?>
-
-      
-
+    
             <img src="<?php echo 'src/imagens/' . $lista[$i]['fotoGaleria'] ?>" alt="">
 
-       
-    
     <?php endfor; ?>
 
 </section>
