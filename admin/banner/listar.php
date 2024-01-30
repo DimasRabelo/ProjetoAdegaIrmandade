@@ -9,7 +9,16 @@ $lista = $banner->ListarBanner();
 
 
 ?>
-
+<style>
+    .BannerFoto{
+        width: 100%;
+    }
+    .BannerFoto img{
+        max-width: 400px;
+        height: 300px;
+        object-fit: cover;
+    }
+</style>
 
 
 <div>
@@ -39,10 +48,11 @@ $lista = $banner->ListarBanner();
                 <?php foreach ($lista as $linha) : ?>
 
                     <tr>
-                        <td class="fotoGeral">
+                        <td class="BannerFoto">
                             <a href="../src/imagens/<?php echo $linha['fotoBanner'] ?>" data-lightbox="<?php echo $linha['nomeBanner'] ?>" data-title="<?php echo $linha['nomeBanner'] ?>">
                                 <img src="../src/imagens/<?php echo $linha['fotoBanner'] ?>" data-alt="<?php echo $linha['nomeBanner'] ?>">
                             </a>
+                        
                         </td>
                         <td>
                             <a href="index.php?p=banner&b=ativar&id=<?php echo $linha['idBanner']; ?>" onclick="return confirmarAtivacao()">

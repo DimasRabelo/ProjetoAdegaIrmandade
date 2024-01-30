@@ -9,12 +9,15 @@ if (isset($_POST['nomeBanner'])) {
 
     $arquivo = $_FILES['fotoBanner'];
 
+
     if ($arquivo['error']) {
         throw new Exception('Error' . $arquivo['error']);
     }
-    if (move_uploaded_file($arquivo['tmp_name'], "../src/imagens/$pastaEscolhida/" . $arquivo['name'])) {
-        $fotoBanner = "$pastaEscolhida/" . $arquivo['name'];
+    if (move_uploaded_file($arquivo['tmp_name'], '../src/imagens/banner/' . $arquivo['name'])) {
+        $fotoBanner = 'banner/' . $arquivo['name'];
     }
+
+
 
     require_once('class/banner.php');
 

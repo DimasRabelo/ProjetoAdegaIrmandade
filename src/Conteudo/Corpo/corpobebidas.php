@@ -55,8 +55,13 @@
 
             </div>
             <div class="banner">
-                
-                <img src="<?php echo 'src/bannerCerveja/' . $linha['fotoBanner'] ?> " alt="<?php echo $linha['altBanner']  ?>">
+
+                <?php if (!empty($lista)) : ?>
+                    <div>
+                        <img src="<?php echo 'src/imagens/' . $lista[0]['fotoBanner']; ?>" alt="<?php echo $lista[0]['altBanner']; ?>">
+                    </div>
+                <?php endif; ?>
+
             </div>
         </section>
     </div>
@@ -208,10 +213,13 @@
 
     </div>
 
-    <div class="bannerdestilado1">
-        <img src="src/imagens/banner/bannerdestilado.png" alt="">
+    <div class="banner">
+        <?php if (!empty($lista)) : ?>
+            <div>
+                <img src="<?php echo 'src/imagens/' . $lista[1]['fotoBanner']; ?>" alt="<?php echo $lista[1]['altBanner']; ?>">
+            </div>
+        <?php endif; ?>
     </div>
-
     <div class="site">
         <div class="Destilados2">
 
