@@ -47,7 +47,8 @@ if (isset($_POST['nomeEstoque'])) {
             require_once('class/produto.php');
 
             $produtoClass = new ProdutoClass();
-
+            
+            
             // Listar produtos ativos
             $produtosAtivos = $produtoClass->listarProdutosAtivos();
             foreach ($produtosAtivos as $produto) {
