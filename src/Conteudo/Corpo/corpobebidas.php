@@ -13,12 +13,16 @@
 
             <div class="Cervejas">
                 <div>
-                    <img src="src/imagens/bebidas/cerveja220/skol269.png" alt="">
+                    <a href="src/imagens/bebidas/cerveja220/skol269.png" data-lightbox="gallery" data-title="Skol 269ML">
+                        <img src="src/imagens/bebidas/cerveja220/skol269.png" alt="">
+                    </a>
                     <p>Skol 269ML</p>
                 </div>
 
                 <div>
-                    <img src="src/imagens/bebidas/cerveja220/Amstel269ml.png" alt="">
+                    <a href="src/imagens/bebidas/cerveja220/Amstel269ml.png" data-lightbox="gallery" data-title="Amstel 269ML">
+                        <img src="src/imagens/bebidas/cerveja220/Amstel269ml.png" alt="">
+                    </a>
                     <p>Amstel 269ML</p>
                 </div>
 
