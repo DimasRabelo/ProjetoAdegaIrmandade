@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 22/02/2024 às 14:02
+-- Tempo de geração: 22/02/2024 às 15:39
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.0.28
 
@@ -313,7 +313,8 @@ INSERT INTO `tblvendas` (`idVenda`, `dataVenda`, `horaVenda`, `statusVenda`, `va
 (2, '2023-11-01', '05:00:55', 'ATIVO', 80.00, 2, 2),
 (4, '2023-11-03', '05:00:55', 'ATIVO', 120.00, 4, 4),
 (9, '2023-11-05', '05:00:55', 'ATIVO', 70.00, 9, 9),
-(10, '2023-11-06', '05:00:55', 'ATIVO', 24.00, 10, 10);
+(10, '2023-11-06', '05:00:55', 'ATIVO', 24.00, 10, 10),
+(11, '2024-02-22', '00:00:00', 'ATIVO', 10.00, 4, 4);
 
 -- --------------------------------------------------------
 
@@ -325,6 +326,19 @@ CREATE TABLE `vwprodutos` (
 `nomeProduto` varchar(255)
 ,`precoVendaProduto` double(10,2)
 ,`precoCompraProduto` double(10,2)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura stand-in para view `vw_produtos_vendidos`
+-- (Veja abaixo para a visão atual)
+--
+CREATE TABLE `vw_produtos_vendidos` (
+`nomeProduto` varchar(255)
+,`precoVendaProduto` double(10,2)
+,`total_vendido` double(19,2)
+,`Unidades` double(17,0)
 );
 
 -- --------------------------------------------------------
@@ -350,6 +364,15 @@ CREATE TABLE `vw_vendas_info` (
 DROP TABLE IF EXISTS `vwprodutos`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vwprodutos`  AS SELECT `tblprodutos`.`nomeProduto` AS `nomeProduto`, `tblprodutos`.`precoVendaProduto` AS `precoVendaProduto`, `tblprodutos`.`precoCompraProduto` AS `precoCompraProduto` FROM `tblprodutos` ;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para view `vw_produtos_vendidos`
+--
+DROP TABLE IF EXISTS `vw_produtos_vendidos`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_produtos_vendidos`  AS SELECT `p`.`nomeProduto` AS `nomeProduto`, `p`.`precoVendaProduto` AS `precoVendaProduto`, sum(`v`.`valorTotalVenda`) AS `total_vendido`, round(sum(`v`.`valorTotalVenda`) / `p`.`precoVendaProduto`,0) AS `Unidades` FROM (`tblvendas` `v` join `tblprodutos` `p` on(`v`.`idProduto` = `p`.`idProduto`)) GROUP BY `p`.`nomeProduto` ;
 
 -- --------------------------------------------------------
 
@@ -480,7 +503,7 @@ ALTER TABLE `tblusuarios`
 -- AUTO_INCREMENT de tabela `tblvendas`
 --
 ALTER TABLE `tblvendas`
-  MODIFY `idVenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `idVenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Restrições para tabelas despejadas
