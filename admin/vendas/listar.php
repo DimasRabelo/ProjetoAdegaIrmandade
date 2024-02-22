@@ -118,6 +118,7 @@ $totalDesativados = count($listaDesativados);
                     <?php endif; ?>
                     
                     <th>Produto</th>
+                    <th>Valor Unitário</th>
                     <th>Data</th>
                     <th>Hora</th>
                     <th>Valor Venda</th>
@@ -161,6 +162,7 @@ $totalDesativados = count($listaDesativados);
                             
                            
                             <td><?php echo $linha['nomeProduto'] ?></td>
+                            <td><?php echo $linha['precoCompraProduto'] ?></td>
                             <td><?php echo date('d/m/Y', strtotime($linha['dataVenda'])) ?></td>
                             <td><?php echo $linha['horaVenda'] ?></td>
                             <td><?php echo $linha['valorTotalVenda'] ?></td>
