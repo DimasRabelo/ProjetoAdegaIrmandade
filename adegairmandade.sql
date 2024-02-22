@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 20/02/2024 às 13:59
+-- Tempo de geração: 22/02/2024 às 14:02
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.0.28
 
@@ -159,7 +159,7 @@ INSERT INTO `tblfuncionarios` (`idFuncionario`, `nomeFuncionario`, `altFuncionar
 (1, 'ALAN COELHO BUENO', 'Foto/Funcionario/Gerente', 'GERENTE', '1990-06-16', 'alanloop@gmail.com', '', 'ADMINISTRADOR', '2021-03-02', 'Rua: Antonio Pinto Ferreira Filho,85', '1199878-5676', '08121-005', 'ATIVO', 'funcionario/alan1.png', 'alancoelho/facebook.com', '@alancoelho', '11911226677/whatsapp'),
 (2, 'Wagniton Coelho ', 'Foto/Funcionario/Gerente', 'SUPERVISOR', '1991-06-10', 'wagnitoncoelho@gmail.com', 'senha345', 'ADMINISTRADOR', '2021-03-02', 'Rua: Albuquerque freitas-08', '1199777-6666', '08100-005', 'ATIVO', 'funcionario/wagniton.png', 'wagnitoncoelho/facebook.com', '@wagnitoncoelho', '11923457689/whatsapp'),
 (4, 'Enzo Gouveia', 'Foto/Funcionario/ATENDENTE', 'AUXILIAR', '1995-05-12', 'enzogouvei@gmail.com', 'senhaABC', 'USUARIO', '2021-03-20', 'Rua: A - 24', '1198965-3232', '08123-010', 'ATIVO', 'funcionario/enzo.png', 'enzogouveia/facebook.com', '@enzogouveia', '11912875600/whatsapp'),
-(9, 'Renato Ocela', 'Foto/Funcionario/ajudante', 'AJUDANTE', '1989-05-02', 'renatoocela@gmail.com', 'senha#3F', 'USUARIO', '2021-03-02', 'Rua: Renata Agondi,10', '1199999-5577', '02122-105', 'DESATIVADO', 'funcionario/renato.png', 'renato/facebook.com', '@renato', '11999995577/whatsapp'),
+(9, 'Renato Ocela', 'Foto/Funcionario/ajudante', 'AJUDANTE', '1989-05-02', 'renatoocela@gmail.com', 'senha#3F', 'USUARIO', '2021-03-02', 'Rua: Renata Agondi,10', '1199999-5577', '02122-105', 'ATIVO', 'funcionario/renato.png', 'renato/facebook.com', '@renato', '11999995577/whatsapp'),
 (10, 'Marlene Rabelo', 'Foto/Funcionario/ajudante', 'AJUDANTE', '1985-12-05', 'marlenerabelo@gmail.com', 'senhaJLM', 'USUARIO', '2021-03-10', 'Rua: Chuva da Montanha,13', '1195889-6161', '09100-006', 'ATIVO', 'funcionario/marlene.png', 'marlenesouza/facebook.com', '@marlenesouza', '11958896161/whatsapp'),
 (12, 'Artur Alvim', 'Foto/Funcionario/ajudante', 'AJUDANTE', '1995-05-11', 'arturalvim@gmail.com', 'senha456', 'USUARIO', '2021-03-01', 'Rua: Manoel Tobias,344', '1195012-3408', '03010-330', 'ATIVO', 'funcionario/arturalvim.png', 'arturalvim/facebook.com', '@arturalvim', '11950123408/whatsapp'),
 (13, 'Beneobenes Silva', 'Foto/Funcionario/ajudante', 'AJUDANTE', '1987-08-26', 'beneobenes@yahoo.com.br', 'senhaZ12', 'USUARIO', '2023-08-20', 'Rua: Soldado Augusto,345', '1197634-4478', '04500-123', 'ATIVO', 'funcionario/beneodenes.png', 'beneobenes/facebook.com', '@beneobenes', '11976344478/whatsapp'),
@@ -251,7 +251,7 @@ CREATE TABLE `tblprodutos` (
 --
 
 INSERT INTO `tblprodutos` (`idProduto`, `nomeProduto`, `descricaoProduto`, `categoriaProduto`, `statusProduto`, `precoCompraProduto`, `precoVendaProduto`, `fornecedorProduto`, `dataReceProduto`, `horaProduto`) VALUES
-(1, 'Original269ml', 'Cervejas', 'ALCOOLICO', 'ATIVO', 4.00, 3.00, 'Assaí', '2023-10-31', '18:06:40'),
+(1, 'Original269ml', 'Cervejas', 'ALCOOLICO', '', 1.50, 3.00, 'Assaí', '2023-10-31', '18:06:40'),
 (2, 'Gatorade500ml', 'Bebidas isotônicas ', 'Não Alcoólico', 'ATIVO', 1.50, 3.00, 'Assaí', '2023-10-31', '18:06:40'),
 (3, 'RedLabel1LT', 'Bebidas Destilada', 'Alcoólico', 'ATIVO', 50.00, 80.00, 'Assaí', '2023-10-31', '18:06:40'),
 (4, 'CocaCola2LT', 'Refrigerantes', 'Não Alcoólico', 'ATIVO', 5.00, 10.00, 'Assaí', '2023-10-31', '18:06:40'),
@@ -312,7 +312,7 @@ INSERT INTO `tblvendas` (`idVenda`, `dataVenda`, `horaVenda`, `statusVenda`, `va
 (1, '2023-11-01', '05:00:55', 'ATIVO', 15.00, 1, 1),
 (2, '2023-11-01', '05:00:55', 'ATIVO', 80.00, 2, 2),
 (4, '2023-11-03', '05:00:55', 'ATIVO', 120.00, 4, 4),
-(9, '2023-11-05', '05:00:55', 'DESATIVADO', 70.00, 9, 9),
+(9, '2023-11-05', '05:00:55', 'ATIVO', 70.00, 9, 9),
 (10, '2023-11-06', '05:00:55', 'ATIVO', 24.00, 10, 10);
 
 -- --------------------------------------------------------
