@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 28/02/2024 às 09:56
--- Versão do servidor: 10.4.32-MariaDB
--- Versão do PHP: 8.0.30
+-- Tempo de geração: 28/02/2024 às 15:54
+-- Versão do servidor: 10.4.28-MariaDB
+-- Versão do PHP: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,8 +44,8 @@ INSERT INTO `tblbanner` (`idBanner`, `nomeBanner`, `altBanner`, `fotoBanner`, `s
 (1, 'bannerbalde', 'banner/balde', 'banner/bannerbalde.png', 'ATIVO', ''),
 (2, 'bannerdestilado', 'banner/destilado', 'banner/bannerdestilado.png', 'ATIVO', ''),
 (4, 'bannertabacaria', 'banner/tabacaria ', 'banner/bannertabacaria.png', 'ATIVO', ''),
-(6, 'bannertab', '', 'banner/academiafundo.png', 'ATIVO', ''),
-(7, 'bannertab', '', 'banner/academiafundo.png', 'ATIVO', '');
+(6, 'bannertab', '', 'banner/academiafundo.png', 'DESATIVADO', ''),
+(7, 'bannertab', '', 'banner/academiafundo.png', 'DESATIVADO', '');
 
 -- --------------------------------------------------------
 
@@ -156,7 +156,7 @@ CREATE TABLE `tblfuncionarios` (
 --
 
 INSERT INTO `tblfuncionarios` (`idFuncionario`, `nomeFuncionario`, `altFuncionario`, `cargoFuncionario`, `dataNascFuncionario`, `emailFuncionario`, `senhaFuncionario`, `nivelFuncionario`, `dataAdmissaoFuncionario`, `enderecoFuncionario`, `telFuncionario`, `cepFuncionario`, `statusFuncionario`, `fotoFuncionario`, `linkFaceFuncionario`, `linkInstaFuncionario`, `linkWhatsFuncionario`) VALUES
-(1, 'ALAN COELHO BUENO', 'Foto/Funcionario/Gerente', 'GERENTE', '1990-06-16', 'alanloop@gmail.com', '', 'ADMINISTRADOR', '2021-03-02', 'Rua: Antonio Pinto Ferreira Filho,85', '1199878-5676', '08121-005', 'ATIVO', 'funcionario/alan1.png', 'alancoelho/facebook.com', '@alancoelho', '11911226677/whatsapp'),
+(1, 'ALAN COELHO BUENO', 'Foto/Funcionario/Gerente', 'GERENTE JUNIOR', '1990-06-16', 'alanloop@gmail.com', '', 'ADMINISTRADOR', '2021-03-02', 'Rua: Antonio Pinto Ferreira Filho,85', '1199878-5676', '08121-005', 'ATIVO', 'funcionario/alan1.png', 'alancoelho/facebook.com', '@alancoelho', '11911226677/whatsapp'),
 (2, 'Wagniton Coelho ', 'Foto/Funcionario/Gerente', 'SUPERVISOR', '1991-06-10', 'wagnitoncoelho@gmail.com', 'senha345', 'ADMINISTRADOR', '2021-03-02', 'Rua: Albuquerque freitas-08', '1199777-6666', '08100-005', 'ATIVO', 'funcionario/wagniton.png', 'wagnitoncoelho/facebook.com', '@wagnitoncoelho', '11923457689/whatsapp'),
 (4, 'Enzo Gouveia', 'Foto/Funcionario/ATENDENTE', 'AUXILIAR', '1995-05-12', 'enzogouvei@gmail.com', 'senhaABC', 'USUARIO', '2021-03-20', 'Rua: A - 24', '1198965-3232', '08123-010', 'ATIVO', 'funcionario/enzo.png', 'enzogouveia/facebook.com', '@enzogouveia', '11912875600/whatsapp'),
 (9, 'Renato Ocela', 'Foto/Funcionario/ajudante', 'AJUDANTE', '1989-05-02', 'renatoocela@gmail.com', 'senha#3F', 'USUARIO', '2021-03-02', 'Rua: Renata Agondi,10', '1199999-5577', '02122-105', 'ATIVO', 'funcionario/renato.png', 'renato/facebook.com', '@renato', '11999995577/whatsapp'),
