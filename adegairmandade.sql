@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 22/02/2024 às 15:39
--- Versão do servidor: 10.4.28-MariaDB
--- Versão do PHP: 8.0.28
+-- Tempo de geração: 28/02/2024 às 09:56
+-- Versão do servidor: 10.4.32-MariaDB
+-- Versão do PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -114,10 +114,10 @@ CREATE TABLE `tblestoque` (
 
 INSERT INTO `tblestoque` (`idEstoque`, `nomeEstoque`, `quantidadeEstoque`, `dataCadastroEstoque`, `dataAtualiEstoque`, `statusEstoque`, `horaEstoque`, `idProduto`) VALUES
 (3, '', 900, '2023-12-21', '2023-10-01', 'ATIVO', '19:01:29', 1),
-(4, '', 200, '2023-12-21', '2023-10-05', 'DESATIVADO', '19:01:29', 2),
+(4, '', 200, '2023-12-21', '2023-10-05', 'ATIVO', '19:01:29', 2),
 (5, 'whiskis', 400, '2023-12-21', '2023-10-17', 'ATIVO', '19:01:29', 3),
-(6, 'CERVEJAS', 800, '2023-12-21', '2023-10-23', 'DESATIVADO', '19:01:29', 4),
-(7, '', 150, '2023-12-21', '2023-10-12', 'DESATIVADO', '19:01:29', 5),
+(6, 'CERVEJAS', 800, '2023-12-21', '2023-10-23', 'ATIVO', '19:01:29', 4),
+(7, '', 150, '2023-12-21', '2023-10-12', 'ATIVO', '19:01:29', 5),
 (8, '', 750, '2023-12-21', '2023-10-01', 'ATIVO', '19:01:29', 6),
 (9, '', 900, '2023-12-21', '2023-10-02', 'ATIVO', '19:01:29', 7),
 (10, '', 600, '2023-12-21', '2023-10-18', 'ATIVO', '19:01:29', 8),
@@ -314,7 +314,8 @@ INSERT INTO `tblvendas` (`idVenda`, `dataVenda`, `horaVenda`, `statusVenda`, `va
 (4, '2023-11-03', '05:00:55', 'ATIVO', 120.00, 4, 4),
 (9, '2023-11-05', '05:00:55', 'ATIVO', 70.00, 9, 9),
 (10, '2023-11-06', '05:00:55', 'ATIVO', 24.00, 10, 10),
-(11, '2024-02-22', '00:00:00', 'ATIVO', 10.00, 4, 4);
+(11, '2024-02-22', '00:00:00', 'ATIVO', 10.00, 4, 4),
+(12, '2024-02-22', '00:00:00', 'ATIVO', 40.00, 20, 5);
 
 -- --------------------------------------------------------
 
@@ -339,6 +340,37 @@ CREATE TABLE `vw_produtos_vendidos` (
 ,`precoVendaProduto` double(10,2)
 ,`total_vendido` double(19,2)
 ,`Unidades` double(17,0)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura stand-in para view `vw_qtdfuncionarios`
+-- (Veja abaixo para a visão atual)
+--
+CREATE TABLE `vw_qtdfuncionarios` (
+`qtdFuncionarios` bigint(21)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura stand-in para view `vw_qtdprodutos`
+-- (Veja abaixo para a visão atual)
+--
+CREATE TABLE `vw_qtdprodutos` (
+`qtdProdutos` bigint(21)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura stand-in para view `vw_tblestoque`
+-- (Veja abaixo para a visão atual)
+--
+CREATE TABLE `vw_tblestoque` (
+`idProduto` int(11)
+,`nomeProduto` varchar(255)
 );
 
 -- --------------------------------------------------------
@@ -373,6 +405,33 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 DROP TABLE IF EXISTS `vw_produtos_vendidos`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_produtos_vendidos`  AS SELECT `p`.`nomeProduto` AS `nomeProduto`, `p`.`precoVendaProduto` AS `precoVendaProduto`, sum(`v`.`valorTotalVenda`) AS `total_vendido`, round(sum(`v`.`valorTotalVenda`) / `p`.`precoVendaProduto`,0) AS `Unidades` FROM (`tblvendas` `v` join `tblprodutos` `p` on(`v`.`idProduto` = `p`.`idProduto`)) GROUP BY `p`.`nomeProduto` ;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para view `vw_qtdfuncionarios`
+--
+DROP TABLE IF EXISTS `vw_qtdfuncionarios`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_qtdfuncionarios`  AS SELECT count(0) AS `qtdFuncionarios` FROM `tblfuncionarios` ;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para view `vw_qtdprodutos`
+--
+DROP TABLE IF EXISTS `vw_qtdprodutos`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_qtdprodutos`  AS SELECT count(0) AS `qtdProdutos` FROM `tblprodutos` ;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para view `vw_tblestoque`
+--
+DROP TABLE IF EXISTS `vw_tblestoque`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_tblestoque`  AS SELECT `tp`.`idProduto` AS `idProduto`, `tp`.`nomeProduto` AS `nomeProduto` FROM (`tblestoque` `ts` join `tblprodutos` `tp` on(`ts`.`idProduto` = `tp`.`idProduto`)) ;
 
 -- --------------------------------------------------------
 
@@ -503,7 +562,7 @@ ALTER TABLE `tblusuarios`
 -- AUTO_INCREMENT de tabela `tblvendas`
 --
 ALTER TABLE `tblvendas`
-  MODIFY `idVenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idVenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Restrições para tabelas despejadas
