@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 28/02/2024 às 15:54
--- Versão do servidor: 10.4.28-MariaDB
--- Versão do PHP: 8.0.28
+-- Tempo de geração: 06/03/2024 às 09:52
+-- Versão do servidor: 10.4.32-MariaDB
+-- Versão do PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -69,14 +69,14 @@ CREATE TABLE `tblcontato` (
 --
 
 INSERT INTO `tblcontato` (`idContato`, `nomeContato`, `emailContato`, `telefoneContato`, `mensagemContato`, `dataContato`, `statusContato`, `horaContato`) VALUES
-(2, 'Dimas Aparecido Rabelo de Souza', 'dimas_ap_souza@yahoo.com.br', '11972495017', 'oi', '2023-11-06', 'ATIVO', '21:53:03'),
+(2, 'Dimas Aparecido Rabelo de Souza', 'dimas_ap_souza@yahoo.com.br', '11972495017', 'oi', '2023-11-06', 'RESPONDIDO', '21:53:03'),
 (3, 'Dimas Aparecido Rabelo de Souza', 'imediato.2022@gmail.com', '11972495017', 'oi', '2023-11-06', 'ATIVO', '21:53:03'),
 (4, 'Dimas Aparecido Rabelo de Souza', 'imediato.2022@gmail.com', '11972495017', 'oi', '2023-11-06', 'ATIVO', '21:53:03'),
 (5, 'Dimas Aparecido Rabelo de Souza', 'imediato.2022@gmail.com', '11972495017', 'oi', '2023-11-06', 'ATIVO', '21:53:03'),
 (6, 'Dimas Aparecido Rabelo de Souza', 'imediato.2022@gmail.com', '11972495017', 'oi', '2023-11-06', 'ATIVO', '21:53:03'),
 (7, 'Dimas Aparecido Rabelo de Souza', 'sandramarquesmacedoni@Gmail.com', '11972495017', 'Moh Teste do disparo do email do site da Adega rsrs', '2023-11-06', 'ATIVO', '21:53:03'),
 (8, 'Dimas Aparecido Rabelo de Souza', 'sandramarquesmacedoni@gmail.com', '11972495017', 'Mozinhooooooo', '2023-11-06', 'ATIVO', '21:58:24'),
-(9, 'Dimas Aparecido Rabelo de Souza', 'sandramarquesmacedoni@gmail.com', '11972495017', 'moh', '2023-11-06', 'ATIVO', '22:07:50'),
+(9, 'Dimas Aparecido Rabelo de Souza', 'sandramarquesmacedoni@gmail.com', '11972495017', 'moh', '2023-11-06', 'RESPONDIDO', '22:07:50'),
 (10, 'Dimas Aparecido Rabelo de Souza', 'dimas.rabelosouza@gmail.com', '11972495017', 'didi', '2023-11-06', 'ATIVO', '22:08:33'),
 (11, 'Dimas Aparecido Rabelo de Souza', 'dimas.rabelosouza@gmail.com', '11972495017', 'didi', '2023-11-06', 'ATIVO', '22:23:30'),
 (12, 'Paula Marques ', 'paulamarques@yahoo.com.br ', '112233-4455 ', 'Olá tudo bem ', '2023-11-11', 'ATIVO ', '12:00:01'),
@@ -89,7 +89,7 @@ INSERT INTO `tblcontato` (`idContato`, `nomeContato`, `emailContato`, `telefoneC
 (19, 'Ronaldo Baptista ', 'ronaldobaptista@hotmail.com ', '114646-4444 ', 'Vocês vendem Online ou só presencial ', '2023-10-31', 'ATIVO ', '20:01:01'),
 (20, 'Kennedy Bryan ', 'kennedybryan@bol.com ', '119955-3388 ', 'Sou representante da Ambev gostaria de Agendar uma visita. ', '2023-10-30', 'ATIVO ', '22:00:37'),
 (21, 'Max Pires ', 'maxpires@gmail.com ', '118787-2829 ', 'Seu comércio fica próximo da Academia? ', '2023-10-28', 'ATIVO ', '23:41:38'),
-(22, 'Dimas dimasrabelo', 'dimas_ap_souza@yahoo.com.br', '11972495017', 'teste', '2023-12-15', 'ATIVO', '16:44:21');
+(22, 'Dimas dimasrabelo', 'dimas_ap_souza@yahoo.com.br', '11972495017', 'teste', '2023-12-15', 'RESPONDIDO', '16:44:21');
 
 -- --------------------------------------------------------
 
@@ -162,15 +162,18 @@ INSERT INTO `tblfuncionarios` (`idFuncionario`, `nomeFuncionario`, `altFuncionar
 (9, 'Renato Ocela', 'Foto/Funcionario/ajudante', 'AJUDANTE', '1989-05-02', 'renatoocela@gmail.com', 'senha#3F', 'USUARIO', '2021-03-02', 'Rua: Renata Agondi,10', '1199999-5577', '02122-105', 'ATIVO', 'funcionario/renato.png', 'renato/facebook.com', '@renato', '11999995577/whatsapp'),
 (10, 'Marlene Rabelo', 'Foto/Funcionario/ajudante', 'AJUDANTE', '1985-12-05', 'marlenerabelo@gmail.com', 'senhaJLM', 'USUARIO', '2021-03-10', 'Rua: Chuva da Montanha,13', '1195889-6161', '09100-006', 'ATIVO', 'funcionario/marlene.png', 'marlenesouza/facebook.com', '@marlenesouza', '11958896161/whatsapp'),
 (12, 'Artur Alvim', 'Foto/Funcionario/ajudante', 'AJUDANTE', '1995-05-11', 'arturalvim@gmail.com', 'senha456', 'USUARIO', '2021-03-01', 'Rua: Manoel Tobias,344', '1195012-3408', '03010-330', 'ATIVO', 'funcionario/arturalvim.png', 'arturalvim/facebook.com', '@arturalvim', '11950123408/whatsapp'),
-(13, 'Beneobenes Silva', 'Foto/Funcionario/ajudante', 'AJUDANTE', '1987-08-26', 'beneobenes@yahoo.com.br', 'senhaZ12', 'USUARIO', '2023-08-20', 'Rua: Soldado Augusto,345', '1197634-4478', '04500-123', 'ATIVO', 'funcionario/beneodenes.png', 'beneobenes/facebook.com', '@beneobenes', '11976344478/whatsapp'),
+(13, 'BENEOBENES SILVA', 'beneobenessilva', 'AJUDANTE', '1987-08-26', 'beneobenes@yahoo.com.br', 'senhaZ12', 'USUARIO', '2023-08-20', 'RUA: SOLDADO AUGUSTO,345', '(11)97634-4478', '04500-123', 'ATIVO', 'funcionario/beneodenes.png', 'beneobenes/facebook.com', '@beneobenes', '11976344478/whatsapp'),
 (14, 'Ludmila Ribeiro', 'Foto/Funcionario/recepcionista', 'RECEPCIONISTA', '2006-04-14', 'ludmilaribeiro@gmail.com', 'senha980', 'USUARIO', '2021-03-01', 'Rua: Pedro Gil,50', '1191122-8989', '03300-400', 'ATIVO', 'funcionario/ludmila.png', 'ludmilaribeiro/facebook.com', '@ludmilaribeiro', '11911228989/whatsapp'),
 (15, 'Emilly Ribeiro', 'Foto/Funcionario/atendente', 'ATENDENTE', '2000-01-31', 'emillyribeiro@gmail.com', 'senhaKML', 'USUARIO', '2023-08-20', 'Rua: Tijuco Preto,45', '1193456-1111', '22331-010', 'ATIVO', 'funcionario/emillyribeiro.png', 'emillyribeiro/facebook.com', '@emilly', '11934561111/whatsapp'),
-(16, 'Gorete Milagres', 'Foto/Funcionario/Gerente', 'GERENTE', '1978-06-20', 'gorete@gmail.com', 'senha2023', 'ADMINISTRADOR', '2023-11-19', 'Rua:Coração Paulista', '1199999-6666', '08121-115', 'ATIVO', 'funcionario/gorete.png', 'goretemilagre/facebook.com', '@goretemilagre', '1199999-6666/whatsapp'),
+(16, 'GORETE MILAGRES', 'goretemilagres', 'GERENTE', '1978-06-20', 'gorete@gmail.com', 'senha2023', 'ADMINISTRADOR', '2023-11-19', 'RUA:CORAÇÃO PAULISTA', '(11)99999-6666', '08121-115', 'ATIVO', 'funcionario/gorete.png', 'goretemilagre/facebook.com', '@goretemilagre', '1199999-6666/whatsapp'),
 (17, 'FERNANDA MELLO', '', 'Administradora', '1990-05-25', 'fernanda@bol.com', '', 'Usuario', '2023-12-12', 'Rua Diego Sande, 670', '(11) 99999-9999', '08121-005', 'ATIVO', 'funcionario/fernanda.png', '', '', ''),
 (18, 'joão Alvares', '', 'atendente', '2001-09-15', 'joaolavares@gmail.com', '', 'Usuario', '2023-11-01', 'Rua bacardi, 34', '(11) 99999-0000', '08121-005', 'ATIVO', 'funcionario/joao-guilherme.png', '', '', ''),
 (19, 'Diego da Costa Silva', '', 'Gestor de Compras', '1985-07-01', 'diegocosta@gmail.com', '', 'Administrador', '2024-01-20', 'Rua Soldado Geraldo Augusto, 34', '(11) 96565-8989', '08121-005', 'ATIVO', 'funcionario/diego.png', '', '', ''),
 (20, 'Seshomaru Yakashaky', '', 'Gerente de Vendas', '1990-07-25', 'seshomaru@gmail.com', '', 'Administrador', '2024-01-21', 'Rua Bernadino Alves, 654', '(11) 97878-9594', '08234-666', 'ATIVO', 'funcionario/sesshomaru.png', '', '', ''),
-(21, 'Zé do Caixão', '', 'Auxiliar de Limpeza', '1970-09-18', 'zecaixao@gmail.com', '', 'usuario', '2024-01-04', 'rua da morte , 1570', '(11) 99999-9999', '12345-678', 'ATIVO', 'funcionario/ze-do-caixao.webp', '', '', '');
+(21, 'Zé do Caixão', '', 'Auxiliar de Limpeza', '1970-09-18', 'zecaixao@gmail.com', '', 'usuario', '2024-01-04', 'rua da morte , 1570', '(11) 99999-9999', '12345-678', 'ATIVO', 'funcionario/ze-do-caixao.webp', '', '', ''),
+(22, 'DIMAS APARECIDO', 'dimasaparecido', 'AJUDANTE', '1987-05-25', 'dimas_ap_souza@yahoo.com.br', '123456', 'ADMINISTRADOR', '2024-03-05', 'RUA ANTONIO PINTO FERREIRA FILHO,34', '(11)97249-5017', '08121-005', 'ATIVO', 'funcionario/dimasaparecido.png', 'facebook/dimasrabelo', 'instagram/dimasrabelo', 'whatsapp/11972495017'),
+(23, 'GABRIEL JESUS', 'gabrieljesus', 'JOGADOR', '1980-12-12', 'gabriel jesus', '123456', 'ADMINISTRADOR', '2024-02-11', 'RUA: A', '(11)99999-9999', '08111-000', 'ATIVO', NULL, 'facebook/gabrieljesus', 'instagram/gabrieljesus', 'whatsapp/1111111111'),
+(24, 'RAMÓN VALDEZ', 'ramónvaldez', 'SÓCIO', '1924-09-02', 'seumadruga@gmail.com', '123456', 'ADMINISTRADOR', '2024-03-06', 'RUA CIDADE DO MÉXICO', '(11)98988-8888', '11111-111', 'ATIVO', 'funcionario/ramónvaldez.png', 'facebook/seumadruga', 'instagram/seumadruga', 'whatsapp/11989888888');
 
 -- --------------------------------------------------------
 
@@ -532,7 +535,7 @@ ALTER TABLE `tblestoque`
 -- AUTO_INCREMENT de tabela `tblfuncionarios`
 --
 ALTER TABLE `tblfuncionarios`
-  MODIFY `idFuncionario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `idFuncionario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de tabela `tblgaleria`
