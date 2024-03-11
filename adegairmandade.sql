@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 11/03/2024 às 10:18
--- Versão do servidor: 10.4.32-MariaDB
--- Versão do PHP: 8.0.30
+-- Tempo de geração: 11/03/2024 às 15:49
+-- Versão do servidor: 10.4.28-MariaDB
+-- Versão do PHP: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -99,13 +99,13 @@ INSERT INTO `tblcontato` (`idContato`, `nomeContato`, `emailContato`, `telefoneC
 
 CREATE TABLE `tblestoque` (
   `idEstoque` int(11) NOT NULL,
-  `nomeEstoque` varchar(100) NOT NULL,
-  `quantidadeEstoque` int(11) NOT NULL,
+  `nomeEstoque` varchar(100) DEFAULT NULL,
+  `quantidadeEstoque` int(11) DEFAULT NULL,
   `dataCadastroEstoque` date DEFAULT curdate(),
   `dataAtualiEstoque` date DEFAULT curdate(),
-  `statusEstoque` varchar(10) NOT NULL,
+  `statusEstoque` varchar(10) DEFAULT NULL,
   `horaEstoque` time DEFAULT curtime(),
-  `idProduto` int(11) NOT NULL
+  `idProduto` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -123,7 +123,8 @@ INSERT INTO `tblestoque` (`idEstoque`, `nomeEstoque`, `quantidadeEstoque`, `data
 (10, '', 600, '2023-12-21', '2023-10-18', 'ATIVO', '19:01:29', 8),
 (11, '', 550, '2023-12-21', '2023-10-31', 'ATIVO', '19:01:29', 9),
 (12, '', 300, '2023-12-21', '2023-10-22', 'ATIVO', '19:01:29', 10),
-(13, 'Cervejas', 600, '2023-12-21', '2023-12-21', 'ATIVO', '21:55:04', 5);
+(13, 'Cervejas', 600, '2023-12-21', '2023-12-21', 'ATIVO', '21:55:04', 5),
+(14, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -157,11 +158,11 @@ CREATE TABLE `tblfuncionarios` (
 
 INSERT INTO `tblfuncionarios` (`idFuncionario`, `nomeFuncionario`, `altFuncionario`, `cargoFuncionario`, `dataNascFuncionario`, `emailFuncionario`, `senhaFuncionario`, `nivelFuncionario`, `dataAdmissaoFuncionario`, `enderecoFuncionario`, `telFuncionario`, `cepFuncionario`, `statusFuncionario`, `fotoFuncionario`, `linkFaceFuncionario`, `linkInstaFuncionario`, `linkWhatsFuncionario`) VALUES
 (1, 'ALAN COELHO BUENO', 'Foto/Funcionario/Gerente', 'GERENTE JUNIOR', '1990-06-16', 'alanloop@gmail.com', '', 'ADMINISTRADOR', '2021-03-02', 'Rua: Antonio Pinto Ferreira Filho,85', '1199878-5676', '08121-005', 'ATIVO', 'funcionario/alan1.png', 'alancoelho/facebook.com', '@alancoelho', '11911226677/whatsapp'),
-(2, 'WAGNITON COELHO ', 'wagnitoncoelho', 'SUPERVISOR', '1992-06-10', 'wagnitoncoelho@gmail.com', 'senha345', 'ADMINISTRADOR', '2021-03-02', 'RUA: ALBUQUERQUE FREITAS-08', '(11)99777-6666', '08100-005', 'ATIVO', 'funcionario/wagniton.png', 'wagnitoncoelho/facebook.com', '@wagnitoncoelho', '11923457689/whatsapp'),
+(2, 'WAGNITON COELHO ', 'wagnitoncoelho', 'SUPERVISOR', '1992-06-10', 'wagnitoncoelho@gmail.com', 'senha345', 'ADMINISTRADOR', '2021-03-02', 'RUA: ALBUQUERQUE FREITAS-08', '(11)99777-6666', '08100-005', 'DESATIVADO', 'funcionario/wagniton.png', 'wagnitoncoelho/facebook.com', '@wagnitoncoelho', '11923457689/whatsapp'),
 (4, 'ENZO GOUVEIA', 'Foto/Funcionario/ATENDENTE', 'AUXILIAR', '1995-05-12', 'enzogouvei@gmail.com', 'senhaABC', 'USUARIO', '2021-03-20', 'Rua: A - 24', '1198965-3232', '08123-010', 'ATIVO', 'funcionario/enzo.png', 'enzogouveia/facebook.com', '@enzogouveia', '11912875600/whatsapp'),
 (9, 'RENATO OCELA', 'Foto/Funcionario/ajudante', 'AJUDANTE', '1989-05-02', 'renatoocela@gmail.com', 'senha#3F', 'USUARIO', '2021-03-02', 'Rua: Renata Agondi,10', '1199999-5577', '02122-105', 'ATIVO', 'funcionario/renato.png', 'renato/facebook.com', '@renato', '11999995577/whatsapp'),
 (10, 'MARLENE RABELO', 'Foto/Funcionario/ajudante', 'AJUDANTE', '1985-12-05', 'marlenerabelo@gmail.com', 'senhaJLM', 'USUARIO', '2021-03-10', 'Rua: Chuva da Montanha,13', '1195889-6161', '09100-006', 'ATIVO', 'funcionario/marlene.png', 'marlenesouza/facebook.com', '@marlenesouza', '11958896161/whatsapp'),
-(12, 'ARTUR ALVIM', 'Foto/Funcionario/ajudante', 'AJUDANTE', '1995-05-11', 'arturalvim@gmail.com', 'senha456', 'USUARIO', '2021-03-01', 'Rua: Manoel Tobias,344', '1195012-3408', '03010-330', 'ATIVO', 'funcionario/arturalvim.png', 'arturalvim/facebook.com', '@arturalvim', '11950123408/whatsapp'),
+(12, 'ARTUR ALVIM BUENO', 'arturalvimbueno', 'AJUDANTE', '1995-05-11', 'arturalvim@gmail.com', 'senha456', 'USUARIO', '2021-03-01', 'RUA: MANOEL TOBIAS,344', '(11)95012-3408', '03010-330', 'ATIVO', 'funcionario/arturalvim.png', 'arturalvim/facebook.com', '@arturalvim', '11950123408/whatsapp'),
 (13, 'BENEOBENES SILVA', 'beneobenessilva', 'AJUDANTE', '1987-08-26', 'beneobenes@yahoo.com.br', 'senhaZ12', 'USUARIO', '2023-08-20', 'RUA: SOLDADO AUGUSTO,345', '(11)97634-4478', '04500-123', 'ATIVO', 'funcionario/beneodenes.png', 'beneobenes/facebook.com', '@beneobenes', '11976344478/whatsapp'),
 (14, 'LUDMILA RIBEIRO', 'Foto/Funcionario/recepcionista', 'RECEPCIONISTA', '2006-04-14', 'ludmilaribeiro@gmail.com', 'senha980', 'USUARIO', '2021-03-01', 'Rua: Pedro Gil,50', '1191122-8989', '03300-400', 'ATIVO', 'funcionario/ludmila.png', 'ludmilaribeiro/facebook.com', '@ludmilaribeiro', '11911228989/whatsapp'),
 (15, 'EMILLY RIBEIRO', 'Foto/Funcionario/atendente', 'ATENDENTE', '2000-01-31', 'emillyribeiro@gmail.com', 'senhaKML', 'USUARIO', '2023-08-20', 'Rua: Tijuco Preto,45', '1193456-1111', '22331-010', 'ATIVO', 'funcionario/emillyribeiro.png', 'emillyribeiro/facebook.com', '@emilly', '11934561111/whatsapp'),
@@ -238,13 +239,13 @@ INSERT INTO `tblitensvendidos` (`idItensVendido`, `valorUnitario`, `quantidadeVe
 
 CREATE TABLE `tblprodutos` (
   `idProduto` int(11) NOT NULL,
-  `nomeProduto` varchar(255) NOT NULL,
-  `descricaoProduto` varchar(50) NOT NULL,
-  `categoriaProduto` varchar(50) NOT NULL,
+  `nomeProduto` varchar(255) DEFAULT NULL,
+  `descricaoProduto` varchar(50) DEFAULT NULL,
+  `categoriaProduto` varchar(50) DEFAULT NULL,
   `statusProduto` varchar(255) DEFAULT 'Ativo',
-  `precoCompraProduto` double(10,2) NOT NULL,
-  `precoVendaProduto` double(10,2) NOT NULL,
-  `fornecedorProduto` varchar(20) NOT NULL,
+  `precoCompraProduto` double(10,2) DEFAULT NULL,
+  `precoVendaProduto` double(10,2) DEFAULT NULL,
+  `fornecedorProduto` varchar(20) DEFAULT NULL,
   `dataReceProduto` date DEFAULT curdate(),
   `horaProduto` time DEFAULT curtime()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -264,7 +265,8 @@ INSERT INTO `tblprodutos` (`idProduto`, `nomeProduto`, `descricaoProduto`, `cate
 (8, 'AMSTEL269ML', 'Cervejas', 'ALCOÓLICO', 'ATIVO', 2.00, 3.00, 'Assaí', '2023-10-25', '18:06:40'),
 (9, 'FANTA350ML', 'Refrigerantes', 'NÃO ALCOÓLICO', 'ATIVO', 2.50, 4.00, 'Assaí', '2023-10-28', '18:06:40'),
 (10, 'H2O500ML', 'Refrigerantes', 'NÃO ALCOÓLICO', 'DESATIVADO', 1.50, 3.00, 'Assaí', '2023-10-15', '18:06:40'),
-(11, 'JACK DANIELS', 'Whysky', 'ALCOOLICO', 'DESATIVADO', 80.00, 120.00, 'Assaí', '2023-12-21', '18:50:46');
+(11, 'JACK DANIELS', 'Whysky', 'ALCOOLICO', 'DESATIVADO', 80.00, 120.00, 'Assaí', '2023-12-21', '18:50:46'),
+(12, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -300,10 +302,10 @@ CREATE TABLE `tblvendas` (
   `idVenda` int(11) NOT NULL,
   `idFuncionario` int(11) DEFAULT NULL,
   `dataVenda` date DEFAULT curdate(),
-  `horaVenda` time NOT NULL,
+  `horaVenda` time DEFAULT NULL,
   `statusVenda` varchar(10) DEFAULT NULL,
-  `valorTotalVenda` double(10,2) NOT NULL,
-  `idProduto` int(11) NOT NULL
+  `valorTotalVenda` double(10,2) DEFAULT NULL,
+  `idProduto` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -317,7 +319,8 @@ INSERT INTO `tblvendas` (`idVenda`, `idFuncionario`, `dataVenda`, `horaVenda`, `
 (9, 9, '2023-11-05', '05:00:55', 'ATIVO', 70.00, 9),
 (10, 10, '2023-11-06', '05:00:55', 'ATIVO', 24.00, 10),
 (11, 4, '2024-02-22', '00:00:00', 'ATIVO', 10.00, 4),
-(12, 20, '2024-02-22', '00:00:00', 'ATIVO', 40.00, 5);
+(12, 20, '2024-02-22', '00:00:00', 'ATIVO', 40.00, 5),
+(13, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -527,7 +530,7 @@ ALTER TABLE `tblcontato`
 -- AUTO_INCREMENT de tabela `tblestoque`
 --
 ALTER TABLE `tblestoque`
-  MODIFY `idEstoque` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `idEstoque` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de tabela `tblfuncionarios`
@@ -551,7 +554,7 @@ ALTER TABLE `tblitensvendidos`
 -- AUTO_INCREMENT de tabela `tblprodutos`
 --
 ALTER TABLE `tblprodutos`
-  MODIFY `idProduto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idProduto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `tblusuarios`
@@ -563,7 +566,7 @@ ALTER TABLE `tblusuarios`
 -- AUTO_INCREMENT de tabela `tblvendas`
 --
 ALTER TABLE `tblvendas`
-  MODIFY `idVenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `idVenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Restrições para tabelas despejadas
