@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 11/03/2024 às 15:49
+-- Tempo de geração: 12/03/2024 às 15:59
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.0.28
 
@@ -71,7 +71,7 @@ CREATE TABLE `tblcontato` (
 INSERT INTO `tblcontato` (`idContato`, `nomeContato`, `emailContato`, `telefoneContato`, `mensagemContato`, `dataContato`, `statusContato`, `horaContato`) VALUES
 (2, 'Dimas Aparecido Rabelo de Souza', 'dimas_ap_souza@yahoo.com.br', '11972495017', 'oi', '2023-11-06', 'RESPONDIDO', '21:53:03'),
 (3, 'Dimas Aparecido Rabelo de Souza', 'imediato.2022@gmail.com', '11972495017', 'oi', '2023-11-06', 'ATIVO', '21:53:03'),
-(4, 'Dimas Aparecido Rabelo de Souza', 'imediato.2022@gmail.com', '11972495017', 'oi', '2023-11-06', 'ATIVO', '21:53:03'),
+(4, 'Dimas Aparecido Rabelo de Souza', 'imediato.2022@gmail.com', '11972495017', 'oi', '2023-11-06', 'DESATIVADO', '21:53:03'),
 (5, 'Dimas Aparecido Rabelo de Souza', 'imediato.2022@gmail.com', '11972495017', 'oi', '2023-11-06', 'ATIVO', '21:53:03'),
 (6, 'Dimas Aparecido Rabelo de Souza', 'imediato.2022@gmail.com', '11972495017', 'oi', '2023-11-06', 'ATIVO', '21:53:03'),
 (7, 'Dimas Aparecido Rabelo de Souza', 'sandramarquesmacedoni@Gmail.com', '11972495017', 'Moh Teste do disparo do email do site da Adega rsrs', '2023-11-06', 'ATIVO', '21:53:03'),
@@ -122,7 +122,7 @@ INSERT INTO `tblestoque` (`idEstoque`, `nomeEstoque`, `quantidadeEstoque`, `data
 (9, '', 900, '2023-12-21', '2023-10-02', 'ATIVO', '19:01:29', 7),
 (10, '', 600, '2023-12-21', '2023-10-18', 'ATIVO', '19:01:29', 8),
 (11, '', 550, '2023-12-21', '2023-10-31', 'ATIVO', '19:01:29', 9),
-(12, '', 300, '2023-12-21', '2023-10-22', 'ATIVO', '19:01:29', 10),
+(12, '', 300, '2023-12-21', '2023-10-22', 'DESATIVADO', '19:01:29', 10),
 (13, 'Cervejas', 600, '2023-12-21', '2023-12-21', 'ATIVO', '21:55:04', 5),
 (14, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
@@ -255,7 +255,7 @@ CREATE TABLE `tblprodutos` (
 --
 
 INSERT INTO `tblprodutos` (`idProduto`, `nomeProduto`, `descricaoProduto`, `categoriaProduto`, `statusProduto`, `precoCompraProduto`, `precoVendaProduto`, `fornecedorProduto`, `dataReceProduto`, `horaProduto`) VALUES
-(1, 'ORIGINAL269ML', 'Cervejas', 'ALCOOLICO', '', 1.50, 3.00, 'Assaí', '2023-10-31', '18:06:40'),
+(1, 'ORIGINAL269ML', 'CERVEJAS', 'ALCOOLICO', 'ATIVO', 1.00, 3.00, 'assaí', '2023-10-31', '12:03:00'),
 (2, 'GATORADE500ML', 'Bebidas isotônicas ', 'NÃO ALCOÓLICO', 'ATIVO', 1.50, 3.00, 'Assaí', '2023-10-31', '18:06:40'),
 (3, 'REDLABEL1LT', 'Bebidas Destilada', 'ALCOÓLICO', 'ATIVO', 50.00, 80.00, 'Assaí', '2023-10-31', '18:06:40'),
 (4, 'COCACOLA2LT', 'Refrigerantes', 'NÃO ALCOÓLICO', 'ATIVO', 5.00, 10.00, 'Assaí', '2023-10-31', '18:06:40'),
@@ -264,7 +264,7 @@ INSERT INTO `tblprodutos` (`idProduto`, `nomeProduto`, `descricaoProduto`, `cate
 (7, 'CARVÃODECOCOZOMO', 'Narguilé', 'TABACARIA', 'ATIVO', 4.00, 6.00, 'Assaí', '2023-10-21', '18:06:40'),
 (8, 'AMSTEL269ML', 'Cervejas', 'ALCOÓLICO', 'ATIVO', 2.00, 3.00, 'Assaí', '2023-10-25', '18:06:40'),
 (9, 'FANTA350ML', 'Refrigerantes', 'NÃO ALCOÓLICO', 'ATIVO', 2.50, 4.00, 'Assaí', '2023-10-28', '18:06:40'),
-(10, 'H2O500ML', 'Refrigerantes', 'NÃO ALCOÓLICO', 'DESATIVADO', 1.50, 3.00, 'Assaí', '2023-10-15', '18:06:40'),
+(10, 'H2O500ML', 'REFRIGERANTES', 'NÃO ALCOÓLICO', 'ATIVO', 1.00, 3.00, 'assaí', '2023-10-15', '12:03:00'),
 (11, 'JACK DANIELS', 'Whysky', 'ALCOOLICO', 'DESATIVADO', 80.00, 120.00, 'Assaí', '2023-12-21', '18:50:46'),
 (12, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
@@ -290,7 +290,7 @@ CREATE TABLE `tblusuarios` (
 INSERT INTO `tblusuarios` (`idUsuario`, `nomeUsuario`, `emailUsuario`, `senhaUsuario`, `statusUsuario`, `fotoUsuario`) VALUES
 (1, 'DIMAS APARECIDO ', ' dimas_ap_souza@yahoo.com.br', ' 123456', ' ATIVO', 'Usuario/dimasaparecido.png'),
 (3, 'BIRIBA SANTOS', ' biriba@yahoo.com.br', ' 123456', ' ATIVO', 'Usuario/biribasantos.png'),
-(5, 'LETICIA SPYLLER', 'leticiaspiler@gmail.com', '123333', 'ATIVO', 'Usuario/leticiaspyller.png');
+(5, 'LETICIA SPYLLER LIMA', 'leticiaspiler@gmail.com', '123333', 'DESATIVADO', 'Usuario/leticiaspyller.png');
 
 -- --------------------------------------------------------
 
