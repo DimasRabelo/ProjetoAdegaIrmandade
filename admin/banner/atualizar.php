@@ -14,8 +14,8 @@ $banner = new BannerClass($id);
 if (isset($_POST['nomeBanner'])) {
 
     $nomeBanner = $_POST['nomeBanner'];
-    $fotoBanner = $_POST['fotoBanner'];
-   
+    $statusBanner = $_POST['statusBanner'];
+    
 
     //foto
 
@@ -40,8 +40,8 @@ if (isset($_POST['nomeBanner'])) {
     // fim da empty
 
     $banner->nomeBanner = $nomeBanner;
+    $banner->statusBanner = $statusBanner;
     $banner->fotoBanner = $fotoBanner;
-    
 
     $banner->Atualizar();
 }
@@ -50,40 +50,34 @@ if (isset($_POST['nomeBanner'])) {
 
 
 
-
 ?>
 
-<h1 class="h1Atual">Atualizar Banner</h1>
+<h1 class="h1Atual">Alterar Foto</h1>
 <form action="index.php?p=banner&b=atualizar&id=<?php echo $banner->idBanner; ?> " method="POST" enctype="multipart/form-data">
 
 
-<div class="fotoForm">
+    <div class="fotoForm">
 
-<div>
-    <?php if (!empty($banner->fotoBanner)) : ?>
-        <img src="../src/imagens/<?php echo $banner->fotoBanner; ?>" alt="banner Photo" id="imgfoto">
-    <?php else : ?>
-        <img src="img/sem-foto.jpg" alt="Sem Foto" id="imgfoto">
-    <?php endif; ?>
-</div>
-<input type="file" id="fotoBanner" name="fotoBanner" style="display: none;">
+        <div>
+            <?php if (!empty($banner->fotoBanner)) : ?>
+                <img src="../src/imagens/<?php echo $banner->fotoBanner; ?>" alt="Banner Photo" id="imgfoto">
+            <?php else : ?>
+                <img src="img/sem-foto.jpg" alt="Sem Foto" id="imgfoto">
+            <?php endif; ?>
+        </div>
+        <input type="file" id="fotoBanner" name="fotoBanner" style="display: none;">
 
-</div>
-<p class="informa">clique em cima da foto se deseja alterar</p>
+    </div>
+    <p class="informa">clique em cima da foto se deseja alterar</p>
+    <div>
+        <label for="nomeBanner">Nome do Banner</label>
+        <input type="text" name="nomeBanner" id="nomeBanner" placeholder="Informe o Nome do Banner" value="<?php echo $banner->nomeBanner; ?>">
 
-<div>
-        <select class="seleAtual" aria-label="Default select example" name="statusBanner">
-            <option value="" selected>Seleciona o Status do Banner</option>
-            <option value="ATIVO">ATIVO</option>
-            <option value="DESATIVADO">DESATIVADO</option>
-            <option value="INATIVO">INATIVO</option>
-        </select>
     </div>
 
-
-
+   
     <div>
-        <button type="submit">Alterar Foto</button>
+        <button type="submit">Alterar Banner</button>
     </div>
 
 </form>
@@ -103,7 +97,7 @@ if (isset($_POST['nomeBanner'])) {
 
             carregar.onload = function(e) {
                 imgfoto.src = e.target.result;
-                console.log(imgfoto.src);
+                // console.log(imgfoto.src);
             }
 
             carregar.readAsDataURL(arquivo);
