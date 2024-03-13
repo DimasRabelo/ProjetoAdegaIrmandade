@@ -56,7 +56,7 @@ $lista = $banner->ListarBanner();
                         </td>
                         <td>
                             <a href="index.php?p=banner&b=ativar&id=<?php echo $linha['idBanner']; ?>" onclick="return confirmarAtivacao()">
-                                <img src="./img/aceitar.png" alt="">
+                                <p>Alterar Foto do Banner</p>
                             </a>
 
 

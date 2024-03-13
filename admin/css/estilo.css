@@ -109,7 +109,7 @@ main {
     color: #ffffff;
     text-align: center;
     margin: 0 auto;
-    width: 11%;
+    width: 14%;
     align-items: center;
     flex-direction: column;
 }
@@ -306,8 +306,7 @@ select {
 button:hover {
     margin: 10px 0;
     padding: 10px;
-    background-color: #0b5ed7;
-    color: #fff;
+    background-color: #bdbdbd;
     border: none;
     border-radius: 4px;
     cursor: pointer;

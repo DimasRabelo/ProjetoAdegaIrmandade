@@ -80,9 +80,11 @@ class BannerClass
         $conn->exec($query);
     }
 
-    public function ativar()
+    public function atualizar()
     {
-        $query = "UPDATE tblbanner SET statusBanner ='ATIVO' WHERE idBanner = " . $this->idBanner;
+        $query = "UPDATE tblbanner  
+        SET fotoBanner = '{$this->fotoBanner}'
+        WHERE idBanner = '{$this->idBanner}'";
 
         $conn = Conexao::LigarConexao();
         $conn->exec($query);
