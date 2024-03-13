@@ -75,6 +75,15 @@ if (isset($_POST['nomeBanner'])) {
 
     </div>
 
+    <div>
+        <select class="seleAtual" aria-label="Default select example" name="statusBanner">
+            <option value="" selected>Seleciona o Status do Banner</option>
+            <option value="ATIVO">ATIVO</option>
+            <option value="DESATIVADO">DESATIVADO</option>
+            <option value="INATIVO">INATIVO</option>
+        </select>
+    </div>
+
    
     <div>
         <button type="submit">Alterar Banner</button>

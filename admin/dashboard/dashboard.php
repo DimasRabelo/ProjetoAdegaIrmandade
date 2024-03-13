@@ -95,7 +95,7 @@ foreach ($dados_estoque as $item) {
                 }
             },
             series: [{
-                name: 'Vendas',
+                name: 'VENDAS',
                 colorByPoint: true,
                 data: <?php echo json_encode($data_vendas); ?> 
             }]

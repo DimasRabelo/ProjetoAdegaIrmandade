@@ -54,6 +54,7 @@ $lista = $banner->ListarBanner();
                 <tr>
 
                     <th>IMAGENS DO BANNER DAS PÁGINAS</th>
+                    <th>STATUS</th>
                    
                 </tr>
             </thead>
@@ -68,6 +69,8 @@ $lista = $banner->ListarBanner();
                             <a href="index.php?p=banner&b=atualizar&id=<?php echo $linha['idBanner']; ?>">
                                 <p>Alterar Foto do Banner</p>
                             </a>
+
+                            <td><?php echo $linha['statusBanner'] ?></td>
                         
                         </td>
                         
