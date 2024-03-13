@@ -15,7 +15,7 @@ class BannerClass
 
     public function ListarBanner()
     {
-        $sql = "SELECT * FROM tblbanner ORDER BY idBanner ASC";
+        $sql = "SELECT * FROM tblbanner WHERE statusBanner = 'ATIVO' ORDER BY idBanner ASC";
         $conn = Conexao::LigarConexao();
         $resultado = $conn->query($sql);
         $lista = $resultado->fetchAll();
@@ -83,10 +83,13 @@ class BannerClass
     public function atualizar()
     {
         $query = "UPDATE tblbanner  
-        SET fotoBanner = '{$this->fotoBanner}'
-        WHERE idBanner = '{$this->idBanner}'";
+       SET nomeBanner = '" . $this->nomeBanner . "',
+        statusBanner = '".$this->statusBanner."',
+        fotoBanner = '" . $this->fotoBanner . "'
+            WHERE tblbanner.idBanner = '" . $this->idBanner . "'";
 
-        $conn = Conexao::LigarConexao();
-        $conn->exec($query);
+      $conn = Conexao::LigarConexao();
+      $conn->exec($query);
+      echo "<script>document.location='index.php?p=banner'</script>";
     }
 }

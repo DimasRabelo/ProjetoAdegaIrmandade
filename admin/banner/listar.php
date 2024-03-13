@@ -40,8 +40,7 @@ $lista = $banner->ListarBanner();
                 <tr>
 
                     <th>foto</th>
-                    <th>Atualizar
-                        Desativar</th>
+                   
                 </tr>
             </thead>
             <tbody>
@@ -52,18 +51,12 @@ $lista = $banner->ListarBanner();
                             <a href="../src/imagens/<?php echo $linha['fotoBanner'] ?>" data-lightbox="<?php echo $linha['nomeBanner'] ?>" data-title="<?php echo $linha['nomeBanner'] ?>">
                                 <img src="../src/imagens/<?php echo $linha['fotoBanner'] ?>" data-alt="<?php echo $linha['nomeBanner'] ?>">
                             </a>
-                        
-                        </td>
-                        <td>
-                            <a href="index.php?p=banner&b=ativar&id=<?php echo $linha['idBanner']; ?>" onclick="return confirmarAtivacao()">
+                            <a href="index.php?p=banner&b=atualizar&id=<?php echo $linha['idBanner']; ?>">
                                 <p>Alterar Foto do Banner</p>
                             </a>
-
-
-                            <a href="index.php?p=banner&b=desativar&id=<?php echo $linha['idBanner'] ?>" onclick="return confirmarDesativacao()">
-                                <img src="./img/lixeira-de-reciclagem.png" alt="<?php echo $linha['altBanner']; ?>">
-                            </a>
+                        
                         </td>
+                        
 
                     </tr>
                 <?php endforeach ?>
