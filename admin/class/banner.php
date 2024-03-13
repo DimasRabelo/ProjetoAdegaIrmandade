@@ -15,7 +15,7 @@ class BannerClass
 
     public function ListarBanner()
     {
-        $sql = "SELECT * FROM tblbanner WHERE statusBanner = 'ATIVO' ORDER BY idBanner ASC";
+        $sql = "SELECT * FROM tblbanner ORDER BY idBanner ASC";
         $conn = Conexao::LigarConexao();
         $resultado = $conn->query($sql);
         $lista = $resultado->fetchAll();
