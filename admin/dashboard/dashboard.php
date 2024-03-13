@@ -33,7 +33,14 @@ foreach ($dados_estoque as $item) {
 }
 ?>
 
+<Style>
 
+
+    text{
+        font-family: 'Secular One';
+        font-weight: bold;
+    }
+</Style>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
