@@ -41,7 +41,5 @@ if (isset($_GET['id'])) {
         $banner->Atualizar();
     }
 
-    // Redireciona de volta para a lista após a desativação
-    echo "<script>document.location='index.php?p=banner'</script>";
-    exit;
+
 }
