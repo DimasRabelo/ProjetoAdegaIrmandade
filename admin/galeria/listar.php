@@ -29,8 +29,7 @@ $lista = $galeria->listarGaleria();
             <tr>
 
                 <th>foto</th>
-                <th>Atualizar
-                   Desativar</th>
+                
             </tr>
         </thead>
         <tbody>
@@ -44,8 +43,7 @@ $lista = $galeria->listarGaleria();
                             <img src="../src/imagens/<?php echo $linha['fotoGaleria']; ?>" data-alt="<?php echo $linha['nomeGaleria']; ?>">
 
                         </a>
-                    </td>
-                    <td>
+                    
                         <a href="index.php?p=galeria&g=ativar&id=<?php echo $linha['idGaleria']; ?>" onclick="return confirmarAtivacao()">
                             <img src="./img/aceitar.png" alt="">
                         </a>
@@ -55,6 +53,12 @@ $lista = $galeria->listarGaleria();
                             <img src="./img/lixeira-de-reciclagem.png" alt="">
                         </a>
                     </td>
+
+                    <div class="selecaofunc" class="form-group col-sm-6 offset-md-2">
+           
+        </div>
+
+
 
                 </tr>
             <?php endforeach ?>

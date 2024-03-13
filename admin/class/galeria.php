@@ -19,7 +19,7 @@ class GaleriaClass
 
 public function listarGaleria()
     {
-        $sql = "SELECT * FROM tblgaleria WHERE statusGaleria = 'ATIVO' ORDER by idGaleria  ASC ";
+        $sql = "SELECT * FROM tblgaleria ORDER by idGaleria  ASC ";
         //$sql =  "SELECT * FROM tblgaleria ORDER BY idGaleria ASC" ;
         $conn = Conexao::LigarConexao();
         $resultado = $conn->query($sql);
