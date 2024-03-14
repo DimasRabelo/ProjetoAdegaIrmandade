@@ -5,6 +5,62 @@ $listaAtivos = $galeria->listarGaleria();
 $listaDesativados = $galeria->listarDesativados();
 ?>
 
+
+<style>
+    .table-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    table {
+        width: 10%;
+        /* Largura desejada */
+        margin-left: auto;
+        margin-right: auto;
+        border-collapse: collapse;
+    }
+
+    th,
+    td {
+        border: 1px solid #dddddd;
+        text-align: center;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    .BannerFoto {
+        width: 100%;
+    }
+
+    .BannerFoto img {
+        width: 300px;
+        /* Ajustar a largura da imagem para ocupar todo o espaço disponível */
+        height: 150px;
+        /* Altura automática para manter a proporção */
+        object-fit: cover;
+    }
+
+    .alterar {
+        
+        text-decoration: none;
+    }
+    span{
+        display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    }
+</style>
+
+
+
+
+
+
+
+
 <div>
     <a class="icon-link icon-link-hover" href="index.php?p=galeria&g=cadastrar">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-repeat" viewBox="0 0 16 16">
@@ -14,6 +70,10 @@ $listaDesativados = $galeria->listarDesativados();
     </a>
 </div>
 
+<span>  <img src="./img/aceitar.png" alt="Ativar">
+<img src="./img/lixeira-de-reciclagem.png" alt="Desativar">
+</span>
+
 <div class="table-container" id="arrastarMouse">
     <div>
         <table>
@@ -21,18 +81,19 @@ $listaDesativados = $galeria->listarDesativados();
             <thead>
                 <tr>
                     <th>Foto</th>
+                    <th>    </th>
                     <th>Status</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($listaAtivos as $linha) : ?>
                     <tr>
-                        <td>
+                        <td class="BannerFoto">
                             <a href="../src/imagens/<?php echo $linha['fotoGaleria'] ?>" data-lightbox="<?php echo $linha['nomeGaleria'] ?>" data-title="<?php echo $linha['nomeGaleria'] ?>">
                                 <img src="../src/imagens/<?php echo $linha['fotoGaleria']; ?>" alt="<?php echo $linha['nomeGaleria']; ?>">
                             </a>
-                            
-                            <a href="index.php?p=galeria&g=ativar&id=<?php echo $linha['idGaleria']; ?>" onclick="return confirmarAtivacao()">
+                        </td>
+                        <td> <a href="index.php?p=galeria&g=ativar&id=<?php echo $linha['idGaleria']; ?>" onclick="return confirmarAtivacao()">
                                 <img src="./img/aceitar.png" alt="Ativar">
                             </a>
                             <a href="index.php?p=galeria&g=desativar&id=<?php echo $linha['idGaleria'] ?>" onclick="return confirmarDesativacao()">
@@ -44,10 +105,12 @@ $listaDesativados = $galeria->listarDesativados();
                 <?php endforeach; ?>
                 <?php foreach ($listaDesativados as $linha) : ?>
                     <tr>
-                        <td>
+                        <td class="BannerFoto">
                             <a href="../src/imagens/<?php echo $linha['fotoGaleria'] ?>" data-lightbox="<?php echo $linha['nomeGaleria'] ?>" data-title="<?php echo $linha['nomeGaleria'] ?>">
                                 <img src="../src/imagens/<?php echo $linha['fotoGaleria']; ?>" alt="<?php echo $linha['nomeGaleria']; ?>">
                             </a>
+                        </td>
+                        <Td>
                             <a href="index.php?p=galeria&g=ativar&id=<?php echo $linha['idGaleria']; ?>" onclick="return confirmarAtivacao()">
                                 <img src="./img/aceitar.png" alt="Ativar">
                             </a>
