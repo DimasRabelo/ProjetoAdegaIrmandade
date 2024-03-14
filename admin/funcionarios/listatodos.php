@@ -6,7 +6,7 @@ $funcionario = new FuncionarioClass($id);
 
 <style>
     .formVisualizacao {
-        background: #ffffff;
+        background: #000000;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -27,7 +27,7 @@ $funcionario = new FuncionarioClass($id);
     }
 
     label {
-        color: #000000;
+        color: #ffffff;
     }
 
     input[type="text"],
@@ -58,6 +58,10 @@ $funcionario = new FuncionarioClass($id);
         flex: 1;
         margin-right: 10px;
     }
+    .Icones img{
+        width: 300px;
+    }
+    
 </style>
 
 <h1 class="h1Atual">LISTA COM TODOS OS CAMPOS</h1>
@@ -70,58 +74,56 @@ $funcionario = new FuncionarioClass($id);
         <?php endif; ?>
         <input type="file" id="fotoFuncionario" name="fotoFuncionario" style="display: none;">
     </div>
-
+   
     <div>
-        <label for="nomeFuncionario">Nome do Funcionario</label>
-        <input type="text" name="nomeFuncionario" id="nomeFuncionario" placeholder="Informe o Nome do Funcionario" value="<?php echo $funcionario->nomeFuncionario; ?>" style="border: none;">
+        <label for="nomeFuncionario">Nome do Funcionario:</label>
+        <input type="text" name="nomeFuncionario" id="nomeFuncionario" placeholder="Informe o Nome do Funcionario" value="<?php echo $funcionario->nomeFuncionario; ?>" style="border: none;" readonly >
     </div>
 
     <div>
-        <label for="cargoFuncionario">Cargo</label>
-        <input type="text" name="cargoFuncionario" id="cargoFuncionario" placeholder="Informe o Cargo" value="<?php echo $funcionario->cargoFuncionario; ?>" style="border: none;">
+        <label for="cargoFuncionario">Cargo:</label>
+        <input type="text" name="cargoFuncionario" id="cargoFuncionario" placeholder="Informe o Cargo" value="<?php echo $funcionario->cargoFuncionario; ?>" style="border: none;" readonly>
     </div>
 
     <div>
-        <label for="dataNascFuncionario">Data de Nascimento</label>
-        <input type="date" name="dataNascFuncionario" id="dataNascFuncionario" value="<?php echo $funcionario->dataNascFuncionario; ?>" style="border: none;">
+        <label for="dataNascFuncionario">Data de Nascimento:</label>
+        <input type="date" name="dataNascFuncionario" id="dataNascFuncionario" value="<?php echo $funcionario->dataNascFuncionario; ?>" style="border: none;" readonly >
     </div>
 
     <div>
-        <label for="emailFuncionario"> Email</label>
-        <input type="email" name="emailFuncionario" id="emailFuncionario" placeholder="name@example.com" value="<?php echo $funcionario->emailFuncionario; ?>" style="border: none;">
+        <label for="emailFuncionario"> Email:</label>
+        <input type="email" name="emailFuncionario" id="emailFuncionario" placeholder="name@example.com" value="<?php echo $funcionario->emailFuncionario; ?>" style="border: none;" readonly>
     </div>
 
     <div>
-        <label for="nivelFuncionario">Nivel de Acesso</label>
-        <input type="text" name="nivelFuncionario" id="nivelFuncionario" placeholder="Informe o Nivel de Acesso" value="<?php echo $funcionario->nivelFuncionario; ?>" style="border: none;">
+        <label for="nivelFuncionario">Nivel de Acesso:</label>
+        <input type="text" name="nivelFuncionario" id="nivelFuncionario" placeholder="Informe o Nivel de Acesso" value="<?php echo $funcionario->nivelFuncionario; ?>" style="border: none;" readonly>
     </div>
 
     <div>
-        <label for="dataAdmissaoFuncionario">Data de Admissão</label>
-        <input  type="date" name="dataAdmissaoFuncionario" id="dataAdmissaoFuncionario" value="<?php echo $funcionario->dataAdmissaoFuncionario; ?>" style="border: none;">
+        <label for="dataAdmissaoFuncionario">Data de Admissão:</label>
+        <input  type="date" name="dataAdmissaoFuncionario" id="dataAdmissaoFuncionario" value="<?php echo $funcionario->dataAdmissaoFuncionario; ?>" style="border: none;"  readonly>
     </div>
 
     <div>
-        <label for="enderecoFuncionario"> Endereço</label>
-        <input type="text" name="enderecoFuncionario" id="enderecoFuncionario" placeholder="Informe o Endereço" value="<?php echo $funcionario->enderecoFuncionario; ?>" style="border: none;">
+        <label for="enderecoFuncionario"> Endereço:</label>
+        <input type="text" name="enderecoFuncionario" id="enderecoFuncionario" placeholder="Informe o Endereço" value="<?php echo $funcionario->enderecoFuncionario; ?>" style="border: none;" readonly>
     </div>
 
     <div>
         <label for="telFuncionario">Telefone:</label>
-        <input type="tel" name="telFuncionario" id="telFuncionario" placeholder="(11)99999-9999" value="<?php echo $funcionario->telFuncionario; ?>" style="border: none;">
+        <input type="tel" name="telFuncionario" id="telFuncionario" placeholder="(11)99999-9999" value="<?php echo $funcionario->telFuncionario; ?>" style="border: none;" readonly>
     </div>
 
     <div>
-        <label for="cepFuncionario"> Cep</label>
-        <input type="text" id="cepFuncionario" name="cepFuncionario" maxlength="9" placeholder="00000-000" value="<?php echo $funcionario->cepFuncionario; ?>" style="border: none;">
+        <label for="cepFuncionario"> Cep:</label>
+        <input type="text" id="cepFuncionario" name="cepFuncionario" maxlength="9" placeholder="00000-000" value="<?php echo $funcionario->cepFuncionario; ?>" style="border: none;"  readonly>
     </div>
 
     <div>
-        <label for="statusFuncionario"> Status</label>
-        <input type="text" name="statusFuncionario" id="statusFuncionario" value="<?php echo $funcionario->statusFuncionario; ?>" style="border: none;">
+        <label for="statusFuncionario"> Status:</label>
+        <input type="text" name="statusFuncionario" id="statusFuncionario" value="<?php echo $funcionario->statusFuncionario; ?>" style="border: none;" readonly>
     </div>
 
-    <div>
-        <img src="/admin/img/facebook.png" alt="">
-    </div>
+
 </form>
