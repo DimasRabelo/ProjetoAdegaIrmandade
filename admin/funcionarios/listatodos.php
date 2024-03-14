@@ -60,9 +60,7 @@ $funcionario = new FuncionarioClass($id);
         flex: 1;
         margin-right: 10px;
     }
-    .Icones img{
-        width: 300px;
-    }
+    
     h1{
         color:#ffffff;
         display: flex;
