@@ -9,10 +9,12 @@ $funcionario = new FuncionarioClass($id);
         background: #000000;
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center; /* Centraliza horizontalmente */
+        justify-content: center; /* Centraliza verticalmente */
         padding: 20px;
+        width: 80%; /* Defina um tamanho fixo para o box */
+        margin: auto; /* Centraliza o box na página */
     }
-
     .fotoVisual {
         margin-bottom: 20px;
     }
@@ -61,11 +63,22 @@ $funcionario = new FuncionarioClass($id);
     .Icones img{
         width: 300px;
     }
+    h1{
+        color:#ffffff;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centraliza horizontalmente */
+        justify-content: center; /* Centraliza verticalmente */
+       
+        width: 80%; /* Defina um tamanho fixo para o box */
+        margin: auto; /* Centraliza o box na página */
+    }
     
 </style>
 
-<h1 class="h1Atual">LISTA COM TODOS OS CAMPOS</h1>
+<h1>LISTA COM TODOS OS CAMPOS</h1>
 <form class="formVisualizacao" action="index.php?p=funcionarios&f=listatodos&id=<?php echo $funcionario->idFuncionario; ?>" method="POST" enctype="multipart/form-data">
+
     <div class="fotoVisual">
         <?php if (!empty($funcionario->fotoFuncionario)) : ?>
             <img src="../admin/img/<?php echo $funcionario->fotoFuncionario; ?>" alt="Funcionário Photo" id="imgfoto">
