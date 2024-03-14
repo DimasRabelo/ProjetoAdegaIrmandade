@@ -1,175 +1,127 @@
 <?php
-
 $id = $_GET["id"];
-//echo $id;
 require_once("class/funcionario.php");
 $funcionario = new FuncionarioClass($id);
-
-
-
-
-
-
-
-if (isset($_POST['nomeFuncionario'])) {
-
-    $nomeFuncionario = $_POST['nomeFuncionario'];
-    $cargoFuncionario = $_POST['cargoFuncionario'];
-    $dataNascFuncionario = $_POST['dataNascFuncionario'];
-    $emailFuncionario = $_POST['emailFuncionario'];
-    $nivelFuncionario = $_POST['nivelFuncionario'];
-    $dataAdmissaoFuncionario = $_POST['dataAdmissaoFuncionario'];
-    $enderecoFuncionario = $_POST['enderecoFuncionario'];
-    $telFuncionario = $_POST['telFuncionario'];
-    $cepFuncionario = $_POST['cepFuncionario'];
-    $statusFuncionario = $_POST['statusFuncionario'];
-    $linkFaceFuncionario = $_POST['linkFaceFuncionario'];
-    $linkInstaFuncionario = $_POST['linkInstaFuncionario'];
-    $linkWhatsFuncionario = $_POST['linkWhatsFuncionario'];
-
-    //foto
-
-
-    if (!empty($_FILES['fotoFuncionario']['name'])) {
-
-
-        // Foto
-        $arquivo   = $_FILES['fotoFuncionario'];
-
-        if ($arquivo['error']) {
-            throw new Exception('Error' . $arquivo['error']);
-        }
-        if (move_uploaded_file($arquivo['tmp_name'], '../admin/img/funcionario/' . $arquivo['name'])) {
-            $fotoFuncionario = 'funcionario/' . $arquivo['name'];
-        } else {
-            throw new Exception('Erro: Não foi possível realizar o upload da imagem.');
-        }
-    } else {
-        $fotoFuncionario = $funcionario->fotoFuncionario;
-    }
-    // fim da empty
-
-    $funcionario->nomeFuncionario = $nomeFuncionario;
-    $funcionario->cargoFuncionario = $cargoFuncionario;
-    $funcionario->dataNascFuncionario = $dataNascFuncionario;
-    $funcionario->emailFuncionario = $emailFuncionario;
-    $funcionario->nivelFuncionario = $nivelFuncionario;
-    $funcionario->dataAdmissaoFuncionario = $dataAdmissaoFuncionario;
-    $funcionario->enderecoFuncionario = $enderecoFuncionario;
-    $funcionario->telFuncionario = $telFuncionario;
-    $funcionario->cepFuncionario = $cepFuncionario;
-    $funcionario->statusFuncionario = $statusFuncionario;
-    $funcionario->fotoFuncionario = $fotoFuncionario;
-    $funcionario->linkFaceFuncionario = $linkFaceFuncionario;
-    $funcionario->linkInstaFuncionario = $linkInstaFuncionario;
-    $funcionario->linkWhatsFuncionario = $linkWhatsFuncionario;
-
-    $funcionario->ListarCampos();
-}
-
-
-
-
-
 ?>
 
+<style>
+    .formVisualizacao {
+        background: #ffffff;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .fotoVisual {
+        margin-bottom: 20px;
+    }
+
+    .fotoVisual img {
+        max-width: 200px;
+        max-height: 120px;
+    }
+
+    .formVisualizacao div {
+        margin-bottom: 20px;
+    }
+
+    label {
+        color: #000000;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="date"] {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+        border: none; /* Removendo a borda */
+        outline: none; /* Removendo a borda ao focar */
+    }
+
+    /* Adicionando estilo para posicionar os labels e inputs lado a lado */
+    .formVisualizacao div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .formVisualizacao div input {
+        flex: 1;
+    }
+
+    .formVisualizacao div label {
+        flex: 1;
+        margin-right: 10px;
+    }
+</style>
+
 <h1 class="h1Atual">LISTA COM TODOS OS CAMPOS</h1>
-<form action="index.php?p=funcionarios&f=listatodos&id=<?php echo $funcionario->idFuncionario; ?> " method="POST" enctype="multipart/form-data">
-
-
-    <div class="fotoForm">
-
-        <div>
-            <?php if (!empty($funcionario->fotoFuncionario)) : ?>
-                <img src="../admin/img/<?php echo $funcionario->fotoFuncionario; ?>" alt="Funcionário Photo" id="imgfoto">
-            <?php else : ?>
-                <img src="img/sem-foto.jpg" alt="Sem Foto" id="imgfoto">
-            <?php endif; ?>
-        </div>
+<form class="formVisualizacao" action="index.php?p=funcionarios&f=listatodos&id=<?php echo $funcionario->idFuncionario; ?>" method="POST" enctype="multipart/form-data">
+    <div class="fotoVisual">
+        <?php if (!empty($funcionario->fotoFuncionario)) : ?>
+            <img src="../admin/img/<?php echo $funcionario->fotoFuncionario; ?>" alt="Funcionário Photo" id="imgfoto">
+        <?php else : ?>
+            <img src="img/sem-foto.jpg" alt="Sem Foto" id="imgfoto">
+        <?php endif; ?>
         <input type="file" id="fotoFuncionario" name="fotoFuncionario" style="display: none;">
-
     </div>
-    <p class="informa">clique em cima da foto se deseja alterar</p>
+
     <div>
         <label for="nomeFuncionario">Nome do Funcionario</label>
-        <input type="text" name="nomeFuncionario" id="nomeFuncionario" placeholder="Informe o Nome do Funcionario" value="<?php echo $funcionario->nomeFuncionario; ?>">
-
+        <input type="text" name="nomeFuncionario" id="nomeFuncionario" placeholder="Informe o Nome do Funcionario" value="<?php echo $funcionario->nomeFuncionario; ?>" style="border: none;">
     </div>
 
     <div>
         <label for="cargoFuncionario">Cargo</label>
-        <input type="text" name="cargoFuncionario" id="cargoFuncionario" placeholder="Informe o Cargo" value="<?php echo $funcionario->cargoFuncionario; ?>">
+        <input type="text" name="cargoFuncionario" id="cargoFuncionario" placeholder="Informe o Cargo" value="<?php echo $funcionario->cargoFuncionario; ?>" style="border: none;">
     </div>
 
     <div>
         <label for="dataNascFuncionario">Data de Nascimento</label>
-        <input class="Dateatual" type="date" name="dataNascFuncionario" id="dataNascFuncionario" value="<?php echo $funcionario->dataNascFuncionario; ?>">
+        <input type="date" name="dataNascFuncionario" id="dataNascFuncionario" value="<?php echo $funcionario->dataNascFuncionario; ?>" style="border: none;">
     </div>
 
     <div>
         <label for="emailFuncionario"> Email</label>
-        <input type="email" name="emailFuncionario" id="emailFuncionario" placeholder="name@example.com" value="<?php echo $funcionario->emailFuncionario;  ?>">
+        <input type="email" name="emailFuncionario" id="emailFuncionario" placeholder="name@example.com" value="<?php echo $funcionario->emailFuncionario; ?>" style="border: none;">
     </div>
 
     <div>
         <label for="nivelFuncionario">Nivel de Acesso</label>
-        <input type="text" name="nivelFuncionario" id="nivelFuncionario" placeholder="Informe o Nivel de Acesso" value="<?php echo $funcionario->nivelFuncionario; ?>">
+        <input type="text" name="nivelFuncionario" id="nivelFuncionario" placeholder="Informe o Nivel de Acesso" value="<?php echo $funcionario->nivelFuncionario; ?>" style="border: none;">
     </div>
 
     <div>
         <label for="dataAdmissaoFuncionario">Data de Admissão</label>
-        <input class="Dateatual" type="date" name="dataAdmissaoFuncionario" id="dataAdmissaoFuncionario" value="<?php echo $funcionario->dataAdmissaoFuncionario; ?>">
+        <input  type="date" name="dataAdmissaoFuncionario" id="dataAdmissaoFuncionario" value="<?php echo $funcionario->dataAdmissaoFuncionario; ?>" style="border: none;">
     </div>
 
     <div>
         <label for="enderecoFuncionario"> Endereço</label>
-        <input type="text" name="enderecoFuncionario" id="enderecoFuncionario" placeholder="Informe o Endereço" value="<?php echo $funcionario->enderecoFuncionario; ?>">
+        <input type="text" name="enderecoFuncionario" id="enderecoFuncionario" placeholder="Informe o Endereço" value="<?php echo $funcionario->enderecoFuncionario; ?>" style="border: none;">
     </div>
 
     <div>
         <label for="telFuncionario">Telefone:</label>
-        <input type="tel" name="telFuncionario" id="telFuncionario" placeholder="(11)99999-9999" value="<?php echo $funcionario->telFuncionario; ?>">
+        <input type="tel" name="telFuncionario" id="telFuncionario" placeholder="(11)99999-9999" value="<?php echo $funcionario->telFuncionario; ?>" style="border: none;">
     </div>
-
 
     <div>
         <label for="cepFuncionario"> Cep</label>
-        <input type="text" id="cepFuncionario" name="cepFuncionario" maxlength="9" placeholder="00000-000" value="<?php echo $funcionario->cepFuncionario; ?>">
-
+        <input type="text" id="cepFuncionario" name="cepFuncionario" maxlength="9" placeholder="00000-000" value="<?php echo $funcionario->cepFuncionario; ?>" style="border: none;">
     </div>
 
     <div>
         <label for="statusFuncionario"> Status</label>
-        <input type="text" name="statusFuncionario" id="statusFuncionario" value="<?php echo $funcionario->statusFuncionario; ?>">
+        <input type="text" name="statusFuncionario" id="statusFuncionario" value="<?php echo $funcionario->statusFuncionario; ?>" style="border: none;">
     </div>
-   
-
 
     <div>
-        <button type="submit">Atualizar Funcionário</button>
+        <img src="/admin/img/facebook.png" alt="">
     </div>
-
 </form>
-
-<script>
-    // Evento de Clique
-    document.getElementById('imgfoto').addEventListener('click', function() {
-        document.getElementById('fotoFuncionario').click();
-    });
-
-    // Evento de Alteração Mudar
-    document.getElementById('fotoFuncionario').addEventListener('change', function(e) {
-        let imgfoto = document.getElementById('imgfoto');
-        let arquivo = e.target.files[0];
-        if (arquivo) {
-            let carregar = new FileReader();
-
-            carregar.onload = function(e) {
-                imgfoto.src = e.target.result;
-                // console.log(imgfoto.src);
-            }
-
-            carregar.readAsDataURL(arquivo);
-        }
-    });
-</script>

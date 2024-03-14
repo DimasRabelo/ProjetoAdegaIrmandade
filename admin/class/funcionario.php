@@ -171,29 +171,5 @@ class FuncionarioClass
         $conn->exec($query);
     }
 
-    public function ListarCampos()
-    {
-
-        $query = "UPDATE tblfuncionarios  
-          SET nomeFuncionario =  '" . $this->nomeFuncionario . "', 
-              cargoFuncionario =  '" . $this->cargoFuncionario . "',
-              dataNascFuncionario = '" . $this->dataNascFuncionario . "', 
-              emailFuncionario = '" . $this->emailFuncionario . "',
-              nivelFuncionario = '" . $this->nivelFuncionario . "',
-              dataAdmissaoFuncionario = '" . $this->dataAdmissaoFuncionario . "',
-              enderecoFuncionario = '" . $this->enderecoFuncionario . "',
-              telFuncionario = '" . $this->telFuncionario . "',
-              cepFuncionario = '" . $this->cepFuncionario . "',
-              statusFuncionario = '" . $this->statusFuncionario . "',
-              fotoFuncionario = '" . $this->fotoFuncionario . "'
-              WHERE tblfuncionarios.idFuncionario = '" . $this->idFuncionario . "'";
-
-        $conn = Conexao::LigarConexao();
-        $conn->exec($query);
-        echo "<script>document.location='index.php?p=funcionarios'</script>";
-    }
-
-
-
 
 }
