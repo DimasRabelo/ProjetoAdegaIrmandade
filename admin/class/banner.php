@@ -12,6 +12,7 @@ class BannerClass
     public $fotoBanner;
 
     public $statusBanner;
+    public $paginaDestino;
 
     public function ListarBanner()
     {
@@ -33,6 +34,7 @@ class BannerClass
             '{$this-> nomeBanner}',
             '{$this-> altBanner}',
             '{$this->fotoBanner}',
+            '{$this->paginaDestino}',
             '{$this-> statusBanner }'
            
            
@@ -65,6 +67,7 @@ class BannerClass
             $this->nomeBanner = $linha['nomeBanner'];
             $this->altBanner = $linha['altBanner'];
             $this->fotoBanner = $linha['fotoBanner'];
+            $this->paginaDestino = $linha['paginaDestino'];
             $this->statusBanner = $linha['statusBanner'];
         }
     }
@@ -87,7 +90,8 @@ class BannerClass
           SET nomeBanner =  '" . $this->nomeBanner . "', 
               altBanner =  '" . $this->altBanner . "',
               fotoBanner = '" . $this->fotoBanner . "', 
-              statusBanner = '" . $this->statusBanner . "'
+              statusBanner = '" . $this->statusBanner . "',
+              paginaDestino = '" . $this->paginaDestino . "'
               WHERE tblbanner.idBanner = '" . $this->idBanner . "'";
 
         $conn = Conexao::LigarConexao();

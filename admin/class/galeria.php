@@ -19,13 +19,23 @@ class GaleriaClass
 
 public function listarGaleria()
     {
-        $sql = "SELECT * FROM tblgaleria ORDER by idGaleria  ASC ";
+        $sql = "SELECT * FROM tblgaleria WHERE statusGaleria = 'ATIVO' ORDER BY idGaleria ASC ";
         //$sql =  "SELECT * FROM tblgaleria ORDER BY idGaleria ASC" ;
         $conn = Conexao::LigarConexao();
         $resultado = $conn->query($sql);
         $lista = $resultado->fetchAll();
         return $lista;
     }
+
+    public function listarDesativados()
+    {
+        $sql = "SELECT * FROM tblgaleria WHERE statusGaleria = 'DESATIVADO' ORDER BY idGaleria ASC";
+        $conn = Conexao::LigarConexao();
+        $resultado = $conn->query($sql);
+        $listaDesativados = $resultado->fetchAll();
+        return $listaDesativados;
+    }
+    
 
 
 
@@ -67,20 +77,7 @@ public function __construct($id = false)
         $this->statusGaleria = $linha['statusGaleria'];
     }
 }
-/* public function Atualizar()
-{
-    $query = "UPDATE tblgaleria 
-     SET 
-        nomeGaleria =  '". $this->nomeGaleria ."',
-        statusGaleria = '". $this->statusGaleria ."',
-        fotoGaleria = '". $this->fotoGaleria ."'
-     WHERE tblgaleria.idGaleria = '" . $this->idGaleria . "'";
 
-    $conn = Conexao::LigarConexao();
-    $conn->exec($query);
-    echo "<script>document.location='index.php?p=galeria'</script>";
-}
- */
 
  public function ativar()
  {

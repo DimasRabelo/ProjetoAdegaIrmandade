@@ -40,6 +40,9 @@ $lista = $banner->ListarBanner();
         max-width: 600px;
         max-height:200px;
     }
+    .alterar{
+        text-decoration: none;
+    }
 </style>
 
 
@@ -54,7 +57,8 @@ $lista = $banner->ListarBanner();
                 <tr>
 
                     <th>IMAGENS DO BANNER DAS PÁGINAS</th>
-                    <th>STATUS</th>
+                    <th>PÁGINA</th>
+                   
                    
                 </tr>
             </thead>
@@ -67,10 +71,9 @@ $lista = $banner->ListarBanner();
                                 <img src="../src/imagens/<?php echo $linha['fotoBanner'] ?>" data-alt="<?php echo $linha['nomeBanner'] ?>">
                             </a>
                             <a href="index.php?p=banner&b=atualizar&id=<?php echo $linha['idBanner']; ?>">
-                                <p>Alterar Foto do Banner</p>
+                                <p class="alterar">Alterar Foto do Banner</p>
                             </a>
-
-                            <td><?php echo $linha['statusBanner'] ?></td>
+                            <td><?php echo $linha['paginaDestino'] ?></td>
                         
                         </td>
                         
