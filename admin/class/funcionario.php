@@ -8,6 +8,8 @@ class FuncionarioClass
     public $cargoFuncionario;
     public $dataNascFuncionario;
 
+    public $senhaFuncionario;
+
     public $emailFuncionario;
 
     public $nivelFuncionario;
@@ -23,6 +25,12 @@ class FuncionarioClass
     public $statusFuncionario;
 
     public $fotoFuncionario;
+
+    public $linkFaceFuncionario;
+
+    public $linkInstaFuncionario;
+
+    public $linkWhatsFuncionario;
 
 
 
@@ -113,6 +121,10 @@ class FuncionarioClass
             $this->cepFuncionario = $linha['cepFuncionario'];
             $this->statusFuncionario = $linha['statusFuncionario'];
             $this->fotoFuncionario = $linha['fotoFuncionario'];
+            $this->linkFaceFuncionario = $linha['linkFaceFuncionario'];
+            $this->linkInstaFuncionario = $linha['linkInstaFuncionario'];
+            $this->linkWhatsFuncionario = $linha['linkWhatsFuncionario'];
+
         }
     }
 
@@ -157,6 +169,28 @@ class FuncionarioClass
 
         $conn = Conexao::LigarConexao();
         $conn->exec($query);
+    }
+
+    public function ListarCampos()
+    {
+
+        $query = "UPDATE tblfuncionarios  
+          SET nomeFuncionario =  '" . $this->nomeFuncionario . "', 
+              cargoFuncionario =  '" . $this->cargoFuncionario . "',
+              dataNascFuncionario = '" . $this->dataNascFuncionario . "', 
+              emailFuncionario = '" . $this->emailFuncionario . "',
+              nivelFuncionario = '" . $this->nivelFuncionario . "',
+              dataAdmissaoFuncionario = '" . $this->dataAdmissaoFuncionario . "',
+              enderecoFuncionario = '" . $this->enderecoFuncionario . "',
+              telFuncionario = '" . $this->telFuncionario . "',
+              cepFuncionario = '" . $this->cepFuncionario . "',
+              statusFuncionario = '" . $this->statusFuncionario . "',
+              fotoFuncionario = '" . $this->fotoFuncionario . "'
+              WHERE tblfuncionarios.idFuncionario = '" . $this->idFuncionario . "'";
+
+        $conn = Conexao::LigarConexao();
+        $conn->exec($query);
+        echo "<script>document.location='index.php?p=funcionarios'</script>";
     }
 
 
