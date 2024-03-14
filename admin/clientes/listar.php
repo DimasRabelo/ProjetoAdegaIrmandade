@@ -153,8 +153,8 @@ $totalDesativados = count($listaDesativados);
                             <td><?php echo $linha['emailUsuario'] ?></td>
                             <td><?php echo $linha['senhaUsuario'] ?></td>
                             <td class="fotoGeral">
-                                <a href="../src/imagens/<?php echo $linha['fotoUsuario'] ?>" data-lightbox="<?php echo $linha['nomeUsuario'] ?>" data-title="<?php echo $linha['nomeUsuario'] ?>">
-                                    <img src="../src/imagens/<?php echo $linha['fotoUsuario'] ?>" data-alt="<?php echo $linha['nomeUsuario'] ?>">
+                                <a href="../admin/img/<?php echo $linha['fotoUsuario'] ?>" data-lightbox="<?php echo $linha['nomeUsuario'] ?>" data-title="<?php echo $linha['nomeUsuario'] ?>">
+                                    <img src="../admin/img/<?php echo $linha['fotoUsuario'] ?>" data-alt="<?php echo $linha['nomeUsuario'] ?>">
                                 </a>
                             </td>
 

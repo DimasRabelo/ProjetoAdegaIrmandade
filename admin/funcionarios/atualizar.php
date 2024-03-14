@@ -36,7 +36,7 @@ if (isset($_POST['nomeFuncionario'])) {
         if ($arquivo['error']) {
             throw new Exception('Error' . $arquivo['error']);
         }
-        if (move_uploaded_file($arquivo['tmp_name'], '../src/imagens/funcionario/' . $arquivo['name'])) {
+        if (move_uploaded_file($arquivo['tmp_name'], '../admin/img/funcionario/' . $arquivo['name'])) {
             $fotoFuncionario = 'funcionario/' . $arquivo['name'];
         } else {
             throw new Exception('Erro: Não foi possível realizar o upload da imagem.');
@@ -75,7 +75,7 @@ if (isset($_POST['nomeFuncionario'])) {
 
         <div>
             <?php if (!empty($funcionario->fotoFuncionario)) : ?>
-                <img src="../src/imagens/<?php echo $funcionario->fotoFuncionario; ?>" alt="Funcionário Photo" id="imgfoto">
+                <img src="../admin/img/<?php echo $funcionario->fotoFuncionario; ?>" alt="Funcionário Photo" id="imgfoto">
             <?php else : ?>
                 <img src="img/sem-foto.jpg" alt="Sem Foto" id="imgfoto">
             <?php endif; ?>

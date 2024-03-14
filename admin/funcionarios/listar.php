@@ -145,8 +145,8 @@ $totalDesativados = count($listaDesativados);
                             <?php endif; ?>
                             <td><?php echo $linha['nomeFuncionario'] ?></td>
                             <td class="fotoGeral">
-                                <a href="../src/imagens/<?php echo $linha['fotoFuncionario'] ?>" data-lightbox="<?php echo $linha['nomeFuncionario'] ?>" data-title="<?php echo $linha['nomeFuncionario'] ?>">
-                                    <img src="../src/imagens/<?php echo $linha['fotoFuncionario'] ?>" data-alt="<?php echo $linha['nomeFuncionario'] ?>">
+                                <a href="../admin/img/ <?echo $linha['fotoFuncionario'] ?>" data-lightbox="<?php echo $linha['nomeFuncionario'] ?>" data-title="<?php echo $linha['nomeFuncionario'] ?>">
+                                    <img src="../admin/img/<?php echo $linha['fotoFuncionario'] ?>" data-alt="<?php echo $linha['nomeFuncionario'] ?>">
                                 </a>
                             </td>
 

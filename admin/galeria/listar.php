@@ -5,54 +5,21 @@ $listaAtivos = $galeria->listarGaleria();
 $listaDesativados = $galeria->listarDesativados();
 ?>
 
-
 <style>
-    .table-container {
+    .tblGaleria {
         display: flex;
         justify-content: center;
     }
-
-    table {
-        width: 10%;
-        /* Largura desejada */
-        margin-left: auto;
-        margin-right: auto;
-        border-collapse: collapse;
+       
+    .iconeCrud{
+        padding: 100px;
     }
-
-    th,
-    td {
-        border: 1px solid #dddddd;
-        text-align: center;
-        padding: 8px;
+    .iconeCrud img{
+        margin-right: -114px 
     }
-
-    tr:nth-child(even) {
-        background-color: #f2f2f2;
-    }
-
-    .BannerFoto {
-        width: 100%;
-    }
-
-    .BannerFoto img {
-        width: 300px;
-        /* Ajustar a largura da imagem para ocupar todo o espaço disponível */
-        height: 150px;
-        /* Altura automática para manter a proporção */
-        object-fit: cover;
-    }
-
-    .alterar {
-        
-        text-decoration: none;
-    }
-    span{
-        display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    }
+    
 </style>
+
 
 
 
@@ -70,18 +37,18 @@ $listaDesativados = $galeria->listarDesativados();
     </a>
 </div>
 
-<span>  <img src="./img/aceitar.png" alt="Ativar">
-<img src="./img/lixeira-de-reciclagem.png" alt="Desativar">
-</span>
 
-<div class="table-container" id="arrastarMouse">
-    <div>
+
+
+<div class="tblGaleria">
+    <div class="table-container" id="arrastarMouse">
+
         <table>
             <caption>Lista de Galeria</caption>
             <thead>
                 <tr>
                     <th>Foto</th>
-                    <th>    </th>
+                    <th>Desativar ou Ativar </th>
                     <th>Status</th>
                 </tr>
             </thead>
@@ -93,7 +60,7 @@ $listaDesativados = $galeria->listarDesativados();
                                 <img src="../src/imagens/<?php echo $linha['fotoGaleria']; ?>" alt="<?php echo $linha['nomeGaleria']; ?>">
                             </a>
                         </td>
-                        <td> <a href="index.php?p=galeria&g=ativar&id=<?php echo $linha['idGaleria']; ?>" onclick="return confirmarAtivacao()">
+                        <td class="iconeCrud"> <a href="index.php?p=galeria&g=ativar&id=<?php echo $linha['idGaleria']; ?>" onclick="return confirmarAtivacao()">
                                 <img src="./img/aceitar.png" alt="Ativar">
                             </a>
                             <a href="index.php?p=galeria&g=desativar&id=<?php echo $linha['idGaleria'] ?>" onclick="return confirmarDesativacao()">
@@ -110,7 +77,7 @@ $listaDesativados = $galeria->listarDesativados();
                                 <img src="../src/imagens/<?php echo $linha['fotoGaleria']; ?>" alt="<?php echo $linha['nomeGaleria']; ?>">
                             </a>
                         </td>
-                        <Td>
+                        <Td class="iconeCrud" >
                             <a href="index.php?p=galeria&g=ativar&id=<?php echo $linha['idGaleria']; ?>" onclick="return confirmarAtivacao()">
                                 <img src="./img/aceitar.png" alt="Ativar">
                             </a>

@@ -27,7 +27,7 @@ if (isset($_POST['nomeUsuario'])) {
         if ($arquivo['error']) {
             throw new Exception('Error' . $arquivo['error']);
         }
-        if (move_uploaded_file($arquivo['tmp_name'], '../src/imagens/Usuario/' . $arquivo['name'])) {
+        if (move_uploaded_file($arquivo['tmp_name'], '../admin/img/Usuario/' . $arquivo['name'])) {
             $fotoUsuario = 'Usuario/' . $arquivo['name'];
         } else {
             throw new Exception('Erro: Não foi possível realizar o upload da imagem.');
@@ -60,7 +60,7 @@ if (isset($_POST['nomeUsuario'])) {
     <div class="fotoForm">
         <div>
             <?php if (!empty($usuario->fotoUsuario)) : ?>
-                <img src="../src/imagens/<?php echo $usuario->fotoUsuario; ?>" alt="Usuario Photo" id="imgfoto">
+                <img src="../admin/img/<?php echo $usuario->fotoUsuario; ?>" alt="Usuario Photo" id="imgfoto">
             <?php else : ?>
                 <img src="img/sem-foto.jpg" alt="Sem Foto" id="imgfoto">
             <?php endif; ?>
