@@ -20,7 +20,6 @@ if (isset($_POST['nomeEstoque'])) {
     $estoque->idProduto = $idProduto;
 
     $estoque->Atualizar();
-
 }
 
 
@@ -33,30 +32,71 @@ if (isset($_POST['nomeEstoque'])) {
 
     <div>
         <label for="nomeEstoque"> Nome do Estoque</label>
-        <input type="text" name="nomeEstoque" id="nomeEstoque" required placeholder="nome estoque" value="<?php echo $estoque->nomeEstoque; ?>" >
+        <input type="text" name="nomeEstoque" id="nomeEstoque" required placeholder="nome estoque" value="<?php echo $estoque->nomeEstoque; ?>">
     </div>
 
-    
 
-    <div>
-        <label for="idProduto"> Nome do Produto</label>
-        <input type="text" name="idProduto" id="idProduto"  placeholder="nome do produto" value="<?php echo $estoque->idProduto; ?>" >
-    </div>
-    
+
+    <select class="seleEstoque" aria-label="Default select example" name="idProduto" id="idProduto" required>
+        <option selected disabled>Seleciona o Produto</option>
+
+        <?php
+
+        require_once('class/produto.php');
+
+        // Instância da classe ProdutoClass
+        $produtoClass = new ProdutoClass();
+
+        // Obtém os produtos ativos usando o método listarProdutosAtivos()
+        $produtosAtivos = $produtoClass->listarProdutosAtivos();
+
+        // Obtém o ID do produto atualmente cadastrado na venda
+        $idProdutoEstoque = $estoque->idProduto;
+
+        foreach ($produtosAtivos as $produto) {
+            // Verifica se o ID do produto sendo iterado no loop é igual ao ID do produto associado à venda
+            $selected = ($produto['idProduto'] == $idProdutoEstoque) ? 'selected' : '';
+
+            // Exibe a opção do select, marcando-a como selecionada se for o produto atual associado à venda
+            echo "<option value='{$produto['idProduto']}' $selected>{$produto['nomeProduto']}</option>";
+        }
+        // Listar produtos desativados
+        $produtosDesativados = $produtoClass->listarProdutosDesativados();
+        foreach ($produtosDesativados as $produto) {
+            echo "<option value='{$produto['idProduto']}'>{$produto['nomeProduto']} (Desativado)</option>";
+        }
+        ?>
+    </select>
+
 
     <div>
         <label for="quantidadeEstoque"> Quantidade</label>
-        <input type="text" name="quantidadeEstoque" id="quantidadeEstoque" placeholder="quantidade" value="<?php echo $estoque->quantidadeEstoque; ?>"   >
+        <input type="text" name="quantidadeEstoque" id="quantidadeEstoque" placeholder="quantidade" value="<?php echo $estoque->quantidadeEstoque; ?>">
     </div>
 
     <div>
         <select class="seleEstoque" aria-label="Default select example" name="statusEstoque">
-            <option value="" selected disabled>Seleciona o Status do Estoque</option>
-            <option value="ATIVO">ATIVO</option>
-            <option value="DESATIVADO">DESATIVADO</option>
-            <option value="INATIVO">INATIVO</option>
+            <option selected disabled>Selecione o Status do Estoque</option>
+            <?php
+            // Obtém o status da venda atualmente associado à venda
+            $statusEstoqueAtual = $estoque->statusEstoque;
+
+            // Define as opções do select
+            $opcoesStatus = array(
+                'ATIVO' => 'ATIVO',
+                'DESATIVADO' => 'DESATIVADO'
+            );
+
+            // Itera sobre as opções e exibe cada uma delas
+            foreach ($opcoesStatus as $valor => $texto) {
+                // Verifica se o valor da opção corresponde ao status da venda associado à venda atual
+                $selected = ($valor == $statusEstoqueAtual) ? 'selected' : '';
+                echo "<option value='$valor' $selected>$texto</option>";
+            }
+            ?>
         </select>
     </div>
+
 
     <div>
         <button type="submit">Atualizar Estoque</button>

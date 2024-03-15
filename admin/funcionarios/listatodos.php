@@ -9,12 +9,10 @@ $funcionario = new FuncionarioClass($id);
         background: #000000;
         display: flex;
         flex-direction: column;
-        align-items: center; /* Centraliza horizontalmente */
-        justify-content: center; /* Centraliza verticalmente */
+        align-items: flex-start;
         padding: 20px;
-        width: 80%; /* Defina um tamanho fixo para o box */
-        margin: auto; /* Centraliza o box na página */
     }
+
     .fotoVisual {
         margin-bottom: 20px;
     }
@@ -39,11 +37,13 @@ $funcionario = new FuncionarioClass($id);
         width: 100%;
         padding: 8px;
         box-sizing: border-box;
-        border: none; /* Removendo a borda */
-        outline: none; /* Removendo a borda ao focar */
+        border: none;
+        /* Removendo a borda */
+        outline: none;
+        /* Removendo a borda ao focar */
     }
 
-    /* Adicionando estilo para posicionar os labels e inputs lado a lado */
+    
     .formVisualizacao div {
         display: flex;
         flex-direction: row;
@@ -60,23 +60,28 @@ $funcionario = new FuncionarioClass($id);
         flex: 1;
         margin-right: 10px;
     }
-    
-    h1{
-        color:#ffffff;
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Centraliza horizontalmente */
-        justify-content: center; /* Centraliza verticalmente */
-       
-        width: 80%; /* Defina um tamanho fixo para o box */
-        margin: auto; /* Centraliza o box na página */
+
+    .Icones img {
+        width: 300px;
     }
-    
+    .listaRedesSociais {
+        display: flex;
+        flex-direction: row;
+        justify-content: center; 
+        align-items: center; 
+        width: 100%;
+        padding: 0;
+        list-style: none;
+    }
+
+    /* Estilos para os itens da lista */
+    .listaRedesSociais li {
+        margin: 0 5px; 
+    }
 </style>
 
-<h1>LISTA COM TODOS OS CAMPOS</h1>
+<h1 class="h1Atual">LISTA COM TODOS OS CAMPOS</h1>
 <form class="formVisualizacao" action="index.php?p=funcionarios&f=listatodos&id=<?php echo $funcionario->idFuncionario; ?>" method="POST" enctype="multipart/form-data">
-
     <div class="fotoVisual">
         <?php if (!empty($funcionario->fotoFuncionario)) : ?>
             <img src="../admin/img/<?php echo $funcionario->fotoFuncionario; ?>" alt="Funcionário Photo" id="imgfoto">
@@ -85,10 +90,10 @@ $funcionario = new FuncionarioClass($id);
         <?php endif; ?>
         <input type="file" id="fotoFuncionario" name="fotoFuncionario" style="display: none;">
     </div>
-   
+
     <div>
         <label for="nomeFuncionario">Nome do Funcionario:</label>
-        <input type="text" name="nomeFuncionario" id="nomeFuncionario" placeholder="Informe o Nome do Funcionario" value="<?php echo $funcionario->nomeFuncionario; ?>" style="border: none;" readonly >
+        <input type="text" name="nomeFuncionario" id="nomeFuncionario" placeholder="Informe o Nome do Funcionario" value="<?php echo $funcionario->nomeFuncionario; ?>" style="border: none;" readonly>
     </div>
 
     <div>
@@ -98,7 +103,7 @@ $funcionario = new FuncionarioClass($id);
 
     <div>
         <label for="dataNascFuncionario">Data de Nascimento:</label>
-        <input type="date" name="dataNascFuncionario" id="dataNascFuncionario" value="<?php echo $funcionario->dataNascFuncionario; ?>" style="border: none;" readonly >
+        <input type="date" name="dataNascFuncionario" id="dataNascFuncionario" value="<?php echo $funcionario->dataNascFuncionario; ?>" style="border: none;" readonly>
     </div>
 
     <div>
@@ -113,7 +118,7 @@ $funcionario = new FuncionarioClass($id);
 
     <div>
         <label for="dataAdmissaoFuncionario">Data de Admissão:</label>
-        <input  type="date" name="dataAdmissaoFuncionario" id="dataAdmissaoFuncionario" value="<?php echo $funcionario->dataAdmissaoFuncionario; ?>" style="border: none;"  readonly>
+        <input type="date" name="dataAdmissaoFuncionario" id="dataAdmissaoFuncionario" value="<?php echo $funcionario->dataAdmissaoFuncionario; ?>" style="border: none;" readonly>
     </div>
 
     <div>
@@ -128,13 +133,16 @@ $funcionario = new FuncionarioClass($id);
 
     <div>
         <label for="cepFuncionario"> Cep:</label>
-        <input type="text" id="cepFuncionario" name="cepFuncionario" maxlength="9" placeholder="00000-000" value="<?php echo $funcionario->cepFuncionario; ?>" style="border: none;"  readonly>
+        <input type="text" id="cepFuncionario" name="cepFuncionario" maxlength="9" placeholder="00000-000" value="<?php echo $funcionario->cepFuncionario; ?>" style="border: none;" readonly>
     </div>
 
     <div>
         <label for="statusFuncionario"> Status:</label>
         <input type="text" name="statusFuncionario" id="statusFuncionario" value="<?php echo $funcionario->statusFuncionario; ?>" style="border: none;" readonly>
     </div>
-
-
+    <ul class="listaRedesSociais">
+    <li><a href="<?php echo $funcionario->linkFaceFuncionario; ?>" target="_blank">FACEBOOK</a></li>
+    <li><a href="#" target="_blank">INSTAGRAM</a></li>
+    <li><a href="#" target="_blank">WHATSAPP</a></li>
+        </ul>
 </form>

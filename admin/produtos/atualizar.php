@@ -1,11 +1,11 @@
 <?php
 
 $id = $_GET["id"];
-echo $id;
+//echo $id;
 require_once("class/produto.php");
 $produto = new ProdutoClass($id);
 
-echo $produto->nomeProduto;
+//echo $produto->nomeProduto;
 
 
 
@@ -51,24 +51,64 @@ if (isset($_POST['nomeProduto'])) {
         </div>
     </div>
 
+
     <div>
         <select class="seleproduto" aria-label="Default select example" name="categoriaProduto">
-            <option selected="">Selecione a Categoria do Produto</option>
-            <option value="ALCOOLICO">ALCOÓLICO</option>
-            <option value="NAOALCOOLICO">NÃO ALCOÓLICO</option>
+            <option selected disabled>Selecione a Categoria</option>
+            <?php
+            // Obtém o status da venda atualmente associado à venda
+            $categoriaProdutoAtual = $produto->categoriaProduto;
 
+            // Define as opções do select
+            $opcoesCategoria = array(
+                'ALCOOLICO' => 'ALCOOLICO',
+                'NÃO ALCOÓLICO' => 'NÃO ALCOÓLICO',
+                'TABACARIA' => 'TABACARIA'
+            );
+
+            // Itera sobre as opções e exibe cada uma delas
+            foreach ($opcoesCategoria as $valor => $texto) {
+               
+                $selected = ($valor == $categoriaProdutoAtual) ? 'selected' : '';
+                echo "<option value='$valor' $selected>$texto</option>";
+            }
+            ?>
         </select>
     </div>
+
+
+
+
+
 
     <div>
     <div>
         <select class="selestatus" aria-label="Default select example" name="statusProduto">
-            <option value="" selected>Seleciona o Status do Funcionario</option>
-            <option value="ATIVO">ATIVO</option>
-            <option value="DESATIVADO">DESATIVADO</option>
-            <option value="INATIVO">INATIVO</option>
+            <option selected disabled>Selecione o Status do Produto</option>
+            <?php
+            // Obtém o status do produto atualmente associado à venda
+            $statusProdutoAtual = $produto->statusProduto;
+
+            // Define as opções do select
+            $opcoesStatus = array(
+                'ATIVO' => 'ATIVO',
+                'DESATIVADO' => 'DESATIVADO'
+            );
+
+            // Itera sobre as opções e exibe cada uma delas
+            foreach ($opcoesStatus as $valor => $texto) {
+               
+                $selected = ($valor == $statusProdutoAtual) ? 'selected' : '';
+                echo "<option value='$valor' $selected>$texto</option>";
+            }
+            ?>
         </select>
     </div>
+
+
+
+
+
     </div>
 
     <div>
