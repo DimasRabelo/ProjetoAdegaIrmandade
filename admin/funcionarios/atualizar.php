@@ -135,13 +135,31 @@ if (isset($_POST['nomeFuncionario'])) {
 
     <div>
         <select class="seleAtual" aria-label="Default select example" name="statusFuncionario">
-            <option value="" selected>Seleciona o Status do Funcionario</option>
-            <option value="ATIVO">ATIVO</option>
-            <option value="DESATIVADO">DESATIVADO</option>
-            <option value="INATIVO">INATIVO</option>
+            <option selected disabled>Selecione o Status do Funcionário</option>
+            <?php
+            
+            $statusFuncionarioAtual = $funcionario->statusFuncionario;
+
+            // Define as opções do select
+            $opcoesStatus = array(
+                'ATIVO' => 'ATIVO',
+                'DESATIVADO' => 'DESATIVADO'
+            );
+
+            // Itera sobre as opções e exibe cada uma delas
+            foreach ($opcoesStatus as $valor => $texto) {
+               
+                $selected = ($valor == $statusFuncionarioAtual) ? 'selected' : '';
+                echo "<option value='$valor' $selected>$texto</option>";
+            }
+            ?>
         </select>
     </div>
 
+
+
+
+    
 
 
     <div>
