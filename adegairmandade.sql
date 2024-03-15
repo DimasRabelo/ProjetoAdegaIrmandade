@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 15/03/2024 às 03:29
--- Versão do servidor: 10.4.32-MariaDB
--- Versão do PHP: 8.0.30
+-- Tempo de geração: 15/03/2024 às 15:56
+-- Versão do servidor: 10.4.28-MariaDB
+-- Versão do PHP: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -317,8 +317,7 @@ INSERT INTO `tblvendas` (`idVenda`, `idFuncionario`, `dataVenda`, `horaVenda`, `
 (9, 9, '2023-11-05', '05:00:55', 'ATIVO', 70.00, 9),
 (10, 10, '2023-11-06', '05:00:55', 'ATIVO', 24.00, 10),
 (11, 4, '2024-02-22', '00:00:00', 'ATIVO', 10.00, 4),
-(12, 20, '2024-02-22', '00:00:00', 'ATIVO', 40.00, 5),
-(13, NULL, NULL, NULL, NULL, NULL, NULL);
+(12, 20, '2024-02-22', '00:00:00', 'ATIVO', 40.00, 5);
 
 -- --------------------------------------------------------
 

@@ -42,6 +42,7 @@ $lista = $banner->ListarBanner();
     }
     .alterar{
         text-decoration: none;
+        
     }
 </style>
 

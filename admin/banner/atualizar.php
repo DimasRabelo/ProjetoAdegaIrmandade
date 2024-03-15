@@ -77,7 +77,7 @@ if (!empty($lista)) {
     </div>
     <p class="informa">clique em cima da foto se deseja alterar</p>
     <?php if ($primeiroBanner) : ?>
-        <p class="">Alterar a foto com dimensões de 500 de Largura e 700 de Altura</p>
+        <p class="textDimensoes">Alterar a foto com dimensões de 500 de Largura e 700 de Altura</p>
     <?php endif; ?>
     <?php if ($segundoBanner) : ?>
         <p class="">Alterar a foto com dimensões de 1920 de Largura e 600 de Altura</p>
