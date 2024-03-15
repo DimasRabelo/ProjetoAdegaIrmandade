@@ -37,7 +37,7 @@
 
     <div>
         <label for="valorTotalVenda">Valor Total da Venda</label>
-        <input type="text" name="valorTotalVenda" pattern="\d+(\.\d{1,2})?" id="valorTotalVenda" required placeholder="digite o valor total da venda">
+        <input type="text" name="valorTotalVenda" pattern="\d+(\.\d{1,2})?" id="valorTotalVenda" required placeholder="digite o valor total da venda"value="R$">
     </div>
 
     <div>

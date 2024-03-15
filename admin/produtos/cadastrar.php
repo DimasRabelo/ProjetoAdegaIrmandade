@@ -72,12 +72,12 @@ if (isset($_POST['nomeProduto'])){
 
     <div>
         <label for="precoCompraProduto">Preço de Compra</label>
-        <input type="text" name="precoCompraProduto"  id="precoCompraProduto" required placeholder="digite o valor da compra">
+        <input type="text" name="precoCompraProduto"  id="precoCompraProduto" required placeholder="digite o valor da compra" value="R$">
     </div>
 
     <div>
         <label for="precoVendaProduto">Preço de Venda</label>
-        <input type="text" name="precoVendaProduto" id="precoVendaProduto" required placeholder="digite o preço de venda">
+        <input type="text" name="precoVendaProduto" id="precoVendaProduto" required placeholder="digite o preço de venda" value="R$">
     </div>
 
     <div>
