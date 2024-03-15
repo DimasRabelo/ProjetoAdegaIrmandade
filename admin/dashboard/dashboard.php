@@ -54,7 +54,7 @@ foreach ($dados_estoque as $item) {
     <link href="https://fonts.googleapis.com/css2?family=Rubik&family=Secular+One&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./src/css/reset.css" />
 
-    <title>Exemplo de Gráfico Highcharts</title>
+    
 </head>
 
 <body>

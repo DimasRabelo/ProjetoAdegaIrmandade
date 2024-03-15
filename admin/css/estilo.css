@@ -44,7 +44,7 @@ body {
     display: inline-block;
     /* Garante que cada letra fique uma em cima da outra */
     font-family: 'Secular One';
-    font-size: 1.5em;
+    font-size: 2.0em;
     font-weight: bold;
     text-transform: uppercase;
 
@@ -63,21 +63,21 @@ h1 img {
 }
 
 .divlogin {
-    width: 50%;
+    width: 100%;
     display: flex;
-    justify-content: space-around;
-    align-items: flex-end;
-
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.divlogin img{
+    border-radius: 50%;   
+    max-width: 180px;
+    max-height: 100px;
 }
 
 
 
 
-.btnlogin {
-    width: 30px;
-    border-radius: 50%;
-
-}
 
 
 
@@ -97,6 +97,7 @@ h1 img {
     width: 200px;
     justify-content: space-between;
     align-items: center;
+    padding-bottom: 335px;
 
 }
 

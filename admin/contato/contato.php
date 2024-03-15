@@ -1,8 +1,102 @@
 <?php
 require_once('class/contato.php');
 $contato = new ContatoClass();
-$lista = $contato->ListarContato();
+
+// Inicializa a lista completa de funcionários ativos
+$listaAtivos = $contato->ListarAtivos();
+$listaDesativados = $contato->ListarDesativados();
+$listaRespondidos = $contato->ListarRespondidos();
+
+// Inicializa a lista filtrada combinando ambas as listas
+$listaFiltrada = array_merge($listaAtivos, $listaDesativados, $listaRespondidos);
+
+// Inicializa a variável $statusFiltrar
+$statusFiltrar = '';
+
+// Verifica se o filtro de status foi aplicado
+if (isset($_POST['statusContato'])) {
+    $statusFiltrar = $_POST['statusContato'];
+
+    // Aplica o filtro com base no status selecionado
+    switch ($statusFiltrar) {
+        case 'ATIVO':
+            $listaFiltrada = array_filter($listaFiltrada, function($contato) {
+                return $contato['statusContato'] === 'ATIVO';
+            });
+            break;
+        case 'DESATIVADO':
+            $listaFiltrada = array_filter($listaFiltrada, function($contato) {
+                return $contato['statusContato'] === 'DESATIVADO';
+            });
+            break;
+        case 'RESPONDIDO':
+            $listaFiltrada = array_filter($listaFiltrada, function($contato) {
+                return $contato['statusContato'] === 'RESPONDIDO';
+            });
+            break;
+        default:
+            // Nenhum filtro aplicado, mantém a lista geral
+            break;
+    }
+}
+
+// Verifica se a pesquisa por nome foi submetida
+if (isset($_POST['searchInput'])) {
+    $searchTerm = strtolower($_POST['searchInput']);
+
+    // Filtra a lista com base no nome do funcionário
+    $listaFiltrada = array_filter($listaFiltrada, function ($linha) use ($searchTerm) {
+        return stripos(strtolower($linha['nomeContato']), $searchTerm) !== false;
+    });
+}
+
+$totalCadastrados = count($listaFiltrada);
+
+// Lógica para contar os funcionários ativos
+$totalAtivos = count($listaAtivos);
+
+// Lógica para contar os funcionários desativados
+$totalDesativados = count($listaDesativados);
+
+
+
+
+
+
 ?>
+
+<div>
+    <form class="CampoPes" action="" method="POST">
+        <input type="text" id="searchInput" name="searchInput" placeholder="Digite o Nome do Contato">
+        <button type="submit">Pesquisar</button>
+    </form>
+</div>
+
+<form class="formStatus" action="" method="POST">
+    <div>
+
+        <select class="seleAtual" aria-label="Default select example" name="statusContato">
+            <option value="" selected disabled>Selecione um Status da Lista</option>
+            <option value="" <?php echo empty($statusFiltrar) ? 'selected' : 'LISTA GERAL'; ?>>LISTA GERAL</option>
+            <option value="ATIVO" <?php echo ($statusFiltrar === 'ATIVO') ? 'selected' : ''; ?>>ATIVOS</option>
+            <option value="DESATIVADO" <?php echo ($statusFiltrar === 'DESATIVADO') ? 'selected' : ''; ?>>DESATIVADOS</option>
+            <option value="RESPONDIDO" <?php echo ($statusFiltrar === 'RESPONDIDO') ? 'selected' : ''; ?>>RESPONDIDO</option>
+        </select>
+
+
+        <button type="submit">Filtrar</button>
+    </div>
+    <div>
+        <?php if ($statusFiltrar === 'ATIVO') : ?>
+            <p class="total">Total de ativos: <?php echo $totalAtivos; ?></p>
+        <?php elseif ($statusFiltrar === 'DESATIVADO') : ?>
+            <p class="total">Total de desativados: <?php echo $totalDesativados; ?></p>
+        <?php else : ?>
+            <p class="total">Lista Geral de Cadastro: <?php echo $totalCadastrados; ?></p>
+        <?php endif; ?>
+    </div>
+</form>
+
 
 
 <div class="table-container" id="arrastarMouse">
@@ -21,8 +115,8 @@ $lista = $contato->ListarContato();
         </thead>
         <tbody>
             <?php
-            if (isset($lista) && !empty($lista)) {
-                foreach ($lista as $linha) : ?>
+            if (!empty($listaFiltrada)) {
+                foreach ($listaFiltrada as $linha) : ?>
                     <tr>
                         <td><?php echo $linha['nomeContato']; ?></td>
                         <td><?php echo $linha['emailContato']; ?></td>

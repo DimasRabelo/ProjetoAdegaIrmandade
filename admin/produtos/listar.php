@@ -125,8 +125,8 @@ $totalDesativados = count($listaDesativados);
                     <th>Valor de Compra</th>
                     <th>Valor de Venda</th>
                     <th>Fornecedor</th>
-                    <th>Data Recebimento</th>
-                    <th>Hora Recebimento</th>
+                    <th>Data </th>
+                    <th>Hora </th>
                    
                 </tr>
             </thead>

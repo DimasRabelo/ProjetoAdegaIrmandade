@@ -26,19 +26,36 @@ class ContatoClass {
 
 }
 
-public function ListarContato(){
+public function ListarAtivos(){
     
-    $sql =  "SELECT * FROM tblcontato ORDER BY idContato ASC";
+    $sql =  "SELECT * FROM tblcontato WHERE statusContato = 'ATIVO' ORDER BY idContato ASC";
     $conn = Conexao::LigarConexao();
     $resultado = $conn->query($sql);
     $lista = $resultado->fetchAll();
     return $lista;
     
-
-
-
-
 }
+
+public function ListarDesativados()
+{
+    $sql = "SELECT * FROM tblcontato WHERE statusContato = 'DESATIVADO' ORDER BY idContato ASC";
+    $conn = Conexao::LigarConexao();
+    $resultado = $conn->query($sql);
+    $lista = $resultado->fetchAll();
+    return $lista;
+}
+
+public function ListarRespondidos()
+{
+    $sql = "SELECT * FROM tblContato WHERE statusContato = 'RESPONDIDO' ORDER BY idContato ASC";
+    $conn = Conexao::LigarConexao();
+    $resultado = $conn->query($sql);
+    $listaDesativados = $resultado->fetchAll();
+    return $listaDesativados;
+}
+
+
+
 
 
 } 

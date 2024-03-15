@@ -51,15 +51,7 @@ $pagina = @$_GET['p'];
             echo '</h2>';
             ?>
 
-            <div class="divlogin">
-                <img class="btnlogin" src="img/btnuser.png" alt="imagem btn Usuario">
-                <h2 class="name">Nome:</h2>
-            </div>
-
-
         </section>
-
-
 
         <div class="box">
             <!-- Conteúdo das Páginas -->
@@ -71,12 +63,12 @@ $pagina = @$_GET['p'];
             switch ($pagina) {
 
                 case 'dashboard':
-                   require_once('dashboard/dashboard.php');
-                  
+                    require_once('dashboard/dashboard.php');
+
 
                     break;
 
-                  
+
                 case 'funcionarios':
 
                     require_once('funcionarios/funcionarios.php');
@@ -112,12 +104,7 @@ $pagina = @$_GET['p'];
 
                     break;
 
-
-                case 'relatorio':
-
-                    break;
-
-                    case 'galeria';
+                case 'galeria';
 
                     require_once('galeria/galeria.php');
 
@@ -126,26 +113,28 @@ $pagina = @$_GET['p'];
                 case 'ajuda e suporte':
                     break;
 
-                    case 'banner':
+                case 'banner':
 
-                        require_once('banner/banner.php');
-    
-                        break;
+                    require_once('banner/banner.php');
 
+                    break;
             }
             ?>
 
         </div>
 
-       
-        
-        <div class="menu">
-        <?php
-        error_reporting(E_ALL);
-        ini_set('display_errors', 1);
-        $pagina = @$_GET['p'];
-        ?>
 
+
+        <div class="menu">
+            <?php
+            error_reporting(E_ALL);
+            ini_set('display_errors', 1);
+            $pagina = @$_GET['p'];
+            ?>
+            <div class="divlogin">
+                <img src="img/btnuser.png" alt="imagem btn Usuario">
+                <h2 class="name">Nome:</h2>
+            </div>
             <nav>
                 <ul>
                     <li><a href="index.php?p=dashboard" class="<?= ($pagina == 'dashboard' || $pagina == '') ? 'menuAtivo' : ''; ?>"> Dashboard </a></li>
@@ -155,7 +144,6 @@ $pagina = @$_GET['p'];
                     <li><a href="index.php?p=vendas" class="<?= ($pagina == 'vendas') ? 'menuAtivo' : ''; ?>"> Vendas </a></li>
                     <li><a href="index.php?p=clientes" class="<?= ($pagina == 'clientes') ? 'menuAtivo' : ''; ?>"> Clientes </a></li>
                     <li><a href="index.php?p=contato" class="<?= ($pagina == 'contato') ? 'menuAtivo' : ''; ?>"> E-mail </a></li>
-                    <li><a href="index.php?p=relatorio" class="<?= ($pagina == 'relatorio') ? 'menuAtivo' : ''; ?>"> Relatório </a></li>
                     <li><a href="index.php?p=ajuda%20e%20suporte" class="<?= ($pagina == 'ajuda e suporte') ? 'menuAtivo' : ''; ?>"> Ajuda e Suporte </a></li>
                 </ul>
             </nav>
