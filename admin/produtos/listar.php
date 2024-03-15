@@ -167,10 +167,10 @@ $totalDesativados = count($listaDesativados);
                                     </a>
                                 </td>
                             <?php endif; ?>
-                            <td><?php echo $linha['categoriaProduto'] ?></td>
+                            <td><?php echo  $linha['categoriaProduto'] ?></td>
                            
-                            <td><?php echo $linha['precoCompraProduto'] ?></td>
-                            <td><?php echo $linha['precoVendaProduto'] ?></td>
+                            <td><?php echo 'R$ '. $linha['precoCompraProduto'] ?></td>
+                            <td><?php echo 'R$ '. $linha['precoVendaProduto'] ?></td>
                             <td><?php echo $linha['fornecedorProduto'] ?></td>
                             <td><?php echo date('d/m/Y', strtotime($linha['dataReceProduto'])) ?></td>
                             <td><?php echo $linha['horaProduto'] ?></td>

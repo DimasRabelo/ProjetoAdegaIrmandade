@@ -162,10 +162,10 @@ $totalDesativados = count($listaDesativados);
                             
                            
                             <td><?php echo $linha['nomeProduto'] ?></td>
-                            <td><?php echo $linha['precoCompraProduto'] ?></td>
+                            <td><?php echo 'R$ '. $linha['precoCompraProduto'] ?></td>
                             <td><?php echo date('d/m/Y', strtotime($linha['dataVenda'])) ?></td>
                             <td><?php echo $linha['horaVenda'] ?></td>
-                            <td><?php echo $linha['valorTotalVenda'] ?></td>
+                            <td><?php echo 'R$ '. $linha['valorTotalVenda'] ?></td>
 
 
                             <?php if ($statusFiltrar !== 'DESATIVADO') : ?>
