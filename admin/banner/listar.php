@@ -17,7 +17,7 @@ $lista = $banner->ListarBanner();
     }
 
     table {
-        width: 10%; /* Largura desejada */
+        width: 10%; 
         margin-left: auto;
         margin-right: auto;
         border-collapse: collapse;

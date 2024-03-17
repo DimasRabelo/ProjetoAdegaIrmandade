@@ -63,6 +63,12 @@ if (!empty($lista)) {
 }
 ?>
 
+<style>
+.textDimensoes{
+    color:#ffffff;
+}
+</style>    
+
 <h1 class="h1Atual">Alterar Foto</h1>
 <form action="index.php?p=banner&b=atualizar&id=<?php echo $banner->idBanner; ?> " method="POST" enctype="multipart/form-data">
     <div class="fotoForm">
@@ -80,10 +86,10 @@ if (!empty($lista)) {
         <p class="textDimensoes">Alterar a foto com dimensões de 500 de Largura e 700 de Altura</p>
     <?php endif; ?>
     <?php if ($segundoBanner) : ?>
-        <p class="">Alterar a foto com dimensões de 1920 de Largura e 600 de Altura</p>
+        <p class="textDimensoes">Alterar a foto com dimensões de 1920 de Largura e 600 de Altura</p>
     <?php endif; ?>
     <?php if ($terceiroBanner) : ?>
-        <p class="">Alterar a foto com dimensões de 1920 de Largura e 400 de Altura</p>
+        <p class="textDimensoes">Alterar a foto com dimensões de 1920 de Largura e 400 de Altura</p>
     <?php endif; ?>
     <div>
         <label for="nomeBanner">Nome do Banner</label>

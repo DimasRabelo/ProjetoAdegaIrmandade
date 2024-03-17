@@ -13,6 +13,8 @@ class ContatoClass {
     public $telefoneContato;
     public $mensagemContato;
 
+    public $statusContato;
+
     public function Inserir() {
         $sql = "INSERT INTO tblcontato (nomeContato, emailContato, telefoneContato, mensagemContato) 
         VALUES ('".$this->nomeContato."','".$this->emailContato."','".$this->telefoneContato."','".$this->mensagemContato."')";

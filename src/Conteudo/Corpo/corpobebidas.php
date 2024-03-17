@@ -1,3 +1,16 @@
+<style>
+.bannerBreja{
+width: 100%;
+}
+.bannerBreja img{
+    max-width: 500px;
+    max-height: 700px;
+    object-fit: cover;
+}
+</style>
+
+
+
 <div class="nomebebidas">
     <h2>PRODUTOS</h2>
 </div>
@@ -61,7 +74,7 @@
             <div class="banner">
 
                 <?php if (!empty($lista)) : ?>
-                    <div>
+                    <div class="bannerBreja">
                         <img src="<?php echo 'src/imagens/' . $lista[0]['fotoBanner']; ?>" alt="<?php echo $lista[0]['altBanner']; ?>">
                     </div>
                 <?php endif; ?>

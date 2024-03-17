@@ -2,13 +2,10 @@
 require_once('class/contato.php');
 $contato = new ContatoClass();
 
-// Inicializa a lista completa de funcionários ativos
+// Inicializa a lista completa de funcionários ativos, desativados e respondidos
 $listaAtivos = $contato->ListarAtivos();
 $listaDesativados = $contato->ListarDesativados();
 $listaRespondidos = $contato->ListarRespondidos();
-
-// Inicializa a lista filtrada combinando ambas as listas
-$listaFiltrada = array_merge($listaAtivos, $listaDesativados, $listaRespondidos);
 
 // Inicializa a variável $statusFiltrar
 $statusFiltrar = '';
@@ -20,22 +17,17 @@ if (isset($_POST['statusContato'])) {
     // Aplica o filtro com base no status selecionado
     switch ($statusFiltrar) {
         case 'ATIVO':
-            $listaFiltrada = array_filter($listaFiltrada, function($contato) {
-                return $contato['statusContato'] === 'ATIVO';
-            });
+            $listaFiltrada = $listaAtivos;
             break;
         case 'DESATIVADO':
-            $listaFiltrada = array_filter($listaFiltrada, function($contato) {
-                return $contato['statusContato'] === 'DESATIVADO';
-            });
+            $listaFiltrada = $listaDesativados;
             break;
         case 'RESPONDIDO':
-            $listaFiltrada = array_filter($listaFiltrada, function($contato) {
-                return $contato['statusContato'] === 'RESPONDIDO';
-            });
+            $listaFiltrada = $listaRespondidos;
             break;
         default:
             // Nenhum filtro aplicado, mantém a lista geral
+            $listaFiltrada = array_merge($listaAtivos, $listaDesativados, $listaRespondidos);
             break;
     }
 }
@@ -58,11 +50,6 @@ $totalAtivos = count($listaAtivos);
 // Lógica para contar os funcionários desativados
 $totalDesativados = count($listaDesativados);
 
-
-
-
-
-
 ?>
 
 <div>
@@ -77,10 +64,9 @@ $totalDesativados = count($listaDesativados);
 
         <select class="seleAtual" aria-label="Default select example" name="statusContato">
             <option value="" selected disabled>Selecione um Status da Lista</option>
-            <option value="" <?php echo empty($statusFiltrar) ? 'selected' : 'LISTA GERAL'; ?>>LISTA GERAL</option>
             <option value="ATIVO" <?php echo ($statusFiltrar === 'ATIVO') ? 'selected' : ''; ?>>ATIVOS</option>
             <option value="DESATIVADO" <?php echo ($statusFiltrar === 'DESATIVADO') ? 'selected' : ''; ?>>DESATIVADOS</option>
-            <option value="RESPONDIDO" <?php echo ($statusFiltrar === 'RESPONDIDO') ? 'selected' : ''; ?>>RESPONDIDO</option>
+            <option value="RESPONDIDO" <?php echo ($statusFiltrar === 'RESPONDIDO') ? 'selected' : ''; ?>>RESPONDIDOS</option>
         </select>
 
 
@@ -97,19 +83,17 @@ $totalDesativados = count($listaDesativados);
     </div>
 </form>
 
-
-
 <div class="table-container" id="arrastarMouse">
     <table>
         <caption>Lista de Email</caption>
         <thead>
             <tr>
+                <th>Status</th>
                 <th>Nome Contato</th>
                 <th>E-mail Contato</th>
                 <th>Telefone Contato</th>
                 <th>Mensagem</th>
                 <th>Data da Mensagem</th>
-                <th>Status da Mensagem</th>
                 <th>Hora da Mensagem</th>
             </tr>
         </thead>
@@ -118,12 +102,13 @@ $totalDesativados = count($listaDesativados);
             if (!empty($listaFiltrada)) {
                 foreach ($listaFiltrada as $linha) : ?>
                     <tr>
+                        
+                        <td><?php echo $linha['statusContato'] ?></td>
                         <td><?php echo $linha['nomeContato']; ?></td>
                         <td><?php echo $linha['emailContato']; ?></td>
                         <td><?php echo $linha['telefoneContato']; ?></td>
                         <td><?php echo $linha['mensagemContato'] ?></td>
                         <td><?php echo date('d/m/Y', strtotime($linha['dataContato'])) ?></td>
-                        <td><?php echo $linha['statusContato'] ?></td>
                         <td><?php echo $linha['horaContato'] ?></td>
                     </tr>
             <?php endforeach;

@@ -17,16 +17,16 @@ $listaDesativados = $galeria->listarDesativados();
     .iconeCrud img{
         margin-right: -114px 
     }
+    .GaleriaFoto{
+        width: 100%;
+    }
+    .GaleriaFoto img{
+        max-width: 220px;
+        max-height: 220px;
+        object-fit: cover;
+    }
     
 </style>
-
-
-
-
-
-
-
-
 
 <div>
     <a class="icon-link icon-link-hover" href="index.php?p=galeria&g=cadastrar">
@@ -55,7 +55,7 @@ $listaDesativados = $galeria->listarDesativados();
             <tbody>
                 <?php foreach ($listaAtivos as $linha) : ?>
                     <tr>
-                        <td class="BannerFoto">
+                        <td class="GaleriaFoto">
                             <a href="../src/imagens/<?php echo $linha['fotoGaleria'] ?>" data-lightbox="<?php echo $linha['nomeGaleria'] ?>" data-title="<?php echo $linha['nomeGaleria'] ?>">
                                 <img src="../src/imagens/<?php echo $linha['fotoGaleria']; ?>" alt="<?php echo $linha['nomeGaleria']; ?>">
                             </a>
@@ -72,7 +72,7 @@ $listaDesativados = $galeria->listarDesativados();
                 <?php endforeach; ?>
                 <?php foreach ($listaDesativados as $linha) : ?>
                     <tr>
-                        <td class="BannerFoto">
+                        <td class="GaleriaFoto">
                             <a href="../src/imagens/<?php echo $linha['fotoGaleria'] ?>" data-lightbox="<?php echo $linha['nomeGaleria'] ?>" data-title="<?php echo $linha['nomeGaleria'] ?>">
                                 <img src="../src/imagens/<?php echo $linha['fotoGaleria']; ?>" alt="<?php echo $linha['nomeGaleria']; ?>">
                             </a>

@@ -38,13 +38,13 @@ var_dump($_FILES);
         <input type="file" id="fotoGaleria" name="fotoGaleria" required style="display: none;">
 
     </div>
-
+    <p>TAMANHO RECOMENDADO 220 DE LARGURA E 220 DE ALTURA</p>
     <div>
         <select aria-label="Default select example" name="statusGaleria" required>
             <option selected="">Seleciona o Status da foto</option>
             <option value="ATIVO">ATIVO</option>
             <option value="DESATIVADO">DESATIVADO</option>
-            <option value="INATIVO">INATIVO</option>
+           
         </select>
     </div>
 
