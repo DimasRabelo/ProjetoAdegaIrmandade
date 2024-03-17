@@ -111,6 +111,8 @@ $pagina = @$_GET['p'];
                     break;
 
                 case 'ajuda e suporte':
+                    
+                    require_once('ajudasuporte/ajudasuporte.php');
                     break;
 
                 case 'banner':
