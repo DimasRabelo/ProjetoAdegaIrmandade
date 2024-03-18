@@ -42,7 +42,7 @@ if (isset($_POST['searchInput'])) {
     });
 }
 
-$totalCadastrados = count($listaFiltrada);
+
 
 // Lógica para contar os funcionários ativos
 $totalAtivos = count($listaAtivos);
@@ -78,7 +78,7 @@ $totalDesativados = count($listaDesativados);
         <?php elseif ($statusFiltrar === 'DESATIVADO') : ?>
             <p class="total">Total de desativados: <?php echo $totalDesativados; ?></p>
         <?php else : ?>
-            <p class="total">Lista Geral de Cadastro: <?php echo $totalCadastrados; ?></p>
+         
         <?php endif; ?>
     </div>
 </form>
