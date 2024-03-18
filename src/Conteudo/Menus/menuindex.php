@@ -30,7 +30,8 @@
 			</li>
 
 			<li>
-				<a href="usuario.php"><img class="btnpadding" src="src/imagens/botaouser.png" alt=" tela pagina de usuarios"></a>
+				<a href="usuariologin.php"><img class="btnpadding" src="src/imagens/botaouser.png" alt=" tela pagina de usuarios"></a>
+				
 			</li>
 
 

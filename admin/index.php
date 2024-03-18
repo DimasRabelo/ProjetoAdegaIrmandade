@@ -1,10 +1,37 @@
 <?php
 
+session_start();
+
+if (isset($_SESSION['idUsuario'])) {
+    $id = $_SESSION['idUsuario'];
+    $tipoUsuario = 'cliente';
+      var_dump('ID do Usuario: ' . $id);
+} elseif (isset($_SESSION['idFuncionario'])) {
+    $id = $_SESSION['idFuncionario'];
+    $tipoUsuario = 'funcionario';
+}else {
+    header("location: http://localhost/ProjetoAdegaIrmandade/admin/loginAdmin.php");
+    exit; 
+}
 $pagina = @$_GET['p'];
 
+require_once('class/cliente.php');
+require_once('class/funcionario.php');
 
+if ($tipoUsuario === 'cliente') {
+    $cliente = new ClienteClass($id);
+    $usuario = $cliente;
+} elseif ($tipoUsuario === 'funcionario') {
+    $funcionario = new FuncionarioClass($id);
+    $usuario = $funcionario;
+}
 
 ?>
+
+
+
+
+
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -135,7 +162,7 @@ $pagina = @$_GET['p'];
             ?>
             <div class="divlogin">
                 <img src="img/btnuser.png" alt="imagem btn Usuario">
-                <h2 class="name">Nome:</h2>
+                <h2 class="name"><?php echo $usuario->nomeUsuario ?? $usuario->nomeUsuario; ?></h2>
             </div>
             <nav>
                 <ul>
@@ -170,3 +197,4 @@ $pagina = @$_GET['p'];
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="./js/scrips.js"></script>
 </body>
+</html>

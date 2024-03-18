@@ -80,11 +80,10 @@ if (isset($_POST['email'])) {
         $ok = 2;
     }
 }
-
-
-
-
 ?>
+
+
+
 
 
 <!DOCTYPE html>

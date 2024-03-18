@@ -170,6 +170,55 @@ class FuncionarioClass
         $conn = Conexao::LigarConexao();
         $conn->exec($query);
     }
+    public function verificarLogin()
+    {
+   
+      
+   
+        $sql = "SELECT * FROM tblfuncionarios 
+           WHERE emailFuncionario = '". $this->emailFuncionario ."' AND    
+           senhaFuncionario = '". $this->senhaFuncionario ."'";
+        $conn = Conexao::LigarConexao();
+        $resultado = $conn->query($sql);
+        $funcionario = $resultado->fetch();
+    
+        if ($funcionario) {
+            return $funcionario['idFuncionario'];
+        } else {
+            return false;
+        }
+    }
+    
+   
+   }
+   
+   if (isset($_POST['email'])) {
+   
+       $funcionario = new FuncionarioClass();
+   
+       $emailLogin = $_POST['email'];
+       $senhaLogin = $_POST['senha'];
+   
+       $funcionario->emailFuncionario = $emailLogin;
+       $funcionario->senhaFuncionario = $senhaLogin;
+   
+       if($idFuncionario = $funcionario->verificarLogin()){
+           //Login bem-sucedido
+         //print_r($idFuncionario);
+   
+           session_start();
+           $_SESSION['idFuncionario'] = $idFuncionario;
+           echo json_encode(['success' => true, 'message' => 'Login foi realizado com sucesso', 'idFuncionario' => $idFuncionario]);
+   
+       }else{
+           //Login inválido
+          //print_r('Erro de login');
+   
+           echo json_encode(['success' => false, 'message' => 'Email ou Senha inválido']);
+       }
+   
+     //print_r($_POST['email']);
+   }
+   
 
 
-}

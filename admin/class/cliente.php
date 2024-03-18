@@ -113,7 +113,58 @@ public function desativar()
   }
 
 
+  public function verificarLogin()
+  {
+ 
+    
+ 
+      $sql = "SELECT * FROM tblusuarios 
+         WHERE emailUsuario = '". $this->emailUsuario ."' AND    
+         senhaUsuario = '". $this->senhaUsuario ."'";
+      $conn = Conexao::LigarConexao();
+      $resultado = $conn->query($sql);
+      $usuario = $resultado->fetch();
+  
+      if ($usuario) {
+          return $usuario['idUsuario'];
+      } else {
+          return false;
+      }
+  }
+  
+ 
+ }
+ 
+ if (isset($_POST['email'])) {
+ 
+     $usuario = new ClienteClass();
+ 
+     $emailLogin = $_POST['email'];
+     $senhaLogin = $_POST['senha'];
+ 
+     $usuario->emailUsuario = $emailLogin;
+     $usuario->senhaUsuario = $senhaLogin;
+ 
+     if($idUsuario = $usuario->verificarLogin()){
+         //Login bem-sucedido
+       //print_r($idUsuario);
+ 
+         session_start();
+         $_SESSION['idUsuario'] = $idUsuario;
+         echo json_encode(['success' => true, 'message' => 'Login foi realizado com sucesso', 'idUsuario' => $idUsuario]);
+ 
+     }else{
+         //Login inválido
+        //print_r('Erro de login');
+ 
+         echo json_encode(['success' => false, 'message' => 'Email ou Senha inválido']);
+     }
+ 
+   //print_r($_POST['email']);
+ }
+ 
 
 
 
-}
+
+
