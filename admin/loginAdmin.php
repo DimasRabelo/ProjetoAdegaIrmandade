@@ -100,7 +100,7 @@
         console.log("Dados do Form: " + formData);
 
         $.ajax({
-          url: './admin/class/funcionario.php',
+          url: '../admin/class/funcionario.php',
           method: 'POST',
           data: formData,
           dataType: 'json',

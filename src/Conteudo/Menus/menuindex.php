@@ -1,14 +1,11 @@
+<style>
+
+</style>
 <header>
-
-
-
-
-	<nav class="menu animate__animated animate__fadeInUp">
-
-
-
-
-		<ul>
+	
+	<nav class="menu animate__animated animate__fadeInUp">	
+	
+	<ul>
 			<li>
 				<a href="index.php"><img class="btnadega" src="src/imagens/botaoadega.png" alt=" tela de inicio da adega"></a>
 			</li>
@@ -33,9 +30,12 @@
 				<a href="usuariologin.php"><img class="btnpadding" src="src/imagens/botaouser.png" alt=" tela pagina de usuarios"></a>
 				
 			</li>
-
-
+			<li class="nomeLogin">
+			<?php echo $cliente->nomeUsuario; ?>
+			
+			</li>
 		</ul>
+		<h2></h2>
 
 	</nav>
 

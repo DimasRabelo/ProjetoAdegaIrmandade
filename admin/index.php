@@ -2,36 +2,26 @@
 
 session_start();
 
-if (isset($_SESSION['idUsuario'])) {
-    $id = $_SESSION['idUsuario'];
-    $tipoUsuario = 'cliente';
-      var_dump('ID do Usuario: ' . $id);
-} elseif (isset($_SESSION['idFuncionario'])) {
-    $id = $_SESSION['idFuncionario'];
+if (isset($_SESSION['idFuncionario'])) {
+    $idFuncionario = $_SESSION['idFuncionario'];
     $tipoUsuario = 'funcionario';
-}else {
+    var_dump('ID do Funcionario: ' . $idFuncionario);
+} else {
     header("location: http://localhost/ProjetoAdegaIrmandade/admin/loginAdmin.php");
-    exit; 
+    exit;
 }
+
 $pagina = @$_GET['p'];
 
-require_once('class/cliente.php');
 require_once('class/funcionario.php');
 
-if ($tipoUsuario === 'cliente') {
-    $cliente = new ClienteClass($id);
-    $usuario = $cliente;
-} elseif ($tipoUsuario === 'funcionario') {
-    $funcionario = new FuncionarioClass($id);
+if ($tipoUsuario === 'funcionario') {
+    $funcionario = new FuncionarioClass($idFuncionario);
     $usuario = $funcionario;
 }
 
+// Aqui começa a estrutura do HTML para o funcionário
 ?>
-
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -162,7 +152,8 @@ if ($tipoUsuario === 'cliente') {
             ?>
             <div class="divlogin">
                 <img src="img/btnuser.png" alt="imagem btn Usuario">
-                <h2 class="name"><?php echo $usuario->nomeUsuario ?? $usuario->nomeUsuario; ?></h2>
+                <h2><?php echo $funcionario->nomeFuncionario; ?></h2>
+                
             </div>
             <nav>
                 <ul>

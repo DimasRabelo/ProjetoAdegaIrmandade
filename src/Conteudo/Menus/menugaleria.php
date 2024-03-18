@@ -25,6 +25,7 @@
                     </li>
                     <li>
                         <a href="usuariologin.php"><img class="btnpadding"    src="src/imagens/botaouser.png" alt=""></a>
+                        <h2><?php echo $cliente->nomeUsuario; ?></h2>
                        
                     </li>
 

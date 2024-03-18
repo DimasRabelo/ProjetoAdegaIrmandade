@@ -121,7 +121,7 @@ main .adega .imagem {
 }
 .formuusuario {
     position: relative; /* Para posicionar o botão de fechar */
-    width: 80%;
+    width: 100%;
     margin: 0 auto; /* Centraliza o formulário na página */
     background-color: rgba(0, 0, 0, 0.7); /* Ajuste a opacidade do fundo do formulário */
     padding: 20px; /* Adiciona algum espaçamento interno */

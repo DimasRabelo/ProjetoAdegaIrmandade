@@ -31,6 +31,7 @@
                 <li>
                     <a href="usuariologin.php"><img class="btnresponsivobebida"    class="btnpadding" src="src/imagens/botaouser.png"
                             alt="tela de usuario"></a>
+                            <h2><?php echo $cliente->nomeUsuario; ?></h2>
                            
                 </li>
 
