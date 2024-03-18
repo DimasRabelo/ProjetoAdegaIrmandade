@@ -6,6 +6,7 @@
     $lista      = $banner->ListarBanner();
    // var_dump($lista);
 ?>
+
 <?php
 
 session_start();
@@ -13,25 +14,23 @@ session_start();
 if (isset($_SESSION['idUsuario'])) {
     $idUsuario = $_SESSION['idUsuario'];
     $tipoUsuario = 'cliente';
-    //var_dump('ID do Usuario: ' . $idUsuario);
+  //  var_dump('ID do Usuario: ' . $idUsuario);
 } else {
     header("location: http://localhost/ProjetoAdegaIrmandade/");
     exit;
 }
 
-$pagina = @$_GET['p'];
+
 
 require_once('admin/class/cliente.php');
 
 if ($tipoUsuario === 'cliente') {
     $usuario = new ClienteClass($idUsuario);
-    $cliente = $usuario;
+    $usuarioCliente = $usuario;
 }
 
 // Aqui começa a estrutura do HTML para o funcionário
 ?>
-
-
 
 
 

@@ -1,8 +1,8 @@
 
+
 <header>
-<h2 class="nomeLogin"><?php echo $cliente->nomeUsuario; ?></h2>	
-		
-<nav  class="menu wow animate__animated animate__fadeInUp">
+	
+		<nav  class="menu wow animate__animated animate__fadeInUp">
 			<ul>
 				<li class="menuliuser">
 					<a href="index.php"><img class="btnpadding" src="src/imagens/botaoadega.png" alt=""></a>
@@ -22,8 +22,8 @@
 				<li class="menuliuser">
 					<a href="usuariologin.php"><img class="btnusuario" src="src/imagens/botaouser.png" alt=""></a>
 					
-					
 				</li>
+				<h2><?php echo $usuario->nomeUsuario; ?></h2>
 			</ul>
 		</nav>
 	

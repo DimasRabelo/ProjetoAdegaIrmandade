@@ -5,18 +5,24 @@ if (isset($_POST['nomeUsuario'])) {
     $emailUsuario = $_POST['emailUsuario'];
     $senhaUsuario = $_POST['senhaUsuario'];
     $statusUsuario = $_POST['statusUsuario'];
-   
 
-    $arquivo = $_FILES['fotoUsuario'];
+    // Inicializa $fotoUsuario como vazio
+    $fotoUsuario = '';
 
-    if ($arquivo['error']) {
-        throw new Exception('Error' . $arquivo['error']);
+    // Verifica se um arquivo foi enviado
+    if (isset($_FILES['fotoUsuario']) && $_FILES['fotoUsuario']['error'] !== UPLOAD_ERR_NO_FILE) {
+        $arquivo = $_FILES['fotoUsuario'];
+
+        if ($arquivo['error']) {
+            throw new Exception('Error' . $arquivo['error']);
+        }
+        if (move_uploaded_file($arquivo['tmp_name'], '../admin/img/Usuario/' . $arquivo['name'])) {
+            $fotoUsuario = 'Usuario/' . $arquivo['name'];
+        }
+    } else {
+        // Se nenhum arquivo foi enviado, defina um valor padrão
+        $fotoUsuario = 'Usuario/fotoUsuario.png';
     }
-    if (move_uploaded_file($arquivo['tmp_name'], '../src/imagens/Usuario/' . $arquivo['name'])) {
-        $fotoUsuario = 'Usuario/' . $arquivo['name'];
-    }
-
-
 
     require_once('class/cliente.php');
 
@@ -27,12 +33,9 @@ if (isset($_POST['nomeUsuario'])) {
     $usuario->senhaUsuario = $senhaUsuario;
     $usuario->fotoUsuario = $fotoUsuario;
     $usuario->statusUsuario = $statusUsuario;
-    
 
     $usuario->Cadastrar();
 }
-
-
 ?>
 
 <h1>Cadastrar Usuario</h1>
@@ -40,9 +43,9 @@ if (isset($_POST['nomeUsuario'])) {
 
     <div class="fotoForm">
         <div>
-            <img src="img/sem-foto.jpg" alt="..." id="imgfoto">
+        <img src="img/Usuario/fotoUsuario.png" alt="..." id="imgfoto">
         </div>
-        <input type="file" id="fotoUsuario" name="fotoUsuario" required style="display: none;">
+        <input type="file" id="fotoUsuario" name="fotoUsuario" style="display: none;">
 
     </div>
 
@@ -60,9 +63,17 @@ if (isset($_POST['nomeUsuario'])) {
     <div>
         <label for="senhaUsuario">Digite Sua Senha</label>
         <div>
-            <input type="password" id="inputPassword" required placeholder="digite sua senha">
+            <input type="password" id="senhaUsuario" name="senhaUsuario" required placeholder="digite sua senha">
 
         </div>
+    </div>
+
+    <div>
+        <select aria-label="Default select example" name="statusUsuario" required>
+            <option selected="">Seleciona o Status do Cliente</option>
+            <option value="ATIVO">ATIVO</option>
+            <option value="DESATIVADO">DESATIVADO</option>
+        </select>
     </div>
 
 

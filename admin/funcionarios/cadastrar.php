@@ -19,15 +19,24 @@ if (isset($_POST['nomeFuncionario'])) {
   //  echo 'Error: ' . $arquivo['error'];
 
 
+ 
+ $fotoUsuario = '';
 
- $arquivo = $_FILES['fotoFuncionario'];
+ // Verifica se um arquivo foi enviado
+ if (isset($_FILES['fotoFuncionario']) && $_FILES['fotoFuncionario']['error'] !== UPLOAD_ERR_NO_FILE) {
+     $arquivo = $_FILES['fotoFuncionario'];
 
- if ($arquivo['error']) {
-    throw new Exception('Error' . $arquivo['error']);
+     if ($arquivo['error']) {
+         throw new Exception('Error' . $arquivo['error']);
+     }
+     if (move_uploaded_file($arquivo['tmp_name'], '../admin/img/funcionario/' . $arquivo['name'])) {
+         $fotoFuncionario = 'funcionario/' . $arquivo['name'];
+     }
+ } else {
+     // Se nenhum arquivo foi enviado, defina um valor padrão
+     $fotoFuncionario = 'funcionario/fotoUser.png';
  }
-if (move_uploaded_file($arquivo['tmp_name'], '../src/imagens/funcionario/' . $arquivo['name'])){
-    $fotoFuncionario = 'funcionario/' . $arquivo['name'];
-}
+
 
 require_once('class/funcionario.php');
 

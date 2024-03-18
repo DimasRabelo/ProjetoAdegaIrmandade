@@ -5,7 +5,7 @@ session_start();
 if (isset($_SESSION['idFuncionario'])) {
     $idFuncionario = $_SESSION['idFuncionario'];
     $tipoUsuario = 'funcionario';
-    var_dump('ID do Funcionario: ' . $idFuncionario);
+    //var_dump('ID do Funcionario: ' . $idFuncionario);
 } else {
     header("location: http://localhost/ProjetoAdegaIrmandade/admin/loginAdmin.php");
     exit;
@@ -128,7 +128,7 @@ if ($tipoUsuario === 'funcionario') {
                     break;
 
                 case 'ajuda e suporte':
-                    
+
                     require_once('ajudasuporte/ajudasuporte.php');
                     break;
 
@@ -151,22 +151,25 @@ if ($tipoUsuario === 'funcionario') {
             $pagina = @$_GET['p'];
             ?>
             <div class="divlogin">
-                <img src="img/btnuser.png" alt="imagem btn Usuario">
+                <?php if (!empty($usuario->fotoFuncionario)) : ?>
+                    <img src="../admin/img/<?php echo $usuario->fotoFuncionario; ?>" alt="User">
+                <?php else : ?>
+                    <img src="../admin/img/btnuser.png" alt="Imagem Padrão">
+                <?php endif; ?>
                 <h2><?php echo $funcionario->nomeFuncionario; ?></h2>
-                
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.php?p=dashboard" class="<?= ($pagina == 'dashboard' || $pagina == '') ? 'menuAtivo' : ''; ?>"> Dashboard </a></li>
-                    <li><a href="index.php?p=funcionarios" class="<?= ($pagina == 'funcionarios') ? 'menuAtivo' : ''; ?>"> Funcionários </a></li>
-                    <li><a href="index.php?p=produtos" class="<?= ($pagina == 'produtos') ? 'menuAtivo' : ''; ?>"> Produtos </a></li>
-                    <li><a href="index.php?p=estoque" class="<?= ($pagina == 'estoque') ? 'menuAtivo' : ''; ?>"> Estoque </a></li>
-                    <li><a href="index.php?p=vendas" class="<?= ($pagina == 'vendas') ? 'menuAtivo' : ''; ?>"> Vendas </a></li>
-                    <li><a href="index.php?p=clientes" class="<?= ($pagina == 'clientes') ? 'menuAtivo' : ''; ?>"> Clientes </a></li>
-                    <li><a href="index.php?p=contato" class="<?= ($pagina == 'contato') ? 'menuAtivo' : ''; ?>"> E-mail </a></li>
-                    <li><a href="index.php?p=ajuda%20e%20suporte" class="<?= ($pagina == 'ajuda e suporte') ? 'menuAtivo' : ''; ?>"> Ajuda e Suporte </a></li>
-                </ul>
-            </nav>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.php?p=dashboard" class="<?= ($pagina == 'dashboard' || $pagina == '') ? 'menuAtivo' : ''; ?>"> Dashboard </a></li>
+                <li><a href="index.php?p=funcionarios" class="<?= ($pagina == 'funcionarios') ? 'menuAtivo' : ''; ?>"> Funcionários </a></li>
+                <li><a href="index.php?p=produtos" class="<?= ($pagina == 'produtos') ? 'menuAtivo' : ''; ?>"> Produtos </a></li>
+                <li><a href="index.php?p=estoque" class="<?= ($pagina == 'estoque') ? 'menuAtivo' : ''; ?>"> Estoque </a></li>
+                <li><a href="index.php?p=vendas" class="<?= ($pagina == 'vendas') ? 'menuAtivo' : ''; ?>"> Vendas </a></li>
+                <li><a href="index.php?p=clientes" class="<?= ($pagina == 'clientes') ? 'menuAtivo' : ''; ?>"> Clientes </a></li>
+                <li><a href="index.php?p=contato" class="<?= ($pagina == 'contato') ? 'menuAtivo' : ''; ?>"> E-mail </a></li>
+                <li><a href="index.php?p=ajuda%20e%20suporte" class="<?= ($pagina == 'ajuda e suporte') ? 'menuAtivo' : ''; ?>"> Ajuda e Suporte </a></li>
+            </ul>
+        </nav>
         </div>
 
 
@@ -188,4 +191,5 @@ if ($tipoUsuario === 'funcionario') {
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="./js/scrips.js"></script>
 </body>
+
 </html>
