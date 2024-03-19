@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 15/03/2024 às 15:56
--- Versão do servidor: 10.4.28-MariaDB
--- Versão do PHP: 8.0.28
+-- Tempo de geração: 19/03/2024 às 03:11
+-- Versão do servidor: 10.4.32-MariaDB
+-- Versão do PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -58,7 +58,7 @@ CREATE TABLE `tblcontato` (
   `telefoneContato` varchar(14) NOT NULL,
   `mensagemContato` text NOT NULL,
   `dataContato` date NOT NULL DEFAULT curdate(),
-  `statusContato` varchar(10) NOT NULL DEFAULT 'ATIVO',
+  `statusContato` varchar(10) DEFAULT NULL,
   `horaContato` time NOT NULL DEFAULT curtime()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -155,7 +155,7 @@ CREATE TABLE `tblfuncionarios` (
 --
 
 INSERT INTO `tblfuncionarios` (`idFuncionario`, `nomeFuncionario`, `altFuncionario`, `cargoFuncionario`, `dataNascFuncionario`, `emailFuncionario`, `senhaFuncionario`, `nivelFuncionario`, `dataAdmissaoFuncionario`, `enderecoFuncionario`, `telFuncionario`, `cepFuncionario`, `statusFuncionario`, `fotoFuncionario`, `linkFaceFuncionario`, `linkInstaFuncionario`, `linkWhatsFuncionario`) VALUES
-(1, 'ALAN COELHO BUENO', 'Foto/Funcionario/Gerente', 'GERENTE JUNIOR', '1990-06-16', 'alanloop@gmail.com', '', 'ADMINISTRADOR', '2021-03-02', 'Rua: Antonio Pinto Ferreira Filho,10', '1199878-5676', '08121-005', 'ATIVO', 'funcionario/alan.png', 'https://www.facebook.com/allan.coelho.58?mibextid=ZbWKwL', '@alancoelho', '11911226677/whatsapp'),
+(1, 'ALAN COELHO BUENo', 'Foto/Funcionario/Gerente', 'GERENTE JUNIOR', '1990-06-16', 'alanloop@gmail.com', '', 'ADMINISTRADOR', '2021-03-02', 'Rua: Antonio Pinto Ferreira Filho,10', '1199878-5678', '08121-005', 'ATIVO', 'funcionario/alan.png', 'https://www.facebook.com/allan.coelho.58?mibextid=ZbWKwL', '@alancoelho', '11911226677/whatsapp'),
 (2, 'WAGNITON COELHO ', 'wagnitoncoelho', 'SUPERVISOR', '1992-06-10', 'wagnitoncoelho@gmail.com', 'senha345', 'ADMINISTRADOR', '2021-03-02', 'RUA: ALBUQUERQUE FREITAS-08', '(11)99777-6666', '08100-005', 'ATIVO', 'funcionario/wagniton.png', 'wagnitoncoelho/facebook.com', '@wagnitoncoelho', '11923457689/whatsapp'),
 (4, 'ENZO GOUVEIA', 'Foto/Funcionario/ATENDENTE', 'AUXILIAR', '1995-05-12', 'enzogouvei@gmail.com', 'senhaABC', 'USUARIO', '2021-03-20', 'Rua: A - 24', '1198965-3232', '08123-010', 'ATIVO', 'funcionario/enzo.png', 'enzogouveia/facebook.com', '@enzogouveia', '11912875600/whatsapp'),
 (9, 'RENATO OCELA', 'Foto/Funcionario/ajudante', 'AJUDANTE', '1989-05-02', 'renatoocela@gmail.com', 'senha#3F', 'USUARIO', '2021-03-02', 'Rua: Renata Agondi,10', '1199999-5577', '02122-105', 'ATIVO', 'funcionario/renato.png', 'renato/facebook.com', '@renato', '11999995577/whatsapp'),
@@ -172,7 +172,9 @@ INSERT INTO `tblfuncionarios` (`idFuncionario`, `nomeFuncionario`, `altFuncionar
 (21, 'ZÉ DO CAIXÃO', '', 'Auxiliar de Limpeza', '1970-09-18', 'zecaixao@gmail.com', '', 'usuario', '2024-01-04', 'rua da morte , 1570', '(11) 99999-9999', '12345-678', 'ATIVO', 'funcionario/ze-do-caixao.webp', '', '', ''),
 (22, 'DIMAS APARECIDO', 'dimasaparecido', 'AJUDANTE', '1987-05-25', 'dimas_ap_souza@yahoo.com.br', '123456', 'ADMINISTRADOR', '2024-03-05', 'RUA ANTONIO PINTO FERREIRA FILHO,34', '(11)97249-5017', '08121-005', 'ATIVO', 'funcionario/dimasaparecido.png', 'facebook/dimasrabelo', 'instagram/dimasrabelo', 'whatsapp/11972495017'),
 (23, 'GABRIEL JESUS', 'gabrieljesus', 'JOGADOR', '1980-12-12', 'gabrieljesus@gmail.com', '123456', 'ADMINISTRADOR', '2024-02-11', 'RUA: A', '(11)99999-9999', '08111-000', 'ATIVO', 'funcionario/michaelcavalcante.png', 'facebook/gabrieljesus', 'instagram/gabrieljesus', 'whatsapp/1111111111'),
-(24, 'RAMÓN VALDEZ', 'ramónvaldez', 'SÓCIO', '1924-09-02', 'seumadruga@gmail.com', '123456', 'ADMINISTRADOR', '2024-03-06', 'RUA CIDADE DO MÉXICO', '(11)98988-8888', '11111-111', 'ATIVO', 'funcionario/ramónvaldez.png', 'facebook/seumadruga', 'instagram/seumadruga', 'whatsapp/11989888888');
+(24, 'RAMÓN VALDEZ', 'ramónvaldez', 'SÓCIO', '1924-09-02', 'seumadruga@gmail.com', '123456', 'ADMINISTRADOR', '2024-03-06', 'RUA CIDADE DO MÉXICO', '(11)98988-8888', '11111-111', 'DESATIVADO', 'funcionario/ramónvaldez.png', 'facebook/seumadruga', 'instagram/seumadruga', 'whatsapp/11989888888'),
+(25, 'Silos Malfaio', '', 'lemista', '1970-02-23', 'silos@bol.com.br', '', 'Administrador', '2024-03-18', 'rua osama binlandem', '(11) 99999-9999', '08132-005', 'Seleciona ', 'funcionario/fotoUser.png', '', '', ''),
+(26, 'clotilde', '', 'faxineira', '2000-12-12', 'clotilde@yahoo.com.br', '', 'Administrador', '2024-02-18', 'Rua Sapopemba, 2222', '(11) 99999-9999', '03245-000', 'ATIVO', 'funcionario/fotoUser.png', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -202,7 +204,8 @@ INSERT INTO `tblgaleria` (`idGaleria`, `nomeGaleria`, `altGaleria`, `fotoGaleria
 (7, 'GALERIA7', 'Imagem galeria7', 'galeria/imggaleria7-.png', 'ATIVO'),
 (8, 'GALERIA8', 'Imagem galeria8', 'galeria/imggaleria8-.png', 'ATIVO'),
 (9, 'GALERIA9', 'Imagem galeria9', 'galeria/imggaleria9-.png', 'ATIVO'),
-(11, '', '', 'galeria/homer.png', 'ATIVO');
+(11, '', '', 'galeria/homer.png', 'ATIVO'),
+(12, '', '', 'galeria/cervejas-gerais.jpg', 'DESATIVADO');
 
 -- --------------------------------------------------------
 
@@ -264,7 +267,8 @@ INSERT INTO `tblprodutos` (`idProduto`, `nomeProduto`, `descricaoProduto`, `cate
 (9, 'FANTA350ML', 'Refrigerantes', 'NÃO ALCOÓLICO', 'ATIVO', 2.50, 4.00, 'Assaí', '2023-10-28', '18:06:40'),
 (10, 'H2O500ML', 'REFRIGERANTES', 'NÃO ALCOÓLICO', 'ATIVO', 1.00, 3.00, 'assaí', '2023-10-15', '12:03:00'),
 (11, 'JACK DANIELS', 'Whysky', 'ALCOOLICO', 'ATIVO', 80.00, 120.00, 'Assaí', '2023-12-21', '18:50:46'),
-(12, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(12, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(13, 'pepsi zero', 'Refrigerante ', 'NÃO ALCOÓLICO', '', 4.00, 8.00, 'atacadão', '2024-03-18', '15:54:01');
 
 -- --------------------------------------------------------
 
@@ -288,7 +292,8 @@ CREATE TABLE `tblusuarios` (
 INSERT INTO `tblusuarios` (`idUsuario`, `nomeUsuario`, `emailUsuario`, `senhaUsuario`, `statusUsuario`, `fotoUsuario`) VALUES
 (1, 'DIMAS APARECIDO ', 'dimas.rabelo@gmail.com', '1234', 'ATIVO', 'Usuario/dimas.png'),
 (2, 'SANDRA MARQUES DE MACEDO', 'sandramarquesmacedo@gmail.com', '369852', 'ATIVO', 'Usuario/sandramarquesdemacedo.png'),
-(3, 'RODOLFO LIRA', 'rodolfolira@yahoo.com.br', '123456', 'ATIVO', 'Usuario/rodolfolira.png');
+(3, 'RODOLFO LIRA', 'rodolfolira@yahoo.com.br', '123456', 'ATIVO', 'Usuario/rodolfolira.png'),
+(15, 'Marli Marlei', 'marlimarlei@gmail.com', '12345', 'ATIVO', 'Usuario/fotoUsuario.png');
 
 -- --------------------------------------------------------
 
@@ -317,7 +322,8 @@ INSERT INTO `tblvendas` (`idVenda`, `idFuncionario`, `dataVenda`, `horaVenda`, `
 (9, 9, '2023-11-05', '05:00:55', 'ATIVO', 70.00, 9),
 (10, 10, '2023-11-06', '05:00:55', 'ATIVO', 24.00, 10),
 (11, 4, '2024-02-22', '00:00:00', 'ATIVO', 10.00, 4),
-(12, 20, '2024-02-22', '00:00:00', 'ATIVO', 40.00, 5);
+(12, 20, '2024-02-22', '00:00:00', 'ATIVO', 40.00, 5),
+(13, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -533,13 +539,13 @@ ALTER TABLE `tblestoque`
 -- AUTO_INCREMENT de tabela `tblfuncionarios`
 --
 ALTER TABLE `tblfuncionarios`
-  MODIFY `idFuncionario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `idFuncionario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de tabela `tblgaleria`
 --
 ALTER TABLE `tblgaleria`
-  MODIFY `idGaleria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idGaleria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `tblitensvendidos`
@@ -551,13 +557,13 @@ ALTER TABLE `tblitensvendidos`
 -- AUTO_INCREMENT de tabela `tblprodutos`
 --
 ALTER TABLE `tblprodutos`
-  MODIFY `idProduto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `idProduto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de tabela `tblusuarios`
 --
 ALTER TABLE `tblusuarios`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de tabela `tblvendas`
