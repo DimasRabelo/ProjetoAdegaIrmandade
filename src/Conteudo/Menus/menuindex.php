@@ -25,10 +25,9 @@
 
 			<li>
 				<a href="usuariologin.php"><img class="btnpadding" src="src/imagens/botaouser.png" alt=" tela pagina de usuarios"></a>
-
+				
 			</li>
-			<h2><?php echo $usuario->nomeUsuario; ?></h2>
-
+		
 
 		</ul>
 

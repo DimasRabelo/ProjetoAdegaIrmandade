@@ -1,32 +1,3 @@
-
-<?php
-
-session_start();
-
-if (isset($_SESSION['idUsuario'])) {
-    $idUsuario = $_SESSION['idUsuario'];
-    $tipoUsuario = 'cliente';
-  //  var_dump('ID do Usuario: ' . $idUsuario);
-} else {
-    header("location: http://localhost/ProjetoAdegaIrmandade/");
-    exit;
-}
-
-
-
-require_once('admin/class/cliente.php');
-
-if ($tipoUsuario === 'cliente') {
-    $usuario = new ClienteClass($idUsuario);
-    $usuarioCliente = $usuario;
-}
-
-// Aqui começa a estrutura do HTML para o funcionário
-?>
-
-
-
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -52,11 +23,9 @@ if ($tipoUsuario === 'cliente') {
 
 </head>
 <style>
-
-#msgLogin{
-  color:#ffffff;
-}
-
+  #msgLogin {
+    color: #ffffff;
+  }
 </style>
 
 <body class="usuariopg">
@@ -133,21 +102,24 @@ if ($tipoUsuario === 'cliente') {
 
           success: function(data) {
             if (data.success) {
-
               $('#msgLogin').html('<div class="msgSuccess">' + data.message + '</div>');
 
               var idUsuario = data.idUsuario; //Banco de dados do Cliente
-              window.location.href = 'http://localhost/ProjetoAdegaIrmandade/usuariologin.php';
+              var nomeUsuario = data.nomeUsuario; //Nome do usuário obtido do banco de dados
+              var fotoUsuario = data.fotoUsuario; //URL da foto do usuário obtida do banco de dados
 
+              // Armazenar as informações na sessionStorage
+              sessionStorage.setItem('nomeUsuario', nomeUsuario);
+              sessionStorage.setItem('fotoUsuario', fotoUsuario);
+
+              window.location.href = 'http://localhost/ProjetoAdegaIrmandade/';
             } else {
-
               $('#msgLogin').html('<div class="msgSuccess">' + data.message + '</div>');
-
             }
           },
           error: function(xhr, status, error) {
-           // console.log(xhr);
-           // console.log("A requisição para cliente.php falhou.");
+            // console.log(xhr);
+            // console.log("A requisição para cliente.php falhou.");
 
           }
           // Imprimir uma mensagem indicando que a requisição falhou
@@ -155,7 +127,7 @@ if ($tipoUsuario === 'cliente') {
       });
     }
 
-   
+
     carregarLogin();
   </script>
 

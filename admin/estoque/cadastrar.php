@@ -19,21 +19,11 @@ if (isset($_POST['nomeEstoque'])) {
 }
 ?>
 
-
-
-
-
-
-
-
-
-
-
-<h1>Cadastrar Estoque</h1>
+<h1  class="h1Atual">Cadastrar Estoque</h1>
 <form class="formEstoque" action="index.php?p=estoque&e=cadastrar" method="POST" enctype="multipart/form-data">
 
     <div>
-        <label for="nomeEstoque"> Nome do Estoque</label>
+        <label for="nomeEstoque"> Nome do Estoque:</label>
         <input type="text" name="nomeEstoque" id="nomeEstoque" required placeholder="nome estoque">
     </div>
 
@@ -65,7 +55,7 @@ if (isset($_POST['nomeEstoque'])) {
     </div>
 
     <div>
-        <label for="quantidadeEstoque"> Quantidade</label>
+        <label for="quantidadeEstoque"> Quantidade:</label>
         <input type="text" name="quantidadeEstoque" id="quantidadeEstoque" required placeholder="quantidade">
     </div>
 

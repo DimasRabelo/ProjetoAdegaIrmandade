@@ -1,5 +1,4 @@
 
-
 <?php
   require_once('admin/class/galeria.php');
 
@@ -7,35 +6,6 @@
     $lista      = $galeria->listarGaleria();
     //var_dump($lista);
 ?>
-
-<?php
-
-session_start();
-
-if (isset($_SESSION['idUsuario'])) {
-    $idUsuario = $_SESSION['idUsuario'];
-    $tipoUsuario = 'cliente';
-  //  var_dump('ID do Usuario: ' . $idUsuario);
-} else {
-    header("location: http://localhost/ProjetoAdegaIrmandade/");
-    exit;
-}
-
-
-
-require_once('admin/class/cliente.php');
-
-if ($tipoUsuario === 'cliente') {
-    $usuario = new ClienteClass($idUsuario);
-    $usuarioCliente = $usuario;
-}
-
-// Aqui começa a estrutura do HTML para o funcionário
-?>
-
-
-
-
 
 
 

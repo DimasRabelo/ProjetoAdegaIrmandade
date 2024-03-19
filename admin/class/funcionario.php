@@ -64,7 +64,8 @@ class FuncionarioClass
         nomeFuncionario, 
         cargoFuncionario, 
         dataNascFuncionario, 
-        emailFuncionario, 
+        emailFuncionario,
+        senhaFuncionario, 
         nivelFuncionario, 
         dataAdmissaoFuncionario, 
         enderecoFuncionario, 
@@ -77,6 +78,7 @@ class FuncionarioClass
         '" . $this->cargoFuncionario . "',
         '" . $this->dataNascFuncionario . "',
         '" . $this->emailFuncionario . "',
+        '" . $this->senhaFuncionario . "',
         '" . $this->nivelFuncionario . "',
         '" . $this->dataAdmissaoFuncionario . "',
         '" . $this->enderecoFuncionario . "',
@@ -114,6 +116,7 @@ class FuncionarioClass
             $this->cargoFuncionario = $linha['cargoFuncionario'];
             $this->dataNascFuncionario = $linha['dataNascFuncionario'];
             $this->emailFuncionario = $linha['emailFuncionario'];
+            $this->senhaFuncionario = $linha['senhaFuncionario'];
             $this->nivelFuncionario = $linha['nivelFuncionario'];
             $this->dataAdmissaoFuncionario = $linha['dataAdmissaoFuncionario'];
             $this->enderecoFuncionario = $linha['enderecoFuncionario'];
@@ -141,6 +144,7 @@ class FuncionarioClass
               cargoFuncionario =  '" . $this->cargoFuncionario . "',
               dataNascFuncionario = '" . $this->dataNascFuncionario . "', 
               emailFuncionario = '" . $this->emailFuncionario . "',
+              senhaFuncionario = '" . $this->senhaFuncionario . "',
               nivelFuncionario = '" . $this->nivelFuncionario . "',
               dataAdmissaoFuncionario = '" . $this->dataAdmissaoFuncionario . "',
               enderecoFuncionario = '" . $this->enderecoFuncionario . "',

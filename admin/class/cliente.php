@@ -21,6 +21,11 @@ class ClienteClass
     $conn = Conexao::LigarConexao();
     $resultado = $conn->query($sql);
     $lista = $resultado->fetchAll();
+
+    if (!empty($lista)) {
+        $_SESSION['nomeUsuario'] = $lista[0]['nomeUsuario'];
+    }
+
     return $lista;
 
   }

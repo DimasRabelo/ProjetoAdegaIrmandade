@@ -23,7 +23,7 @@
 
 
 
-<h1>Cadastrar Venda</h1>
+<h1 class="h1Atual">Cadastrar Venda</h1>
 <form class="formVendas"   action="index.php?p=vendas&v=cadastrar" method="POST" enctype="multipart/form-data">
 
     <div>
@@ -31,13 +31,12 @@
             <option selected disabled>Selecione o Status da Venda</option>
             <option value="ATIVO">ATIVO</option>
             <option value="DESATIVADO">DESATIVADO</option>
-            <option value="INATIVO">INATIVO</option>
         </select>
     </div>
 
     <div>
-        <label for="valorTotalVenda">Valor Total da Venda</label>
-        <input type="text" name="valorTotalVenda" pattern="\d+(\.\d{1,2})?" id="valorTotalVenda" required placeholder="digite o valor total da venda"value="R$">
+        <label for="valorTotalVenda">Valor Total da Venda R$:</label>
+        <input type="text" name="valorTotalVenda" pattern="\d+(\.\d{1,2})?" id="valorTotalVenda" required placeholder="digite o valor total da venda">
     </div>
 
     <div>

@@ -28,7 +28,7 @@ if (isset($_POST['statusGaleria'])) {
 var_dump($_FILES);
 ?>
 
-<h1>Inserir Foto</h1>
+<h1 class="h1Atual">Inserir Foto</h1>
 <form action="index.php?p=galeria&g=cadastrar" method="POST" enctype="multipart/form-data">
 
     <div class="fotoForm">

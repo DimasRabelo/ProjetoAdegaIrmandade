@@ -36,11 +36,11 @@ if (isset($_POST['nomeProduto'])){
 
 
 
-<h1>Cadastrar Produto</h1>
+<h1 class="h1Atual">Cadastrar Produto</h1>
 <form action="index.php?p=produtos&pr=cadastrar" method="POST" enctype="multipart/form-data">
 
     <div>
-        <label for="nomeProduto"> Nome do Produto</label>
+        <label for="nomeProduto"> Nome do Produto:</label>
         <input type="text" name="nomeProduto" id="nomeProduto" required placeholder="Informe o Produto">
 
     </div>
@@ -71,17 +71,17 @@ if (isset($_POST['nomeProduto'])){
     </div>
 
     <div>
-        <label for="precoCompraProduto">Preço de Compra</label>
-        <input type="text" name="precoCompraProduto"  id="precoCompraProduto" required placeholder="digite o valor da compra" value="R$">
+        <label for="precoCompraProduto">Preço de Compra R$:</label>
+        <input type="text" name="precoCompraProduto"  id="precoCompraProduto" required placeholder="digite o valor da compra" >
     </div>
 
     <div>
-        <label for="precoVendaProduto">Preço de Venda</label>
-        <input type="text" name="precoVendaProduto" id="precoVendaProduto" required placeholder="digite o preço de venda" value="R$">
+        <label for="precoVendaProduto">Preço de Venda R$:</label>
+        <input type="text" name="precoVendaProduto" id="precoVendaProduto" required placeholder="digite o preço de venda">
     </div>
 
     <div>
-        <label for="fornecedorProduto">Fornecedor</label>
+        <label for="fornecedorProduto">Fornecedor:</label>
         <input type="text" name="fornecedorProduto" id="fornecedorProduto" required placeholder="digite o fornecedor">
     </div>
 

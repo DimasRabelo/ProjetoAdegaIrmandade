@@ -1,28 +1,6 @@
 <?php
-
-session_start();
-
-if (isset($_SESSION['idFuncionario'])) {
-    $idFuncionario = $_SESSION['idFuncionario'];
-    $tipoUsuario = 'funcionario';
-    //var_dump('ID do Funcionario: ' . $idFuncionario);
-} else {
-    header("location: http://localhost/ProjetoAdegaIrmandade/admin/loginAdmin.php");
-    exit;
-}
-
-$pagina = @$_GET['p'];
-
-require_once('class/funcionario.php');
-
-if ($tipoUsuario === 'funcionario') {
-    $funcionario = new FuncionarioClass($idFuncionario);
-    $usuario = $funcionario;
-}
-
-// Aqui começa a estrutura do HTML para o funcionário
+require_once('authenticacao.php');
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -150,26 +128,40 @@ if ($tipoUsuario === 'funcionario') {
             ini_set('display_errors', 1);
             $pagina = @$_GET['p'];
             ?>
-            <div class="divlogin">
-                <?php if (!empty($usuario->fotoFuncionario)) : ?>
-                    <img src="../admin/img/<?php echo $usuario->fotoFuncionario; ?>" alt="User">
-                <?php else : ?>
-                    <img src="../admin/img/btnuser.png" alt="Imagem Padrão">
-                <?php endif; ?>
-                <h2><?php echo $funcionario->nomeFuncionario; ?></h2>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="index.php?p=dashboard" class="<?= ($pagina == 'dashboard' || $pagina == '') ? 'menuAtivo' : ''; ?>"> Dashboard </a></li>
-                <li><a href="index.php?p=funcionarios" class="<?= ($pagina == 'funcionarios') ? 'menuAtivo' : ''; ?>"> Funcionários </a></li>
-                <li><a href="index.php?p=produtos" class="<?= ($pagina == 'produtos') ? 'menuAtivo' : ''; ?>"> Produtos </a></li>
-                <li><a href="index.php?p=estoque" class="<?= ($pagina == 'estoque') ? 'menuAtivo' : ''; ?>"> Estoque </a></li>
-                <li><a href="index.php?p=vendas" class="<?= ($pagina == 'vendas') ? 'menuAtivo' : ''; ?>"> Vendas </a></li>
-                <li><a href="index.php?p=clientes" class="<?= ($pagina == 'clientes') ? 'menuAtivo' : ''; ?>"> Clientes </a></li>
-                <li><a href="index.php?p=contato" class="<?= ($pagina == 'contato') ? 'menuAtivo' : ''; ?>"> E-mail </a></li>
-                <li><a href="index.php?p=ajuda%20e%20suporte" class="<?= ($pagina == 'ajuda e suporte') ? 'menuAtivo' : ''; ?>"> Ajuda e Suporte </a></li>
-            </ul>
-        </nav>
+           <div class="divlogin">
+    <?php
+    $foto = isset($usuarios->fotoUsuario) ? $usuarios->fotoUsuario : (isset($funcionarios->fotoFuncionario) ? $funcionarios->fotoFuncionario : null);
+    $nome = isset($usuarios->nomeUsuario) ? $usuarios->nomeUsuario : (isset($funcionarios->nomeFuncionario) ? $funcionarios->nomeFuncionario : null);
+
+    if (!empty($foto)) {
+        // Se houver uma foto, exiba-a
+        echo '<img src="../admin/img/' . $foto . '" alt="User">';
+    } else {
+        // Se não houver foto, exiba a imagem padrão
+        echo '<img src="../admin/img/btnuser.png" alt="Imagem Padrão">';
+    }
+
+    // Exibindo o nome do usuário ou funcionário
+    echo '<h2>' . $nome . '</h2>';
+    ?>
+
+    <!-- Link para desconectar -->
+    <a href="desconectar.php">Desconectar</a>
+</div>
+
+
+            <nav>
+                <ul>
+                    <li><a href="index.php?p=dashboard" class="<?= ($pagina == 'dashboard' || $pagina == '') ? 'menuAtivo' : ''; ?>"> Dashboard </a></li>
+                    <li><a href="index.php?p=funcionarios" class="<?= ($pagina == 'funcionarios') ? 'menuAtivo' : ''; ?>"> Funcionários </a></li>
+                    <li><a href="index.php?p=produtos" class="<?= ($pagina == 'produtos') ? 'menuAtivo' : ''; ?>"> Produtos </a></li>
+                    <li><a href="index.php?p=estoque" class="<?= ($pagina == 'estoque') ? 'menuAtivo' : ''; ?>"> Estoque </a></li>
+                    <li><a href="index.php?p=vendas" class="<?= ($pagina == 'vendas') ? 'menuAtivo' : ''; ?>"> Vendas </a></li>
+                    <li><a href="index.php?p=clientes" class="<?= ($pagina == 'clientes') ? 'menuAtivo' : ''; ?>"> Clientes </a></li>
+                    <li><a href="index.php?p=contato" class="<?= ($pagina == 'contato') ? 'menuAtivo' : ''; ?>"> E-mail </a></li>
+                    <li><a href="index.php?p=ajuda%20e%20suporte" class="<?= ($pagina == 'ajuda e suporte') ? 'menuAtivo' : ''; ?>"> Ajuda e Suporte </a></li>
+                </ul>
+            </nav>
         </div>
 
 

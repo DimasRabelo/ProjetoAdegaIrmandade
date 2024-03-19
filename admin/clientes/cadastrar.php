@@ -38,7 +38,7 @@ if (isset($_POST['nomeUsuario'])) {
 }
 ?>
 
-<h1>Cadastrar Usuario</h1>
+<h1 class="h1Atual">Cadastrar Usuario</h1>
 <form action="index.php?p=clientes&c=cadastrar" method="POST" enctype="multipart/form-data">
 
     <div class="fotoForm">
