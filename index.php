@@ -1,4 +1,39 @@
 
+<?php
+session_start();
+
+// Verifica se o usuário está logado
+if (!isset($_SESSION['idUsuario'])) {
+    header("location: http://localhost/ProjetoAdegaIrmandade/");
+    exit;
+}
+
+// Define as variáveis $id e $tipoUsuario com base na sessão do usuário
+if (isset($_SESSION['idUsuario'])) {
+    $id = $_SESSION['idUsuario'];
+    $tipoUsuario = 'cliente';
+} 
+
+// Carrega a classe do usuário
+require_once('admin/class/cliente.php');
+
+
+// Inicializa as variáveis de nome e foto
+$nomeUsuario = '';
+$fotoUsuario = '';
+
+// Obtém o nome e a foto do usuário com base no tipo
+if ($tipoUsuario === 'cliente') {
+    $usuario = new ClienteClass($id);
+    $nomeUsuario = $usuario->getNome();
+    $fotoUsuario = $usuario->getFoto();
+} 
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 

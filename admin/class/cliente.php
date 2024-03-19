@@ -117,6 +117,15 @@ public function desativar()
       $conn->exec($query);
   }
 
+  public function getNome()
+  {
+      return $this->nomeUsuario;
+  }
+
+  public function getFoto()
+  {
+      return $this->fotoUsuario;
+  }
 
   public function verificarLogin()
   {
@@ -168,8 +177,7 @@ public function desativar()
    //print_r($_POST['email']);
  }
  
-
-
+ 
 
 
 

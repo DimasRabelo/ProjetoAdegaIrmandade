@@ -1,5 +1,10 @@
-<header>
 
+<style>
+	.btnpadding{
+		width: 50%;
+	}
+</style>
+<header>
 	<nav class="menu animate__animated animate__fadeInUp">
 
 		<ul>
@@ -24,10 +29,13 @@
 			</li>
 
 			<li>
-				<a href="usuariologin.php"><img class="btnpadding" src="src/imagens/botaouser.png" alt=" tela pagina de usuarios"></a>
-				
+				<a href="usuariologin.php">
+					<img class="btnpadding" src="./admin/img/<?php echo $fotoUsuario; ?>" alt="Foto do usuário">
+				</a>
+				<h2><?php echo $nomeUsuario; ?></h2>
 			</li>
-		
+
+
 
 		</ul>
 
