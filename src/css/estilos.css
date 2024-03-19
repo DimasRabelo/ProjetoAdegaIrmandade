@@ -1,13 +1,12 @@
-
-
 /* #### Página Inicial e Página de Usuario ##### */
 
 
 
 body {
     background-color: #000000;
-   
+
 }
+
 .site {
     max-width: 1200vw;
     min-height: 100vh;
@@ -22,7 +21,7 @@ main::after {
     min-height: 100vh;
     width: 80vw;
     background: linear-gradient(-233deg, #000 40%, rgba(0, 0, 0, 0) 65%) no-repeat;
-   
+
 }
 
 main .adega {
@@ -39,32 +38,36 @@ main .adega .imagem {
     height: 100%;
     object-fit: cover;
 }
+
 .menu {
     position: fixed;
     top: 0;
     right: 0;
     display: flex;
     min-height: 100vh;
-    width: 219px;
+    width: 242px;
     justify-content: center;
     align-items: center;
     gap: 20px;
     background-color: rgba(0, 0, 0, 0.4);
-    
-  
+
+
 }
-.menu ul li{
+
+.menu ul li {
     padding: 5px;
 }
+
 .menu img {
     border-radius: 50%;
 
 
 }
+
 .btnadega {
     transform: scale(1.2);
     box-shadow: 0 0 5px #D9D9D9;
-   
+
 }
 
 .conteudo {
@@ -93,73 +96,87 @@ main .adega .imagem {
     width: 277px;
     margin-bottom: 35px;
 }
+
 /* #### Espaçamento Botão Bebidas #  Botão Padding#### */
 
-.btnbebida{
+.btnbebida {
     margin-top: 12px;
     padding: 3px;
 }
-.btnpadding{
+
+.btnpadding {
     padding: 3px;
 }
 
 /* Página Usuario */
 
 .usuariopg {
-   
+
     background-image: url(../imagens/fumaça\ preta.jpg)no-repeat;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* 100% da altura da viewport */
+    height: 100vh;
+    /* 100% da altura da viewport */
     margin: 0;
     padding: 20px 20px;
     color: white;
     font-family: "Secular One";
-    position: relative; /* Para posicionar o botão de fechar */
-    
-   
+    position: relative;
+    /* Para posicionar o botão de fechar */
+
+
 }
+
 .formuusuario {
-    position: relative; /* Para posicionar o botão de fechar */
+    position: relative;
+    /* Para posicionar o botão de fechar */
     width: 100%;
-    margin: 0 auto; /* Centraliza o formulário na página */
-    background-color: rgba(0, 0, 0, 0.7); /* Ajuste a opacidade do fundo do formulário */
-    padding: 20px; /* Adiciona algum espaçamento interno */
-    border-radius: 10px; /* Adiciona bordas arredondadas ao formulário */
+    margin: 0 auto;
+    /* Centraliza o formulário na página */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Ajuste a opacidade do fundo do formulário */
+    padding: 20px;
+    /* Adiciona algum espaçamento interno */
+    border-radius: 10px;
+    /* Adiciona bordas arredondadas ao formulário */
 }
 
 form img {
     border-radius: 50%;
     width: 30%;
     margin-bottom: 30px;
-} 
+}
+
 form h1 {
     text-align: center;
-} 
+}
 
-.textuser{
+.textuser {
     font-size: 0.8em;
     line-height: 1.5em;
     text-indent: 1.5em;
     text-align: justify;
 }
-.forminputslabel{
+
+.forminputslabel {
     display: flex;
     flex-direction: column;
-    width: 100%; 
-    margin-bottom: 3px; 
-    padding: 3px; 
+    width: 100%;
+    margin-bottom: 3px;
+    padding: 3px;
 }
-.inputuser{
+
+.inputuser {
     padding: 5px;
 }
-.forminputs{
+
+.forminputs {
     padding-bottom: 35px;
 }
 
-   
+
 
 .btnusuario {
     transform: scale(1.2);
@@ -175,7 +192,7 @@ form h1 {
 }
 
 .close img {
-    width: 50px; 
+    width: 50px;
 }
 
 
@@ -194,48 +211,50 @@ form h1 {
 
 /* #### Espaçamento Botão Contato ###### */
 
-.btncontato{
+.btncontato {
     margin-bottom: 12px;
     padding: 3px;
-    
+
 }
 
- /* ### Estilização foto login ##### */  
+/* ### Estilização foto login ##### */
 
- .fotoQuandoLogado{
+.fotoQuandoLogado {
     max-width: 100px;
     max-height: 96px;
     padding: 10px 10px;
 }
-.nomelogin{
-    font-size: 0.8em;
-    color:#ffffff;
+
+.nomelogin {
+    font-size: 0.7em;
+    color: #ffffff;
     text-align: center;
-    margin-left: -45px;
+    margin-top: 30px;
+
 }
-.desco{
-font-size: 1.1em;
+
+.desco {
+font-size: 0.8em;
+text-align: center;
+
 }
 
 
 .menu.deslogado .btnpadding {
-width: 100%;
+    width: 100%;
 }
 
 .menu.logado .btnpadding {
-width: 60%;
-}
-.btnfotologado{
-max-width: 100px;
-max-height: 100px;
-}
-.desco a{
-text-decoration: none;
-
+    width: 60%;
 }
 
+.btnfotologado {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.desco a {
+    text-decoration: none;
 
 
-
-
-
+}

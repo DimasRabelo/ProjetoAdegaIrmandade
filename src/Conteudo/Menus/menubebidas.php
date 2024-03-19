@@ -4,20 +4,35 @@ session_start();
 
 // Verifica se o usuário está logado
 if (isset($_SESSION['nomeUsuario']) && isset($_SESSION['fotoUsuario'])) {
-	$nomeUsuario = $_SESSION['nomeUsuario'];
-	$fotoUsuario = $_SESSION['fotoUsuario'];
+    $nomeUsuario = $_SESSION['nomeUsuario'];
+    $fotoUsuario = $_SESSION['fotoUsuario'];
 }
 
 ?>
 
+<style>
+    .descoLogin {
+        display: flex;
+        justify-content: flex-end;
+        margin: 0;
+
+    }
+</style>
+
+
 
 
 <header>
+    <div class="descoLogin">
+        <h2 class="nomelogin"><?php echo $nomeUsuario; ?></h2>
+        <h2 class="desco"><a href="desconectar.php">Desconectar</a></h2>
+    </div>
     <div class="site">
         <div class="Menuabrirmobile">
             <button class="abrir-menu"></button>
             <h2>MENU</h2>
         </div>
+
         <nav class="menu  wow animate__animated animate__fadeInUp">
 
             <button class="fechar-menu"></button>
@@ -38,20 +53,20 @@ if (isset($_SESSION['nomeUsuario']) && isset($_SESSION['fotoUsuario'])) {
                     <a href="contato.php"><img class="btnresponsivobebida" class="btnpadding" src="src/imagens/botaocontato.png" alt=" tela de Contatos"></a>
                 </li>
                 <li>
-				<?php if (isset($nomeUsuario) && isset($fotoUsuario)) { ?>
-					
-						<img class="btnfotologado" src="./admin/img/<?php echo $fotoUsuario; ?>" alt="Foto do usuário">
-						<h2 class="nomelogin"><?php echo $nomeUsuario; ?></h2>
-						
-					
-				<h2 class="desco"><a  href="desconectar.php">Desconectar</a></h2>	
-				<?php } else { ?>
-					<a href="usuariologin.php">
-						<img class="btnpadding" src="src/imagens/botaouser.png" alt="">
-					</a>
-				<?php } ?>
-				
-			</li>
+                    <?php if (isset($nomeUsuario) && isset($fotoUsuario)) { ?>
+
+                        <img class="btnfotologado" src="./admin/img/<?php echo $fotoUsuario; ?>" alt="Foto do usuário">
+
+
+
+
+                    <?php } else { ?>
+                        <a href="usuariologin.php">
+                            <img class="btnpadding" src="src/imagens/botaouser.png" alt="">
+                        </a>
+                    <?php } ?>
+
+                </li>
 
 
 

@@ -579,13 +579,17 @@ footer.rodape {
   font-size: 0.8em;
   color:#ffffff;
   text-align: center;
-  margin-left: -45px;
+  margin-top: 10px;
+ 
 }
 .desco{
-font-size: 1.1em;
+font-size: 0.8em;
+text-align: center;
+margin: 9px;
 }
 .desco a{
   text-decoration: none;
+ 
   
   }
 
