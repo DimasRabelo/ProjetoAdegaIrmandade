@@ -74,6 +74,7 @@ header {
   width: 100%;
   text-align: center;
   font-family: "Secular One";
+  text-transform: uppercase;
 }
 
 .sample-menu li:hover {
@@ -578,7 +579,7 @@ footer.rodape {
   font-size: 0.8em;
   color:#ffffff;
   text-align: center;
-  margin-left: -7px;
+  margin-left: -45px;
 }
 .desco{
 font-size: 1.1em;
