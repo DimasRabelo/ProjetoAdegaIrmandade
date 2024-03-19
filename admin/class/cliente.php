@@ -15,6 +15,8 @@ class ClienteClass
 
     public $statusUsuario;
 
+    public $tipoUsuario;
+
    public function ListarCliente()
    {
     $sql = "SELECT * FROM tblusuarios WHERE statusUsuario = 'ATIVO' ORDER BY idUsuario ASC";
@@ -126,6 +128,12 @@ public function desativar()
   {
       return $this->fotoUsuario;
   }
+
+  public function getTipo() {
+    return $this->tipoUsuario;
+}
+
+
 
   public function verificarLogin()
   {
