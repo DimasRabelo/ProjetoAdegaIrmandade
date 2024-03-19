@@ -29,8 +29,8 @@ header {
   margin: 30px;
 }
 
-.menu li {
-  padding: 6px;
+.menu ul li {
+  padding: 10px;
 }
 
 .menu img {
@@ -564,4 +564,38 @@ footer.rodape {
   width: 100%;
   height: 200px;
   /* Ajuste conforme necessário */
+}
+
+
+/* Estilização foto login */
+
+.fotoQuandoLogado{
+  max-width: 100px;
+  max-height: 96px;
+  padding: 10px 10px;
+}
+.nomelogin{
+  font-size: 0.8em;
+  color:#ffffff;
+  text-align: center;
+  margin-left: -7px;
+}
+.desco{
+font-size: 1.1em;
+}
+.desco a{
+  text-decoration: none;
+  
+  }
+
+.menu.deslogado .btnpadding {
+  width: 100%;
+}
+
+.menu.logado .btnpadding {
+  width: 60%;
+}
+.btnfotologado{
+max-width: 100px;
+max-height: 100px;
 }

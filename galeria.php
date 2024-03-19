@@ -5,8 +5,8 @@
     $galeria = new GaleriaClass();
     $lista      = $galeria->listarGaleria();
     //var_dump($lista);
-?>
 
+?>
 
 
 <!DOCTYPE html>
