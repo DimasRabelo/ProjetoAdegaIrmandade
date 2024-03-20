@@ -12,6 +12,7 @@ if (isset($_SESSION['nomeUsuario']) && isset($_SESSION['fotoUsuario'])) {
 
 
 <header>
+
 	
 		<nav  class="menu wow animate__animated animate__fadeInUp">
 			<ul>

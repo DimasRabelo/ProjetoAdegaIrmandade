@@ -15,7 +15,8 @@ if (isset($_SESSION['nomeUsuario']) && isset($_SESSION['fotoUsuario'])) {
 
 
 <header>
-	<nav class="menu animate__animated animate__fadeInUp"<?php echo (isset($nomeUsuario) && isset($fotoUsuario)) ? 'logado' : 'deslogado'; ?>>
+
+	<nav class="menu animate__animated animate__fadeInUp" <?php echo (isset($nomeUsuario) && isset($fotoUsuario)) ? 'logado' : 'deslogado'; ?>>
 
 		<ul>
 			<li>
@@ -40,18 +41,18 @@ if (isset($_SESSION['nomeUsuario']) && isset($_SESSION['fotoUsuario'])) {
 
 			<li>
 				<?php if (isset($nomeUsuario) && isset($fotoUsuario)) { ?>
-					
-						<img class="btnfotologado" src="./admin/img/<?php echo $fotoUsuario; ?>" alt="Foto do usuário">
-						<h2 class="nomelogin"><?php echo $nomeUsuario; ?></h2>
-						
-					
-				<h2 class="desco"><a href="desconectar.php">Desconectar</a></h2>	
+
+					<img class="btnfotologado" src="./admin/img/<?php echo $fotoUsuario; ?>" alt="Foto do usuário">
+					<h2 class="nomelogin"><?php echo $nomeUsuario; ?></h2>
+
+
+					<h2 class="desco"><a href="desconectar.php">Desconectar</a></h2>
 				<?php } else { ?>
 					<a href="usuariologin.php">
 						<img class="btnpadding" src="src/imagens/botaouser.png" alt="">
 					</a>
 				<?php } ?>
-				
+
 			</li>
 
 

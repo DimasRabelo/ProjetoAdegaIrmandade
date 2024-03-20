@@ -604,3 +604,9 @@ margin: 9px;
 max-width: 100px;
 max-height: 100px;
 }
+.descoLogin {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0;
+
+}
