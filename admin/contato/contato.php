@@ -8,41 +8,12 @@ $listaDesativados = $contato->ListarDesativados();
 $listaRespondidos = $contato->ListarRespondidos();
 
 // Inicializa a variável $statusFiltrar
-$statusFiltrar = '';
+$statusFiltrar = 'ATIVO'; // Definindo como ativo por padrão
 
 // Verifica se o filtro de status foi aplicado
 if (isset($_POST['statusContato'])) {
     $statusFiltrar = $_POST['statusContato'];
-
-    // Aplica o filtro com base no status selecionado
-    switch ($statusFiltrar) {
-        case 'ATIVO':
-            $listaFiltrada = $listaAtivos;
-            break;
-        case 'DESATIVADO':
-            $listaFiltrada = $listaDesativados;
-            break;
-        case 'RESPONDIDO':
-            $listaFiltrada = $listaRespondidos;
-            break;
-        default:
-            // Nenhum filtro aplicado, mantém a lista geral
-            $listaFiltrada = array_merge($listaAtivos, $listaDesativados, $listaRespondidos);
-            break;
-    }
 }
-
-// Verifica se a pesquisa por nome foi submetida
-if (isset($_POST['searchInput'])) {
-    $searchTerm = strtolower($_POST['searchInput']);
-
-    // Filtra a lista com base no nome do funcionário
-    $listaFiltrada = array_filter($listaFiltrada, function ($linha) use ($searchTerm) {
-        return stripos(strtolower($linha['nomeContato']), $searchTerm) !== false;
-    });
-}
-
-
 
 // Lógica para contar os funcionários ativos
 $totalAtivos = count($listaAtivos);
@@ -61,14 +32,12 @@ $totalDesativados = count($listaDesativados);
 
 <form class="formStatus" action="" method="POST">
     <div>
-
         <select class="seleAtual" aria-label="Default select example" name="statusContato">
             <option value="" selected disabled>Selecione um Status da Lista</option>
             <option value="ATIVO" <?php echo ($statusFiltrar === 'ATIVO') ? 'selected' : ''; ?>>ATIVOS</option>
             <option value="DESATIVADO" <?php echo ($statusFiltrar === 'DESATIVADO') ? 'selected' : ''; ?>>DESATIVADOS</option>
             <option value="RESPONDIDO" <?php echo ($statusFiltrar === 'RESPONDIDO') ? 'selected' : ''; ?>>RESPONDIDOS</option>
         </select>
-
 
         <button type="submit">Filtrar</button>
     </div>
@@ -77,8 +46,8 @@ $totalDesativados = count($listaDesativados);
             <p class="total">Total de ativos: <?php echo $totalAtivos; ?></p>
         <?php elseif ($statusFiltrar === 'DESATIVADO') : ?>
             <p class="total">Total de desativados: <?php echo $totalDesativados; ?></p>
-        <?php else : ?>
-         
+        <?php elseif ($statusFiltrar === 'RESPONDIDO') : ?>
+            <p class="total">Total de respondidos: <?php echo count($listaRespondidos); ?></p>
         <?php endif; ?>
     </div>
 </form>
@@ -99,10 +68,26 @@ $totalDesativados = count($listaDesativados);
         </thead>
         <tbody>
             <?php
+            // Filtra a lista com base no status selecionado
+            switch ($statusFiltrar) {
+                case 'ATIVO':
+                    $listaFiltrada = $listaAtivos;
+                    break;
+                case 'DESATIVADO':
+                    $listaFiltrada = $listaDesativados;
+                    break;
+                case 'RESPONDIDO':
+                    $listaFiltrada = $listaRespondidos;
+                    break;
+                default:
+                    // Nenhum filtro aplicado, mantém a lista geral
+                    $listaFiltrada = array_merge($listaAtivos, $listaDesativados, $listaRespondidos);
+                    break;
+            }
+
             if (!empty($listaFiltrada)) {
                 foreach ($listaFiltrada as $linha) : ?>
                     <tr>
-                        
                         <td><?php echo $linha['statusContato'] ?></td>
                         <td><?php echo $linha['nomeContato']; ?></td>
                         <td><?php echo $linha['emailContato']; ?></td>

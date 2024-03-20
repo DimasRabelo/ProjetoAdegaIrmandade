@@ -105,10 +105,6 @@ require_once('authenticacao.php');
 
                     break;
 
-                case 'ajuda e suporte':
-
-                    require_once('ajudasuporte/ajudasuporte.php');
-                    break;
 
                 case 'banner':
 
@@ -128,26 +124,26 @@ require_once('authenticacao.php');
             ini_set('display_errors', 1);
             $pagina = @$_GET['p'];
             ?>
-           <div class="divlogin">
-    <?php
-    $foto = isset($usuarios->fotoUsuario) ? $usuarios->fotoUsuario : (isset($funcionarios->fotoFuncionario) ? $funcionarios->fotoFuncionario : null);
-    $nome = isset($usuarios->nomeUsuario) ? $usuarios->nomeUsuario : (isset($funcionarios->nomeFuncionario) ? $funcionarios->nomeFuncionario : null);
+            <div class="divlogin">
+                <?php
+                $foto = isset($usuarios->fotoUsuario) ? $usuarios->fotoUsuario : (isset($funcionarios->fotoFuncionario) ? $funcionarios->fotoFuncionario : null);
+                $nome = isset($usuarios->nomeUsuario) ? $usuarios->nomeUsuario : (isset($funcionarios->nomeFuncionario) ? $funcionarios->nomeFuncionario : null);
 
-    if (!empty($foto)) {
-        // Se houver uma foto, exiba-a
-        echo '<img src="../admin/img/' . $foto . '" alt="User">';
-    } else {
-        // Se não houver foto, exiba a imagem padrão
-        echo '<img src="../admin/img/btnuser.png" alt="Imagem Padrão">';
-    }
+                if (!empty($foto)) {
+                    // Se houver uma foto, exiba-a
+                    echo '<img src="../admin/img/' . $foto . '" alt="User">';
+                } else {
+                    // Se não houver foto, exiba a imagem padrão
+                    echo '<img src="../admin/img/btnuser.png" alt="Imagem Padrão">';
+                }
 
-    // Exibindo o nome do usuário ou funcionário
-    echo '<h2>' . $nome . '</h2>';
-    ?>
+                // Exibindo o nome do usuário ou funcionário
+                echo '<h2>' . $nome . '</h2>';
+                ?>
 
-    <!-- Link para desconectar -->
-    <a href="desconectar.php">Desconectar</a>
-</div>
+                <!-- Link para desconectar -->
+                <a href="desconectar.php">Desconectar</a>
+            </div>
 
 
             <nav>
@@ -159,7 +155,14 @@ require_once('authenticacao.php');
                     <li><a href="index.php?p=vendas" class="<?= ($pagina == 'vendas') ? 'menuAtivo' : ''; ?>"> Vendas </a></li>
                     <li><a href="index.php?p=clientes" class="<?= ($pagina == 'clientes') ? 'menuAtivo' : ''; ?>"> Clientes </a></li>
                     <li><a href="index.php?p=contato" class="<?= ($pagina == 'contato') ? 'menuAtivo' : ''; ?>"> E-mail </a></li>
-                    <li><a href="index.php?p=ajuda%20e%20suporte" class="<?= ($pagina == 'ajuda e suporte') ? 'menuAtivo' : ''; ?>"> Ajuda e Suporte </a></li>
+
+                    <li class="geralAjuda"><img class="iconeAjuda" src="../admin/img/ajudaSuporte.png" alt=""></a>
+                        <p class="msnSuporte">Olá! Dúvidas e Suporte
+                            Você pode nos contatar
+                            via WhatsApp (11)97249-5017
+                            ou via email para:
+                            sandini.infor@gmail.com.</p>
+                    </li>
                 </ul>
             </nav>
         </div>
