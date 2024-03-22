@@ -1,15 +1,17 @@
+
+
 <?php
 
 class Conexao{
 
     public static function LigarConexao() {
         try {
-            $conn = new PDO('mysql:dbname=u283879542_adegairmandade;host=smpsistema.com.br', 'u283879542_adegairmandade', 'SenacAdega01');
+            $conn = new PDO('mysql:dbname=u283879542_adegairmandade;host=195.179.239.0', 'u283879542_adegairmandade', 'SenacAdega01');
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $conn;
         } catch(PDOException $e) {
             // Se algo der errado na conexão, será capturado aqui
-            die("Erro na conexão com o banco de dados: " . $e->getMessage());
+            throw new Exception("Erro na conexão com o banco de dados: " . $e->getMessage());
         }
     }
 
@@ -18,9 +20,13 @@ class Conexao{
 // Testando a conexão
 try {
     $conexao = Conexao::LigarConexao();
-    echo "Conexão bem-sucedida!";
-    // Aqui você pode realizar operações no banco de dados, se necessário
+    if ($conexao) {
+        echo "<span style='color: white;'>Conexão bem-sucedida!</span>";
+        // Aqui você pode realizar operações no banco de dados, se necessário
+    } else {
+        echo "Não foi possível conectar ao banco de dados.";
+    }
 } catch(Exception $e) {
-    echo "Erro: " . $e->getMessage();
+    echo "<span style='color: white;'>Erro: " . $e->getMessage() . "</span>";
 }
 ?>

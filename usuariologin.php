@@ -95,7 +95,7 @@
         console.log("Dados do Form: " + formData);
 
         $.ajax({
-          url: './admin/class/cliente.php',
+          url: 'https://adegairmandade.smpsistema.com.br/admin/class/cliente.php',
           method: 'POST',
           data: formData,
           dataType: 'json',
