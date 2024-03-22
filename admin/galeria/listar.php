@@ -10,22 +10,24 @@ $listaDesativados = $galeria->listarDesativados();
         display: flex;
         justify-content: center;
     }
-       
-    .iconeCrud{
+
+    .iconeCrud {
         padding: 100px;
     }
-    .iconeCrud img{
-        margin-right: -114px 
+
+    .iconeCrud img {
+        margin-right: -114px;
     }
-    .GaleriaFoto{
+
+    .GaleriaFoto {
         width: 100%;
     }
-    .GaleriaFoto img{
+
+    .GaleriaFoto img {
         max-width: 220px;
         max-height: 220px;
         object-fit: cover;
     }
-    
 </style>
 
 <div>
@@ -37,57 +39,59 @@ $listaDesativados = $galeria->listarDesativados();
     </a>
 </div>
 
-
-
-
 <div class="tblGaleria">
     <div class="table-container" id="arrastarMouse">
-
         <table>
             <caption>Lista de Galeria</caption>
             <thead>
                 <tr>
                     <th>Foto</th>
-                    <th>Desativar ou Ativar </th>
+                    <th>Desativar ou Ativar</th>
                     <th>Status</th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($listaAtivos as $linha) : ?>
-                    <tr>
-                        <td class="GaleriaFoto">
-                            <a href="../src/imagens/<?php echo $linha['fotoGaleria'] ?>" data-lightbox="<?php echo $linha['nomeGaleria'] ?>" data-title="<?php echo $linha['nomeGaleria'] ?>">
-                                <img src="../src/imagens/<?php echo $linha['fotoGaleria']; ?>" alt="<?php echo $linha['nomeGaleria']; ?>">
-                            </a>
-                        </td>
-                        <td class="iconeCrud"> <a href="index.php?p=galeria&g=ativar&id=<?php echo $linha['idGaleria']; ?>" onclick="return confirmarAtivacao()">
-                                <img src="./img/aceitar.png" alt="Ativar">
-                            </a>
-                            <a href="index.php?p=galeria&g=desativar&id=<?php echo $linha['idGaleria'] ?>" onclick="return confirmarDesativacao()">
-                                <img src="./img/lixeira-de-reciclagem.png" alt="Desativar">
-                            </a>
-                        </td>
-                        <td><?php echo $linha['statusGaleria'] ?></td>
-                    </tr>
-                <?php endforeach; ?>
-                <?php foreach ($listaDesativados as $linha) : ?>
-                    <tr>
-                        <td class="GaleriaFoto">
-                            <a href="../src/imagens/<?php echo $linha['fotoGaleria'] ?>" data-lightbox="<?php echo $linha['nomeGaleria'] ?>" data-title="<?php echo $linha['nomeGaleria'] ?>">
-                                <img src="../src/imagens/<?php echo $linha['fotoGaleria']; ?>" alt="<?php echo $linha['nomeGaleria']; ?>">
-                            </a>
-                        </td>
-                        <Td class="iconeCrud" >
-                            <a href="index.php?p=galeria&g=ativar&id=<?php echo $linha['idGaleria']; ?>" onclick="return confirmarAtivacao()">
-                                <img src="./img/aceitar.png" alt="Ativar">
-                            </a>
-                            <a href="index.php?p=galeria&g=desativar&id=<?php echo $linha['idGaleria'] ?>" onclick="return confirmarDesativacao()">
-                                <img src="./img/lixeira-de-reciclagem.png" alt="Desativar">
-                            </a>
-                        </td>
-                        <td><?php echo $linha['statusGaleria'] ?></td>
-                    </tr>
-                <?php endforeach; ?>
+                <?php if (!empty($listaAtivos)) : ?>
+                    <?php foreach ($listaAtivos as $linha) : ?>
+                        <tr>
+                            <td class="GaleriaFoto">
+                                <a href="../src/imagens/<?php echo $linha['fotoGaleria'] ?>" data-lightbox="<?php echo $linha['nomeGaleria'] ?>" data-title="<?php echo $linha['nomeGaleria'] ?>">
+                                    <img src="../src/imagens/<?php echo $linha['fotoGaleria']; ?>" alt="<?php echo $linha['nomeGaleria']; ?>">
+                                </a>
+                            </td>
+                            <td class="iconeCrud">
+                                <a href="index.php?p=galeria&g=ativar&id=<?php echo $linha['idGaleria']; ?>" onclick="return confirm('Tem certeza que deseja ativar esta imagem?')">
+                                    <img src="./img/aceitar.png" alt="Ativar">
+                                </a>
+                                <a href="index.php?p=galeria&g=desativar&id=<?php echo $linha['idGaleria'] ?>" onclick="return confirm('Tem certeza que deseja desativar esta imagem?')">
+                                    <img src="./img/lixeira-de-reciclagem.png" alt="Desativar">
+                                </a>
+                            </td>
+                            <td><?php echo $linha['statusGaleria'] ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+
+                <?php if (!empty($listaDesativados)) : ?>
+                    <?php foreach ($listaDesativados as $linha) : ?>
+                        <tr>
+                            <td class="GaleriaFoto">
+                                <a href="../src/imagens/<?php echo $linha['fotoGaleria'] ?>" data-lightbox="<?php echo $linha['nomeGaleria'] ?>" data-title="<?php echo $linha['nomeGaleria'] ?>">
+                                    <img src="../src/imagens/<?php echo $linha['fotoGaleria']; ?>" alt="<?php echo $linha['nomeGaleria']; ?>">
+                                </a>
+                            </td>
+                            <td class="iconeCrud">
+                                <a href="index.php?p=galeria&g=ativar&id=<?php echo $linha['idGaleria']; ?>" onclick="return confirm('Tem certeza que deseja ativar esta imagem?')">
+                                    <img src="./img/aceitar.png" alt="Ativar">
+                                </a>
+                                <a href="index.php?p=galeria&g=desativar&id=<?php echo $linha['idGaleria'] ?>" onclick="return confirm('Tem certeza que deseja desativar esta imagem?')">
+                                    <img src="./img/lixeira-de-reciclagem.png" alt="Desativar">
+                                </a>
+                            </td>
+                            <td><?php echo $linha['statusGaleria'] ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </tbody>
         </table>
     </div>

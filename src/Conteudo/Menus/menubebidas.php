@@ -52,7 +52,7 @@ if (isset($_SESSION['nomeUsuario']) && isset($_SESSION['fotoUsuario'])) {
                 <li>
                     <?php if (isset($nomeUsuario) && isset($fotoUsuario)) { ?>
 
-                        <img class="btnfotologado" src="./admin/img/<?php echo $fotoUsuario; ?>" alt="Foto do usuário">
+                        <img class="btnfotologado" src="/admin/img/<?php echo $fotoUsuario; ?>" alt="Foto do usuário">
                         <h2 class="nomelogin"><?php echo $nomeUsuario; ?></h2>
 
 

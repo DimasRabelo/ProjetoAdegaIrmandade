@@ -1,4 +1,14 @@
 
+<?php
+  require_once('admin/class/galeria.php');
+
+    $galeria = new GaleriaClass();
+    $lista      = $galeria->listarGaleria();
+    //var_dump($lista);
+
+?>
+
+
 
 <!DOCTYPE html>
 <html lang="pt-BR">

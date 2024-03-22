@@ -115,9 +115,39 @@ function EnviarWhats(){
 
 }
 
+function fecharLogin() {
+  var login = document.querySelector('.estruturaLogin'); // Seleciona a estrutura pelo elemento de classe para o fechamento
+  login.style.display = 'none';
+
+  window.location.href = 'https://adegairmandade.smpsistema.com.br/';
+}
 
 
 
+
+function carregarLogin() {
+  var formData = $('#loginUsuario').serialize();
+  // console.log("Dados do Form: " + formData);
+
+  $.ajax({
+    url: '/admin/class/cliente.php',
+    method: 'POST',
+    data: formData,
+    dataType: 'json',
+    success: function(data) {
+      if (data.success) {
+        $('#msgLogin').html('<div class="msgSuccess">' + data.message + '</div>');
+        window.location.href = 'https://adegairmandade.smpsistema.com.br/';
+      } else {
+        $('#msgLogin').html('<div class="msgSuccess">' + data.message + '</div>');
+      }
+    },
+    error: function(xhr, status, error) {
+      // console.log(xhr);
+      // console.log("A requisição para cliente.php falhou.");
+    }
+  });
+}
 
 
 

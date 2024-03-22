@@ -80,58 +80,7 @@
   <script src="/src/js/animacoes.js"></script>
 
 
-  <script>
-    function fecharLogin() {
-      var login = document.querySelector('.estruturaLogin'); // Seleciona a estrutura pelo elemento de classe para o fechamento
-      login.style.display = 'none';
-
-      window.location.href = 'https://adegairmandade.smpsistema.com.br/';
-    }
-
-    function carregarLogin() {
-      //alert('Login bem sucedido! Redirecionando');
-      $("#loginUsuario").click(function() {
-        var formData = $('#loginUsuario').serialize();
-        console.log("Dados do Form: " + formData);
-
-        $.ajax({
-          url: './admin/class/cliente.php',
-          method: 'POST',
-          data: formData,
-          dataType: 'json',
-
-
-
-          success: function(data) {
-            if (data.success) {
-              $('#msgLogin').html('<div class="msgSuccess">' + data.message + '</div>');
-
-              var idUsuario = data.idUsuario; //Banco de dados do Cliente
-              var nomeUsuario = data.nomeUsuario; //Nome do usuário obtido do banco de dados
-              var fotoUsuario = data.fotoUsuario; //URL da foto do usuário obtida do banco de dados
-
-              // Armazenar as informações na sessionStorage
-              sessionStorage.setItem('nomeUsuario', nomeUsuario);
-              sessionStorage.setItem('fotoUsuario', fotoUsuario);
-
-              window.location.href = 'https://adegairmandade.smpsistema.com.br/';
-            } else {
-              $('#msgLogin').html('<div class="msgSuccess">' + data.message + '</div>');
-            }
-          },
-          error: function(xhr, status, error) {
-            // console.log(xhr);
-            // console.log("A requisição para cliente.php falhou.");
-
-          }
-          // Imprimir uma mensagem indicando que a requisição falhou
-        });
-      });
-    }
-
-
-    
-  </script>
+ 
 
 
 

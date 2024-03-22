@@ -5,7 +5,7 @@ session_start();
 
 // Verifica se o usuário está logado
 if (!isset($_SESSION['idUsuario'])) {
-    header("location: https://adegairmandade.smpsistema.com.br/");
+    header("location: https://adegairmandade.smpsistema.com.br/index");
     exit;
 } else {
 
@@ -23,7 +23,7 @@ if (!isset($_SESSION['idUsuario'])) {
     $_SESSION['fotoUsuario'] = $usuario->getFoto();
 
 
-    header("location: http://localhost/ProjetoAdegaIrmandade/index.php");
+    header("location: https://adegairmandade.smpsistema.com.br/");
 
 
 }

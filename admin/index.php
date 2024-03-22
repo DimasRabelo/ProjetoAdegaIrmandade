@@ -1,6 +1,11 @@
+
 <?php
 require_once('authenticacao.php');
+
+
 ?>
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 

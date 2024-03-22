@@ -10,7 +10,7 @@ if (isset($_SESSION['idUsuario'])) {
     $id = $_SESSION['idFuncionario'];
     $tipoUsuario = 'funcionario';
 } else {
-    header("location: http://localhost/ProjetoAdegaIrmandade/admin/loginAdmin.php");
+    header("location:https://adegairmandade.smpsistema.com.br/admin/loginAdmin.php");
     exit;
 }
 

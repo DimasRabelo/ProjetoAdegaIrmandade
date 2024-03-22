@@ -90,17 +90,17 @@
       var login = document.querySelector('.estruturaLogin'); // Seleciona a estrutura pelo elemento de classe para o fechamento
       login.style.display = 'none';
 
-      window.location.href = 'https://adegairmandade.smpsistema.com.br/';
+      window.location.href = 'https://adegairmandade.smpsistema.com.br/index.php';
     }
 
     function carregarLogin() {
       //alert('Login bem sucedido! Redirecionando');
       $("#loginAdmin").click(function() {
         var formData = $('#loginAdmin').serialize();
-        console.log("Dados do Form: " + formData);
+        //console.log("Dados do Form: " + formData);
 
         $.ajax({
-          url: '../admin/class/funcionario.php',
+          url: '/admin/class/funcionario.php',
           method: 'POST',
           data: formData,
           dataType: 'json',
