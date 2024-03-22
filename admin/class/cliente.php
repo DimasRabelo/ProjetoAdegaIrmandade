@@ -177,7 +177,7 @@ public function desativar()
  
      }else{
          //Login inválido
-        //print_r('Erro de login');
+        print_r('Erro de login');
  
          echo json_encode(['success' => false, 'message' => 'Email ou Senha inválido']);
      }

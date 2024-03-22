@@ -85,17 +85,17 @@
       var login = document.querySelector('.estruturaLogin'); // Seleciona a estrutura pelo elemento de classe para o fechamento
       login.style.display = 'none';
 
-      window.location.href = 'http://localhost/ProjetoAdegaIrmandade/';
+      window.location.href = 'https://adegairmandade.smpsistema.com.br/';
     }
 
     function carregarLogin() {
-      //alert('Login bem sucedido! Redirecionando');
+      alert('Login bem sucedido! Redirecionando');
       $("#loginUsuario").click(function() {
         var formData = $('#loginUsuario').serialize();
         console.log("Dados do Form: " + formData);
 
         $.ajax({
-          url: './admin/class/cliente.php',
+          url: '/admin/class/cliente.php',
           method: 'POST',
           data: formData,
           dataType: 'json',
@@ -114,14 +114,14 @@
               sessionStorage.setItem('nomeUsuario', nomeUsuario);
               sessionStorage.setItem('fotoUsuario', fotoUsuario);
 
-              window.location.href = 'http://localhost/ProjetoAdegaIrmandade/';
+              window.location.href = 'https://adegairmandade.smpsistema.com.br/';
             } else {
               $('#msgLogin').html('<div class="msgSuccess">' + data.message + '</div>');
             }
           },
           error: function(xhr, status, error) {
-            // console.log(xhr);
-            // console.log("A requisição para cliente.php falhou.");
+            console.log(xhr);
+            console.log("A requisição para cliente.php falhou.");
 
           }
           // Imprimir uma mensagem indicando que a requisição falhou
@@ -130,7 +130,7 @@
     }
 
 
-    carregarLogin();
+   
   </script>
 
 
