@@ -85,7 +85,7 @@
       var login = document.querySelector('.estruturaLogin'); // Seleciona a estrutura pelo elemento de classe para o fechamento
       login.style.display = 'none';
 
-      window.location.href = 'http://localhost/ProjetoAdegaIrmandade/';
+      window.location.href = 'https://adegairmandade.smpsistema.com.br/';
     }
 
     function carregarLogin() {
@@ -95,7 +95,7 @@
         console.log("Dados do Form: " + formData);
 
         $.ajax({
-          url: 'https://adegairmandade.smpsistema.com.br/admin/class/cliente.php',
+          url: './admin/class/cliente.php',
           method: 'POST',
           data: formData,
           dataType: 'json',
@@ -114,7 +114,7 @@
               sessionStorage.setItem('nomeUsuario', nomeUsuario);
               sessionStorage.setItem('fotoUsuario', fotoUsuario);
 
-              window.location.href = 'http://localhost/ProjetoAdegaIrmandade/';
+              window.location.href = 'https://adegairmandade.smpsistema.com.br/';
             } else {
               $('#msgLogin').html('<div class="msgSuccess">' + data.message + '</div>');
             }
@@ -130,7 +130,7 @@
     }
 
 
-    carregarLogin();
+    
   </script>
 
 

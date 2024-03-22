@@ -5,7 +5,7 @@ session_start();
 
 // Verifica se o usuário está logado
 if (!isset($_SESSION['idUsuario'])) {
-    header("location: http://localhost/ProjetoAdegaIrmandade/index.php");
+    header("location: https://adegairmandade.smpsistema.com.br/");
     exit;
 } else {
 
