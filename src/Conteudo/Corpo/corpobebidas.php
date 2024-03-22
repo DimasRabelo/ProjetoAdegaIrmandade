@@ -1,12 +1,5 @@
 <style>
-.bannerBreja{
-width: 100%;
-}
-.bannerBreja img{
-    max-width: 500px;
-    max-height: 700px;
-    object-fit: cover;
-}
+
 </style>
 
 
@@ -230,7 +223,7 @@ width: 100%;
 
     </div>
 
-    <div class="banner">
+    <div class="bannerDestilado">
         <?php if (!empty($lista)) : ?>
             <div>
                 <img src="<?php echo 'src/imagens/' . $lista[1]['fotoBanner']; ?>" alt="<?php echo $lista[1]['altBanner']; ?>">

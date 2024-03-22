@@ -1,7 +1,7 @@
 <div class="nometabaca">TABACARIA</div>
 <!-- <section class="tabacaria wow animate__animated animate__fadeInUp"> -->
 
-<div class=".banner">
+<div class="bannerTabacaria">
 <?php if (!empty($lista)) : ?>
         <div>
             <img src="<?php echo 'src/imagens/' . $lista[2]['fotoBanner']; ?>" alt="<?php echo $lista[2]['altBanner']; ?>">
