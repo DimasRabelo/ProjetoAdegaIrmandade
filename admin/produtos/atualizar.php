@@ -113,12 +113,12 @@ if (isset($_POST['nomeProduto'])) {
 
     <div>
         <label for="precoCompraProduto">Preço de Compra R$:</label>
-        <input type="text" name="precoCompraProduto" pattern="\d+(\.\d{1,2})?" id="precoCompraProduto" placeholder="digite o valor da compra" <?php echo $produto->precoCompraProduto ?>">
+        <input type="text" name="precoCompraProduto" pattern="\d+(\.\d{1,2})?" id="precoCompraProduto" placeholder="digite o valor da compra" value="<?php echo $produto->precoCompraProduto ?>">
     </div>
 
     <div>
         <label for="precoVendaProduto">Preço de Venda R$:</label>
-        <input type="text" name="precoVendaProduto" pattern="\d+(\.\d{1,2})?" id="precoVendaProduto" placeholder="digite o preço de venda" <?php echo $produto->precoVendaProduto ?>">
+        <input type="text" name="precoVendaProduto" pattern="\d+(\.\d{1,2})?" id="precoVendaProduto" placeholder="digite o preço de venda" value="<?php echo $produto->precoVendaProduto ?>">
     </div>
 
     <div>

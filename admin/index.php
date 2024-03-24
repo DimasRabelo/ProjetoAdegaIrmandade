@@ -130,8 +130,13 @@ require_once('authenticacao.php');
             ?>
             <div class="divlogin">
                 <?php
-                $foto = $funcionarios->fotoFuncionario;
-                $nome = $funcionarios->nomeFuncionario;
+                $foto = $funcionario->fotoFuncionario;
+                $nome = $funcionario->nomeFuncionario;
+
+                
+    // Exibe o conteúdo da variável $funcionarios
+    
+
 
                 if (!empty($foto)) {
                     // Se houver uma foto, exiba-a

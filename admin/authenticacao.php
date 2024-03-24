@@ -12,5 +12,5 @@ $pagina = @$_GET['p'];
 
 require_once('class/funcionario.php');
 
-$funcionarios = new FuncionarioClass($id);
-$usuario = $funcionarios;
+$funcionario = new FuncionarioClass($id);
+$usuario = $funcionario;
