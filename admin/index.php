@@ -1,4 +1,3 @@
-
 <?php
 require_once('authenticacao.php');
 
@@ -131,8 +130,8 @@ require_once('authenticacao.php');
             ?>
             <div class="divlogin">
                 <?php
-                $foto = isset($usuarios->fotoUsuario) ? $usuarios->fotoUsuario : (isset($funcionarios->fotoFuncionario) ? $funcionarios->fotoFuncionario : null);
-                $nome = isset($usuarios->nomeUsuario) ? $usuarios->nomeUsuario : (isset($funcionarios->nomeFuncionario) ? $funcionarios->nomeFuncionario : null);
+                $foto = $funcionarios->fotoFuncionario;
+                $nome = $funcionarios->nomeFuncionario;
 
                 if (!empty($foto)) {
                     // Se houver uma foto, exiba-a
@@ -142,14 +141,13 @@ require_once('authenticacao.php');
                     echo '<img src="../admin/img/btnuser.png" alt="Imagem Padrão">';
                 }
 
-                // Exibindo o nome do usuário ou funcionário
+                // Exibindo o nome do funcionário
                 echo '<h2>' . $nome . '</h2>';
                 ?>
 
                 <!-- Link para desconectar -->
                 <a href="desconectar.php">Desconectar</a>
             </div>
-
 
             <nav>
                 <ul>
@@ -159,7 +157,7 @@ require_once('authenticacao.php');
                     <li><a href="index.php?p=estoque" class="<?= ($pagina == 'estoque') ? 'menuAtivo' : ''; ?>"> Estoque </a></li>
                     <li><a href="index.php?p=vendas" class="<?= ($pagina == 'vendas') ? 'menuAtivo' : ''; ?>"> Vendas </a></li>
                     <li><a href="index.php?p=clientes" class="<?= ($pagina == 'clientes') ? 'menuAtivo' : ''; ?>"> Clientes </a></li>
-                    <li><a href="index.php?p=contato" class="<?= ($pagina == 'contato') ? 'menuAtivo' : ''; ?>"> E-mail </a></li>
+                    <li><a href="index.php?p=contato" class="<?= ($pagina == 'contato') ? 'menuAtivo' : ''; ?>"> E-mails </a></li>
 
                     <li class="geralAjuda"><img class="iconeAjuda" src="../admin/img/ajudaSuporte.png" alt=""></a>
                         <p class="msnSuporte">Olá! Dúvidas e Suporte

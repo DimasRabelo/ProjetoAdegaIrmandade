@@ -40,29 +40,8 @@ if (isset($_SESSION['nomeUsuario']) && isset($_SESSION['fotoUsuario'])) {
 			</li>
 
 			<li>
-				<?php if (isset($nomeUsuario) && isset($fotoUsuario)) { ?>
-
-					<img class="btnfotologado" src="./admin/img/<?php echo $fotoUsuario; ?>" alt="Foto do usuário">
-					<h2 class="nomelogin"><?php echo $nomeUsuario; ?></h2>
-
-
-					<h2 class="desco"><a href="desconectar.php">Desconectar</a></h2>
-				<?php } else { ?>
-					<a href="usuariologin.php">
-						<img class="btnpadding" src="src/imagens/botaouser.png" alt="">
-					</a>
-				<?php } ?>
-
+					<a href="usuariologin.php"><img class="btnusuario" src="src/imagens/botaouser.png" alt=""></a>
 			</li>
-
-
-
 		</ul>
-
-
 	</nav>
-
-
-
-
 </header>
