@@ -52,12 +52,14 @@ if (isset($_SESSION['nomeUsuario']) && isset($_SESSION['fotoUsuario'])) {
                 <?php if (isset($nomeUsuario) && isset($fotoUsuario)) { ?>
 
                     <img class="btnfotologado" src="/admin/img/<?php echo $fotoUsuario; ?>" alt="Foto do usuário">
-                    <h2 class="nomelogin"><?php echo $nomeUsuario; ?></h2>
+                    
                 <?php } else { ?>
                     <a href="usuariologin.php">
                         <img class="btnpadding" src="src/imagens/botaouser.png" alt="">
                     </a>
+                   
                 <?php } ?>
+                <h2 class="nomelogin"><?php echo $nomeUsuario; ?></h2>
             </ul>
 
         </nav>

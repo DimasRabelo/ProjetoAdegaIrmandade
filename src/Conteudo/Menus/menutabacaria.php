@@ -48,7 +48,9 @@ if (isset($_SESSION['nomeUsuario']) && isset($_SESSION['fotoUsuario'])) {
                 <?php } else { ?>
                     <a href="usuariologin.php">
                         <img class="btnpadding" src="src/imagens/botaouser.png" alt="">
+                        
                     </a>
+                    <h2 class="nomelogin"><?php echo $nomeUsuario; ?></h2>
                 <?php } ?>
             </ul>
 

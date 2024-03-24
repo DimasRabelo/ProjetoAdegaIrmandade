@@ -114,33 +114,34 @@ header {
   border-radius: 10px 10px;
 }
 
-.bannerBreja{
+.bannerBreja {
   width: 100%;
-  }
-  .bannerBreja img{
-      max-width: 500px;
-      max-height: 700px;
-      object-fit: cover;
-  }
+}
 
-  .bannerTabacaria{
-    width: 100%;
-  }
-  
-  .bannerTabacaria{
-    max-width: 1920px;
-    max-height: 600px;
-    object-fit: cover;
-  }
+.bannerBreja img {
+  max-width: 500px;
+  max-height: 700px;
+  object-fit: cover;
+}
 
-  .bannerDestilado{
-    width: 100%;
-  }
+.bannerTabacaria {
+  width: 100%;
+}
 
-  .bannerDestilado img{
-    max-width: 1920px;
-    max-height: 400px;
-    object-fit: cover;
+.bannerTabacaria {
+  max-width: 1920px;
+  max-height: 600px;
+  object-fit: cover;
+}
+
+.bannerDestilado {
+  width: 100%;
+}
+
+.bannerDestilado img {
+  max-width: 1920px;
+  max-height: 400px;
+  object-fit: cover;
 }
 
 
@@ -286,7 +287,8 @@ section {
   height: auto;
   border: 2px solid #fff;
   padding: 10px;
-  margin: 10px 50px 20px 185px; /* Ajuste os valores conforme necessário */
+  margin: 10px 50px 20px 185px;
+  /* Ajuste os valores conforme necessário */
   box-shadow: 20px 40px 20px rgba(0, 0, 0, 0.5);
 }
 
@@ -343,6 +345,7 @@ section {
   box-shadow: 0 0 5px #d9d9d9;
   margin-bottom: 5px;
 }
+
 .tabacaria .slick-prev:before {
   font-size: 50px;
   color: #ffffff;
@@ -424,6 +427,7 @@ section {
   width: 5rem;
   height: 5rem;
 }
+
 .carousel-inner {
   text-align: center;
 }
@@ -587,28 +591,31 @@ footer.rodape {
 
 /* Estilização foto login */
 
-.fotoQuandoLogado{
+.fotoQuandoLogado {
   max-width: 100px;
   max-height: 96px;
   padding: 10px 10px;
 }
-.nomelogin{
+
+.nomelogin {
   font-size: 0.8em;
-  color:#ffffff;
+  color: #ffffff;
   text-align: center;
   margin-top: 10px;
- 
+
 }
-.desco{
-font-size: 0.8em;
-text-align: center;
-margin: 9px;
+
+.desco {
+  font-size: 0.8em;
+  text-align: center;
+  margin: 9px;
 }
-.desco a{
+
+.desco a {
   text-decoration: none;
- 
-  
-  }
+
+
+}
 
 .menu.deslogado .btnpadding {
   width: 100%;
@@ -617,13 +624,19 @@ margin: 9px;
 .menu.logado .btnpadding {
   width: 60%;
 }
-.btnfotologado{
-max-width: 100px;
-max-height: 100px;
+
+.btnfotologado {
+  max-width: 100px;
+  max-height: 100px;
 }
+
 .descoLogin {
   display: flex;
   justify-content: flex-end;
   margin: 0;
 
+}
+
+.btnpadding {
+  padding: 10px  10px;
 }
