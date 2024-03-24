@@ -119,7 +119,7 @@ function fecharLogin() {
   var login = document.querySelector('.estruturaLogin'); // Seleciona a estrutura pelo elemento de classe para o fechamento
   login.style.display = 'none';
 
-  window.location.href = 'https://adegairmandade.smpsistema.com.br/';
+  window.location.href = 'https://adegairmandade.smpsistema.com.br/home.php';
 }
 
 
@@ -137,7 +137,7 @@ function carregarLogin() {
     success: function(data) {
       if (data.success) {
         $('#msgLogin').html('<div class="msgSuccess">' + data.message + '</div>');
-        window.location.href = 'https://adegairmandade.smpsistema.com.br/';
+        window.location.href = 'https://adegairmandade.smpsistema.com.br/home.php';
       } else {
         $('#msgLogin').html('<div class="msgSuccess">' + data.message + '</div>');
       }

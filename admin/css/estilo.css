@@ -494,11 +494,13 @@ button {
 
 .iconeAjuda {
     width: 100%;
+    margin-left: 9px 
 
 }
 
 .msnSuporte {
     font-family: 'Secular One';
+   font-size: 13px;
     
 }
 .geralAjuda{

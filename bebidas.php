@@ -1,14 +1,12 @@
 
 <?php
   require_once('admin/class/banner.php');
+  require_once('authenticacaoFront.php');
 
     $banner = new BannerClass();
     $lista      = $banner->ListarBanner();
     //var_dump($lista);
 ?>
-
-
-
 
 
 

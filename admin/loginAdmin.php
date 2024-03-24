@@ -80,59 +80,60 @@
   <script src="./src/js/wow.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
-  <script src="./src/js/animacoes.js"></script>
+  <script src="./js/scrips.js"></script>
+
+<script>
+function fecharLogin() {
+    var login = document.querySelector('.estruturaLogin'); // Seleciona a estrutura pelo elemento de classe para o fechamento
+    login.style.display = 'none';
+
+    window.location.href = 'https://adegairmandade.smpsistema.com.br/index.php';
+  }
+
+  function carregarLogin() {
+    //alert('Login bem sucedido! Redirecionando');
+    $("#loginAdmin").click(function() {
+      var formData = $('#loginAdmin').serialize();
+      //console.log("Dados do Form: " + formData);
+
+      $.ajax({
+        url: '/admin/class/funcionario.php',
+        method: 'POST',
+        data: formData,
+        dataType: 'json',
 
 
-  <script>
-    function fecharLogin() {
-      var login = document.querySelector('.estruturaLogin'); // Seleciona a estrutura pelo elemento de classe para o fechamento
-      login.style.display = 'none';
 
-      window.location.href = 'https://adegairmandade.smpsistema.com.br/index.php';
-    }
+        success: function(data) {
+          if (data.success) {
 
-    function carregarLogin() {
-      //alert('Login bem sucedido! Redirecionando');
-      $("#loginAdmin").click(function() {
-        var formData = $('#loginAdmin').serialize();
-        //console.log("Dados do Form: " + formData);
+            $('#msgLogin').html('<div class="msgSuccess">' + data.message + '</div>');
 
-        $.ajax({
-          url: '/admin/class/funcionario.php',
-          method: 'POST',
-          data: formData,
-          dataType: 'json',
+            var idUsuario = data.idUsuario; //Banco de dados do Funcionario
+            window.location.href = 'https://adegairmandade.smpsistema.com.br/admin/index.php?p=dashboard';
 
+          } else {
 
-
-          success: function(data) {
-            if (data.success) {
-
-              $('#msgLogin').html('<div class="msgSuccess">' + data.message + '</div>');
-
-              var idUsuario = data.idUsuario; //Banco de dados do Funcionario
-              window.location.href = 'https://adegairmandade.smpsistema.com.br/admin/index.php?p=dashboard';
-
-            } else {
-
-              $('#msgLogin').html('<div class="msgSuccess">' + data.message + '</div>');
-
-            }
-          },
-          error: function(xhr, status, error) {
-           // console.log(xhr);
-           // console.log("A requisição para cliente.php falhou.");
+            $('#msgLogin').html('<div class="msgSuccess">' + data.message + '</div>');
 
           }
-          // Imprimir uma mensagem indicando que a requisição falhou
-        });
+        },
+        error: function(xhr, status, error) {
+         // console.log(xhr);
+         // console.log("A requisição para cliente.php falhou.");
+
+        }
+        // Imprimir uma mensagem indicando que a requisição falhou
       });
-    }
+    });
+  }
 
-   
-  
-  </script>
+ 
 
+
+
+
+</script>
 
 
 </body>

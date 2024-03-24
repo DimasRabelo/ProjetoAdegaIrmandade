@@ -38,8 +38,6 @@ require_once('authenticacaoFront.php');
 
     <?php require_once("src/Conteudo/Menus/menuindex.php") ?>
 
-    
-
 
     <!-- Corpo -->
 

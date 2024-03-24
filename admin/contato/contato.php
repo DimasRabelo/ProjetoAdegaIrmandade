@@ -1,4 +1,6 @@
 <?php
+
+
 require_once('class/contato.php');
 $contato = new ContatoClass();
 

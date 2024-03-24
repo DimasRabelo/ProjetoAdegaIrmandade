@@ -164,7 +164,7 @@ require_once('authenticacao.php');
                             Você pode nos contatar
                             via WhatsApp (11)97249-5017
                             ou via email para:
-                            sandini.infor@gmail.com.</p>
+                            sandini.infor@gmail.com.br</p>
                     </li>
                 </ul>
             </nav>
