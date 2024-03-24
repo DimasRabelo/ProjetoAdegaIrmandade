@@ -15,7 +15,9 @@ if (isset($_SESSION['nomeUsuario']) && isset($_SESSION['fotoUsuario'])) {
     <div class="descoLogin">
         <!-- Verifica se o usuário está logado antes de exibir o botão de desconectar -->
         <?php if (isset($nomeUsuario) && isset($fotoUsuario)) { ?>
+            <h2 class="nomelogin"><?php echo $nomeUsuario; ?></h2>
             <h2 class="desco"><a href="desconectar.php">Desconectar</a></h2>
+            
         <?php } ?>
     </div>
     <div class="Menuabrirmobile">
@@ -51,7 +53,7 @@ if (isset($_SESSION['nomeUsuario']) && isset($_SESSION['fotoUsuario'])) {
                 </a>
                
             <?php } ?>
-            <h2 class="nomelogin"><?php echo $nomeUsuario; ?></h2>
+            
         </ul>
 
     </nav>
