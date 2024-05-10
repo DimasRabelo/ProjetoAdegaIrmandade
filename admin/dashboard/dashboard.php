@@ -61,6 +61,7 @@ foreach ($dados_estoque as $item) {
 
     <button><a href="index.php?p=galeria">Galeria</a></button>
     <button><a href="index.php?p=banner">Banners</a></button>
+    <button><a href="index.php?p=contato">E-mails</a></button>
 
     <!-- Contêiner para o gráfico -->
     <div id="chart-container"></div>
