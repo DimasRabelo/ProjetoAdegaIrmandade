@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['idUsuario'])) {
-    header("location:https://adegairmandade.smpsistema.com.br/index.php");
+    header("location:localhost/ProjetoAdegaIrmandade/");
     exit;
 }
 
