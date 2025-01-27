@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['idUsuario'])) {
-    header("location:localhost/ProjetoAdegaIrmandade/");
+  
     exit;
 }
 
